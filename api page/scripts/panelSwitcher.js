@@ -1,4 +1,5 @@
 (function(){
+	var addFancyClicking = new fancyClicker;
 	//Panels
 	var infoPanel = document.getElementById("infoPanel");
 	var sandboxPanel = document.getElementById("sandboxPanel");
@@ -12,26 +13,40 @@
 	var recommendedButton = document.getElementById("recommendedButton");
 
 	infoButton.onclick = function(){
+		resetAllButtonsColors();
 		hideAllPanels();
 		infoPanel.style.display = "block";
+		infoButton.style.backgroundColor = "#cc00ff";
 	};
 
 	sandboxButton.onclick = function(){
+		resetAllButtonsColors();
 		hideAllPanels();
 		sandboxPanel.style.display = "block";
+		sandboxButton.style.backgroundColor = "#cc00ff";
 	};
 
 	commentsButton.onclick = function(){
+		resetAllButtonsColors();
 		hideAllPanels();
 		commentPanel.style.display = "block";
+		commentsButton.style.backgroundColor = "#cc00ff";
 	};
 
 	recommendedButton.onclick = function(){
+		resetAllButtonsColors();
 		hideAllPanels();
 		recommendPanel.style.display = "block";
+		recommendedButton.style.backgroundColor = "#cc00ff";
 	};
 
 
+	function resetAllButtonsColors(){
+		infoButton.style.backgroundColor = "#990ae3";
+		sandboxButton.style.backgroundColor = "#990ae3";
+		commentsButton.style.backgroundColor = "#990ae3";
+		recommendedButton.style.backgroundColor = "#990ae3";
+	}
 
 	function hideAllPanels(){
 		infoPanel.style.display = "none";
@@ -61,91 +76,25 @@
 	function animatePanel(panel, index){
 		var waitTime = Math.log((index+1)*(Math.pow(500, (index+1))))*18;
 		setTimeout(function(){
-			panel.style.transform += " perspective(400px) rotateY(0deg) scaleX(1) scaleY(1) ";
-			addFancyClicking(panel);
+			panel.style.transform += " perspective(2000px) rotateY(0deg) scaleX(1) scaleY(1) ";
+			
+			switch(panel.id){
+				case "miniInfoBuyPanel": addFancyClicking.addFancy(panel, 5, 1);
+				break;
+				case "panelsContainer": addFancyClicking.addFancy(panel, 1, 0.4);
+				break;
+			}
+			
 		}, waitTime);
 	}
 
 
-	function addFancyClicking(p){
-		p.addEventListener("mousedown", function(e){
-			var clickpos = getRealMouse(e, p);
-			var clickStrength = calculateClickStrength(clickpos, p);
-			var clickAngle = calculateClickAngle(clickpos, p);
-
-			var angleForce = 15*clickStrength;
-			p.style.transformOrigin = "50% 50%";
-			//p.style.transform = "rotateY("+(Math.cos(clickAngle.rads)*angleForce)+"deg) rotateX("+(Math.sin(clickAngle.rads)*angleForce)+"deg)";
-			p.style.transform = "";
-
-		});
-
-		p.addEventListener("mouseup", function(e){
-			p.style.transform = "perspective(400px) rotateY(0deg) scaleX(1) scaleY(1)";
-		});
-	}
-
-
-	function calculateClickAngle(clickPos, element){
-		var centerOfPanel = {
-			x: element.offsetWidth/2,
-			y: element.offsetHeight/2
-		};
-
-		var angle = {
-			rads: 0,
-			degrees: 0,
-		};
-		angle.rads = Math.atan2(clickPos.clientY - centerOfPanel.y, clickPos.clientX - centerOfPanel.x);
-		angle.degrees = angle.rads * (180/Math.PI);
 	
-		return angle;
-	}
-
-	function calculateClickStrength(clickPos, element){
-		var centerOfPanel = {
-			x: element.offsetWidth/2,
-			y: element.offsetHeight/2
-		};
-
-		//Calculate distance between click position and 
-		//center of element with pythagoram theorem
-		var sideX = Math.abs(centerOfPanel.x - clickPos.clientX);
-		var sideY = Math.abs(centerOfPanel.y - clickPos.clientY);
-
-		var hypothenuse = Math.sqrt(Math.pow(sideX, 2)+Math.pow(sideY, 2));
 
 
-		//Max 
-
-		sideX = Math.abs(centerOfPanel.x - element.offsetWidth);
-		sideY = Math.abs(centerOfPanel.y - element.offsetHeight);
-
-		var maxHypothenuse = Math.sqrt(Math.pow(sideX, 2)+Math.pow(sideY, 2));
-
-		//Returns a click strength of 0-1
-		return hypothenuse/maxHypothenuse;
-	}
+	
 
 
-	function getRealMouse(e, element){
-			var rect = element.getBoundingClientRect();
-			var scaleX = element.offsetWidth / rect.width;
-			var scaleY = element.offsetHeight / rect.height;
-
-
-			var mouseFixed = {
-				clientX: 0,
-				clientX: 0,
-			};
-
-			mouseFixed.clientX = (e.clientX - rect.left) * scaleX;
-			mouseFixed.clientY = (e.clientY - rect.top) * scaleY;
-
-			mouseFixed.clientX = mouseFixed.clientX / element.offsetWidth;
-			mouseFixed.clientY = mouseFixed.clientY / element.offsetHeight;
-
-			return mouseFixed;
-		}
+	
 
 })();
