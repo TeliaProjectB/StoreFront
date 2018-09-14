@@ -4,10 +4,14 @@
 	border: 0;
 }
 
+@font-face{
+	font-family: Pebble;
+	src: url(../TeliaPebbleFont.woff);
+}
 html{height: 100%;}
 
 body{
-	background-color:#e8e8e8;
+	background-color:#f1f1f1;
 
 	/* Enable hardware acceleration to fix laggy transitions */
 	-webkit-transform: translateZ(0);
@@ -17,6 +21,10 @@ body{
 	transform: translateZ(0);
 }
 
+button:focus{
+	outline: none;
+	border: none;
+}
 #teliaIcon{
 	min-height: 48px;
 	margin-left: 8px;
@@ -39,7 +47,9 @@ body{
 	width:100%;
 	background-color:white;
 	box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.1);
+	margin-bottom: 8px;
 }
+
 #contentContainer{
 	width: 75vw;
 	opacity: 0;
@@ -48,20 +58,26 @@ body{
 	display: flex;
 	flex-direction: row;
 }
+
 #sideBar{
-	margin:8px;
-	width: 20%;
 	display: flex;
 	flex:1;
 	flex-direction: column;
 	font-family: helvetica;
+	min-width: 288px;
+}
+
+#sideBarRealContent{
+	display:flex;
+	flex-direction: column;
+	transition: top 0.25s ease-out;
+	position: absolute;
 }
 #apiIcon{
 	background-image: url('../img/apple.png');
 	background-repeat: no-repeat;
 	background-position: 32px 32px;
 	background-size: contain;
-	padding: 8px;
 	height: 256px;
 	width:256px;
 }
@@ -72,7 +88,7 @@ body{
 	will-change: transform;
 	float: left;
 	transform-origin: 0% 50%;
-	transform: perspective(400px) rotateY(90deg) scaleX(0.9) scaleY(0.9);
+	transform: perspective(2000px) rotateY(90deg) scaleX(0.9) scaleY(0.9);
 	transition: transform 0.4s ease;
 }
 
@@ -82,7 +98,6 @@ body{
 	width: 256px;
 }
 #CenterContent{
-	margin-top: 8px;
 	flex-direction: column;
 	display:flex;
 	flex:5;
@@ -90,16 +105,27 @@ body{
 
 
 h1{
-	font-family: helvetica;
+	font-family: Pebble;
+	color: #222;
+	font-weight: 400;
+	margin-left: 10%;
 }
 h2{
-	font-family: helvetica;
+	margin-left: 10%;
+	font-family: Pebble;
+	color: #222;
+	font-weight: 400;
 }
 
 p{
-	font-family: helvetica;
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;
+	max-width: 70%;
+	margin: 0px auto;
 }
 
+#miniInfoBuyPanel{
+
+}
 
 #panelsContainer{
 
@@ -161,9 +187,10 @@ p{
 	color:white;
 	cursor:pointer;
 	transition: background-color 0.16s ease-in;
+	user-select: none;
 }
 .rowButton:hover{
-	background-color: #cc00ff;
+	background-color: #cc00ff!important;
 }
 
 
@@ -219,4 +246,17 @@ p{
 	background-position: 8px;
 	background-size: 24px;
 	padding-left:20px;
+}
+
+
+
+@media screen and (max-width: 700px){
+	#contentContainer{
+		flex-direction: column;
+	}
+	#sideBarRealContent{
+		position: relative;
+		margin: 0px auto;
+		top: 0px;
+	}
 }
