@@ -1,0 +1,222 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html{height: 100%;}
+
+body{
+	background-color:#e8e8e8;
+
+	/* Enable hardware acceleration to fix laggy transitions */
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+#teliaIcon{
+	min-height: 48px;
+	margin-left: 8px;
+	height: 8vh;
+	background-image: url('../img/Telia icon.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+#mainContainer{
+	display:flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 256px;
+}
+#head{
+	padding: 8px;
+	z-index: 5;
+	display:block;
+	width:100%;
+	background-color:white;
+	box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.1);
+}
+#contentContainer{
+	width: 75vw;
+	opacity: 0;
+	margin: 0px auto;
+	transition: opacity 0.5s ease-in;
+	display: flex;
+	flex-direction: row;
+}
+#sideBar{
+	margin:8px;
+	width: 20%;
+	display: flex;
+	flex:1;
+	flex-direction: column;
+	font-family: helvetica;
+}
+#apiIcon{
+	background-image: url('../img/apple.png');
+	background-repeat: no-repeat;
+	background-position: 32px 32px;
+	background-size: contain;
+	padding: 8px;
+	height: 256px;
+	width:256px;
+}
+
+.panel3d{
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	will-change: transform;
+	float: left;
+	transform-origin: 0% 50%;
+	transform: perspective(400px) rotateY(90deg) scaleX(0.9) scaleY(0.9);
+	transition: transform 0.4s ease;
+}
+
+
+
+.sidePanelWidth{
+	width: 256px;
+}
+#CenterContent{
+	margin-top: 8px;
+	flex-direction: column;
+	display:flex;
+	flex:5;
+}
+
+
+h1{
+	font-family: helvetica;
+}
+h2{
+	font-family: helvetica;
+}
+
+p{
+	font-family: helvetica;
+}
+
+
+#panelsContainer{
+
+}
+
+#purchaseButton{
+	background-color: #990ae3;
+	color:white;
+	padding:8px;
+	border-radius: 32px;
+	background-image: url('../img/shopping-cart.svg');
+	background-size: 22px;
+	background-repeat: no-repeat;
+	background-position: 11px;
+	cursor:pointer;
+	transition: background-color 0.16s ease-in;
+}
+
+#purchaseButton:hover{
+	background-color: #cc00ff;
+}
+
+#info1{
+	display:flex;
+	flex-direction: column;
+	padding-bottom:32px;
+}
+
+
+
+.panel{
+	padding: 8px;
+	background-color: white;
+	display:flex;
+	margin: 8px;
+}
+
+.flexColumn{
+	display:flex;
+	flex-direction: column;
+}
+
+#rowButtonContainer{
+	display:flex;
+	flex-direction: row;
+	width: 100%;
+	height: 32px;
+	border-bottom: solid 1px #e8e8e8;
+}
+
+.rowButton{
+	padding: 4px;
+	font-family: helvetica;
+	font-weight: bold;
+	background-color:transparent;
+	display:inline-block;
+	flex:2;
+	background-color: #990ae3;
+	color:white;
+	cursor:pointer;
+	transition: background-color 0.16s ease-in;
+}
+.rowButton:hover{
+	background-color: #cc00ff;
+}
+
+
+#infoPanel{
+	display:none;
+	border:solid 1px #cc00ff;
+}
+
+#sandboxPanel{
+	display:none;
+}
+
+#commentPanel{
+	display:none;
+}
+
+#recommendPanel{
+	display:none;
+}
+
+
+#thumbsUpDownContainer{
+	padding: 8px;
+	margin: 0px auto;
+	display:flex;
+	flex-direction: row;
+}
+
+#thumbsUp{
+	width: 32px;
+	height: 32px;
+	background-image: url('../img/like.svg');
+	display:inline-block;
+}
+
+#thumbsDown{
+	width: 32px;
+	height: 32px;
+	background-image: url('../img/like.svg');
+	display:inline-block;
+	-moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+
+#sandboxButton{
+	background-image: url('../img/sandbox.svg');
+	background-repeat: no-repeat;
+	background-position: 8px;
+	background-size: 24px;
+	padding-left:20px;
+}
