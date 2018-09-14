@@ -16,22 +16,25 @@
 			<div id="teliaIcon"></div>
 		</div>
 		<div id="contentContainer">
-			<div id="sideBar"> 
-				<div id="apiIcon" class="panel3d panel sidePanelWidth">
-					<h1>Apple API</h1>
-				</div>
-				<div class="panel3d panel flexColumn sidePanelWidth">
-					<div>Price: 5000kr</div>
-					<div>Category: Apple stuff</div>
-					<div>Last updated: 2018-02-00</div>
-					<div id="thumbsUpDownContainer">
-						<div id="thumbsUp"></div>
-						10
-						<div id="thumbsDown"></div>
-						2
+			<div id="sideBar">
+				<div id="sideBarRealContent">
+					<div id="apiIcon" class="panel3d panel sidePanelWidth">
+						<h1>Apple API</h1>
 					</div>
-					<button id="purchaseButton">Buy license?</button>
+					<div id="miniInfoBuyPanel" class="panel3d panel flexColumn sidePanelWidth">
+						<div>Price: 5000kr</div>
+						<div>Category: Apple stuff</div>
+						<div>Last updated: 2018-02-00</div>
+						<div id="thumbsUpDownContainer">
+							<div id="thumbsUp"></div>
+							10
+							<div id="thumbsDown"></div>
+							2
+						</div>
+						<button id="purchaseButton">Buy license?</button>
+					</div>
 				</div>
+				
 			</div>
 			<div id="CenterContent">
 				<article id="info1" class="panel3d panel">
@@ -73,6 +76,8 @@
     </div>
 
 
+    <script src="scripts/scrollChecker.js"></script>
+    <script src="scripts/fancyClicking.js"></script>
     <script src="scripts/panelSwitcher.js"></script>
 	<script src="scripts/commentSystem.js"></script>
 	<script>

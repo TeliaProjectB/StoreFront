@@ -68,6 +68,7 @@ function createMessageBox(id){
 		bottomBar.appendChild(textArea);
 
 		var sendButton = document.createElement("button");
+		sendButton.setAttribute("noFancyClicking", "true");
 		sendButton.className = "messageBoxFlexButton";
 		sendButton.innerHTML = "Skicka";
 		sendButton.onclick = sendRootMessage;
