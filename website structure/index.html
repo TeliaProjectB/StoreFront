@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="commentPanelStyle.css">
+	<link rel="stylesheet" type="text/css" href="footerFixer.css">
+</head>
+<body>
+
+    <div class="pageContentWrapper">
+            
+    	<!--Real content start-->
+
+    	<div id="head">
+			<div id="teliaIcon"></div>
+		</div>
+		<div id="contentContainer">
+			<div id="sideBar"> 
+				<div id="apiIcon" class="panel3d panel sidePanelWidth">
+					<h1>Apple API</h1>
+				</div>
+				<div class="panel3d panel flexColumn sidePanelWidth">
+					<div>Price: 5000kr</div>
+					<div>Category: Apple stuff</div>
+					<div>Last updated: 2018-02-00</div>
+					<div id="thumbsUpDownContainer">
+						<div id="thumbsUp"></div>
+						10
+						<div id="thumbsDown"></div>
+						2
+					</div>
+					<button id="purchaseButton">Buy license?</button>
+				</div>
+			</div>
+			<div id="CenterContent">
+				<article id="info1" class="panel3d panel">
+					<h2>Information</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel felis eget diam semper dapibus. Mauris semper sem ac aliquet ultrices. Sed vitae ullamcorper lacus. Nulla eu arcu dignissim, cursus magna ut, rutrum neque. Vivamus id dui ut velit elementum lobortis. Vestibulum quam ligula, semper a suscipit id, lacinia id arcu. Donec at faucibus velit. Aliquam a lobortis leo. Aliquam erat volutpat. Duis vel justo augue. Pellentesque dapibus, nulla ut aliquam posuere, leo ipsum dignissim massa, a condimentum mi risus eu ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc at lorem vitae purus iaculis laoreet. </p>
+				</article>
+				<div id="panelsContainer" class="panel3d panel flexColumn">
+					<div id="rowButtonContainer">
+						<button class="rowButton" id="infoButton">Info</button>
+						<button class="rowButton"  id="sandboxButton">Sandbox</button>
+						<button class="rowButton"  id="commentsButton">Comment</button>
+						<button class="rowButton"  id="recommendedButton">Recommended</button>
+					</div>
+					<div id="infoPanel">
+						<p>Name: Apple API<br>
+						Example request urls:<br>
+						Request apple: apple.com/request/?type=apple&number=5
+						<br>
+						Returns an Apple JSON.
+						</p>
+					</div>
+					<div id="sandboxPanel" class="panel">
+						<p>Sandbox panel</p>
+					</div>
+					<div id="commentPanel" class="panel">
+						<div id="commentArea"></div>
+					</div>
+					<div id="recommendPanel" class="panel">
+						<p>Recommended panel</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    	<!--Real content end-->
+
+    </div>
+    <div class="footer">
+    </div>
+
+
+    <script src="scripts/panelSwitcher.js"></script>
+	<script src="scripts/commentSystem.js"></script>
+	<script>
+		createMessageBox("commentArea");
+	</script>
+</body>
+</html>
