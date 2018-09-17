@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/headerStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/panelStyles.css">
+	<link rel="stylesheet" type="text/css" href="css/tagStyles.css">
+	<link rel="stylesheet" type="text/css" href="css/commentPanelStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/sandbox.css">
+	<link rel="stylesheet" type="text/css" href="css/thumbsStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/footerFixer.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+    <div class="pageContentWrapper">
+           
+        <div id="head">
+			<div id="teliaIcon"></div>
+			<button class="headerButton">Free</button>
+			<button class="headerButton">Paid</button>
+			<button class="headerButton">Apples</button>
+
+			<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
+			
+			<button class="headerButton">Log in</button>
+		</div>
+    	<!--Real content start-->
+		<div id="contentContainer">
+			<div id="sideBar">
+				<div id="sideBarRealContent">
+					<div id="apiIcon" class="panel3d panel sidePanelWidth">
+						<h1>Apple API</h1>
+					</div>
+					<aside id="miniInfoBuyPanel" class="panel3d panel flexColumn sidePanelWidth">
+
+						<div><h4>Price:</h4> 5000kr</div>
+						
+						<div><h4>Category:</h4> Apple stuff</div>
+						<div><h4>Last updated:</h4> 2018-02-00</div>
+						<div id="thumbsUpDownContainer">
+							<div id="thumbsUp" class="thumbs"></div>
+							<div id="thumbsDown" class="thumbs"></div>
+						</div>
+						<button id="purchaseButton">Add to cart</button>
+						<a href="../index.html" style="text-decoration: none;">Go back</a>
+					</aside>
+				</div>
+				
+			</div>
+			<div id="CenterContent">
+				<article id="info1" class="panel3d panel">
+					<h2>Information</h2>
+					<p>Telia Sverige AB (tidigare Telia Sonera Sverige AB, Telia AB och dessförinnan Televerket), är Sveriges största teleoperatör, både sett till omsättningen och antal kunder. <br><br>Företaget säljer anslutningar inom fast telefoni, datakommunikation, Internet, digital-tv, Ip-telefoni och mobiltelefoni till privatpersoner, företag och organisationer. Telia Sverige ingår i koncernen Telia Company. <br><br>Telia Company använder varumärket Telia i sin marknadsföring till slutkunder på den svenska marknaden. Andra varumärken inkluderar Halebop och Skanova (som sedan 2007 också är ett företag inom samma koncern, med tjänster riktade till andra teleoperatörer).</p>
+				</article>
+				<div id="panelsContainer" class="panel3d panel flexColumn">
+					<div id="rowButtonContainer">
+						<button class="rowButton" id="infoButton">Info</button>
+						<button class="rowButton"  id="sandboxButton">Sandbox</button>
+						<button class="rowButton"  id="commentsButton">Comment</button>
+						<button class="rowButton"  id="recommendedButton">Recommended</button>
+					</div>
+					<div id="infoPanel">
+						<p>Name: Apple API<br>
+						Example request urls:<br>
+						Request apple: apple.com/request/?type=apple&number=5
+						<br>
+						Returns an Apple JSON.
+						</p>
+					</div>
+					<div id="sandboxPanel">
+						<div id="sandboxArea"></div>
+					</div>
+					<div id="commentPanel">
+						<div id="commentArea"></div>
+					</div>
+					<div id="recommendPanel">
+						<p>Recommended panel</p>
+					</div>
+				</div>
+			</div>
+		</div>
+    	<!--Real content end-->
+
+    </div>
+    <div class="footer">
+    </div>
+
+    <script src="scripts/scrollChecker.js"></script>
+    <script src="scripts/fancyClicking.js"></script>
+    <script src="scripts/panelSwitcher.js"></script>
+	<script src="scripts/commentSystem.js"></script>
+	<script src="scripts/sandboxCreator.js"></script>
+	<script>
+		createMessageBox("commentArea");
+		createSandbox("sandboxArea");
+	</script>
+
+</body>
+</html>
