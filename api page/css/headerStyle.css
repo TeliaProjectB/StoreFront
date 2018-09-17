@@ -43,8 +43,10 @@
 	display: flex;
 	background-image: url('../img/search.svg');
 	background-size:contain;
+	background-position:center;
+	background-repeat: no-repeat;
 	width: 24px;
-	height: 24px;
+	height: 100%;
 	cursor:pointer;
 }
 
