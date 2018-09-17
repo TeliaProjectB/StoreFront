@@ -4,5 +4,5 @@
     $user = 'root';
     $pass = 'password';
     $db = 'accounts'; //Which database
-    $mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
+    //$mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
 ?>

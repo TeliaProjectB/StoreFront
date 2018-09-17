@@ -1,7 +1,7 @@
 <?php 
 	/* Main page with two forms: sign up and log in */
-	require 'db.php';
-	session_start();
+	require 'php/db.php';
+	//session_start(); we need this later
 ?>
 <!DOCTYPE html>
 <html>
