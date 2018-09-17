@@ -3,6 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/headerStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/panelStyles.css">
 	<link rel="stylesheet" type="text/css" href="css/tagStyles.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -13,12 +14,18 @@
 <body>
 
     <div class="pageContentWrapper">
-            
-    	<!--Real content start-->
-
-    	<div id="head">
+           
+        <div id="head">
 			<div id="teliaIcon"></div>
+			<button class="headerButton">Free</button>
+			<button class="headerButton">Paid</button>
+			<button class="headerButton">Apples</button>
+
+			<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
+			
+			<button class="headerButton">Log in</button>
 		</div>
+    	<!--Real content start-->
 		<div id="contentContainer">
 			<div id="sideBar">
 				<div id="sideBarRealContent">
@@ -73,13 +80,11 @@
 				</div>
 			</div>
 		</div>
-
     	<!--Real content end-->
 
     </div>
     <div class="footer">
     </div>
-
 
     <script src="scripts/scrollChecker.js"></script>
     <script src="scripts/fancyClicking.js"></script>
@@ -88,5 +93,6 @@
 	<script>
 		createMessageBox("commentArea");
 	</script>
+
 </body>
 </html>
