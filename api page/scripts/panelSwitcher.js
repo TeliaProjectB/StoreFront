@@ -81,8 +81,6 @@
 			switch(panel.id){
 				case "miniInfoBuyPanel": addFancyClicking.addFancy(panel, 5, 1);
 				break;
-				case "panelsContainer": addFancyClicking.addFancy(panel, 1, 0.4);
-				break;
 			}
 			
 		}, waitTime);
