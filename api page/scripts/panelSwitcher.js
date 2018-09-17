@@ -89,8 +89,9 @@
 
 	
 
-
-	
+	hideAllPanels();
+	infoPanel.style.display = "block";
+	infoButton.style.backgroundColor = "#cc00ff";
 
 
 	
