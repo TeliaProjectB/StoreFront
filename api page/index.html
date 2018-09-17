@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/panelStyles.css">
 	<link rel="stylesheet" type="text/css" href="css/tagStyles.css">
 	<link rel="stylesheet" type="text/css" href="css/commentPanelStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/sandbox.css">
 	<link rel="stylesheet" type="text/css" href="css/thumbsStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/footerFixer.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -69,7 +70,7 @@
 						</p>
 					</div>
 					<div id="sandboxPanel">
-						<p>Sandbox panel</p>
+						<div id="sandboxArea"></div>
 					</div>
 					<div id="commentPanel">
 						<div id="commentArea"></div>
@@ -90,8 +91,10 @@
     <script src="scripts/fancyClicking.js"></script>
     <script src="scripts/panelSwitcher.js"></script>
 	<script src="scripts/commentSystem.js"></script>
+	<script src="scripts/sandboxCreator.js"></script>
 	<script>
 		createMessageBox("commentArea");
+		createSandbox("sandboxArea");
 	</script>
 
 </body>
