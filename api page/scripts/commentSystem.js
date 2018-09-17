@@ -69,7 +69,7 @@ function createMessageBox(id){
 
 		var sendButton = document.createElement("button");
 		sendButton.setAttribute("noFancyClicking", "true");
-		sendButton.className = "messageBoxFlexButton";
+		sendButton.className = "genericTeliaButton";
 		sendButton.innerHTML = "Skicka";
 		sendButton.onclick = sendRootMessage;
 		bottomBar.appendChild(sendButton);
