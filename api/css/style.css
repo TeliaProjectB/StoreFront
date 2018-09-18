@@ -36,15 +36,39 @@
 }
 
 
-
-
 #miniInfoBuyPanel{
-
+	background-color: white;
+	transition: transform 0.1s ease-in;
 }
 
-#panelsContainer{
-
+#infoPanel{
+	background-color:white;
 }
+
+#sandboxPanel{
+	background-color:white;
+}
+
+#commentPanel{
+	background-color:white;
+}
+
+#recommendPanel{
+	background-color:white;
+}
+
+
+#apiIcon{
+	background-image: url('../img/apple.png');
+	background-repeat: no-repeat;
+	background-position: 32px 32px;
+	background-size: stretch;
+	height: 256px;
+	width:256px;
+	background-color:white;
+}
+
+
 
 #purchaseButton{
 	background-color: #990ae3;
