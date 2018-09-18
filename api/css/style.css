@@ -157,7 +157,9 @@
 @media screen and (max-width: 700px){
 	#contentContainer{
 		flex-direction: column;
-		width: 95%;
+		width: 100%;
+		margin: 0px;
+		padding:0px;
 	}
 	#sideBarRealContent{
 		position: relative;
@@ -180,5 +182,9 @@
 	.panel{
 		width: 100%;
 		margin: 0px;
+	}
+	#purchaseButton{
+		width: 50vw;
+		margin: 4px auto;
 	}
 }
