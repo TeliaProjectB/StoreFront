@@ -1,4 +1,17 @@
 
+
+.loginWindow-button:active{
+	/*
+	background-color: #3e8e41;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+	*/
+}
+
+
+
+
+/*
 #teliaIcon{
 	min-height: 48px;
 	margin-left: 8px;
@@ -131,12 +144,10 @@
 .rowButton:hover{
 	background-color: #cc00ff!important;
 }
+*/
 
 
-
-
-
-
+/*
 
 
 #sandboxButton{
@@ -177,3 +188,4 @@
 		margin: 0px;
 	}
 }
+*/
