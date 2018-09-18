@@ -7,47 +7,41 @@
 	<link rel="stylesheet" type="text/css" href="css/panelStyles.css">
 	<link rel="stylesheet" type="text/css" href="css/headerStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/footerFixer.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
 
     <div class="pageContentWrapper">
            
         <div id="head">
-			<div id="teliaIcon"></div>
+			<a href="../index.html" style="text-decoration: none;">
+				<div id="teliaIcon"></div>
+			</a>
 			<button class="headerButton">Free</button>
-			<button class="headerButton">Top List</button>
-
-
-			<div class="dropdown">
-				<button class="dropbtn">Others</button>
-				<div class="dropdown-content">
-					<a href="#">Recommended</a>
-					<a href="#">Paid</a>
-					<a href="#">Most bought</a>
-					<a href="#">Most recent</a>
-					<a href="#">All</a>
-				</div>
-			</div> 
-			
+			<button class="headerButton">Paid</button>
+			<button class="headerButton">Apples</button>
 
 			<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
 			
-			<button class="headerButton" id="login" onclick="open_sidebar()">Log in</button>
-		
-			<div id="mySidenav" class="sidenav">
-				<a href="javascript:void(0)" class="closebtn" onclick="close_sidebar()">&times;</a>
-				<a href="#">Account</a>
-				<a href="#">Invoices</a>
-				<a href="#">Payment</a>
-				<a href="#">About</a>
-			</div>
-			  
+			<button class="headerButton" onclick="openSlideInWindow()">Log in</button>
 		</div>
+		<div class="loginWindow">
+			<div class="posisionOfTheloginWindow">
+				<button class="loginWindow-button">Login</button>
+				<br>
+				<button class="loginWindow-button">Register</button>
+			</div>
+		</div>
+
+		
+
     	<!--Real content start-->
 		<div class="panel">
-			<!-- It will be a for(....) with all the API from mysql database-->
 			<div class="API">
-				<h3>Apple API</h3>
+				<a href="api/index.html" style="text-decoration: none;">
+					<h3>Apple API Test</h3>
+				</a>
 				<p><b>Description:</b>
 				<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis odio a quam rutrum cursus. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis sed elit in urna vulputate mollis. Nam luctus tincidunt imperdiet. Morbi adipiscing, lorem quis tempus rhoncus, mauris orci rutrum tortor, ultricies porta libero velit quis nisl. Aenean molestie magna quis leo consectetur bibendum. </p>
 				<p><b>Price:</b> 5000kr<p>
@@ -266,9 +260,9 @@
 
     </div>
     <div class="footer">
-    </div>
-
-<script src="scripts/loginSidebar.js"></script>
-
+	</div>
+	<script type="text/javascript" src="scripts/loginSlidingwindows.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
 </body>
 </html>
