@@ -1,5 +1,47 @@
+/************************************
+	Login
+************************************/
+.loginWindow{
+	position: absolute;
+    width: 0px;
+    height: 100%;
+    background-color: white;
+    right: 0px;
+	margin-top: -8px;
+	-webkit-transition: width 1s; /* Safari */
+	-webkit-transition-timing-function: ease;
+	transition-timing-function: ease;
+}
 
-#teliaIcon{
+.loginWindow-open{
+	width: 400px;
+}
+
+.dropdown:hover .dropbtn, .headerButton:hover {
+	background-color: #990AE2;
+	color: white;
+}
+
+.loginWindow-button{
+	padding: 18px;
+	margin: 10px;
+}
+.posisionOfTheloginWindow{
+	text-align: center;	
+}
+
+.sidenavText {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+	color: #818181;
+	background-color: rgb(255, 255, 255);
+    display: block;
+    transition: 0.3s;
+}
+
+
+/*#teliaIcon{
 	min-height: 48px;
 	margin-left: 8px;
 	height: 8vh;
@@ -176,4 +218,4 @@
 		width: 100%;
 		margin: 0px;
 	}
-}
+}*/
