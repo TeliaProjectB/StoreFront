@@ -40,3 +40,22 @@
     display: block;
     transition: 0.3s;
 }
+
+
+.inputBoxSignIn{
+	font-size: 20px;
+    border: 1px solid;
+    width: 200px;
+}
+
+.bottomBoxSignIn{
+	font-size: 20px;
+	width: 200px;
+	padding: 10px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+#loginWindow{
+	display: none;
+}

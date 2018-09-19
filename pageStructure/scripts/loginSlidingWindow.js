@@ -7,3 +7,8 @@ function openSlideInWindow(){
     
     }
 }
+
+function openLoginWindow(){
+    $("#firstStep").css({"display": "none"});
+    $("#loginWindow").css({"display": "inline"});
+}

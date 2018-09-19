@@ -29,7 +29,17 @@
 			<div id="teliaIcon" onclick="window.open('/','_self')"></div>
 			<button class="headerButton">Free</button>
 			<button class="headerButton">Paid</button>
-			<button class="headerButton">Apples</button>
+			
+			<div class="dropdown">
+				<button class="dropbtn">Others</button>
+				<div class="dropdown-content">
+					<a href="#">Recommended</a>
+					<a href="#">Paid</a>
+					<a href="#">Most bought</a>
+					<a href="#">Most recent</a>
+					<a href="#">All</a>
+				</div>
+			</div> 
 
 			<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
 			
@@ -37,10 +47,28 @@
 		</div>
 		<div class="loginWindow">
 			<div class="posisionOfTheloginWindow">
+				<div id="firstStep">
+					<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
+					<button class="bottomBoxSignIn">Register</button>
+				</div>
+			
+				<div id="loginWindow">
+					<p>Username</p>
+					<input class="inputBoxSignIn"type="text">
+
+					<p>Password</p>
+					<input class="inputBoxSignIn" type="password">
+					<br>
+					<button class="bottomBoxSignIn">Sign in</button>
+				</div>
+
+
+				<!--
 				<a href="#" class="sidenavText">Account</a>
 				<a href="#" class="sidenavText">Invoices</a>
 				<a href="#" class="sidenavText">Payment</a>
 				<a href="#" class="sidenavText">About</a>	
+				-->
 			</div>
 		</div>
 		
