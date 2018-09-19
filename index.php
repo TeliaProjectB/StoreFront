@@ -1,5 +1,5 @@
 <?php
 
-header("Location: ../home/");
+header("Location: ../StoreFront/home/");
 
 ?>

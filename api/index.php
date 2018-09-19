@@ -1,5 +1,5 @@
 <?php
 
-include $_SERVER["DOCUMENT_ROOT"]."/pageStructure/index.php";
+include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/pageStructure/index.php";
 
 ?>
