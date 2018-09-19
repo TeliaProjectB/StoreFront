@@ -1,1 +1,1 @@
-<!--<script src="scripts/YOURSCRIPT.js"></script>-->
+<script data-main="scripts/main" src="scripts/require.min.js"></script>
