@@ -1,6 +1,6 @@
 <div>
 			<!-- It will be a for(....) with all the API from mysql database-->
-			<div class="API">
+			<div class="API panel3d">
 				<h3>Apple API</h3>
 				<p><b>Description:</b>
 				<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis odio a quam rutrum cursus. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis sed elit in urna vulputate mollis. Nam luctus tincidunt imperdiet. Morbi adipiscing, lorem quis tempus rhoncus, mauris orci rutrum tortor, ultricies porta libero velit quis nisl. Aenean molestie magna quis leo consectetur bibendum. </p>
@@ -10,7 +10,7 @@
 			</div>
 
 			
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Banana API</h3>
 					<p><b>Description:</b>
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Pear API</h3>
 					<p><b>Description:</b>
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Pineapple API</h3>
 					<p><b>Description:</b>
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Kiwi API</h3>
 					<p><b>Description:</b>
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 
-			<div class="API">
+			<div class="API panel3d">
 				<h3>Apple API</h3>
 				<p><b>Description:</b>
 				<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis odio a quam rutrum cursus. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis sed elit in urna vulputate mollis. Nam luctus tincidunt imperdiet. Morbi adipiscing, lorem quis tempus rhoncus, mauris orci rutrum tortor, ultricies porta libero velit quis nisl. Aenean molestie magna quis leo consectetur bibendum. </p>
@@ -64,7 +64,7 @@
 			</div>
 
 			
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Banana API</h3>
 					<p><b>Description:</b>
@@ -75,7 +75,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Pear API</h3>
 					<p><b>Description:</b>
@@ -86,7 +86,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Pineapple API</h3>
 					<p><b>Description:</b>
@@ -97,7 +97,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Kiwi API</h3>
 					<p><b>Description:</b>
@@ -108,7 +108,7 @@
 				</div>
 			</div>
 
-			<div class="API">
+			<div class="API panel3d">
 				<h3>Apple API</h3>
 				<p><b>Description:</b>
 				<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis odio a quam rutrum cursus. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis sed elit in urna vulputate mollis. Nam luctus tincidunt imperdiet. Morbi adipiscing, lorem quis tempus rhoncus, mauris orci rutrum tortor, ultricies porta libero velit quis nisl. Aenean molestie magna quis leo consectetur bibendum. </p>
@@ -118,7 +118,7 @@
 			</div>
 
 			
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Banana API</h3>
 					<p><b>Description:</b>
@@ -129,7 +129,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Pear API</h3>
 					<p><b>Description:</b>
@@ -140,7 +140,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Pineapple API</h3>
 					<p><b>Description:</b>
@@ -151,7 +151,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Kiwi API</h3>
 					<p><b>Description:</b>
@@ -162,7 +162,7 @@
 				</div>
 			</div>
 
-			<div class="API">
+			<div class="API panel3d">
 				<h3>Apple API</h3>
 				<p><b>Description:</b>
 				<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis odio a quam rutrum cursus. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis sed elit in urna vulputate mollis. Nam luctus tincidunt imperdiet. Morbi adipiscing, lorem quis tempus rhoncus, mauris orci rutrum tortor, ultricies porta libero velit quis nisl. Aenean molestie magna quis leo consectetur bibendum. </p>
@@ -172,7 +172,7 @@
 			</div>
 
 			
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Banana API</h3>
 					<p><b>Description:</b>
@@ -183,7 +183,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Pear API</h3>
 					<p><b>Description:</b>
@@ -194,7 +194,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Pineapple API</h3>
 					<p><b>Description:</b>
@@ -205,7 +205,7 @@
 				</div>
 			</div>
 	
-			<div class="API">
+			<div class="API panel3d">
 				<div>
 					<h3>Kiwi API</h3>
 					<p><b>Description:</b>
