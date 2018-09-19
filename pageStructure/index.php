@@ -8,10 +8,10 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/css/tagStyles.css">
-	<link rel="stylesheet" type="text/css" href="/css/headerStyle.css">
-	<link rel="stylesheet" type="text/css" href="/css/footerFixer.css">
-	<link rel="stylesheet" type="text/css" href="/css/panelStyles.css">
+	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/tagStyles.css">
+	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/headerStyle.css">
+	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/footerFixer.css">
+	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/panelStyles.css">
 
 	<?php
 		if(file_exists("customCss.php")){
