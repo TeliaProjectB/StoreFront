@@ -1,0 +1,83 @@
+
+
+.rowContainer{
+	display: block;
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.rowFlexContainer{
+	display:flex;
+	flex-direction: row;
+}
+.rowTitle{
+	font-family: Pebble;
+	font-weight: bold;
+	font-size: 32px;
+	display:block;
+	text-decoration: underline;
+	margin: 8px;
+}
+
+.rowButton{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	flex: 0;
+	padding: 32px;
+	display: flex;
+	background-color:transparent;
+	cursor: pointer;
+}
+
+.rowButton:hover{
+	transform: scale(1.2);
+}
+
+.middleScrollingContainer{
+	padding: 64px;
+	display: flex;
+	overflow:hidden;
+}
+
+
+
+.apiBox{
+	border-radius: 5px;
+	flex-shrink: 0;
+	overflow: hidden;
+	width: 200px;
+	height: 200px;
+	border: solid 1px purple;
+	margin: 8px;
+
+	background-color:white;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	cursor: pointer;
+
+	transition: transform 0.065s ease-out;
+}
+
+.apiBox:hover{
+	transform: scaleX(1.15) scaleY(1.15);
+	z-index: 100;
+}
+
+.titleDescContainer{
+	box-shadow: 0px 0px 32px 0px rgba(255,255,255,0.4);
+	background-color: rgba(255, 255, 255, 0.35);
+	font-family: Helvetica;
+}
+.apiTitle{
+	font-family: Pebble;
+	font-weight: bold;
+	display:block;
+}
+.apiDescription{
+	height: 80%;
+	width: 50%;
+	overflow:hidden;
+
+}
