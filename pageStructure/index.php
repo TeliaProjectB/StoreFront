@@ -54,21 +54,20 @@
 			
 				<div id="loginWindow">
 					<p>Username</p>
-					<input class="inputBoxSignIn"type="text">
+					<input class="inputBoxSignIn" type="text" id="username">
 
 					<p>Password</p>
-					<input class="inputBoxSignIn" type="password">
+					<input class="inputBoxSignIn" type="password" id="password">
 					<br>
-					<button class="bottomBoxSignIn">Sign in</button>
+					<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
 				</div>
 
-
-				<!--
-				<a href="#" class="sidenavText">Account</a>
-				<a href="#" class="sidenavText">Invoices</a>
-				<a href="#" class="sidenavText">Payment</a>
-				<a href="#" class="sidenavText">About</a>	
-				-->
+				<div id="signedIn">
+					<a href="#" class="sidenavText">Account</a>
+					<a href="#" class="sidenavText">Invoices</a>
+					<a href="#" class="sidenavText">Payment</a>
+					<a href="#" class="sidenavText">About</a>	
+				</div>
 			</div>
 		</div>
 		
