@@ -1,7 +1,7 @@
 define(["retrieveApi"], function(retrieveApi){
 	function initModule(){
 		var apiRetriever = new retrieveApi.init();
-
+		var apiBoxSize;
 
 		this.appendRow = function(element){
 			element.className += " rowContainer";
@@ -36,9 +36,14 @@ define(["retrieveApi"], function(retrieveApi){
 			element.appendChild(flexHorContainer);
 
 
-			apiRetriever.loadApis(apiElementContainer, element.getAttribute("name"), function(numberOfElements){
+
+			apiRetriever.loadApis(apiElementContainer, element.getAttribute("name"), function(numberOfElements, apiMoveWrapper){
+				apiBoxSize = apiMoveWrapper.firstChild.clientWidth+16;
+				
 				var rowData = {
 					element: element,
+					apiContainer: apiElementContainer,
+					apiMoveWrapper:  apiMoveWrapper,
 					index: 0,
 					length: numberOfElements
 				};
@@ -65,15 +70,22 @@ define(["retrieveApi"], function(retrieveApi){
 			if(rowData.index > 0){
 				rowData.index--;
 			}
+
+			updateScrollPosition(rowData);
 		}
 
 		function rowMoveRight(rowData){
 			if(rowData.index < rowData.length){
-				rowData.index--;
+				rowData.index++;
 			}
+
+			updateScrollPosition(rowData);
 		}
 
 
+		function updateScrollPosition(rowData){
+			rowData.apiMoveWrapper.style.marginLeft = (-rowData.index)*apiBoxSize+"px";
+		}
 
 
 	}return{

@@ -112,11 +112,16 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 
 		this.loadApis = function(apiContainer, category, onLoad){
 			
+			var apiMoveWrapper=document.createElement("div");
+			apiMoveWrapper.className = "apiTransitionWrapper";
+			
 			for(var i=0; i<exampleDatabaseResult.length; i++){
-				boxCreator.createApiBox(apiContainer, exampleDatabaseResult[i]);
+				boxCreator.createApiBox(apiMoveWrapper, exampleDatabaseResult[i]);
 			}
 
-			onLoad(exampleDatabaseResult.length);
+			apiContainer.appendChild(apiMoveWrapper);
+
+			onLoad(exampleDatabaseResult.length, apiMoveWrapper);
 
 		}
 

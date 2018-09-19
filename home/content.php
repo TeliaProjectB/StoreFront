@@ -1,4 +1,9 @@
 
+<?php  
+
+include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
+
+?>
 
 <div class="contentRow" name="Top list"></div>
 
