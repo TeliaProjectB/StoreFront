@@ -2,6 +2,7 @@
 	Login
 ************************************/
 .loginWindow{
+	z-index:200;
 	position: fixed;
     width: 0px;
     height: 100%;
