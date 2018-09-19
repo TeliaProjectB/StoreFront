@@ -1,4 +1,4 @@
-<div class="panel">
+<div>
 			<!-- It will be a for(....) with all the API from mysql database-->
 			<div class="API">
 				<h3>Apple API</h3>
