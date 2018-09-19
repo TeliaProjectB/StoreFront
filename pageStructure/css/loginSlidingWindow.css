@@ -15,7 +15,7 @@
 }
 
 .loginWindow-open{
-	width: 400px;
+	width: 300px;
 }
 
 .dropdown:hover .dropbtn, .headerButton:hover {
@@ -56,6 +56,6 @@
 	cursor: pointer;
 }
 
-#loginWindow{
+#loginWindow, #signedIn{
 	display: none;
 }
