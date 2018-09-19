@@ -2,7 +2,7 @@
 	Login
 ************************************/
 .loginWindow{
-	position: absolute;
+	position: fixed;
     width: 0px;
     height: 100%;
     background-color: white;
