@@ -2,7 +2,6 @@
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 	will-change: transform;
-	float: left;
 	transform-origin: 0% 50%;
 	transform: perspective(2000px) rotateY(90deg) scaleX(0.9) scaleY(0.9);
 	transition: transform 0.4s ease;
