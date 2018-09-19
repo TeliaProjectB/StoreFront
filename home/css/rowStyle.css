@@ -11,11 +11,14 @@
 	flex-direction: row;
 }
 .rowTitle{
+	background-color: white;
+	border: solid 2px purple;
 	font-family: Pebble;
 	font-weight: bold;
-	font-size: 32px;
-	display:block;
-	text-decoration: underline;
+	font-size: 24px;
+	padding:4px;
+	color:purple;
+	display:inline-block;
 	margin: 8px;
 }
 
@@ -35,12 +38,18 @@
 }
 
 .middleScrollingContainer{
-	padding: 64px;
+	width:100%;
+	padding-top: 64px;
+	padding-bottom: 64px;
 	display: flex;
 	overflow:hidden;
 }
 
-
+.apiTransitionWrapper{
+	display:flex;
+	flex-direction: row;
+	transition: margin 0.15s ease-out;
+}
 
 .apiBox{
 	border-radius: 5px;
@@ -48,7 +57,7 @@
 	overflow: hidden;
 	width: 200px;
 	height: 200px;
-	border: solid 1px purple;
+	outline: solid 5px purple;
 	margin: 8px;
 
 	background-color:white;
@@ -71,11 +80,13 @@
 	font-family: Helvetica;
 }
 .apiTitle{
+	padding:4px;
 	font-family: Pebble;
 	font-weight: bold;
 	display:block;
 }
 .apiDescription{
+	padding:4px;
 	height: 80%;
 	width: 50%;
 	overflow:hidden;

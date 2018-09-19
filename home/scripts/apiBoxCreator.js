@@ -2,13 +2,12 @@ define([], function(){
 	function initModule(){
 
 
-
 		this.createApiBox = function(apiContainer, apiData){
 			var newApi = document.createElement("div");
 			newApi.className = "apiBox";
 			newApi.style.backgroundImage = "url("+apiData.image+")";
 
-			var apiTitle= document.createElement("div");
+			var apiTitle = document.createElement("div");
 			apiTitle.className = "apiTitle";
 			apiTitle.innerHTML = apiData.name;
 
@@ -16,7 +15,7 @@ define([], function(){
 			apiDescription.className = "apiDescription";
 			apiDescription.innerHTML = apiData.description;
 
-			var titleDescContainer =document.createElement("div");
+			var titleDescContainer = document.createElement("div");
 			titleDescContainer.className = "titleDescContainer";
 
 			titleDescContainer.appendChild(apiTitle);
