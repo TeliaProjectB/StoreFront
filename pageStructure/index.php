@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/headerStyle.css">
 	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/footerFixer.css">
 	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/panelStyles.css">
+	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
 
 	<?php
 		if(file_exists("customCss.php")){
@@ -32,9 +33,16 @@
 
 			<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
 			
-			<button class="headerButton">Log in</button>
+			<button class="headerButton" onclick="openSlideInWindow()">Log in</button>
 		</div>
-    	<!--Real content start-->
+		<div class="loginWindow">
+			<div class="posisionOfTheloginWindow">
+				<a href="#" class="sidenavText">Account</a>
+				<a href="#" class="sidenavText">Invoices</a>
+				<a href="#" class="sidenavText">Payment</a>
+				<a href="#" class="sidenavText">About</a>	
+			</div>
+		</div>
 		
     	<?php
     	if(file_exists("content.php")){
@@ -54,6 +62,7 @@
     	include "scripts.php";
     }
     ?>
-
+	<script type="text/javascript" src="/StoreFront/pageStructure/scripts/loginSlidingWindow.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
