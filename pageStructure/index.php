@@ -37,7 +37,10 @@
     	<!--Real content start-->
 		
     	<?php
-    	include "content.php";
+    	if(file_exists("content.php")){
+    		include "content.php";
+    	}
+    	
     	?>
 
     	<!--Real content end-->
