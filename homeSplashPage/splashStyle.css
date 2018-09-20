@@ -1,7 +1,117 @@
 #splash{
 	width: 90%;
 	height: 256px;
-	background-color: white;
 	border: solid 1px red;
 	margin: 8px auto;
+	overflow: hidden;
+	position: relative;
+	background-color: rgb(255, 255, 255); z-index:-1;
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+
+}
+
+#container_info {
+	width:100%;
+	height:auto;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	margin: 0px auto;
+    position: absolute;
+}
+
+p.ontop {
+	position: relative;
+  top: 4.7em;
+}
+/*
+#splash::after {
+	content: "";
+  	background: url(img/apple.png);
+  	background-size:150px 150px;
+  	background-color:white;
+  	opacity: 0.5;
+  	background-repeat: no-repeat;
+  	top:0;
+ 	 right:0;
+ 	 bottom: 0;
+ 	 left: 0;
+ 	 position: absolute;
+ 	 z-index: -1;  
+}*/
+
+
+#container_info div {
+	-webkit-flex: 1;  
+    -ms-flex: 1;   
+    flex: 1;
+}
+
+h1 {
+	text-align:center;
+	color: #990AE2;
+	margin-top: 10px;
+}
+
+#left_info p {
+	left: 25px;
+	margin-left: 25px;
+	margin-right:5px;
+	margin-top:20px;
+	line-height: 1.4;
+	overflow: hidden;
+    text-overflow: clip; 
+}
+
+#left_info {
+	display: flex;
+	flex:1;
+	flex-direction: column;
+	width: 25%;
+	position:absolute;
+}
+
+#info_API {
+	background-color: rgb(236, 235, 235);
+	flex-direction: column;
+	display:flex;
+	flex:5;
+	position:absolute;
+	right:25px;
+	top:5px;
+	width:70%;
+	height:200px;
+	max-height: 200px;
+	line-height: 1.4;
+	overflow: hidden;
+	text-overflow: clip; 
+	z-index:-1;
+}
+
+#info_API p {
+	min-width:95%;
+	line-height: 1.4;
+}
+
+
+#ball {
+    width: 150px;
+    height: 183px;
+    position: absolute;
+}
+
+#ball.left {
+	background: url(img/apple2.png);
+	background-size:150px 183px;
+	opacity:0.5;
+	z-index:-1;
+}
+#ball.right {
+	background: url(img/apple2.png);
+	background-size:150px 183px; 
+	opacity:0.5;
+	z-index:-1;
 }
