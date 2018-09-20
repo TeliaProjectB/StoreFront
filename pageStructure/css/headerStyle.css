@@ -110,16 +110,3 @@
 	background-color: #990AE2;
 	color: white;
 }
-
-.iconFix{
-	text-align: center;
-    display: contents;
-}
-.logoIconText{
-	font-size: 31px;
-	cursor:pointer;
-	color: #990AE2;
-	font-family: Pebble;
-	margin-left: -38px;
-	padding-top: 10px;
-}
