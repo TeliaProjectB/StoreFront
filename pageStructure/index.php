@@ -26,9 +26,9 @@
     <div class="pageContentWrapper">
            
         <div id="head">
-			<div onclick="window.open('/StoreFront/home/','_self')">
-				<div id="teliaIcon"></div>
-				<div class="logoIconText">Storefront</div>
+			<div class="iconFix" onclick="window.open('/StoreFront/home/','_self')">
+				<span id="teliaIcon"></span>
+				<span class="logoIconText">Storefront</span>
 			</div>
 			<button class="headerButton">Free</button>
 			<button class="headerButton">Paid</button>

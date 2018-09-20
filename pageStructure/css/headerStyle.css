@@ -1,16 +1,14 @@
 
 #teliaIcon{
 	min-width:128px;
-	width:8vw;
 	height: 8vh;
 	display:flex;
 	background-image: url('../img/Telia icon.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	margin-right: 6vw;
-	cursor:pointer;
-}
+	cursor: pointer;
+	}
 #head{
 	padding: 10px;
 	z-index: 5;
@@ -113,12 +111,15 @@
 	color: white;
 }
 
+.iconFix{
+	text-align: center;
+    display: contents;
+}
 .logoIconText{
 	font-size: 31px;
-    position: absolute;
-    left: 101px;
-	top: 20px;
 	cursor:pointer;
 	color: #990AE2;
 	font-family: Pebble;
+	margin-left: -38px;
+	padding-top: 10px;
 }
