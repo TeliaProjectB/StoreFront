@@ -21,6 +21,10 @@ define([], function(){
 			titleDescContainer.appendChild(apiTitle);
 			titleDescContainer.appendChild(apiDescription);
 
+			newApi.onclick = function(){
+				window.open("/StoreFront/api/?id="+apiData.id, "_self");
+			};
+
 			newApi.appendChild(titleDescContainer);
 			apiContainer.appendChild(newApi);
 			

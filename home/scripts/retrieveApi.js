@@ -4,7 +4,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 
 		var exampleDatabaseResult = [
 			{
-				name: "Send sms",
+				name: "Send sms 1",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
@@ -13,7 +13,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			},
 
 			{
-				name: "Apple api",
+				name: "Apple api 2",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
@@ -22,7 +22,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			},
 
 			{
-				name: "Kiwi api",
+				name: "Kiwi api 3",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
@@ -31,7 +31,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			},
 
 			{
-				name: "Orange api",
+				name: "Orange api 4",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
@@ -39,16 +39,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				id: "34765"
 			},
 			{
-				name: "Send sms",
-				description: "Allows you to send sms through Telia's services",
-				price: "$99999",
-				catagories: "category1, category2, category3",
-				image: "https://healthjade.com/wp-content/uploads/2017/10/apple-fruit.jpg",
-				id: "34765"
-			},
-
-			{
-				name: "Apple api",
+				name: "Send sms 5",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
@@ -57,7 +48,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			},
 
 			{
-				name: "Kiwi api",
+				name: "Apple api 6",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
@@ -66,15 +57,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			},
 
 			{
-				name: "Orange api",
-				description: "Allows you to send sms through Telia's services",
-				price: "$99999",
-				catagories: "category1, category2, category3",
-				image: "https://healthjade.com/wp-content/uploads/2017/10/apple-fruit.jpg",
-				id: "34765"
-			},
-			{
-				name: "Send sms",
+				name: "Kiwi api 7",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
@@ -83,7 +66,15 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			},
 
 			{
-				name: "Apple api",
+				name: "Orange api 8",
+				description: "Allows you to send sms through Telia's services",
+				price: "$99999",
+				catagories: "category1, category2, category3",
+				image: "https://healthjade.com/wp-content/uploads/2017/10/apple-fruit.jpg",
+				id: "34765"
+			},
+			{
+				name: "Send sms 9",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
@@ -92,7 +83,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			},
 
 			{
-				name: "Kiwi api",
+				name: "Apple api 10",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
@@ -101,7 +92,16 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			},
 
 			{
-				name: "Orange api",
+				name: "Kiwi api 11",
+				description: "Allows you to send sms through Telia's services",
+				price: "$99999",
+				catagories: "category1, category2, category3",
+				image: "https://healthjade.com/wp-content/uploads/2017/10/apple-fruit.jpg",
+				id: "34765"
+			},
+
+			{
+				name: "Orange api 12",
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",

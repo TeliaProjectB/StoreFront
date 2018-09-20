@@ -3,6 +3,8 @@ define(["retrieveApi"], function(retrieveApi){
 		var apiRetriever = new retrieveApi.init();
 		var apiBoxSize;
 
+		var rowDatas = [];
+
 		this.appendRow = function(element){
 			element.className += " rowContainer";
 
@@ -38,7 +40,8 @@ define(["retrieveApi"], function(retrieveApi){
 
 
 			apiRetriever.loadApis(apiElementContainer, element.getAttribute("name"), function(numberOfElements, apiMoveWrapper){
-				apiBoxSize = apiMoveWrapper.firstChild.clientWidth+16;
+				var style = getComputedStyle(apiMoveWrapper.firstChild);
+				apiBoxSize = apiMoveWrapper.firstChild.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
 				
 				var rowData = {
 					element: element,
@@ -47,6 +50,9 @@ define(["retrieveApi"], function(retrieveApi){
 					index: 0,
 					length: numberOfElements
 				};
+				
+
+				rowDatas.push(rowData);
 
 
 				leftButton.onclick = function(){
@@ -56,6 +62,7 @@ define(["retrieveApi"], function(retrieveApi){
 				rightButton.onclick = function(){
 					rowMoveRight(rowData);
 				};
+
 			});
 
 
@@ -75,7 +82,12 @@ define(["retrieveApi"], function(retrieveApi){
 		}
 
 		function rowMoveRight(rowData){
-			if(rowData.index < rowData.length){
+			var maxMargin = rowData.apiContainer.clientWidth;
+
+
+			var spaceOnRight = (rowData.length*apiBoxSize) + (-rowData.index)*apiBoxSize;
+
+			if(spaceOnRight > maxMargin){
 				rowData.index++;
 			}
 
@@ -84,8 +96,54 @@ define(["retrieveApi"], function(retrieveApi){
 
 
 		function updateScrollPosition(rowData){
-			rowData.apiMoveWrapper.style.marginLeft = (-rowData.index)*apiBoxSize+"px";
+			var leftMargin = (-rowData.index)*apiBoxSize;
+			/*if(rowData.index > 0){
+				leftMargin -= (howMuchIsOutside(rowData))*apiBoxSize;
+			}*/
+			rowData.apiMoveWrapper.style.marginLeft = leftMargin+"px";
 		}
+
+
+		function resizeRow(rowData){
+			var maxMargin = rowData.apiContainer.clientWidth;
+			var spaceOnRight = (rowData.length*apiBoxSize) + (-rowData.index)*apiBoxSize;
+
+			if(spaceOnRight < maxMargin){
+				while(spaceOnRight < maxMargin){
+					rowData.index--;
+					spaceOnRight = (rowData.length*apiBoxSize) + (-rowData.index)*apiBoxSize;
+				}
+				rowData.index++;
+			}
+			
+
+		}
+
+
+		/*function howMuchIsOutside(rowData){
+			var containerWidth = rowData.apiContainer.clientWidth;
+
+			var percentageOutside = containerWidth/apiBoxSize;
+
+			percentageOutside = percentageOutside - Math.floor(percentageOutside);
+
+			return percentageOutside;
+
+		}*/
+
+		var oldWindowResize = window.onresize;
+
+		window.onresize = function(){
+			if(oldWindowResize != undefined){
+				oldWindowResize();
+			}
+
+			for(var i=0; i<rowDatas.length; i++){
+				resizeRow(rowDatas[i]);
+				updateScrollPosition(rowDatas[i]);
+			}
+			
+		};
 
 
 	}return{
