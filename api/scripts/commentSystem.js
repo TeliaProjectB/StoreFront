@@ -1,31 +1,31 @@
 var firstBatchOfMessages = [
-	{name: "Användare", message: "13 Kommentar", order: 12},
-	{name: "Användare", message: "14 Kommentar", order: 13},
-	{name: "Användare", message: "15 Kommentar", order: 14},
-	{name: "Användare", message: "16 Kommentar", order: 15},
-	{name: "Användare", message: "17 Kommentar", order: 16},
-	{name: "Användare", message: "18 Kommentar", order: 17},
-	{name: "Användare", message: "19 Kommentar", order: 18},
-	{name: "Användare", message: "20 Kommentar", order: 19},
-	{name: "Användare", message: "21 Kommentar", order: 20},
-	{name: "Användare", message: "22 Kommentar", order: 21},
-	{name: "Användare", message: "23 Kommentar", order: 22},
+	{name: "User", message: "Comment 13", order: 12},
+	{name: "User", message: "Comment 14", order: 13},
+	{name: "User", message: "Comment 15", order: 14},
+	{name: "User", message: "Comment 16", order: 15},
+	{name: "User", message: "Comment 17", order: 16},
+	{name: "User", message: "Comment 18", order: 17},
+	{name: "User", message: "Comment 19", order: 18},
+	{name: "User", message: "Comment 20", order: 19},
+	{name: "User", message: "Comment 21", order: 20},
+	{name: "User", message: "Comment 22", order: 21},
+	{name: "User", message: "Comment 23", order: 22},
 ];
 
 
 var secondBatchOfMessages = [
-	{name: "Användare", message: "1 Kommentar", order: 0},
-	{name: "Användare", message: "2 Kommentar", order: 1},
-	{name: "Användare", message: "3 Kommentar", order: 2},
-	{name: "Användare", message: "4 Kommentar", order: 3},
-	{name: "Användare", message: "5 Kommentar", order: 4},
-	{name: "Användare", message: "6 Kommentar", order: 5},
-	{name: "Användare", message: "7 Kommentar", order: 6},
-	{name: "Användare", message: "8 Kommentar", order: 7},
-	{name: "Användare", message: "9 Kommentar", order: 8},
-	{name: "Användare", message: "10 Kommentar", order: 9},
-	{name: "Användare", message: "11 Kommentar", order: 10},
-	{name: "Användare", message: "12 Kommentar", order: 11},
+	{name: "User", message: "Comment 1", order: 0},
+	{name: "User", message: "Comment 2", order: 1},
+	{name: "User", message: "Comment 3", order: 2},
+	{name: "User", message: "Comment 4", order: 3},
+	{name: "User", message: "Comment 5", order: 4},
+	{name: "User", message: "Comment 6", order: 5},
+	{name: "User", message: "Comment 7", order: 6},
+	{name: "User", message: "Comment 8", order: 7},
+	{name: "User", message: "Comment 9", order: 8},
+	{name: "User", message: "Comment 10", order: 9},
+	{name: "User", message: "Comment 11", order: 10},
+	{name: "User", message: "Comment 12", order: 11},
 ];
 
 
@@ -70,7 +70,7 @@ function createMessageBox(id){
 		var sendButton = document.createElement("button");
 		sendButton.setAttribute("noFancyClicking", "true");
 		sendButton.className = "genericTeliaButton";
-		sendButton.innerHTML = "Skicka";
+		sendButton.innerHTML = "Send";
 		sendButton.onclick = sendRootMessage;
 		bottomBar.appendChild(sendButton);
 
@@ -85,7 +85,7 @@ function createMessageBox(id){
 		if(loadingMessage === undefined){
 			loadingMessage = document.createElement("div");
 			loadingMessage.className = "messageBoxLoadingComment";
-			loadingMessage.innerHTML = "Laddar flera kommentarer...";
+			loadingMessage.innerHTML = "Loading more comments...";
 			loadingMessage.appendChild(spinnerElement);
 		}
 
@@ -141,7 +141,7 @@ function createMessageBox(id){
 		if(noMoreMessages === undefined){
 			noMoreMessages = document.createElement("div");
 			noMoreMessages.className = "messageBoxLoadingComment";
-			noMoreMessages.innerHTML = "Inga fler kommentarer";
+			noMoreMessages.innerHTML = "...";
 
 
 			messagesContainer.insertBefore(noMoreMessages, messagesContainer.firstChild);
@@ -187,12 +187,12 @@ function createMessageBox(id){
 				if(messagesOrder !== false){
 					endedAt = messagesOrder;
 
-					createMessageElement(fixedInput, "Användarnamn", false, true);//This is a temporary solution, when php is up and running all
+					createMessageElement(fixedInput, "User", false, true);//This is a temporary solution, when php is up and running all
 					//new messages will be created from "listenForNewMessages"
 
 					textArea.value = "";
 				}else{
-					alert("Ett fel uppstod när meddelandet skulle skickas.");
+					alert("An error occured");
 				}
 			});
 		}

@@ -8,15 +8,16 @@
 					</div>
 					<aside id="miniInfoBuyPanel" class="panel3d panel flexColumn">
 
-						<div><h4>Price:</h4> 5000kr</div>
+						
 						
 						<div><h4>Category:</h4> Apple stuff</div>
-						<div><h4>Last updated:</h4> 2018-02-00</div>
+						<div style="margin-bottom: 16px;"><h4>Last updated:</h4> 2018-02-00</div>
+						<div><h4>Price:</h4> 5000kr</div>
+						<button id="purchaseButton">Add to cart</button>
 						<div id="thumbsUpDownContainer">
 							<div id="thumbsUp" class="thumbs"></div>
 							<div id="thumbsDown" class="thumbs"></div>
 						</div>
-						<button id="purchaseButton">Add to cart</button>
 					</aside>
 				</div>
 				
@@ -24,7 +25,7 @@
 			<div id="CenterContent">
 				<article id="info1" class="panel3d panel">
 					<h2>Information</h2>
-					<p>Telia Sverige AB (tidigare Telia Sonera Sverige AB, Telia AB och dessförinnan Televerket), är Sveriges största teleoperatör, både sett till omsättningen och antal kunder. <br><br>Företaget säljer anslutningar inom fast telefoni, datakommunikation, Internet, digital-tv, Ip-telefoni och mobiltelefoni till privatpersoner, företag och organisationer. Telia Sverige ingår i koncernen Telia Company. <br><br>Telia Company använder varumärket Telia i sin marknadsföring till slutkunder på den svenska marknaden. Andra varumärken inkluderar Halebop och Skanova (som sedan 2007 också är ett företag inom samma koncern, med tjänster riktade till andra teleoperatörer).</p>
+					<p>Telia Company AB (formerly TeliaSonera) is a Swedish dominant telephone company and mobile network operator present in Sweden, Finland, Norway, Denmark, Lithuania, Latvia and Estonia. The company has operations in other countries in Northern and Eastern Europe, and in Central Asia and South Asia, with a total of 182.1 million mobile customers (Q1, 2013). It is headquartered in Stockholm and its stock is traded on the Stockholm Stock Exchange and on the Helsinki Stock Exchange.</p>
 				</article>
 				<div id="panelsContainer" class="panel3d panel flexColumn">
 					<div id="rowButtonContainer">
