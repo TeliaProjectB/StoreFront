@@ -112,3 +112,13 @@
 	background-color: #990AE2;
 	color: white;
 }
+
+.logoIconText{
+	font-size: 31px;
+    position: absolute;
+    left: 101px;
+	top: 20px;
+	cursor:pointer;
+	color: #990AE2;
+	font-family: Pebble;
+}

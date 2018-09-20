@@ -26,7 +26,10 @@
     <div class="pageContentWrapper">
            
         <div id="head">
-			<div id="teliaIcon" onclick="window.open('/StoreFront/home/','_self')"></div>
+			<div onclick="window.open('/StoreFront/home/','_self')">
+				<div id="teliaIcon"></div>
+				<div class="logoIconText">Storefront</div>
+			</div>
 			<button class="headerButton">Free</button>
 			<button class="headerButton">Paid</button>
 			
@@ -64,9 +67,9 @@
 
 				<div id="signedIn">
 					<a href="#" class="sidenavText">Account</a>
-					<a href="#" class="sidenavText">Invoices</a>
+					<a href="#" class="sidenavText">Bought items</a>
 					<a href="#" class="sidenavText">Payment</a>
-					<a href="#" class="sidenavText">About</a>	
+					<a href="#" class="sidenavText">Log out</a>	
 				</div>
 			</div>
 		</div>
