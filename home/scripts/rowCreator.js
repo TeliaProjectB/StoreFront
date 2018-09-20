@@ -63,14 +63,29 @@ define(["retrieveApi"], function(retrieveApi){
 					rowMoveRight(rowData);
 				};
 
+				addOnHoverApiListener(rowData);
+
 			});
-
-
 
 			
 		}
 
 
+		function addOnHoverApiListener(rowData){
+			var apiChildren = rowData.apiMoveWrapper.children;
+
+			for(var i=0; i<apiChildren.length; i++){
+				apiChildren[i].addEventListener("mouseenter", function(){
+					rowData.apiMoveWrapper.setAttribute("mouseover", true);
+					updateScrollPosition(rowData);
+				});
+
+				apiChildren[i].addEventListener("mouseleave", function(){
+					rowData.apiMoveWrapper.setAttribute("mouseover", false);
+					updateScrollPosition(rowData);
+				});
+			}
+		}
 
 
 		function rowMoveLeft(rowData){
@@ -100,6 +115,10 @@ define(["retrieveApi"], function(retrieveApi){
 			/*if(rowData.index > 0){
 				leftMargin -= (howMuchIsOutside(rowData))*apiBoxSize;
 			}*/
+			if(rowData.apiMoveWrapper.getAttribute("mouseover") === "true"){
+				leftMargin -= 30;
+			}
+
 			rowData.apiMoveWrapper.style.marginLeft = leftMargin+"px";
 		}
 

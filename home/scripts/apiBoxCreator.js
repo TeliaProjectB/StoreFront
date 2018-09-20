@@ -3,6 +3,8 @@ define([], function(){
 
 
 		this.createApiBox = function(apiContainer, apiData){
+			apiContainer.setAttribute("mouseover", false);
+
 			var newApi = document.createElement("div");
 			newApi.className = "apiBox";
 			newApi.style.backgroundImage = "url("+apiData.image+")";
