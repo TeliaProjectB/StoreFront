@@ -23,7 +23,7 @@
 			<h2>Information</h2>
 			<p>Telia Company AB (formerly TeliaSonera) is a Swedish dominant telephone company and mobile network operator present in Sweden, Finland, Norway, Denmark, Lithuania, Latvia and Estonia. The company has operations in other countries in Northern and Eastern Europe, and in Central Asia and South Asia, with a total of 182.1 million mobile customers (Q1, 2013). It is headquartered in Stockholm and its stock is traded on the Stockholm Stock Exchange and on the Helsinki Stock Exchange.</p>
 		</article>
-		<div id="panelsContainer" class="panel3d panel flexColumn">
+		<div id="panelsContainer" class="panel3d flexColumn">
 			<div id="rowButtonContainer">
 				<button class="rowButton" id="infoButton">Info</button>
 				<button class="rowButton"  id="sandboxButton">Sandbox</button>
