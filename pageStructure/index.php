@@ -5,94 +5,92 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/tagStyles.css">
-	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/headerStyle.css">
-	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/footerFixer.css">
-	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/panelStyles.css">
-	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/tagStyles.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/headerStyle.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/footerFixer.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/panelStyles.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
 
-	<?php
-		if(file_exists("customCss.php")){
-	    	include "customCss.php";
-	    }
-	?>
-</head>
-<body>
-
-
-    <div class="pageContentWrapper">
-           
-        <div id="head">
-			<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
+		<?php
+			if(file_exists("customCss.php")){
+				include "customCss.php";
+			}
+		?>
+	</head>
+	<body>
+		<div class="pageContentWrapper">
+			<div id="head">
+				<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
+					
+				<button class="headerButton" onclick="scrollDownTo('freeCategory')">Free</button>
+				<button class="headerButton" onclick="scrollDownTo('paidCategory')">Paid</button>
 				
-			<button class="headerButton">Free</button>
-			<button class="headerButton">Paid</button>
-			
-			<div class="dropdown">
-				<button class="dropbtn">Others</button>
-				<div class="dropdown-content">
-					<a href="#">Recommended</a>
-					<a href="#">Paid</a>
-					<a href="#">Most bought</a>
-					<a href="#">Most recent</a>
-					<a href="#">All</a>
-				</div>
-			</div> 
+				<div class="dropdown">
+					<button class="dropbtn">Others</button>
+					<div class="dropdown-content">
+						<a href="#">Recommended</a>
+						<a href="#">Paid</a>
+						<a href="#">Most bought</a>
+						<a href="#">Most recent</a>
+						<a href="#">All</a>
+					</div>
+				</div> 
 
-			<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
-			
-			<button class="headerButton" onclick="openSlideInWindow()">Log in</button>
-		</div>
-		<div class="loginWindow">
-			<div class="posisionOfTheloginWindow">
-				<div id="firstStep">
-					<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
-					<button class="bottomBoxSignIn">Register</button>
-				</div>
-			
-				<div id="loginWindow">
-					<p>Username</p>
-					<input class="inputBoxSignIn" type="text" id="username">
+				<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
+				
+				<button class="headerButton" onclick="openSlideInWindow()">Log in</button>
+			</div>
+			<div class="loginWindow">
+				<div class="posisionOfTheloginWindow">
+					<div id="firstStep">
+						<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
+						<button class="bottomBoxSignIn">Register</button>
+					</div>
+				
+					<div id="loginWindow">
+						<p>Username</p>
+						<input class="inputBoxSignIn" type="text" id="username">
 
-					<p>Password</p>
-					<input class="inputBoxSignIn" type="password" id="password">
-					<br>
-					<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
-					<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
+						<p>Password</p>
+						<input class="inputBoxSignIn" type="password" id="password">
+						<br>
+						<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
+						<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
 
-				</div>
+					</div>
 
-				<div id="signedIn">
-					<a href="#" class="sidenavText">Account</a>
-					<a href="#" class="sidenavText">Bought items</a>
-					<a href="#" class="sidenavText">Payment</a>
-					<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
+					<div id="signedIn">
+						<a href="#" class="sidenavText">Account</a>
+						<a href="#" class="sidenavText">Bought items</a>
+						<a href="#" class="sidenavText">Payment</a>
+						<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
+					</div>
 				</div>
 			</div>
+			
+			<?php
+			if(file_exists("content.php")){
+				include "content.php";
+			}
+			
+			?>
+
+			<!--Real content end-->
+
 		</div>
-		
-    	<?php
-    	if(file_exists("content.php")){
-    		include "content.php";
-    	}
-    	
-    	?>
+		<div class="footer">
+		</div>
 
-    	<!--Real content end-->
-
-    </div>
-    <div class="footer">
-    </div>
-
-    <?php
-    if(file_exists("scripts.php")){
-    	include "scripts.php";
-    }
-    ?>
-	<script type="text/javascript" src="/StoreFront/pageStructure/scripts/loginSlidingWindow.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</body>
+		<?php
+		if(file_exists("scripts.php")){
+			include "scripts.php";
+		}
+		?>
+		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/loginSlidingWindow.js"></script>
+		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/scrollDownFunction.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</body>
 </html>
