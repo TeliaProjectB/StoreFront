@@ -59,3 +59,15 @@
 #loginWindow, #signedIn{
 	display: none;
 }
+
+
+.inputBoxSignIn {
+	-webkit-transition: border 0.5s linear;
+	-moz-transition: border 0.5s linear;
+	-o-transition: border 0.5s linear;
+	border: 2px solid black;
+}
+ 
+ .inputBoxSignInError {
+	border: 2px solid red;
+}
