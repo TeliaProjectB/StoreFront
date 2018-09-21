@@ -13,10 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/footerFixer.css">
 	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/panelStyles.css">
 	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
-	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/me.css">
-	<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/payment.css">
-
-	
 
 	<?php
 		if(file_exists("customCss.php")){
@@ -48,22 +44,22 @@
 
 			<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
 			
-			<button class="headerButton" onclick="openSlideInWindow()">Account</button>
+			<button class="headerButton" onclick="openSlideInWindow()">Log in</button>
 		</div>
 		<div class="loginWindow">
 			<div class="posisionOfTheloginWindow">
 				<div id="firstStep">
-				
-				<p><button onclick="myFunction()" class="sidenavText" >My Account</button></p>
-				<p><button onclick="youFunction()" class="sidenavText" >Bought items</button></p>
-				<p><button onclick="weFunction()" class="sidenavText" >Payment</button></p>
-				<p><button onclick="meFunction()" class="sidenavText" >Log out</button></p>
-				
-
+					<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
+					<button class="bottomBoxSignIn">Register</button>
 				</div>
 			
 				<div id="loginWindow">
-					
+					<p>Username</p>
+					<input class="inputBoxSignIn" type="text" id="username">
+
+					<p>Password</p>
+					<input class="inputBoxSignIn" type="password" id="password">
+					<br>
 					<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
 				</div>
 
@@ -75,90 +71,6 @@
 				</div>
 			</div>
 		</div>
-
-<div id="myDIV">
-<body>
-<h1>Name:</h1>
-<h1>Lastname:</h1>
-<h1>Phone:</h1>
-<h1>E-mail:</h1>
-</body>
-</div>
-
-
-
-<div id="myDIV2">
-<table class="blueTable">
-<thead>
-<tr>
-
-<th>Items Number</th>
-<th>Description</th>
-<th>Price</th>
-<th>Date</th>
-<th>Time</th>
-</tr>
-</thead>
-
-<colspan="4">
-
-<tfoot>
-</tfoot>
-<tbody>
-<tr>
-
-<td>VoiceMessage</td>
-<td>Apple-1</td>
-<td>100$</td>
-<td>2018-9-20</td>
-<td>16:40</td>
-</tr>
-
-<td>SMS</td>
-<td>Apple-1</td>
-<td>100$</td>
-<td>2018-9-20</td>
-<td>16:40</td>
-</tr>
-<tr>
-<td>CallMassage</td>
-<td>Apple-2</td>
-<td>100$</td>
-<td>2018-9-20</td>
-<td>16:40</td>
-</tr>
-<tr>
-<td>IphoneVoice</td>
-<td>Apple-3</td>
-<td>100$</td>
-<td>2018-9-20</td>
-<td>16:40</td>
-</tr>
-<tr>
-<td>CarVoice</td>
-<td>Apple-4</td>
-<td>100$</td>
-<td>2018-9-20</td>
-<td>16:40</td>
-</table>
-
-
-</div>
-<div id="myDIV3">
-
- <?php
-    if(file_exists("payment.php")){
-    	include "payment.php";
-    }
-    ?>
-
-</div>
-
-
-		
-		
-		
-		
 		
     	<?php
     	if(file_exists("content.php")){
@@ -178,11 +90,6 @@
     	include "scripts.php";
     }
     ?>
-	
-
-	
-	<script type="text/javascript" src="/StoreFront/pageStructure/scripts/payment.js"></script>
-	<script type="text/javascript" src="/StoreFront/pageStructure/scripts/me.js"></script>
 	<script type="text/javascript" src="/StoreFront/pageStructure/scripts/loginSlidingWindow.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
