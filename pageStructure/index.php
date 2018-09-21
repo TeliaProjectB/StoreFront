@@ -24,7 +24,7 @@
 		<div class="pageContentWrapper">
 			<div id="head">
 				<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
-					
+				<button class="headerButton" onclick="scrollDownTo('topListCategory')">Top list</button>	
 				<button class="headerButton" onclick="scrollDownTo('freeCategory')">Free</button>
 				<button class="headerButton" onclick="scrollDownTo('paidCategory')">Paid</button>
 				
