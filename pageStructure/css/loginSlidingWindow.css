@@ -60,6 +60,10 @@
 	display: none;
 }
 
+.bottomBoxSignIn:hover{
+	background-color: gray;
+}
+
 
 .inputBoxSignIn {
 	-webkit-transition: border 0.5s linear;
