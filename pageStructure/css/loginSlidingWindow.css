@@ -54,15 +54,17 @@
 	padding: 10px;
 	margin: 10px;
 	cursor: pointer;
+	background-color: #f1f1f1
+}
+
+.bottomBoxSignIn:hover{
+	background-color: #ddd;
 }
 
 #loginWindow, #signedIn{
 	display: none;
 }
 
-.bottomBoxSignIn:hover{
-	background-color: gray;
-}
 
 
 .inputBoxSignIn {
