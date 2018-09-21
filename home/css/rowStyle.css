@@ -11,14 +11,10 @@
 	flex-direction: row;
 }
 .rowTitle{
-	font-family: Pebble;
 	text-decoration: underline;
 	font-weight: bold;
 	font-size: 32px;
-	padding:4px;
-	color:black;
 	display:inline-block;
-	margin: 8px;
 	margin-left: 32px;
 }
 
@@ -35,6 +31,10 @@
 
 .rowButton:hover{
 	transform: scale(1.2);
+}
+
+.rowButton:active{
+	transform: scale(0.823);
 }
 
 .middleScrollingContainer{
@@ -56,14 +56,18 @@
 }
 
 .apiBox{
+
 	flex-shrink: 0;
 	overflow: hidden;
 	width: 324px;
 	height: 200px;
 	margin: 8px 0px;
 
-	border-left: solid 8px #f1f1f1;
-	border-right: solid 8px #f1f1f1;
+	border-left: solid 8px rgba(241,241,241,0.0);
+	border-right: solid 8px rgba(241,241,241,0.0);
+	
+	-webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box;
 
 	background-color:white;
 	background-repeat: no-repeat;

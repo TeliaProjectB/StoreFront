@@ -8,7 +8,7 @@ define(["retrieveApi"], function(retrieveApi){
 		this.appendRow = function(element){
 			element.className += " rowContainer";
 
-			var titleEle = document.createElement("div");
+			var titleEle = document.createElement("h1");
 			titleEle.className= "rowTitle";
 			titleEle.innerHTML= element.getAttribute("name");
 
