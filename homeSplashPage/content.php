@@ -3,9 +3,11 @@
 	<h1>Best Apple API</h1>
 	<div id="container_info">
 		<div id="left_info">
-			<p><b>Price:</b> 5000 kr
-			<p><b>Category:</b> Paid
-			<p><b>Last updated:</b> 2018-02-31
+			<p><b>Price:</b> 5000 kr</p>
+			<p><b>Category:</b> Fruit stuff</p>
+			<p><b>Last updated:</b> 2018-02-31</p>
+			<p><b>Rating:</b>
+		<img id="rating" src="img/thumbs.png" />
 		</div>
 	
 		<div id="info_API">
@@ -15,30 +17,31 @@
 		<!--
 		<img src="img/apple.png" id="img" style="width:100px; height:100px; position:absolute; z-index:-1;background-color:rgb(255,255,255)">
 		-->
-		<div id="ball"></div>
+		
+		<div id="fruit"></div>
 	</div>
 </div>
 
 <script type="text/javascript">
-        window.onload = AnimateIt;
-		function AnimateIt() {
-    var theDiv = $("#ball"),
+    window.onload = AnimateIt;
+	function AnimateIt() {
+    	var fruit = $("#fruit"),
         theContainer = $("#splash"),
-        maxLeft = theContainer.width() - theDiv.width(),
-        maxTop = theContainer.height() - theDiv.height(),
+        maxLeft = theContainer.width() - fruit.width(),
+        maxTop = theContainer.height() - fruit.height(),
         leftPos = Math.floor(Math.random() * maxLeft),
         topPos = Math.floor(Math.random() * maxTop);
     
-    if (theDiv.position().left < leftPos) {
-        theDiv.removeClass("left").addClass("right");
+    if (fruit.position().left < leftPos) {
+        fruit.removeClass("left").addClass("right");
     } else {
-        theDiv.removeClass("right").addClass("left");
+        fruit.removeClass("right").addClass("left");
     }
         
-    theDiv.animate({
+    fruit.animate({
         "left": leftPos,
         "top": topPos
-    }, 1200, AnimateIt);
+    }, 2500, AnimateIt);
 }
 AnimateIt();
 
