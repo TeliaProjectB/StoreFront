@@ -1,0 +1,112 @@
+
+#teliaIcon{
+	min-width:128px;
+	height: 8vh;
+	display:flex;
+	background-image: url('../img/Telia icon.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	cursor: pointer;
+	}
+#head{
+	padding: 10px;
+	z-index: 5;
+	display:flex;
+	flex-wrap: wrap;
+	flex-direction:row;
+	width:100%;
+	background-color:white;
+	box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.1);
+	margin-bottom: 8px;
+}
+
+.headerButton{
+	background-color:transparent;
+	margin-left:8vw;
+	display:flex;
+	cursor:pointer;
+	padding: 16px;
+    font-size: 16px;
+	border: none;
+}
+
+#searchBar{
+	background-color: #e8e8e8;
+	border-radius: 5px;
+	padding: 6px;
+	margin: 8px;
+	margin-left: 4vw;
+	display:flex;
+	flex-direction: row;
+}
+
+#searchIcon{
+	display: flex;
+	background-image: url('../img/search.svg');
+	background-size:contain;
+	background-position:center;
+	background-repeat:no-repeat;
+	width: 24px;
+	height: 24px;
+	cursor:pointer;
+}
+
+#apiIcon{
+	background-image: url('../img/apple.png');
+	background-repeat: no-repeat;
+	background-position: 32px 32px;
+	background-size: contain;
+	height: 256px;
+	width:256px;
+}
+
+
+.dropbtn {
+    background-color: transparent;
+    
+    padding: 16px;
+    font-size: 16px;
+	border: none;
+	
+	display:flex;
+	cursor:pointer;
+}
+
+.dropdown {
+	
+    position: relative;
+	display: inline-block;
+	margin-left:8vw;
+}
+
+.dropdown-content {
+	
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+	
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn, .headerButton:hover {
+	background-color: #990AE2;
+	color: white;
+}

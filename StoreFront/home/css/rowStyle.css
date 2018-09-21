@@ -1,0 +1,112 @@
+
+
+.rowContainer{
+	display: block;
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.rowFlexContainer{
+	display:flex;
+	flex-direction: row;
+}
+.rowTitle{
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: 32px;
+	display:inline-block;
+	margin-left: 32px;
+}
+
+.rowButton{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	flex: 0;
+	padding: 32px;
+	display: flex;
+	background-color:transparent;
+	cursor: pointer;
+}
+
+.rowButton:hover{
+	transform: scale(1.2);
+}
+
+.rowButton:active{
+	transform: scale(0.823);
+}
+
+.middleScrollingContainer{
+	width:100%;
+	padding-top: 32px;
+	padding-bottom: 32px;
+	padding-left: 24px;
+	padding-right: 24px;
+	display: flex;
+	overflow:hidden;
+}
+
+.apiTransitionWrapper{
+	height:274px;
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+	transition: margin 0.15s ease-out;
+}
+
+.apiBox{
+
+	flex-shrink: 0;
+	overflow: hidden;
+	width: 324px;
+	height: 200px;
+	margin: 8px 0px;
+
+	border-left: solid 8px rgba(241,241,241,0.0);
+	border-right: solid 8px rgba(241,241,241,0.0);
+	
+	-webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box;
+
+	background-color:white;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	cursor: pointer;
+
+
+	transition: width 0.17s ease-out, height 0.17s ease-out;
+}
+
+.apiBox:hover{
+	/*transform: scaleX(1.15) scaleY(1.15);*/
+	height: 230px;
+	width: 372px;
+	z-index: 100;
+}
+
+.titleDescContainer{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.apiTitle{
+	background-color: rgba(255, 255, 255, 0.8);
+	padding:4px;
+	font-size: 20px;
+	font-family: Pebble;
+	font-weight: bold;
+	display:flex;
+	flex-shrink: 0;
+	margin-bottom: 35%;
+}
+.apiDescription{
+	display:flex;
+	flex: 1;
+	background-color: rgba(255, 255, 255, 0.8);
+	font-family: Helvetica;
+	padding:4px;
+	font-size: 18px;
+	overflow:hidden;
+}
