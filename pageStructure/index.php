@@ -61,13 +61,15 @@
 					<input class="inputBoxSignIn" type="password" id="password">
 					<br>
 					<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
+					<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
+
 				</div>
 
 				<div id="signedIn">
 					<a href="#" class="sidenavText">Account</a>
 					<a href="#" class="sidenavText">Bought items</a>
 					<a href="#" class="sidenavText">Payment</a>
-					<a href="#" class="sidenavText">Log out</a>	
+					<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
 				</div>
 			</div>
 		</div>
@@ -91,6 +93,7 @@
     }
     ?>
 	<script type="text/javascript" src="/StoreFront/pageStructure/scripts/loginSlidingWindow.js"></script>
+	<script type="text/javascript" src="/StoreFront/pageStructure/scripts/fancyPanels.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>

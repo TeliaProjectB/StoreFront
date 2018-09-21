@@ -19,10 +19,15 @@ function checkUser(){
 
     if(username == "hi" && password == "123"){
         $("#loginWindow").css({"display": "none"});
-        $("#signedIn").css({"display": "inline"});
-        
+        $("#signedIn").css({"display": "inline"});   
     }
     else{
-        console.log("Username: ", username)
+        $(".inputBoxSignIn").addClass("inputBoxSignInError");
     }
+}
+
+function goBackToStart(){
+    $("#signedIn").css({"display": "none"});
+    $("#loginWindow").css({"display": "none"}); 
+    $("#firstStep").css({"display": "inline"});
 }
