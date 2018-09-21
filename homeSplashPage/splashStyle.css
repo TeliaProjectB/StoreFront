@@ -50,8 +50,10 @@ h1 {
 	display: flex;
 	flex:1;
 	flex-direction: column;
-	width: 25%;
+	width: 26%;
 	position:absolute;
+	font-size: 17px;
+	font-family: Pebble;
 }
 
 #info_API {
@@ -89,10 +91,75 @@ h1 {
 #fruit.left {
 	background: url(img/apple2.png);
 	background-size:150px 183px;
-	opacity:0.4;
+	opacity:0.5;
 }
 #fruit.right {
 	background: url(img/apple2.png);
 	background-size:150px 183px; 
-	opacity:0.4;
+	opacity:0.5;
+}
+
+#rating {
+	display: flex;
+	flex:1;
+	flex-direction: row;
+}
+
+#thumbsUpDownContainer p {
+	margin-left: 0;
+	margin-right:0;
+}
+
+@keyframes thumbsMove{
+	0% {transform: scaleX(1) scaleY(1) rotate(0deg);}
+	30% {transform: scaleX(1.5) scaleY(1.5) rotate(-8deg);}
+	70% {transform: scaleX(1.3) scaleY(1.3) rotate(0deg);}
+	to {transform: scaleX(1.3) scaleY(1.3) rotate(0deg);}
+}
+
+#thumbsUpDownContainer{
+	clear: both;
+	padding:0;
+}
+
+#thumbsUp{
+	width: 32px;
+	height: 32px;
+	background-image: url('img/thumbs-up.svg');
+	background-size: contain;
+	float: left;
+}
+
+
+.rateleft {
+	float: left;
+	color: green;
+}
+
+.rateright {
+	float: left;
+	color:red;
+}
+
+.thumbs{
+	cursor:pointer;
+	margin: 12px;
+	transition: transform 0.5s ease-in;
+	z-index: 1;
+}
+
+.thumbs:hover{
+	animation: thumbsMove 0.375s ease-in 0s 1 normal forwards;
+}
+
+.thumbs:active{
+	animation: thumbsMove 0.375s ease-in 0s 1 normal backwards;
+}
+
+#thumbsDown{
+	width: 32px;
+	height: 32px;
+	background-image: url('img/thumbs-down.svg');
+	background-size: contain;
+	float: left;
 }
