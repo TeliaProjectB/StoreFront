@@ -4,7 +4,7 @@
 	<div id="container_info">
 		<div id="left_info">
 			<p><b>Price:</b> 5000 kr
-			<p><b>Category:</b> Fruit stuff
+			<p><b>Category:</b> Paid
 			<p><b>Last updated:</b> 2018-02-31
 		</div>
 	
