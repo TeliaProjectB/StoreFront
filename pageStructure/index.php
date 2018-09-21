@@ -47,7 +47,7 @@
 				<div class="posisionOfTheloginWindow">
 					<div id="firstStep">
 						<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
-						<button class="bottomBoxSignIn">Register</button>
+						<button class="bottomBoxSignIn" onclick="alert('This function is not implemented yet!')">Register</button>
 					</div>
 				
 					<div id="loginWindow">
