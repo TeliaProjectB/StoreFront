@@ -4,7 +4,7 @@
 .loginWindow{
 	z-index:190;
 	position: fixed;
-	height: 800px;
+	height: 100%;
 	width:0px;
 	right: 0px;
 	margin-top: -8px;
