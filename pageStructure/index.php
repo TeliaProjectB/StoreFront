@@ -64,19 +64,35 @@
 					</div>
 
 					<div id="signedIn">
-						<a href="#" class="sidenavText">Account</a>
-						<a href="#" class="sidenavText">Bought items</a>
+						<a href="#" onclick="window.open('/StoreFront/myAccount','_self')" class="sidenavText">Account</a>
+						<a href="#" onclick="openSecondWindow()" class="sidenavText">Bought items</a>
 						<a href="#" class="sidenavText">Payment</a>
 						<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
 					</div>
 				</div>
 			</div>
 			
-			<?php
-			if(file_exists("content.php")){
-				include "content.php";
-			}
+			<div class="secondWindow">
+				<div>Bought Items</div>
+				<table class="tableInfoBox">
+ 					<tr>
+ 						<th>API</th>
+						<th>Price</th>
+						<th>Bought</th>
+					 </tr>
+					 <tr>
+ 						<td>Test API</td>
+						<td>200kr</td>
+						<td>2018-09-11</td>
+					</tr>
+				</table>
+			</div>
 			
+			
+			<?php
+				if(file_exists("content.php")){
+					include "content.php";
+				}
 			?>
 
 			<!--Real content end-->

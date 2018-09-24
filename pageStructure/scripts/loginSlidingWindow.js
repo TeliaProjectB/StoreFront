@@ -31,3 +31,15 @@ function goBackToStart(){
     $("#loginWindow").css({"display": "none"}); 
     $("#firstStep").css({"display": "inline"});
 }
+
+
+function openSecondWindow(){
+    if($(".secondWindow").hasClass("secondWindow-open")){
+        $(".secondWindow").removeClass("secondWindow-open");
+    
+    }else{
+        $(".secondWindow").addClass("secondWindow-open");
+    
+    }
+
+}
