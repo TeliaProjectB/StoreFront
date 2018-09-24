@@ -3,7 +3,7 @@
 	min-width:128px;
 	height: 8vh;
 	display:flex;
-	background-image: url('../img/Telia icon.png');
+	background-image: url('/StoreFront/pageStructure/img/Telia icon.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -43,7 +43,7 @@
 
 #searchIcon{
 	display: flex;
-	background-image: url('../img/search.svg');
+	background-image: url('/StoreFront/pageStructure/img/search.svg');
 	background-size:contain;
 	background-position:center;
 	background-repeat:no-repeat;
@@ -53,7 +53,7 @@
 }
 
 #apiIcon{
-	background-image: url('../img/apple.png');
+	background-image: url('/StoreFront/pageStructure/img/apple.png');
 	background-repeat: no-repeat;
 	background-position: 32px 32px;
 	background-size: contain;
