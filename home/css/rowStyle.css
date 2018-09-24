@@ -2,8 +2,6 @@
 
 .rowContainer{
 	display: block;
-	margin-top: 16px;
-	margin-bottom: 16px;
 }
 
 .rowFlexContainer{
@@ -11,6 +9,7 @@
 	flex-direction: row;
 }
 .rowTitle{
+	position:absolute;
 	text-decoration: underline;
 	font-weight: bold;
 	font-size: 32px;
@@ -48,7 +47,7 @@
 }
 
 .apiTransitionWrapper{
-	height:274px;
+	height:185px;
 	display:flex;
 	flex-direction: row;
 	align-items: center;
@@ -59,8 +58,8 @@
 
 	flex-shrink: 0;
 	overflow: hidden;
-	width: 324px;
-	height: 200px;
+	width: 239px;
+	height: 148px;
 	margin: 8px 0px;
 
 	border-left: solid 8px rgba(241,241,241,0.0);
@@ -81,8 +80,8 @@
 
 .apiBox:hover{
 	/*transform: scaleX(1.15) scaleY(1.15);*/
-	height: 230px;
-	width: 372px;
+	width: 274px;
+	height: 170px;
 	z-index: 100;
 }
 
@@ -99,11 +98,11 @@
 	font-weight: bold;
 	display:flex;
 	flex-shrink: 0;
-	margin-bottom: 35%;
+	margin-bottom: 28%;
 }
 .apiDescription{
 	display:flex;
-	flex: 1;
+	flex: 2;
 	background-color: rgba(255, 255, 255, 0.8);
 	font-family: Helvetica;
 	padding:4px;
