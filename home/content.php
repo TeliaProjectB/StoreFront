@@ -5,7 +5,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 
 ?>
 
-<div id="topListCategory" class="contentRow" name="Top list"></div>
+<div class="contentRow" name="Top list"></div>
 
 
 <div id="freeCategory" class="contentRow" name="Free"></div>

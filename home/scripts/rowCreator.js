@@ -1,5 +1,6 @@
-define(["retrieveApi"], function(retrieveApi){
+define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions){
 	function initModule(){
+		var reapeatAPI = new makeRepetitions.init();
 		var apiRetriever = new retrieveApi.init();
 		var apiBoxSize;
 
@@ -43,12 +44,20 @@ define(["retrieveApi"], function(retrieveApi){
 				var style = getComputedStyle(apiMoveWrapper.firstChild);
 				apiBoxSize = apiMoveWrapper.firstChild.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
 				
+				var originalRepeatingAPI = [];
+				for(var i=0; i<apiMoveWrapper.children.length; i++){
+					originalRepeatingAPI.push(apiMoveWrapper.children[i]);
+				}
+
 				var rowData = {
 					element: element,
 					apiContainer: apiElementContainer,
 					apiMoveWrapper:  apiMoveWrapper,
 					index: 0,
-					length: numberOfElements
+					length: numberOfElements,
+					originalRepeatingAPI: originalRepeatingAPI,
+					repeatingsRight: 0,
+					repeatingLeft: 0,
 				};
 				
 
@@ -63,37 +72,48 @@ define(["retrieveApi"], function(retrieveApi){
 					rowMoveRight(rowData);
 				};
 
-				addOnHoverApiListener(rowData);
 
+				var apiChildren = rowData.apiMoveWrapper.children;
+
+				for(var i=0; i<apiChildren.length; i++){
+					addOnHoverApiListener(apiChildren[i], rowData);
+				}
+				
+
+
+				resizeRow(rowData);
 			});
 
 			
 		}
 
 
-		function addOnHoverApiListener(rowData){
-			var apiChildren = rowData.apiMoveWrapper.children;
+		function addOnHoverApiListener(apiElement, rowData){
+			apiElement.addEventListener("mouseenter", function(){
+				rowData.apiMoveWrapper.setAttribute("mouseover", true);
+				updateScrollPosition(rowData);
+			});
 
-			for(var i=0; i<apiChildren.length; i++){
-				apiChildren[i].addEventListener("mouseenter", function(){
-					rowData.apiMoveWrapper.setAttribute("mouseover", true);
-					updateScrollPosition(rowData);
-				});
-
-				apiChildren[i].addEventListener("mouseleave", function(){
-					rowData.apiMoveWrapper.setAttribute("mouseover", false);
-					updateScrollPosition(rowData);
-				});
-			}
+			apiElement.addEventListener("mouseleave", function(){
+				rowData.apiMoveWrapper.setAttribute("mouseover", false);
+				updateScrollPosition(rowData);
+			});
 		}
 
 
 		function rowMoveLeft(rowData){
-			if(rowData.index > 0){
-				rowData.index--;
-			}
-
+			removeTransition(rowData);
+			addOnHoverApiListener(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
 			updateScrollPosition(rowData);
+
+			setTimeout(function(){
+				restoreTransition(rowData);
+				rowData.index--;
+				updateScrollPosition(rowData);
+
+				purgeGeneratedElements(rowData);
+			}, 75);
+
 		}
 
 		function rowMoveRight(rowData){
@@ -102,11 +122,17 @@ define(["retrieveApi"], function(retrieveApi){
 
 			var spaceOnRight = (rowData.length*apiBoxSize) + (-rowData.index)*apiBoxSize;
 
-			if(spaceOnRight > maxMargin){
-				rowData.index++;
-			}
+			rowData.index++;
 
-			updateScrollPosition(rowData);
+
+			addOnHoverApiListener(reapeatAPI.addRepetitionRightSide(rowData), rowData);
+
+
+			setTimeout(function(){
+				updateScrollPosition(rowData);
+				purgeGeneratedElements(rowData);
+			}, 75);
+			
 		}
 
 
@@ -116,8 +142,10 @@ define(["retrieveApi"], function(retrieveApi){
 				leftMargin -= (howMuchIsOutside(rowData))*apiBoxSize;
 			}*/
 			if(rowData.apiMoveWrapper.getAttribute("mouseover") === "true"){
-				leftMargin -= 30;
+				leftMargin -= 17;
 			}
+
+			leftMargin -= rowData.repeatingLeft*apiBoxSize;
 
 			rowData.apiMoveWrapper.style.marginLeft = leftMargin+"px";
 		}
@@ -127,28 +155,42 @@ define(["retrieveApi"], function(retrieveApi){
 			var maxMargin = rowData.apiContainer.clientWidth;
 			var spaceOnRight = (rowData.length*apiBoxSize) + (-rowData.index)*apiBoxSize;
 
-			if(spaceOnRight < maxMargin){
-				while(spaceOnRight < maxMargin){
-					rowData.index--;
-					spaceOnRight = (rowData.length*apiBoxSize) + (-rowData.index)*apiBoxSize;
+			var neededApi = spaceOnRight / apiBoxSize;
+
+			if(neededApi > 0){
+				for(var i=0; i<neededApi+1; i++){
+					addOnHoverApiListener(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 				}
-				rowData.index++;
 			}
-			
 
 		}
 
 
-		/*function howMuchIsOutside(rowData){
-			var containerWidth = rowData.apiContainer.clientWidth;
+		function removeTransition(rowData){
+			rowData.apiMoveWrapper.style.WebkitTransition = "all 0s ease";
+			rowData.apiMoveWrapper.style.MozTransition = "all 0s ease";
+			rowData.apiMoveWrapper.style.transition = "all 0s ease";
+		}
 
-			var percentageOutside = containerWidth/apiBoxSize;
 
-			percentageOutside = percentageOutside - Math.floor(percentageOutside);
+		function restoreTransition(rowData){
+			rowData.apiMoveWrapper.style.WebkitTransition = "margin 0.15s ease-out";
+			rowData.apiMoveWrapper.style.MozTransition = "margin 0.15s ease-out";
+			rowData.apiMoveWrapper.style.transition = "margin 0.15s ease-out";
+		}
 
-			return percentageOutside;
+		function fixRepetition(){
 
-		}*/
+		}
+
+		
+		function purgeGeneratedElements(rowData){
+			var maxMargin = rowData.apiContainer.clientWidth;
+			var maViewableApi = Math.round(maxMargin/apiBoxSize);
+
+			
+
+		}
 
 		var oldWindowResize = window.onresize;
 
