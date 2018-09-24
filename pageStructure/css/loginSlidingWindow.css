@@ -8,6 +8,7 @@
 	width:0px;
 	right: 0px;
 	margin-top: -8px;
+	margin-right: -20px;
 	background-color: white;
 	-webkit-transition:width, 0.5s linear;
 	-moz-transition: width, 0.5s linear;
