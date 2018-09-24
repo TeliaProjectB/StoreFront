@@ -63,14 +63,18 @@
 					</div>
 
 					<div id="signedIn">
-						<a href="#" class="sidenavText">Account</a>
+						<a href="#" onclick="window.open('/StoreFront/accountInfo/','_self')" class="sidenavText">Account</a>
 						<a href="#" class="sidenavText">Bought items</a>
 						<a href="#" class="sidenavText">Payment</a>
 						<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
 					</div>
 				</div>
 			</div>
-			
+			<!--
+			<div class="loginWindow" >
+				<div>Bought Items</div>
+			</div>
+			-->
 			<?php
 			if(file_exists("content.php")){
 				include "content.php";
