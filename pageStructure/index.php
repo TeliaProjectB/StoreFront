@@ -22,6 +22,7 @@
 	</head>
 	<body>
 		<div class="pageContentWrapper">
+
 			<div id="head">
 				<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
 				<button class="headerButton" onclick="scrollDownTo('topListCategory')">Top list</button>	
@@ -30,18 +31,18 @@
 				
 				<div class="dropdown">
 					<button class="dropbtn">Others</button>
-					<div class="dropdown-content">
-						<a href="#">Recommended</a>
-						<a href="#">Paid</a>
-						<a href="#">Most bought</a>
-						<a href="#">Most recent</a>
-						<a href="#">All</a>
-					</div>
+						<div class="dropdown-content">
+							<a href="#">Recommended</a>
+							<a href="#">Most bought</a>
+							<a href="#">Most recent</a>
+							<a href="#">All</a>
+						</div>
 				</div> 
 
 				<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
 				
-				<button id="logInButtonName" class="headerButton" onclick="openSlideInWindow()">Log in</button>
+				
+				<button id="userIcon" onclick="openSlideInWindow()"></button>
 			</div>
 			<div class="loginWindow">
 				<div class="posisionOfTheloginWindow">
@@ -63,35 +64,19 @@
 					</div>
 
 					<div id="signedIn">
-						<a href="#" onclick="window.open('/StoreFront/myAccount','_self')" class="sidenavText">Account</a>
-						<a href="#" onclick="openSecondWindow()" class="sidenavText">Bought items</a>
+						<a href="#" class="sidenavText">Account</a>
+						<a href="#" class="sidenavText">Bought items</a>
 						<a href="#" class="sidenavText">Payment</a>
 						<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
 					</div>
 				</div>
 			</div>
 			
-			<div class="secondWindow">
-				<div>Bought Items</div>
-				<table class="tableInfoBox">
- 					<tr>
- 						<th>API</th>
-						<th>Price</th>
-						<th>Bought</th>
-					 </tr>
-					 <tr>
- 						<td>Test API</td>
-						<td>200kr</td>
-						<td>2018-09-11</td>
-					</tr>
-				</table>
-			</div>
-			
-			
 			<?php
-				if(file_exists("content.php")){
-					include "content.php";
-				}
+			if(file_exists("content.php")){
+				include "content.php";
+			}
+			
 			?>
 
 			<!--Real content end-->
