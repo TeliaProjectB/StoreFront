@@ -1,0 +1,65 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+
+
+@font-face{
+	font-family: Pebble;
+	src: url(../TeliaPebbleFont.woff);
+}
+html{
+	height: 100%;
+	overflow-x:hidden;
+}
+input{
+	background-color: transparent;
+}
+body{
+	background-color:#f1f1f1;
+
+	/* Enable hardware acceleration to fix laggy transitions */
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+button{
+	font-family: Pebble;
+	font-size: 14px;
+}
+
+button:focus{
+	outline: none;
+	border: none;
+}
+
+h1{
+	font-family: Pebble;
+	color: #222;
+	font-weight: 400;
+	margin-left: 10%;
+}
+h2{
+	margin-left: 10%;
+	font-family: Pebble;
+	color: #222;
+	font-weight: 400;
+}
+h4{
+	font-family: Pebble;
+	color: #222;
+	display:inline;
+}
+
+p{
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;
+	max-width: 70%;
+	margin: 0px auto;
+	margin-top: 8px;
+}
+
