@@ -3,6 +3,10 @@ define(["retrieveApi"], function(retrieveApi){
 
 
 		this.addRepetitionRightSide = function(rowData){
+			if(rowData.repeatingsRight < 0){
+				rowData.repeatingsRight = 0;
+			}
+
 			var cloneThisNode = rowData.repeatingsRight % rowData.originalRepeatingAPI.length;
 			
 			while(cloneThisNode > rowData.originalRepeatingAPI.length){
@@ -14,6 +18,7 @@ define(["retrieveApi"], function(retrieveApi){
 				cloneThisNode = rowData.repeatingsRight % rowData.originalRepeatingAPI.length;
 			}
 
+
 			var repeatingAPI = rowData.originalRepeatingAPI[cloneThisNode].cloneNode(true);
 			rowData.apiMoveWrapper.appendChild(repeatingAPI);
 
@@ -24,6 +29,10 @@ define(["retrieveApi"], function(retrieveApi){
 
 
 		this.addRepetitionLeftSide = function(rowData){
+			if(rowData.repeatingsLeft < 0){
+				rowData.repeatingsLeft = 0;
+			}
+
 			var cloneThisNode = rowData.originalRepeatingAPI.length-1-(rowData.repeatingsLeft % rowData.originalRepeatingAPI.length);
 
 			while(cloneThisNode > rowData.originalRepeatingAPI.length){

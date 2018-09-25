@@ -139,7 +139,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				var neededApiOnRight = maxVisibleApi - rowData.numberOfRepeatingApi;
 				
 				//Remove repeatings on right side if there are any
-				if(rowData.repeatingsRight > neededApiOnRight){
+				if(rowData.repeatingsRight > neededApiOnRight && rowData.repeatingsRight > 0){
 					rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.lastChild);
 					rowData.repeatingsRight--;
 				}
