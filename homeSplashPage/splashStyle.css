@@ -30,7 +30,7 @@ p.ontop {
     flex: 1;
 }
 
-h1 {
+#splash h1 {
 	text-align:center;
 	margin-top: 10px;
 }
@@ -52,7 +52,7 @@ h1 {
 	width: 26%;
 	position:absolute;
 	font-size: 17px;
-	font-family: Pebble;
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;;
 }
 
 #info_API {
