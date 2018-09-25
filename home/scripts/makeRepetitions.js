@@ -49,6 +49,9 @@ define(["retrieveApi"], function(retrieveApi){
 
 			rowData.repeatingsLeft++;
 
+			var targetApiId = rowData.originalRepeatingAPI[cloneThisNode].getAttribute("myApiId");
+			repeatingAPI.setAttribute("myApiId", targetApiId);
+
 			return repeatingAPI;
 		}
 		

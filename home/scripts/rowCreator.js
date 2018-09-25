@@ -79,7 +79,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				var apiChildren = rowData.apiMoveWrapper.children;
 
 				for(var i=0; i<apiChildren.length; i++){
-					addOnHoverApiListener(apiChildren[i], rowData);
+					addListenersOnApi(apiChildren[i], rowData);
 				}
 				
 
@@ -99,18 +99,18 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			var neededApi = maxVisibleApi - rowData.apiMoveWrapper.children.length - rowData.repeatingsLeft;
 
 			for(var i=0; i<neededApi+1; i++){
-				addOnHoverApiListener(reapeatAPI.addRepetitionRightSide(rowData), rowData);
+				addListenersOnApi(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 			}
 
 
 			removeTransition(rowData);
-			addOnHoverApiListener(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
+			addListenersOnApi(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
 			updateScrollPosition(rowData);
-			//restoreTransition(rowData);
+
 		}
 
 
-		function addOnHoverApiListener(apiElement, rowData){
+		function addListenersOnApi(apiElement, rowData){
 			apiElement.addEventListener("mouseenter", function(){
 				restoreTransition(rowData);
 				rowData.apiMoveWrapper.setAttribute("mouseover", true);
@@ -122,6 +122,11 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				rowData.apiMoveWrapper.setAttribute("mouseover", false);
 				updateScrollPosition(rowData);
 			});
+
+			apiElement.onclick = function(){
+				window.open("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"), "_self");
+				document.body.style.cursor = "wait";
+			};
 		}
 
 
@@ -131,7 +136,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			goBackToRoot(rowData);
 
 			removeTransition(rowData);
-			addOnHoverApiListener(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
+			addListenersOnApi(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
 			updateScrollPosition(rowData);
 
 
@@ -161,7 +166,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 		function rowMoveRight(rowData){
 			goBackToRoot(rowData);
 
-			addOnHoverApiListener(reapeatAPI.addRepetitionRightSide(rowData), rowData);
+			addListenersOnApi(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 
 
 			if(rowData.repeatingsLeft + rowData.index  > 1 && 
@@ -213,7 +218,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			
 			if(apiDifference  > 0){
 				for(var i=0; i<apiDifference; i++){
-					addOnHoverApiListener(reapeatAPI.addRepetitionRightSide(rowData), rowData);
+					addListenersOnApi(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 				}
 			}else{
 				for(var i=0; i<apiDifference/-1; i++){
