@@ -10,7 +10,6 @@
 }
 .rowTitle{
 	position:absolute;
-	text-decoration: underline;
 	font-weight: bold;
 	font-size: 32px;
 	display:inline-block;
@@ -70,7 +69,8 @@
 
 	background-color:white;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
+	background-position: center;
 
 	cursor: pointer;
 
