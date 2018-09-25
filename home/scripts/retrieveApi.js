@@ -126,7 +126,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
-				image: "https://i5.walmartimages.ca/images/Enlarge/580/6_r/875806_R.jpg",
+				image: "cloneThisNode = rowData.repeatingsRight % rowData.originalRepeatingAPI.length;",
 				id: "34765"
 			},
 
