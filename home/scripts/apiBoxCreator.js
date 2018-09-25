@@ -7,7 +7,11 @@ define([], function(){
 
 			var newApi = document.createElement("div");
 			newApi.className = "apiBox";
-			newApi.style.backgroundImage = "url("+apiData.image+")";
+
+			/*var apiBackground = document.createElement("div");
+			apiBackground.className = "apiBackground";
+			apiBackground.style.backgroundImage = "url("+apiData.image+")";
+			newApi.appendChild(apiBackground);*/
 
 			var apiTitle = document.createElement("div");
 			apiTitle.className = "apiTitle";
@@ -19,6 +23,7 @@ define([], function(){
 
 			var titleDescContainer = document.createElement("div");
 			titleDescContainer.className = "titleDescContainer";
+			titleDescContainer.style.backgroundImage = "url("+apiData.image+")";
 
 			titleDescContainer.appendChild(apiTitle);
 			titleDescContainer.appendChild(apiDescription);

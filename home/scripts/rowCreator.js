@@ -112,11 +112,13 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 		function addOnHoverApiListener(apiElement, rowData){
 			apiElement.addEventListener("mouseenter", function(){
+				restoreTransition(rowData);
 				rowData.apiMoveWrapper.setAttribute("mouseover", true);
 				updateScrollPosition(rowData);
 			});
 
 			apiElement.addEventListener("mouseleave", function(){
+				restoreTransition(rowData);
 				rowData.apiMoveWrapper.setAttribute("mouseover", false);
 				updateScrollPosition(rowData);
 			});
