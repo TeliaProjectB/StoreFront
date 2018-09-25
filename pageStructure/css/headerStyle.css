@@ -21,6 +21,7 @@
 	background-color:transparent;
 	margin-left:11vw;
 	padding: 30px;
+	margin-right:1vw;
 }
 
 
@@ -51,6 +52,7 @@
 }
 
 #searchBar{
+	flex:1;
 	background-color: #e8e8e8;
 	border-radius: 5px;
 	padding: 6px;
