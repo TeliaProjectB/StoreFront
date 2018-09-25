@@ -1,12 +1,15 @@
 function openSlideInWindow(){
-    if($(".loginWindow").hasClass("loginWindow-open")){
-        $(".loginWindow").removeClass("loginWindow-open");
-    
-    }else{
-        $(".loginWindow").addClass("loginWindow-open");
-    
+    $(".loginWindow").animate({width: 'toggle'});
+
+    if($('.secondWindow:visible').length != 0){
+        $(".secondWindow").animate({width: 'toggle'});
     }
 }
+
+function openSecondWindow(){
+    $(".secondWindow").animate({width: 'toggle'});
+}
+
 
 function openLoginWindow(){
     $("#firstStep").css({"display": "none"});
@@ -32,14 +35,3 @@ function goBackToStart(){
     $("#firstStep").css({"display": "inline"});
 }
 
-
-function openSecondWindow(){
-    if($(".secondWindow").hasClass("secondWindow-open")){
-        $(".secondWindow").removeClass("secondWindow-open");
-    
-    }else{
-        $(".secondWindow").addClass("secondWindow-open");
-    
-    }
-
-}
