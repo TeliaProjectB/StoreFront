@@ -56,7 +56,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 					apiContainer: apiElementContainer,
 					apiMoveWrapper:  apiMoveWrapper,
 					index: 0,
-					length: numberOfElements,
+					numberOfRepeatingApi: numberOfElements,
 					originalRepeatingAPI: originalRepeatingAPI,
 					repeatingsRight: 0,
 					repeatingsLeft: 0,
@@ -85,9 +85,22 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 				rowData.oldApiClientWidth = rowData.apiContainer.clientWidth;
 				resizeRow(rowData);
+
+				autoFillOnStart(rowData);
+
 			});
 
 			
+		}
+
+
+		function autoFillOnStart(rowData){
+			var maxVisibleApi = Math.round(rowData.apiContainer.clientWidth / apiBoxSize);
+			var neededApi = maxVisibleApi - rowData.apiMoveWrapper.children.length - rowData.repeatingsLeft;
+
+			for(var i=0; i<neededApi; i++){
+				addOnHoverApiListener(reapeatAPI.addRepetitionRightSide(rowData), rowData);
+			}
 		}
 
 
@@ -102,6 +115,8 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				updateScrollPosition(rowData);
 			});
 		}
+
+
 
 
 		function rowMoveLeft(rowData){
@@ -120,9 +135,11 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				rowData.index--;
 				updateScrollPosition(rowData);
 
+				var maxVisibleApi = Math.round(rowData.apiContainer.clientWidth / apiBoxSize);
+				var neededApiOnRight = maxVisibleApi - rowData.numberOfRepeatingApi;
+				
 				//Remove repeatings on right side if there are any
-				if(rowData.repeatingsRight > 0){
-					console.log("remove on right");
+				if(rowData.repeatingsRight > neededApiOnRight){
 					rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.lastChild);
 					rowData.repeatingsRight--;
 				}
@@ -214,12 +231,13 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 		}
 
 		function goBackToRoot(rowData){
-			var mod = rowData.length;
+			var mod = rowData.numberOfRepeatingApi;
 			var numb = Math.abs(rowData.index);
 
 			if(numb % mod == 0){
 				removeTransition(rowData);
 				rowData.index = 0;
+				autoFillOnStart(rowData);
 				updateScrollPosition(rowData);
 			}
 

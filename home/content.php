@@ -13,10 +13,6 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 
 <div id="paidCategory" class="contentRow" name="Paid"></div>
 
-
-
-<div id="paidCategory" class="contentRow" name="Paid"></div>
-
 <div id="recommendedCategory" class="contentRow" name="Recommended"></div>
 
 <div id="mostBoughtCategory" class="contentRow" name="Most bought"></div>
