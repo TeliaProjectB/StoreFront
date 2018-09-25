@@ -130,10 +130,10 @@
 .dropdownButton:hover {
 	background-color: #ddd;
 }
-
+/*
 button:focus{
 	border: 1px solid #3399ff;
-}
+}*/
 
 .dropdown:hover .dropdown-content {
 	display: flex;
