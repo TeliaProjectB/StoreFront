@@ -209,8 +209,10 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				}
 			}else{
 				for(var i=0; i<apiDifference/-1; i++){
-					rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.lastChild);
-					rowData.repeatingsRight--;
+					if(rowData.apiMoveWrapper.children.length > 1){
+						rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.lastChild);
+						rowData.repeatingsRight--;
+					}
 				}
 			}
 
