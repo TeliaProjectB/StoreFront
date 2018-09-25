@@ -4,7 +4,6 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 		var apiRetriever = new retrieveApi.init();
 		var apiBoxSize;
 
-		var oldApiClientWidth = 0;
 
 		var rowDatas = [];
 
@@ -52,6 +51,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				}
 
 				var rowData = {
+					name: element.getAttribute("name"),
 					element: element,
 					apiContainer: apiElementContainer,
 					apiMoveWrapper:  apiMoveWrapper,
@@ -60,6 +60,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 					originalRepeatingAPI: originalRepeatingAPI,
 					repeatingsRight: 0,
 					repeatingsLeft: 0,
+					oldApiClientWidth: 0
 				};
 				
 
@@ -82,7 +83,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				}
 				
 
-				oldApiClientWidth = rowData.apiContainer.clientWidth;
+				rowData.oldApiClientWidth = rowData.apiContainer.clientWidth;
 				resizeRow(rowData);
 			});
 
@@ -171,7 +172,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 		function resizeRow(rowData){
 
-			var widthDifference = rowData.apiContainer.clientWidth - oldApiClientWidth;
+			var widthDifference = rowData.apiContainer.clientWidth - rowData.oldApiClientWidth;
 
 
 			var apiDifference = widthDifference/apiBoxSize;
@@ -182,7 +183,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			}
 
 			if(apiDifference != 0){
-				oldApiClientWidth = rowData.apiContainer.clientWidth;
+				rowData.oldApiClientWidth = rowData.apiContainer.clientWidth;
 			}
 			
 			if(apiDifference  > 0){

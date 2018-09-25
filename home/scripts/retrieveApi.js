@@ -126,7 +126,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				description: "Allows you to send sms through Telia's services",
 				price: "$99999",
 				catagories: "category1, category2, category3",
-				image: "cloneThisNode = rowData.repeatingsRight % rowData.originalRepeatingAPI.length;",
+				image: "https://static.mathem.se/shared/images/products/large/banan-eko-klass1-4.jpg",
 				id: "34765"
 			},
 
