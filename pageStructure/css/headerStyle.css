@@ -147,6 +147,25 @@
 		display: none;
 	}
 	#userIcon{
-		margin-left: 188px;
+		margin-left: 240px;
 	}
 }
+
+@media only screen and (max-width: 600px){
+	.headerButton{
+		display: none;
+	}
+	.dropdown{
+		display: none;
+	}
+
+}
+
+@media only screen and (max-width: 1100px){
+	.headerButton{
+		display: none;
+	}
+}
+
+
+
