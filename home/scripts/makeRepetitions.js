@@ -3,7 +3,18 @@ define(["retrieveApi"], function(retrieveApi){
 
 
 		this.addRepetitionRightSide = function(rowData){
-			var repeatingAPI = rowData.originalRepeatingAPI[rowData.repeatingsRight % rowData.originalRepeatingAPI.length].cloneNode(true);
+			var cloneThisNode = rowData.repeatingsRight % rowData.originalRepeatingAPI.length;
+			
+			while(cloneThisNode > rowData.originalRepeatingAPI.length){
+				if(rowData.repeatingsRight > 0){
+					rowData.repeatingsRight--;
+				}else{
+					break;
+				}
+				cloneThisNode = rowData.repeatingsRight % rowData.originalRepeatingAPI.length;
+			}
+
+			var repeatingAPI = rowData.originalRepeatingAPI[cloneThisNode].cloneNode(true);
 			rowData.apiMoveWrapper.appendChild(repeatingAPI);
 
 			rowData.repeatingsRight++;
@@ -13,10 +24,21 @@ define(["retrieveApi"], function(retrieveApi){
 
 
 		this.addRepetitionLeftSide = function(rowData){
-			var repeatingAPI = rowData.originalRepeatingAPI[rowData.originalRepeatingAPI.length-1-(rowData.repeatingLeft % rowData.originalRepeatingAPI.length)].cloneNode(true);
+			var cloneThisNode = rowData.originalRepeatingAPI.length-1-(rowData.repeatingsLeft % rowData.originalRepeatingAPI.length);
+
+			while(cloneThisNode > rowData.originalRepeatingAPI.length){
+				if(rowData.repeatingsLeft > 0){
+					rowData.repeatingsLeft--;
+				}else{
+					break;
+				}
+				cloneThisNode = rowData.originalRepeatingAPI.length-1-(rowData.repeatingsLeft % rowData.originalRepeatingAPI.length);
+			}
+			
+			var repeatingAPI = rowData.originalRepeatingAPI[cloneThisNode].cloneNode(true);
 			rowData.apiMoveWrapper.insertBefore(repeatingAPI, rowData.apiMoveWrapper.firstChild);
 
-			rowData.repeatingLeft++;
+			rowData.repeatingsLeft++;
 
 			return repeatingAPI;
 		}

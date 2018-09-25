@@ -4,6 +4,8 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 		var apiRetriever = new retrieveApi.init();
 		var apiBoxSize;
 
+		var oldApiClientWidth = 0;
+
 		var rowDatas = [];
 
 		this.appendRow = function(element){
@@ -57,7 +59,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 					length: numberOfElements,
 					originalRepeatingAPI: originalRepeatingAPI,
 					repeatingsRight: 0,
-					repeatingLeft: 0,
+					repeatingsLeft: 0,
 				};
 				
 
@@ -80,7 +82,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				}
 				
 
-
+				oldApiClientWidth = rowData.apiContainer.clientWidth;
 				resizeRow(rowData);
 			});
 
@@ -102,35 +104,51 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 
 		function rowMoveLeft(rowData){
+			goBackToRoot(rowData);
+
 			removeTransition(rowData);
 			addOnHoverApiListener(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
 			updateScrollPosition(rowData);
+
+
+			
+
 
 			setTimeout(function(){
 				restoreTransition(rowData);
 				rowData.index--;
 				updateScrollPosition(rowData);
 
-				purgeGeneratedElements(rowData);
+				//Remove repeatings on right side if there are any
+				if(rowData.repeatingsRight > 0){
+					console.log("remove on right");
+					rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.lastChild);
+					rowData.repeatingsRight--;
+				}
+
 			}, 75);
 
 		}
 
+
+
 		function rowMoveRight(rowData){
-			var maxMargin = rowData.apiContainer.clientWidth;
-
-
-			var spaceOnRight = (rowData.length*apiBoxSize) + (-rowData.index)*apiBoxSize;
-
-			rowData.index++;
-
+			goBackToRoot(rowData);
 
 			addOnHoverApiListener(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 
 
-			setTimeout(function(){
+			if(rowData.repeatingsLeft + rowData.index  > 1 && 
+				rowData.repeatingsLeft > 0){
+				removeTransition(rowData);
+				removeGeneratedApiOnLeft(rowData);
 				updateScrollPosition(rowData);
-				purgeGeneratedElements(rowData);
+			}
+				
+			setTimeout(function(){
+				rowData.index++;
+				restoreTransition(rowData);
+				updateScrollPosition(rowData);
 			}, 75);
 			
 		}
@@ -145,21 +163,36 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				leftMargin -= 17;
 			}
 
-			leftMargin -= rowData.repeatingLeft*apiBoxSize;
+			leftMargin -= rowData.repeatingsLeft*apiBoxSize;
 
 			rowData.apiMoveWrapper.style.marginLeft = leftMargin+"px";
 		}
 
 
 		function resizeRow(rowData){
-			var maxMargin = rowData.apiContainer.clientWidth;
-			var spaceOnRight = (rowData.length*apiBoxSize) + (-rowData.index)*apiBoxSize;
 
-			var neededApi = spaceOnRight / apiBoxSize;
+			var widthDifference = rowData.apiContainer.clientWidth - oldApiClientWidth;
 
-			if(neededApi > 0){
-				for(var i=0; i<neededApi+1; i++){
+
+			var apiDifference = widthDifference/apiBoxSize;
+			if(apiDifference > 0){
+				apiDifference = Math.round(apiDifference);
+			}else {
+				apiDifference = Math.round(apiDifference);
+			}
+
+			if(apiDifference != 0){
+				oldApiClientWidth = rowData.apiContainer.clientWidth;
+			}
+			
+			if(apiDifference  > 0){
+				for(var i=0; i<apiDifference; i++){
 					addOnHoverApiListener(reapeatAPI.addRepetitionRightSide(rowData), rowData);
+				}
+			}else{
+				for(var i=0; i<apiDifference/-1; i++){
+					rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.lastChild);
+					rowData.repeatingsRight--;
 				}
 			}
 
@@ -179,17 +212,25 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			rowData.apiMoveWrapper.style.transition = "margin 0.15s ease-out";
 		}
 
-		function fixRepetition(){
+		function goBackToRoot(rowData){
+			var mod = rowData.length;
+			var numb = Math.abs(rowData.index);
+
+			if(numb % mod == 0){
+				removeTransition(rowData);
+				rowData.index = 0;
+				updateScrollPosition(rowData);
+			}
 
 		}
 
 		
-		function purgeGeneratedElements(rowData){
-			var maxMargin = rowData.apiContainer.clientWidth;
-			var maViewableApi = Math.round(maxMargin/apiBoxSize);
-
-			
-
+		function removeGeneratedApiOnLeft(rowData){
+			//Remove repeatings on right side if there are any
+			if(rowData.repeatingsLeft > 0){
+				rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.firstChild);
+				rowData.repeatingsLeft--;
+			}
 		}
 
 		var oldWindowResize = window.onresize;
