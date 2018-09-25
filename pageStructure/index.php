@@ -8,6 +8,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/¨structureFooter/footerStyle.css.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/tagStyles.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/headerStyle.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/footerFixer.css">
@@ -99,6 +100,9 @@
 
 		</div>
 		<div class="footer">
+			<?php  
+				include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/structureFooter/content.php";
+			?>
 		</div>
 
 		<?php
