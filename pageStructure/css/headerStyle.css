@@ -19,7 +19,7 @@
 	background-size: contain;
 	cursor: pointer;
 	background-color:transparent;
-	margin-left:8vw;
+	margin-left:11vw;
 	padding: 16px;
 }
 
@@ -55,6 +55,7 @@
 	padding: 6px;
 	margin: 8px;
 	margin-left: 4vw;
+	height: 24px;
 	display:flex;
 }
 
@@ -108,14 +109,22 @@
     z-index: 1;
 }
 
-.dropdown-content a {
+
+.dropdownButton {
 	flex:1;
+	display:flex;
+	cursor:pointer;
     color: black;
     padding: 12px 16px;
-    text-decoration: none;
+	text-decoration: none;
+	background-color:transparent;
+    font-size: 16px;
+	-webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
 }
 
-.dropdown-content a:hover {
+
+.dropdownButton:hover {
 	background-color: #ddd;
 }
 
