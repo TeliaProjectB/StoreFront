@@ -98,9 +98,15 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			var maxVisibleApi = Math.round(rowData.apiContainer.clientWidth / apiBoxSize);
 			var neededApi = maxVisibleApi - rowData.apiMoveWrapper.children.length - rowData.repeatingsLeft;
 
-			for(var i=0; i<neededApi; i++){
+			for(var i=0; i<neededApi+1; i++){
 				addOnHoverApiListener(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 			}
+
+
+			removeTransition(rowData);
+			addOnHoverApiListener(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
+			updateScrollPosition(rowData);
+			//restoreTransition(rowData);
 		}
 
 
