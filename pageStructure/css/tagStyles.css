@@ -37,19 +37,19 @@ button:focus{
 }
 
 h1{
-	font-family: Pebble;
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;
 	color: #222;
 	font-weight: 400;
 	margin-left: 10%;
 }
 h2{
 	margin-left: 10%;
-	font-family: Pebble;
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;
 	color: #222;
 	font-weight: 400;
 }
 h4{
-	font-family: Pebble;
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;
 	color: #222;
 	display:inline;
 }
