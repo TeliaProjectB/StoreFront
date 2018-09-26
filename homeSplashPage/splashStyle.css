@@ -62,7 +62,7 @@
 .splashDescription{
 	max-width:500px;
 	word-wrap: break-all;
-	transform:  rotate(-1.6deg);
+	transform:  rotate(-1deg);
 	font-size: 19px;
 	display:flex;
 	margin: 8px;
