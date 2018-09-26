@@ -1,4 +1,4 @@
-00 //let's build the chutes
+ //let's build the chutes
 for (var i = 0; i < 50; ++i) {
     $('<div/>', {
         class: 'chute'
