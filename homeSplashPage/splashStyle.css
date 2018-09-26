@@ -17,43 +17,42 @@
 
 @keyframes floatingone{
 	from {transform: scale(1); }
-	50% {transform: scale(1.05) rotate(-1.58deg); }
+	50% {transform: scale(1.03) rotate(-1.58deg); }
 	to {transform: scale(1); }
 }
 
 
 
 .SplashTextInfoContainer{
-	width: 50vw;
 	display:flex;
 	flex-direction: column;
 	align-items: center;
 }
 
 .splashTitle{
+	word-wrap: break-all;
 	margin-top: 8px;
 	font-family: helvetica;
 	font-size: 32px;
 	display:flex;
 	padding: 8px;
-	width: 25vw;
 	background-color: rgba(253, 97, 147, 1);
 	color:white;
 
 	padding-right: 32px;
 
 	transition: transform 2s linear;
-	animation: floatingone 3.8s infinite;
+	animation: floatingone 5s infinite;
 }
 
 .splashSubTitle{
+	word-wrap: break-all;
 	transform:  rotate(1deg);
 	font-family: helvetica;
 	font-size: 24px;
 	display:flex;
 	padding: 8px;
 	margin-top: 8px;
-	width: 15vw;
 	background-color:  rgba(0, 0, 0, 1);
 	color:white;
 	padding-right: 32px;
@@ -61,13 +60,14 @@
 }
 
 .splashDescription{
+	max-width:500px;
+	word-wrap: break-all;
 	transform:  rotate(-1.6deg);
 	font-size: 19px;
 	display:flex;
 	margin: 8px;
 	padding: 8px;
 	font-family: helvetica;
-	width: 37vw;
 	color:  white;
 	background-color: rgba(97, 181, 253, 1);
 	padding-right: 16px;
