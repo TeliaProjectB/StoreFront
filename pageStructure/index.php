@@ -58,11 +58,12 @@
 				
 					<div id="loginWindow">
 						<p>Username</p>
-						<input class="inputBoxSignIn" type="text" id="username">
+						<input id="username" class="inputBoxSignIn inputBoxSignIn-text" type="text" id="username">
 
 						<p>Password</p>
-						<input class="inputBoxSignIn" type="password" id="password">
+						<input id="password" class="inputBoxSignIn inputBoxSignIn-text" type="password" id="password">
 						<br>
+						
 						<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
 						<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
 
