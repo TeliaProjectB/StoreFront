@@ -126,7 +126,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				description: "Verifies if a user has enough funds to make a purchase.",
 				price: "8 500kr",
 				catagories: "Payment, Control, Verification",
-				image: "https://image.freepik.com/free-icon/talking-by-phone-auricular-symbol-with-speech-bubble_318-61564.jpg",
+				image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8zkrChMUFOjyEeS0SkbxLgR_EAXjraVJWARruoOsGalMbyOzu",
 				id: "8574"
 			},
 
