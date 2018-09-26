@@ -17,12 +17,12 @@ function openLoginWindow(){
 }
 
 function checkUser(){
-    var username = $('#username').val();
-    var password = $('#password').val();
+    var usernameText = $('#username').val();
+    var passwordText = $('#password').val();
     var username = document.getElementById('username');
     var password = document.getElementById('password');
 
-    if(username == "hi" && password == "123"){
+    if(usernameText == "hi" && passwordText == "123"){
         $("#loginWindow").css({"display": "none"});
         $("#signedIn").css({"display": "inline"});   
     }
