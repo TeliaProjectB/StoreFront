@@ -6,6 +6,9 @@
 	flex-direction: column;
 	align-items: center;
 	cursor: pointer;
+	
+	background-color: white;
+	border: solid 1px gray;
 }
 
 
@@ -23,10 +26,15 @@
 
 
 
-.SplashTextInfoContainer{
+.splashinfoFlexCon{
 	display:flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.SplashTextInfoContainer{
+	margin-left:10vw;
+	display:inline-block;
 }
 
 .splashTitle{
@@ -46,6 +54,8 @@
 }
 
 .splashSubTitle{
+	display: inline-block;
+	margin:0px auto;
 	word-wrap: break-all;
 	transform:  rotate(1deg);
 	font-family: helvetica;
@@ -78,10 +88,7 @@
 	background-color: white;
 	width: 100%;
 	height: 256px;
-	display:flex;
-	flex-direction: column;
 
-	overflow:hidden;
 
 	background-image: url("https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?auto=compress&cs=tinysrgb&h=350");
 	background-repeat: no-repeat;
@@ -90,12 +97,12 @@
 
 	transition: transform 0.1s ease-in;
 
+
 }
 
 .splashButtonNavigators{
-	display:flex;
 	z-index: 5;
-	display: inline-block;
+	display: block;
 	margin: 0px auto;
 }
 
@@ -133,4 +140,12 @@
 
 	transition: left 1s ease-in, opacity 1s ease-in;
 	animation: envelopeFlying 2.4s infinite;
+}
+
+
+@media only screen and (max-width: 680px){
+	.SplashTextInfoContainer{
+		margin-left:8px;
+		display:inline-block;
+	}
 }
