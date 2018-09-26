@@ -1,0 +1,125 @@
+/************************************
+	Login
+************************************/
+.loginWindow{
+	z-index:190;
+	position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+	right: 0px;
+	margin-top: -8px;
+	margin-right: -32px;
+	box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.1);
+	display: none;
+}
+
+.dropdown:hover .dropbtn, .headerButton:hover {
+	background-color: #990AE2;
+	color: white;
+}
+
+.loginWindow-button{
+	padding: 18px;
+	margin: 10px;
+}
+.posisionOfTheloginWindow{
+	text-align: center;	
+}
+
+.sidenavText {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+	color: #818181;
+	background-color: rgb(255, 255, 255);
+    display: block;
+    transition: 0.3s;
+}
+
+
+.inputBoxSignIn{
+	font-size: 20px;
+    border: 1px solid;
+    width: 200px;
+}
+
+.bottomBoxSignIn{
+	font-size: 20px;
+	width: 200px;
+	padding: 10px;
+	margin: 10px;
+	cursor: pointer;
+	background-color: #f1f1f1
+}
+
+.bottomBoxSignIn:hover, .bottomBoxSignIn:focus{
+	background-color: #ddd;
+}
+
+#loginWindow, #signedIn{
+	display: none;
+}
+/*
+
+.inputBoxSignIn {
+	-webkit-transition: border 0.5s linear;
+	-moz-transition: border 0.5s linear;
+	-o-transition: border 0.5s linear;
+	border: 2px solid black;
+}
+ 
+ .inputBoxSignInError {
+	border: 2px solid red;
+}*/
+
+.error {
+    position: relative;
+    animation: shake .1s linear;
+    animation-iteration-count: 3;
+}
+
+.error-test{
+	box-shadow: 0 0 4px 2px #ff9999;
+}
+@keyframes shake {
+    0% { left: -5px; }
+    100% { right: -5px; }
+}
+
+
+/************************************
+	AccountWindow
+************************************/
+.secondWindow{
+	z-index:180;
+	position: fixed;
+    width: 600px;
+    height: 100%;
+    background-color: white;
+	right: 0px;
+	margin-top: -8px;
+	margin-right: -32px;
+	box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.1);
+	display: none;
+	padding: 10px;
+}
+
+/************************************
+	Bought Items windo
+************************************/
+.tableInfoBox {
+    font-family: Helvetica Neue,helvetica,arial,sans-serif;
+    border-collapse: collapse;
+    width: 45%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

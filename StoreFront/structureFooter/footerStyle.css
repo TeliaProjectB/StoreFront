@@ -1,0 +1,36 @@
+#footerStyle{
+	width:100%;
+	height: 100%;
+}
+
+#footerContact {
+	display: table;
+	margin: 0 auto;
+}
+
+#teliaNumber {
+	float:right;
+	width:25%;
+}
+
+#footerStyle p {
+	right:10px;
+	text-align: right;
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;
+	color: white;
+}
+
+#footerContact a {
+	display:flex;
+	text-align:right;
+	margin-top: 10px;
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;
+	color: white;	
+}
+
+#footerContact a:hover {
+	text-align:center;
+	margin-top: 10px;
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;
+	color: rgb(214, 213, 213);	
+}
