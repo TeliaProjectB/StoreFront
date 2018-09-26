@@ -10,6 +10,16 @@ function openSecondWindow(){
     $(".secondWindow").animate({width: 'toggle'});
 }
 
+$(document).on('click','#contentID',function(){
+    //  $(this) = your current element that clicked.
+    // additional code
+    if($('.loginWindow:visible').length != 0){
+        $(".loginWindow").animate({width: 'toggle'});
+    }
+    if($('.secondWindow:visible').length != 0){
+        $(".secondWindow").animate({width: 'toggle'});
+    }
+});
 
 function openLoginWindow(){
     $("#firstStep").css({"display": "none"});
@@ -65,4 +75,5 @@ function goBackToStart(){
     $("#loginWindow").css({"display": "none"}); 
     $("#firstStep").css({"display": "inline"});
 }
+
 
