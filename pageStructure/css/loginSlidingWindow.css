@@ -82,7 +82,7 @@
 .error-test{
 	box-shadow: 0 0 4px 2px #ff9999;
 }
-@keyframes shake {
+@-webkit-keyframes shake {
     0% { left: -5px; }
     100% { right: -5px; }
 }
