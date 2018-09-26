@@ -94,13 +94,13 @@
 				</table>
 			</div>
 			
-			
-			<?php
-				if(file_exists("content.php")){
-					include "content.php";
-				}
-			?>
-
+			<div id="contentID">
+				<?php
+					if(file_exists("content.php")){
+						include "content.php";
+					}
+				?>
+			</div>
 			<!--Real content end-->
 
 		</div>
