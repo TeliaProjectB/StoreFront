@@ -117,7 +117,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				description: "Allows you to send sms through Telia's services.",
 				price: "10 000kr",
 				catagories: "Network, Cellular, Sms",
-				image: "https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?auto=compress&cs=tinysrgb&h=350",
+				image: "https://image.freepik.com/free-icon/mobile-phone-text-data-symbol_318-55081.jpg",
 				id: "4713"
 			},
 
@@ -126,7 +126,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				description: "Verifies if a user has enough funds to make a purchase.",
 				price: "8 500kr",
 				catagories: "Payment, Control, Verification",
-				image: "https://media.istockphoto.com/photos/contactless-payment-picture-id537499433?k=6&m=537499433&s=612x612&w=0&h=lhXTrkonpU97FKOc9eCI6M5k5T2-FK_QOGpk6etpM-M=",
+				image: "https://image.freepik.com/free-icon/talking-by-phone-auricular-symbol-with-speech-bubble_318-61564.jpg",
 				id: "8574"
 			},
 
@@ -135,7 +135,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				description: "Sends a custom voice message to a phone number.",
 				price: "10 000kr",
 				catagories: "Cellular, Voice, Phone",
-				image: "https://us.123rf.com/450wm/georgejmclittle/georgejmclittle1612/georgejmclittle161200138/67866536-close-up-view-of-young-woman-recording-voice-message-on-her-mobile-phone-all-screen-graphics-are-mad.jpg?ver=6",
+				image: "https://image.freepik.com/free-icon/talking-by-phone-auricular-symbol-with-speech-bubble_318-61564.jpg",
 				id: "5476"
 			},
 		];
