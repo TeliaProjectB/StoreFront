@@ -1,0 +1,122 @@
+	body {
+	  color: #black;
+	  background: #ecf0f1;
+	  font-family: Helvetica 
+	}
+	h1 {
+	  position: absolute;
+	  font-family: Helvetica ;
+	  font-size:3em;
+	  position:relative;
+	  margin-left: 9%;
+	  color: #22222280;
+	  left: -27px;
+	  top: 6px;
+	}
+
+
+	.half {
+	  float: left;
+	  width: 50%;
+	  padding: 0 1em;
+	}
+	/************************************
+		Page style.................
+	************************************/
+	.account {
+	  position: relative;
+	  margin-bottom: 1px;
+	  width: 100%;
+	  color: #fff;
+	  overflow: hidden;
+	}
+	.account input {
+	  position: absolute;
+	  opacity: 0;
+	  z-index: -1;
+	}
+	.account label {
+		
+	  position: relative;
+	  display: block;
+	  padding: 0 0 0 1em;
+	  background:#c0c0b833;
+	  color: #0f0f1799;
+	  font-weight: bold;
+	  line-height: 3;
+	  cursor: pointer;
+	  height: 58px;
+	  width: 1045px;
+	  left: 87px;
+	  font-family: Helvetica;
+	  top: 16px;
+	}
+	.blue label {
+	  background: #2980b9;
+	}
+	.account-content {
+	  max-height: 0;
+	  overflow: hidden;
+	  background: #ffffffb3;
+	  -webkit-transition: max-height .35s;
+	  -o-transition: max-height .35s;
+	  transition: max-height .35s;
+	  color: #0f0f1799;
+	  font-family: Helvetica;
+	}
+	.blue .account-content {
+	  background: #3498db;
+	}
+	.account-content {
+	  position: relative;
+	  max-height: 0;
+	  overflow: hidden;
+	  background: #f8f8f8;;
+	  -webkit-transition: max-height .35s;
+	  transition: max-height .35s;
+	  height: 183px;
+	  width: 1061px;
+	  left: 87px;
+	  
+	  
+	  
+	}
+
+	.account input:checked ~ .account-content {
+	  max-height: 100vh;
+	}
+
+	.button {
+    background-color: #c0c0b833;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	font-family: Helvetica;
+}
+	
+	
+	/************************************
+		Table for bought items
+	************************************/
+
+	.tableInfoBox {
+		font-family: Helvetica Neue,helvetica,arial,sans-serif;
+		border-collapse: collapse;
+		width: 45%;
+	}
+
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+
+
+
