@@ -1,4 +1,4 @@
-<div id="splash">
+<div id="splash" onclick="window.open('/StoreFront/api?id=3446','_self')">
 
 
     <div class="splashMiddleContent">
