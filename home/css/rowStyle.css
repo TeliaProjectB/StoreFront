@@ -51,7 +51,7 @@
 	display:flex;
 	flex-direction: row;
 	align-items: center;
-	transition: margin 0.15s ease-out;
+	transition: margin 0.12s ease-out;
 }
 
 .apiBox{
@@ -72,7 +72,7 @@
 	cursor: pointer;
 	padding: 0px 8px;
 
-	transition: width 0.17s ease-out, height 0.17s ease-out;
+	transition: width 0.12s ease-out, height 0.12s ease-out;
 
 	
 
