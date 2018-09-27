@@ -30,7 +30,7 @@
 				<button class="headerButton" onclick="scrollDownTo('freeCategory')">Free</button>
 				<button class="headerButton" onclick="scrollDownTo('paidCategory')">Paid</button>
 				
-				<div class="dropdown">
+				<div class="dropdown" onmouseenter="openCloseDropdown()" onmouseleave="openCloseDropdown()">
 					<button class="dropbtn">Others</button>
 					<div class="dropdown-content">
 							<button class="dropdownButton" onclick="scrollDownTo('recommendedCategory')">Recommended</button>
