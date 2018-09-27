@@ -16,3 +16,7 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+
+function openCloseDropdown(){
+  $(".dropdown-content").animate({height: 'toggle'});  
+}
