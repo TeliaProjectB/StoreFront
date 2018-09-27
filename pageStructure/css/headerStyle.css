@@ -95,13 +95,12 @@
 
 
 .dropdown {
-	display: flex;
 	position: relative;
 	margin-left:8vw;
+	flex-direction: column;
 }
 
 .dropdown-content {
-	top: 50px;
 	flex:1;
 	display: none;
 	flex-direction: column;
@@ -123,22 +122,13 @@
 	background-color:transparent;
     font-size: 16px;
 	-webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+	transition-duration: 0.5s;
+	width:100%;
 }
 
 
 .dropdownButton:hover {
 	background-color: #ddd;
-}
-/*
-button:focus{
-	border: 1px solid #3399ff;
-}*/
-
-.dropdown:hover .dropdown-content {
-	display: flex;
-	flex-direction: column;
-
 }
 
 .dropdown:hover .dropbtn, .headerButton:hover {
