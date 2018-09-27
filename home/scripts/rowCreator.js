@@ -240,9 +240,9 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 
 		function restoreTransition(rowData){
-			rowData.apiMoveWrapper.style.WebkitTransition = "margin 0.15s ease-out";
-			rowData.apiMoveWrapper.style.MozTransition = "margin 0.15s ease-out";
-			rowData.apiMoveWrapper.style.transition = "margin 0.15s ease-out";
+			rowData.apiMoveWrapper.style.WebkitTransition = "margin 0.12s ease-out";
+			rowData.apiMoveWrapper.style.MozTransition = "margin 0.12s ease-out";
+			rowData.apiMoveWrapper.style.transition = "margin 0.12s ease-out";
 		}
 
 		function goBackToRoot(rowData){
