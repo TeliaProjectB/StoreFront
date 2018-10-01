@@ -237,17 +237,21 @@ function createMessageBox(id){
 		
 			
 		if(animate){
-			setTimeout(function(){
+			absoluteContainer.style.maxHeight = "1080px";
+
+			messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+			/*setTimeout(function(){
 				absoluteContainer.style.maxHeight = "1080px";
 
 				//auto scrolls message container to bottom while css transision is taking place. Css transition takes 2 seconds
-				for(var i=0; i<4500; i++){
+				for(var i=0; i<1000; i++){
 					setTimeout(function(){
 						messagesContainer.scrollTop = messagesContainer.scrollHeight;
 					}, i);
 				}
 					
-			}, 0);
+			}, 0);*/
 		}else{
 			absoluteContainer.style.transition = "";
 			absoluteContainer.style.maxHeight = "1080px";

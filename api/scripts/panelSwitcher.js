@@ -31,6 +31,9 @@
 		hideAllPanels();
 		commentPanel.style.display = "block";
 		commentsButton.style.backgroundColor = "#cc00ff";
+
+		var messagesContainer = document.getElementsByClassName("messageBoxMessageContainer")[0];
+		messagesContainer.scrollTop = messagesContainer.scrollHeight;
 	};
 
 	recommendedButton.onclick = function(){
@@ -78,10 +81,10 @@
 		setTimeout(function(){
 			panel.style.transform += " perspective(2000px) rotateY(0deg) scaleX(1) scaleY(1) ";
 			
-			switch(panel.id){
+			/*switch(panel.id){
 				case "miniInfoBuyPanel": addFancyClicking.addFancy(panel, 5, 1);
 				break;
-			}
+			}*/
 			
 		}, waitTime);
 	}

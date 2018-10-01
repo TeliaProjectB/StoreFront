@@ -1,0 +1,22 @@
+@keyframes purchaseAnimationStraightLine{
+	0% {
+		opacity:1;
+	}
+	70%{
+		opacity: 0.0;
+	}
+	to {
+		left: 99%;
+		top: 0%;
+		opacity: 0.0;
+		transform:  scale(0.01);
+	}
+}
+
+
+
+
+.addToCartAnimation{
+	transform-origin: 50% 0%;
+	animation: purchaseAnimationStraightLine 2s ease-in-out normal forwards;
+}
