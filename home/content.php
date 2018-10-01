@@ -29,14 +29,4 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 
 <div id="mostLikedCategory" class="contentRow" name="Most liked"></div>
 
-<div id="leastLikedCategory" class="contentRow" name="Least liked"></div>
-
-<div class="rowSpace"></div>
-
-<div id="mostExpensiveCategory" class="contentRow" name="Most expensive"></div>
-
-<div id="leastExpensiveCategory" class="contentRow" name="Least expensive"></div>
-
-<div class="rowSpace"></div>
-
 <div id="allCategory" class="contentRow" name="All"></div>
