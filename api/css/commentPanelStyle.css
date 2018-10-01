@@ -32,6 +32,7 @@
 }
 
 .messageBoxMessageContainer{
+  max-height: 50%;
 	flex: 12;
 	padding: 16px;
 	padding-right: 32px;
@@ -45,13 +46,15 @@
 }
 
 .messageBoxMessage{
-	box-shadow: -2px 10px 5px 0px rgba(0,0,0,0.038);
+  max-width: 85%;
+	box-shadow: -2px 10px 5px 0px rgba(0,0,0,0.028);
 	flex: 0;
 	padding: 8px;
-	margin-bottom: 24px;
+  margin: 0px auto;
+	margin-bottom: 48px;
 	width: 100%;
 	background-color: white;
-	border-radius: 2.5rem;
+	border-radius: 8px;
 	font-family: Helvetica, Neue,helvetica,arial,sans-serif;
 }
 
