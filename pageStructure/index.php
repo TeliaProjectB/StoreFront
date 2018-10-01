@@ -35,10 +35,7 @@
 							<button class="dropdownButton" onclick="scrollDownTo('recommendedCategory')">Recommended</button>
 							<button class="dropdownButton" onclick="scrollDownTo('mostBoughtCategory')">Most bought</button>
 							<button class="dropdownButton" onclick="scrollDownTo('mostRecentCategory')">Most recent</button>
-							<button class="dropdownButton" onclick="scrollDownTo('mostLikedCategory')">Most Liked</button>
-							<button class="dropdownButton" onclick="scrollDownTo('leastLikedCategory')">Least liked</button>
-							<button class="dropdownButton" onclick="scrollDownTo('mostExpensiveCategory')">Most expensive</button>
-							<button class="dropdownButton" onclick="scrollDownTo('leastExpensiveCategory')">Least expensive</button>
+							<button class="dropdownButton" onclick="scrollDownTo('mostLikedCategory')">Most liked</button>
 							<button class="dropdownButton" onclick="scrollDownTo('allCategory')">All</button>
 						</div>
 				</div> 
