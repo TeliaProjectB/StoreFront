@@ -70,7 +70,7 @@
 	
 
 	cursor: pointer;
-	padding: 0px 8px;
+	padding: 0px 24px;
 
 	transition: width 0.12s ease-out, height 0.12s ease-out;
 
@@ -88,9 +88,19 @@
 
 .apiBox:hover{
 	/*transform: scaleX(1.15) scaleY(1.15);*/
-	width: 274px;
-	height: 170px;
+	width: 287px;
+	height: 178px;
 	z-index: 100;
+}
+
+
+.apiBackground{
+	display:flex;
+	background-color:white;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	flex:4;
 }
 
 .titleDescContainer{
@@ -100,6 +110,7 @@
 	background-position: center;
 
 	display: flex;
+	flex:1;
 	flex-direction: column;
 	height: 100%;
 
@@ -115,8 +126,8 @@
 	font-family: Helvetica Neue,helvetica,arial, sans-serif;
 	font-weight: bold;
 	display:flex;
+	flex:1;
 	flex-shrink: 0;
-	margin-bottom: 31%;
 }
 .apiDescription{
 	margin: 0px auto;

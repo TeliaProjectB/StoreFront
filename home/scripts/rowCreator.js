@@ -68,11 +68,17 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 
 				leftButton.onclick = function(){
-					rowMoveLeft(rowData);
+					var maxVisibleApi = Math.floor(rowData.apiContainer.clientWidth / apiBoxSize);
+					for(var i=0; i<maxVisibleApi; i++){
+						rowMoveLeft(rowData);
+					}
 				};
 
 				rightButton.onclick = function(){
-					rowMoveRight(rowData);
+					var maxVisibleApi = Math.floor(rowData.apiContainer.clientWidth / apiBoxSize);
+					for(var i=0; i<maxVisibleApi; i++){
+						rowMoveRight(rowData);
+					}
 				};
 
 
