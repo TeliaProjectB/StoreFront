@@ -80,11 +80,15 @@
 	background-repeat: no-repeat;
 	background-position: 11px;
 	cursor:pointer;
-	transition: background-color 0.16s ease-in;
+	transition: background-color 0.16s ease-in, transform 0.01s ease-in;
 }
 
 #purchaseButton:hover{
 	background-color: #cc00ff;
+}
+
+#purchaseButton:active{
+	transform: scale(0.9);
 }
 
 #info1{
