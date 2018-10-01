@@ -1,31 +1,20 @@
 var firstBatchOfMessages = [
-	{name: "User", message: "Comment 13", order: 12},
-	{name: "User", message: "Comment 14", order: 13},
-	{name: "User", message: "Comment 15", order: 14},
-	{name: "User", message: "Comment 16", order: 15},
-	{name: "User", message: "Comment 17", order: 16},
-	{name: "User", message: "Comment 18", order: 17},
-	{name: "User", message: "Comment 19", order: 18},
-	{name: "User", message: "Comment 20", order: 19},
-	{name: "User", message: "Comment 21", order: 20},
-	{name: "User", message: "Comment 22", order: 21},
-	{name: "User", message: "Comment 23", order: 22},
+	{name: "Billy bob", message: "@Jhonny joe thank you now it works!", order: 9},
+	{name: "Jhonny joe", message: "@Billy bob glad to help :)", order: 10},
+	{name: "Sofia", message: "Thank you Telia for this API!", order: 11}
 ];
 
 
 var secondBatchOfMessages = [
-	{name: "User", message: "Comment 1", order: 0},
-	{name: "User", message: "Comment 2", order: 1},
-	{name: "User", message: "Comment 3", order: 2},
-	{name: "User", message: "Comment 4", order: 3},
-	{name: "User", message: "Comment 5", order: 4},
-	{name: "User", message: "Comment 6", order: 5},
-	{name: "User", message: "Comment 7", order: 6},
-	{name: "User", message: "Comment 8", order: 7},
-	{name: "User", message: "Comment 9", order: 8},
-	{name: "User", message: "Comment 10", order: 9},
-	{name: "User", message: "Comment 11", order: 10},
-	{name: "User", message: "Comment 12", order: 11},
+	{name: "Evan", message: "Really good API but sometimes the response time is really slow. Is it only me?", order: 0},
+	{name: "Eva", message: "Really useful api!", order: 1},
+	{name: "wfwy8bgiu", message: "nice", order: 2},
+	{name: "Billy bob", message: "Can someone help me? I don't know which parameters I should use to communicate with is...", order: 3},
+	{name: "Jhonny joe", message: "What have you tested? What results do you get?", order: 4},
+	{name: "Chris", message: "I was able to create my own app thanks to this, check it out! www.example.com", order: 5},
+	{name: "Billy bob", message: "@Jhonny joe I tested: www.apiSource.com&parameter=4345?p=hello", order: 6},
+	{name: "Jhonny joe", message: "@Billy bob, you are mixing '&' and '?'. \n'?' always comes first and the later parameters are separated with '&'. So your url should look like this: www.apiSource.com?parameter=4345&p=hello", order: 7},
+	{name: "Tony", message: "This api helped my team tremendously! ", order: 8},
 ];
 
 
@@ -153,7 +142,7 @@ function createMessageBox(id){
 		if(fromOrder === false){//When fromOrder is false that means we want the 10 most recent messages
 			firstBatchOfMessages.sort(sortMessages);
 			onRespons(firstBatchOfMessages);
-		}else if(fromOrder === 12){
+		}else if(fromOrder === 9){
 			secondBatchOfMessages.sort(sortMessages);
 			onRespons(secondBatchOfMessages);
 		}else{
