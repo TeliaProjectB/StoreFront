@@ -23,16 +23,15 @@
 	</head>
 	<body>
 		<div class="pageContentWrapper">
-
-			<div id="head">
+		
+			<div id="head" class="header">
 				<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
 				<button class="headerButton" onclick="scrollDownTo('topListCategory')">Top list</button>	
 				<button class="headerButton" onclick="scrollDownTo('freeCategory')">Free</button>
-				<button class="headerButton" onclick="scrollDownTo('paidCategory')">Paid</button>
-				
 				<div class="dropdown" onmouseenter="openCloseDropdown()" onmouseleave="openCloseDropdown()">
 					<button class="dropbtn">Others</button>
 					<div class="dropdown-content">
+							<button class="dropdownButton" onclick="scrollDownTo('paidCategory')">Paid</button>
 							<button class="dropdownButton" onclick="scrollDownTo('recommendedCategory')">Recommended</button>
 							<button class="dropdownButton" onclick="scrollDownTo('mostBoughtCategory')">Most bought</button>
 							<button class="dropdownButton" onclick="scrollDownTo('mostRecentCategory')">Most recent</button>
@@ -45,49 +44,72 @@
 				</div> 
 
 				<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
-				
-				
-				<button id="userIcon" onclick="openSlideInWindow()"></button>
-			</div>
-			<div class="loginWindow">
-				<div class="posisionOfTheloginWindow">
-					<div id="firstStep">
-						<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
-						<button class="bottomBoxSignIn" onclick="alert('This function is not implemented yet!')">Register</button>
-					</div>
-				
-					<div id="loginWindow">
-						<p>Username</p>
-						<input id="username" class="inputBoxSignIn inputBoxSignIn-text" type="text" id="username">
-
-						<p>Password</p>
-						<input id="password" class="inputBoxSignIn inputBoxSignIn-text" type="password" id="password">
-						<br>
-						
-						<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
-						<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
-
-					</div>
-
-					<div id="signedIn">
-						<a href="#" onclick="window.open('/StoreFront/myAccount','_self')" class="sidenavText">Account</a>
-						<a href="#" onclick="window.open('/StoreFront/myAccount','_self')" class="sidenavText">Bought items</a>
-						<a href="#" class="sidenavText">Payment</a>
-						<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
+				<div id="contact" onclick="openInfoTelia()">
+					<div id="infoTelia">
+						<p>© Telia Sverige AB 556430-0142<br>
+						<p>Box 50077, 973 22 Luleå<br>
+						<p>Säte: Stockholm
 					</div>
 				</div>
+				
+				<div id="userName">Hi, user </div>
+				<button id="userIcon" onclick="openSlideInWindow()"></button>
 			</div>
-			
-			
-			<div id="contentID">
-				<?php
-					if(file_exists("content.php")){
-						include "content.php";
-					}
-				?>
-			</div>
-			<!--Real content end-->
+			<div class="content">
+				<div class="loginWindow">
+					<div class="posisionOfTheloginWindow">
+						<div id="firstStep">
+							<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
+							<button class="bottomBoxSignIn" onclick="alert('This function is not implemented yet!')">Register</button>
+						</div>
+				
+						<div id="loginWindow">
+							<p>Username</p>
+							<input id="username" class="inputBoxSignIn inputBoxSignIn-text" type="text" id="username">
 
+							<p>Password</p>
+							<input id="password" class="inputBoxSignIn inputBoxSignIn-text" type="password" id="password">
+							<br>
+						
+							<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
+							<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
+
+						</div>
+
+						<div id="signedIn">
+							<a href="#" onclick="window.open('/StoreFront/myAccount','_self')" class="sidenavText">Account</a>
+							<a href="#" onclick="openSecondWindow()" class="sidenavText">Bought items</a>
+							<a href="#" class="sidenavText">Payment</a>
+							<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
+						</div>
+					</div>
+				</div>
+			
+				<div class="secondWindow">
+					<div>Bought Items</div>
+					<table class="tableInfoBox">
+ 						<tr>
+ 							<th>API</th>
+							<th>Price</th>
+							<th>Bought</th>
+						 </tr>
+						 <tr>
+ 							<td>Test API</td>
+							<td>200kr</td>
+							<td>2018-09-11</td>
+						</tr>
+					</table>
+				</div>
+			
+				<div id="contentID">
+					<?php
+						if(file_exists("content.php")){
+							include "content.php";
+						}
+					?>
+				</div>
+			<!--Real content end-->
+			</div>
 		</div>
 		<div class="footer">
 			<?php  
@@ -103,5 +125,7 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/loginSlidingWindow.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/scrollDownFunction.js"></script>
+		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/fixedHeader.js"></script>
+	
 	</body>
 </html>

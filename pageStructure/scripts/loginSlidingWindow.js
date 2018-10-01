@@ -6,6 +6,9 @@ function openSlideInWindow(){
     }
 }
 
+function openSecondWindow(){
+    $(".secondWindow").animate({width: 'toggle'});
+}
 
 $(document).on('click','#contentID',function(){
     //  $(this) = your current element that clicked.
@@ -31,7 +34,11 @@ function checkUser(){
 
     if(usernameText == "hi" && passwordText == "123"){
         $("#loginWindow").css({"display": "none"});
-        $("#signedIn").css({"display": "inline"});   
+        $("#signedIn").css({"display": "inline"});  
+        
+        $("#userName").css({"display": "inline"});  
+        $("#userIcon").css({"margin-left" : "1vw"});  
+      
     }
     else{
         // Username
