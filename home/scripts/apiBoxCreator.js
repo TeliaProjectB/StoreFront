@@ -17,15 +17,20 @@ define([], function(){
 			apiTitle.className = "apiTitle";
 			apiTitle.innerHTML = apiData.name;
 
+
+			var apiIcon = document.createElement("div");
+			apiIcon.className = "apiBackground";
+			apiIcon.style.backgroundImage = "url("+apiData.image+")";
+
 			var apiDescription = document.createElement("div");
 			apiDescription.className = "apiDescription";
 			apiDescription.innerHTML = apiData.description;
 
 			var titleDescContainer = document.createElement("div");
 			titleDescContainer.className = "titleDescContainer";
-			titleDescContainer.style.backgroundImage = "url("+apiData.image+")";
 
 			titleDescContainer.appendChild(apiTitle);
+			titleDescContainer.appendChild(apiIcon);
 			titleDescContainer.appendChild(apiDescription);
 
 			newApi.appendChild(titleDescContainer);
