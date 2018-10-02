@@ -65,3 +65,8 @@ p{
 	margin-top: 8px;
 }
 
+a{
+    display:inline-block;
+    margin: 4px;
+    font-family: Helvetica Neue,helvetica,arial,sans-serif;
+}
