@@ -25,7 +25,7 @@
 	</head>
 	<body>
 		<div class="pageContentWrapper">
-			<div id="head">
+			<div id="head" class="sticky">
 				<!-- FIRST HEADER -->
 				<div id="firstHead" class="firstHeader">
 					<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
