@@ -22,11 +22,3 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 <div class="rowSpace"></div>
 
 <div id="mostBoughtCategory" class="contentRow" name="Most bought"></div>
-
-<div id="mostRecentCategory" class="contentRow" name="Most recent"></div>
-
-<div class="rowSpace"></div>
-
-<div id="mostLikedCategory" class="contentRow" name="Most liked"></div>
-
-<div id="allCategory" class="contentRow" name="All"></div>
