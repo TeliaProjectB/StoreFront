@@ -1,0 +1,85 @@
+.helpWindow{
+	z-index:190;
+	position: fixed;
+    width: 350px;
+    height: 100%;
+    background-color: white;
+	right: 0px;
+	margin-top: -8px;
+	margin-right: -32px;
+	box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.1);
+    display: none;
+    
+}
+
+.posisionOfTheHelpWindow{
+	text-align: center;	
+}
+
+.questionText {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 16px;
+	color: #000000;
+	background-color: rgb(255, 255, 255);
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right:10px;
+    border-top: 2px solid rgb(191, 96, 255);
+}
+
+
+.questionText:hover {
+    color: purple;
+}
+
+.answerText {
+    display:none;
+    text-decoration: none;
+	color: #000000;
+	background-color: rgb(255, 255, 255);
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right:30px;
+    padding-right: 20px;
+    padding-left:20px;
+}
+
+.closeWindowButton{
+	font-size: 20px;
+	width: 200px;
+	padding: 10px;
+	margin: 10px;
+	cursor: pointer;
+    background-color: #f1f1f1;
+}
+
+#infoTeliaUp {
+    border-color: lightgray;
+    border-style: solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+#helpWindow {
+	display: none;
+}
+
+.error {
+    position: relative;
+    animation: shake .1s linear;
+    animation-iteration-count: 3;
+}
+
+.error-test{
+	box-shadow: 0 0 4px 2px #ff9999;
+}
+
+@-webkit-keyframes shake {
+	0% { left: -5px; }
+	50% { right: -5px; }
+	100% { right: 0px; }
+}

@@ -14,6 +14,7 @@
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/footerFixer.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/panelStyles.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/helpSlidingWindow.css">
 
 		<?php
 			if(file_exists("customCss.php")){
@@ -41,7 +42,7 @@
 				</div> 
 
 				<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
-				<div id="contact" onclick="openInfoTelia()">
+				<div id="contact" onclick="openHelpWindow()">
 					<div id="infoTelia">
 						<p>© Telia Sverige AB 556430-0142<br>
 						<p>Box 50077, 973 22 Luleå<br>
@@ -49,10 +50,47 @@
 					</div>
 				</div>
 				
-				<div id="userName">Hi, user </div>
+				<div id="showUsername"></div>
 				<button id="userIcon" onclick="openSlideInWindow()"></button>
 			</div>
 			<div class="content">
+			
+				<div class="helpWindow">
+					<div class="posisionOfTheHelpWindow">
+								
+						<div id="helpWindow">
+							<div id="infoTeliaUp">
+								<p>© Telia Sverige AB 556430-0142<br>
+								<p>Box 50077, 973 22 Luleå<br>
+								<p>Säte: Stockholm
+							</div>
+
+							<div id="mainQuestions">
+								<a href="#" onclick="openQuestion(this.id)" class="questionText" id="question1">
+								How can I find all the API?</a>
+								<div class="answerText" id="answer1">"There are two ways to find all the API's. You can
+									search on the search bar, you can scroll down till the end or you can 
+									click on the dropdown button others and then click on the button All"
+								</div>
+								<a href="#" onclick="openQuestion(this.id)" class="questionText" id="question2">
+								How can I buy more APIs?</a>
+								<div class="answerText" id="answer2">
+									"To buy more API you can go to an API, click the button add to card and continue shopping";
+								</div>
+								<a href="#" onclick="openQuestion(this.id)" class="questionText" id="question3">
+								How can I change my account?</a>
+								<div class="answerText" id="answer3">
+									"If you want to change your account information you can click on your username 
+									or your user icon and click on My account, then click on change information"
+								</div>
+							</div>
+							
+							<button class="closeWindowButton" onclick="openHelpWindow()">Close</button>
+						</div>
+
+					</div>
+				</div>
+			
 				<div class="loginWindow">
 					<div class="posisionOfTheloginWindow">
 						<div id="firstStep">
@@ -123,6 +161,7 @@
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/loginSlidingWindow.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/scrollDownFunction.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/fixedHeader.js"></script>
-	
+		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/helpSlidingWindow.js"></script>
+		
 	</body>
 </html>

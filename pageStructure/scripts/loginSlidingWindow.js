@@ -35,10 +35,11 @@ function checkUser(){
     if(usernameText == "hi" && passwordText == "123"){
         $("#loginWindow").css({"display": "none"});
         $("#signedIn").css({"display": "inline"});  
+    
+            
+        document.getElementById("showUsername").innerHTML = "Hi, " + usernameText;
+        $("#userIcon").css({"margin-left": "2vw"});  
         
-        $("#userName").css({"display": "inline"});  
-        $("#userIcon").css({"margin-left" : "1vw"});  
-      
     }
     else{
         // Username
