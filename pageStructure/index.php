@@ -11,6 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="/StoreFront/structureFooter/footerStyle.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/tagStyles.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/headerStyle.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/secondHeaderStyle.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/footerFixer.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/panelStyles.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
@@ -24,37 +25,38 @@
 	</head>
 	<body>
 		<div class="pageContentWrapper">
-		
-			<div id="head" class="header">
-				<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
-				<button class="headerButton" onclick="scrollDownTo('topListCategory')">Top list</button>	
-				<button class="headerButton" onclick="scrollDownTo('freeCategory')">Free</button>
-				<div class="dropdown" onmouseenter="openCloseDropdown()" onmouseleave="openCloseDropdown()">
-					<button class="dropbtn">Others</button>
-					<div class="dropdown-content">
+			<div id="head">
+				<!-- FIRST HEADER -->
+				<div id="firstHead" class="firstHeader">
+					<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
+					
+					<div id="showUsername"></div>
+					<button id="userIcon" onclick="openSlideInWindow()"></button>
+				</div>
+
+				<!-- SECOND HEADER -->
+				<div id="secondHead" class="secondHeader">
+					<button class="headerButton" onclick="scrollDownTo('topListCategory')">Top list</button>	
+					<button class="headerButton" onclick="scrollDownTo('freeCategory')">Free</button>
+					<button class="headerButton" onclick="scrollDownTo('recommendedCategory')">Recommended</button>
+					<button class="headerButton" onclick="scrollDownTo('mostRecentCategory')">Most recent</button>		
+					<div class="dropdown" onmouseenter="openCloseDropdown()" onmouseleave="openCloseDropdown()">
+						<button class="dropbtn">Others</button>
+						<div class="dropdown-content">
 							<button class="dropdownButton" onclick="scrollDownTo('paidCategory')">Paid</button>
-							<button class="dropdownButton" onclick="scrollDownTo('recommendedCategory')">Recommended</button>
 							<button class="dropdownButton" onclick="scrollDownTo('mostBoughtCategory')">Most bought</button>
-							<button class="dropdownButton" onclick="scrollDownTo('mostRecentCategory')">Most recent</button>
 							<button class="dropdownButton" onclick="scrollDownTo('mostLikedCategory')">Most liked</button>
 							<button class="dropdownButton" onclick="scrollDownTo('allCategory')">All</button>
 						</div>
-				</div> 
-
-				<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
-				<div id="contact" onclick="openHelpWindow()">
-					<div id="infoTelia">
-						<p>© Telia Sverige AB 556430-0142<br>
-						<p>Box 50077, 973 22 Luleå<br>
-						<p>Säte: Stockholm
-					</div>
-				</div>
+					</div> 
 				
-				<div id="showUsername"></div>
-				<button id="userIcon" onclick="openSlideInWindow()"></button>
+					<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
+					<div id="helpContact" onclick="openHelpWindow()"></div>
+				</div>
 			</div>
+			<!-- CONTENT -->
 			<div class="content">
-			
+				<!-- HELP WINDOW -->
 				<div class="helpWindow">
 					<div class="posisionOfTheHelpWindow">
 								
@@ -90,7 +92,7 @@
 
 					</div>
 				</div>
-			
+				<!-- LOGIN WINDOW -->
 				<div class="loginWindow">
 					<div class="posisionOfTheloginWindow">
 						<div id="firstStep">
@@ -146,6 +148,7 @@
 			<!--Real content end-->
 			</div>
 		</div>
+		<!-- FOOTER -->
 		<div class="footer">
 			<?php  
 				include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/structureFooter/content.php";
