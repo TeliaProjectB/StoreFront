@@ -5,7 +5,7 @@
 	var header = document.getElementById("head");
 
 	var topOffset = header.offsetHeight + parseInt(window.getComputedStyle(header).marginBottom, 10);
-	topOffset+=4;
+	topOffset+=32;
 
 
 	var firstOffsetTop = sideBar.offsetTop;
