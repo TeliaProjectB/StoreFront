@@ -201,7 +201,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 		];
 
 		var hasLoaded = 0;
-		this.loadApis = function(apiContainer, category, onLoad){
+		this.loadApisRows = function(apiContainer, category, onLoad){
 			var retrievedData;
 			if(hasLoaded > 2){
 				hasLoaded = 0;
@@ -228,6 +228,22 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 
 			onLoad(retrievedData.length, apiMoveWrapper);
 
+		}
+
+
+		this.loadApisBoxes = function(apiContainer, category, onLoad){
+			var retrievedData = exampleDatabaseResult3;
+			
+			var apiBoxContainer = document.createElement("div");
+			apiBoxContainer.className = "simpleBoxContainer";
+			
+			for(var i=0; i<retrievedData.length; i++){
+				boxCreator.createSimpleBox(apiBoxContainer, retrievedData[i]);
+			}
+
+			apiContainer.appendChild(apiBoxContainer);
+
+			onLoad(retrievedData.length, apiBoxContainer);
 		}
 
 
