@@ -5,8 +5,6 @@
     $password = 'RnuUXp3k0jDX0DR1';
     $dbname = 'telia';
 
-    //8UF5J264pK19KxVK
-
     
     // Create connection
     $mysql = mysql_connect($servername, $username, $password);
