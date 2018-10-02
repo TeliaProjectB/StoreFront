@@ -2,6 +2,10 @@
 	var isFixed = false;
 	var sideBar = document.getElementById("sideBarRealContent");
 	var centerContent = document.getElementById("CenterContent");
+	var header = document.getElementById("head");
+
+	var topOffset = header.offsetHeight + parseInt(window.getComputedStyle(header).marginBottom, 10);
+	topOffset+=4;
 
 
 	var firstOffsetTop = sideBar.offsetTop;
@@ -19,9 +23,9 @@
 		var doc = document.documentElement;
 		var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
 
-		if(scrollTop < centerContent.offsetTop){
+		/*if(scrollTop < centerContent.offsetTop){
 			scrollTop = centerContent.offsetTop;
-		}
+		}*/
 
 		makeFixedPosition(scrollTop);
 	}
@@ -34,8 +38,8 @@
 			var bodyHeight = Math.max( body.scrollHeight, body.offsetHeight, 
                        html.clientHeight, html.scrollHeight, html.offsetHeight );
 
-			if(scrollTop+sideBar.offsetHeight+128 > bodyHeight){
-				sideBar.style.top = (bodyHeight-sideBar.offsetHeight-128)+"px";
+			if(scrollTop+sideBar.offsetHeight+128+topOffset > bodyHeight){
+				sideBar.style.top = (bodyHeight-sideBar.offsetHeight-128-topOffset)+"px";
 			}else{
 				sideBar.style.top = scrollTop+"px";
 			}
@@ -50,6 +54,8 @@
 	setInterval(function(){
 		updatePosition();
 	}, 200);
+
+
 
 
 })();

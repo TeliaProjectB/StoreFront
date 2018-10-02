@@ -7,10 +7,15 @@ function addToCart(){
 
 	var doc = document.documentElement;
 	var offsetTopRelativePos = 0;
-	var leftContainerOffsetTop = parseInt(sideBarContent.style.top, 10);
+	
+	var doc = document.documentElement;
+	var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+
+	var leftContainerOffsetTop = sideBarContent.offsetTop-scrollTop;
+	/*var leftContainerOffsetTop = parseInt(sideBarContent.style.top, 10);
 	if(leftContainerOffsetTop == 0){
 		offsetTopRelativePos = header.offsetHeight;
-	}
+	}*/
 
 	clonedImage.className += " addToCartAnimation";
 	clonedImage.style.margin = "0px";

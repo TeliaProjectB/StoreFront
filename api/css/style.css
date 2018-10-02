@@ -25,8 +25,9 @@
 #sideBarRealContent{
 	display:flex;
 	flex-direction: column;
-	transition: top 0.25s ease-out;
+	transition: top 0.35s ease-in-out;
 	position: absolute;
+	margin-top: 92px;
 }
 
 #CenterContent{
@@ -39,6 +40,7 @@
 #miniInfoBuyPanel{
 	background-color: white;
 	transition: transform 0.1s ease-in;
+	margin-top: 0px;
 }
 
 #infoPanel{
@@ -98,6 +100,7 @@
 	background-color: white;
 	margin-left: 0px;
 	margin-right: 0px;
+	margin-top: 0px;
 }
 
 .white{
@@ -195,9 +198,8 @@
 		position: relative;
 		margin: 0px auto;
 		top: 0px;
-	}
-	#sideBarRealContent{
 		width: 100%;
+		margin-top:0px;
 	}
 	#miniInfoBuyPanel{
 		width: 100%;
