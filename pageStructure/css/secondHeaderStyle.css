@@ -1,0 +1,154 @@
+#secondHead{
+	z-index: 200;
+	display:flex;
+	flex-wrap: nowrap;
+	flex-direction:row;
+	width:100%;
+	background-color:white;
+	align-items: center;
+	border-top: 1px solid grey;
+}
+
+
+#helpContact {
+	height: 20px;
+	display:flex;
+	margin-left:1vw;
+	padding: 15px;
+	background-image: url('../img/contact.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	cursor: pointer;
+	flex-direction: column;
+	margin-right:1vw;
+	position:absolute;
+	right:0;
+}
+
+
+.headerButton{
+	background-color:transparent;
+	margin-left:8vw;
+	display:flex;
+	cursor:pointer;
+	padding: 16px;
+    font-size: 16px;
+	border-radius: 4px;
+	-webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+#searchBar{
+	background-color: #e8e8e8;
+	border-radius: 5px;
+	padding: 6px;
+	margin: 8px;
+	margin-left: 4vw;
+	height: 24px;
+	display:flex;
+	margin-right:1vw;
+}
+
+#searchIcon{
+	display: flex;
+	background-image: url('../img/search.svg');
+	background-size:contain;
+	background-position:center;
+	background-repeat:no-repeat;
+	width: 24px;
+	height: 24px;
+	cursor:pointer;
+	
+}
+
+
+.dropbtn {
+    background-color: transparent;
+    -webkit-transition-duration: 0.5s; 
+    transition-duration: 0.5s;
+    padding: 16px;
+    font-size: 16px;
+	border-radius: 4px;
+	cursor:pointer;
+}
+
+
+.dropdown {
+	position: relative;
+	margin-left:8vw;
+	flex-direction: column;
+}
+
+.dropdown-content {
+	flex:1;
+	display: none;
+	flex-direction: column;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	transition: 0.06s ease-in-out;
+}
+
+
+.dropdownButton {
+	flex:1;
+	display:flex;
+	cursor:pointer;
+    color: black;
+    padding: 12px 16px;
+	text-decoration: none;
+	background-color:transparent;
+    font-size: 16px;
+	-webkit-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+	width:100%;
+}
+
+
+.dropdownButton:hover {
+	background-color: #ddd;
+}
+
+.dropdown:hover .dropbtn, .headerButton:hover {
+	background-color: rgb(223, 165, 252);
+}
+
+.headerButton:active, .dropdown:hover .dropbtn:active {
+	transform: translateY(4px);
+  }
+
+  
+
+@media only screen and (max-width: 500px){
+	.headerButton{
+		display: none;
+	}
+	.dropdown{
+		display: none;
+	}
+	#searchBar{
+		display: none;
+	}
+	#userIcon{
+		margin-left: 200px;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	.headerButton{
+		display: none;
+	}
+	.dropdown{
+		display: none;
+	}
+
+}
+
+@media only screen and (max-width: 1100px){
+	.headerButton{
+		display: none;
+	}
+}
