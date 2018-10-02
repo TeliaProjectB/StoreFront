@@ -59,6 +59,10 @@
  						<td>Host</td>
 						<td>hahah.test.com</td>
 					</tr>
+					<tr>
+ 						<td>Manual</td>
+						<td><a href="www.telia.se/manual?id=47gjew">Telia website manual</a></td>
+					</tr>
 				</table>
 
 				<!--
