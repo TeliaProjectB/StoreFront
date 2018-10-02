@@ -1,5 +1,11 @@
 
+.contentRow{
+	min-height: 256px;
+}
 
+.bigBoxesCategories {
+	min-height: 300px;
+}
 
 .rowContainer{
 	width: 90%;
