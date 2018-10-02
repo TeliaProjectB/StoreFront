@@ -1,7 +1,6 @@
-define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions){
-	function initModule(){
+define(["makeRepetitions"], function(makeRepetitions){
+	function initModule(apiRetriever){
 		var reapeatAPI = new makeRepetitions.init();
-		var apiRetriever = new retrieveApi.init();
 		var apiBoxSize;
 
 
@@ -41,7 +40,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 
 
-			apiRetriever.loadApis(apiElementContainer, element.getAttribute("name"), function(numberOfElements, apiMoveWrapper){
+			apiRetriever.loadApisRows(apiElementContainer, element.getAttribute("name"), function(numberOfElements, apiMoveWrapper){
 				var style = getComputedStyle(apiMoveWrapper.firstChild);
 				apiBoxSize = apiMoveWrapper.firstChild.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
 				
