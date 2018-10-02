@@ -111,7 +111,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 		];*/
 
 
-		var exampleDatabaseResult1 = [
+		/*var exampleDatabaseResult1 = [
 			{
 				name: "Send sms 1",
 				description: "Allows you to send sms through Telia's services.",
@@ -138,10 +138,10 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				image: "https://image.freepik.com/free-icon/talking-by-phone-auricular-symbol-with-speech-bubble_318-61564.jpg",
 				id: "5476"
 			},
-		];
+		];*/
 
 
-		var exampleDatabaseResult2 = [
+		/*var exampleDatabaseResult2 = [
 			{
 				name: "Send sms 1",
 				description: "Allows you to send sms through Telia's services.",
@@ -168,7 +168,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				image: "https://us.123rf.com/450wm/georgejmclittle/georgejmclittle1612/georgejmclittle161200138/67866536-close-up-view-of-young-woman-recording-voice-message-on-her-mobile-phone-all-screen-graphics-are-mad.jpg?ver=6",
 				id: "5476"
 			},
-		];
+		];*/
 
 
 		var exampleDatabaseResult3 = [
@@ -208,10 +208,10 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			}
 			if(hasLoaded == 0){
 				hasLoaded++;
-				retrievedData = exampleDatabaseResult1;
+				retrievedData = exampleDatabaseResult3;
 			}else if(hasLoaded == 1){ 
 				hasLoaded++;
-				retrievedData = exampleDatabaseResult2;
+				retrievedData = exampleDatabaseResult3;
 			}else if(hasLoaded == 2){ 
 				hasLoaded++;
 				retrievedData = exampleDatabaseResult3;
