@@ -1,3 +1,60 @@
+
+<?php  
+require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
+
+
+function getRealImageSrc($imgName){
+	
+
+	if(strcmp(substr($imgName, -4), ".jpg") == 0){
+		return $imgName;
+	}else if(strcmp(substr($imgName, -4), ".png") == 0){
+		return $imgName;
+	}else if(strcmp(substr($imgName, -5), ".jpeg") == 0){
+		return $imgName;
+	}
+
+	
+	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".png")){
+		return $imgName.".png";
+	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpg")){
+		return $imgName.".jpg";
+	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpeg")){
+		return $imgName.".jpeg";
+	}
+
+	return $imgName;
+}
+
+
+$apiName = "";
+$apiDescription = "";
+$apiImage = "";
+$apiCategory = "";
+$apiPrice = "";
+if(isset($_GET["id"])){
+	$randomId = htmlspecialchars($_GET["id"]);
+	$sql = "SELECT * FROM `API` WHERE `randomId`='$randomId'";
+
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+
+	$apiName = $row["Name"];
+	$apiDescription = $row["Description"];
+	$apiImage = getRealImageSrc($row["imgName"]);
+	$apiCategory = $row["Category"];
+	$apiPrice = $row["Price"];
+	
+	
+
+}else{
+	echo "<script>window.open('/StoreFront/home/', '_self')</script>";
+	die();
+}
+
+?>
+
+
  
 <!--Real content start-->
 <div id="contentContainer">
@@ -6,13 +63,14 @@
 			<div class="panel panel3d">
 				<button id="goHomeButton" onclick="window.open('/StoreFront/home/', '_self');">Go home</button>
 			</div>
-			<div id="apiIcon" class="panel3d panel">
-				<h1>Apple API</h1>
+			<div id="apiIcon" class="panel3d panel" >
+				<h1 id="apiIconTitle"><?php echo $apiName; ?></h1>
+				<div id="apiIconBackground" style="background-image: url('/StoreFront/globalImages/API/<?php echo $apiImage; ?>')"></div>
 			</div>
 			<aside id="miniInfoBuyPanel" class="panel3d panel flexColumn">
-				<div><h4>Category:</h4> Apple stuff</div>
+				<div><h4>Category:</h4> <?php echo $apiCategory; ?></div>
 				<div style="margin-bottom: 16px;"><h4>Last updated:</h4> 2018-02-00</div>
-				<div><h4>Price:</h4> 5000kr</div>
+				<div><h4>Price:</h4> <?php echo $apiPrice; ?> kr</div>
 				<button id="purchaseButton">Add to cart</button>
 				<div id="thumbsUpDownContainer">
 					<div id="thumbsUp" class="thumbs"></div>
@@ -24,7 +82,7 @@
 	<div id="CenterContent">
 		<article id="info1" class="panel3d panel">
 			<h2>Information</h2>
-			<p>Telia Company AB (formerly TeliaSonera) is a Swedish dominant telephone company and mobile network operator present in Sweden, Finland, Norway, Denmark, Lithuania, Latvia and Estonia. The company has operations in other countries in Northern and Eastern Europe, and in Central Asia and South Asia, with a total of 182.1 million mobile customers (Q1, 2013). It is headquartered in Stockholm and its stock is traded on the Stockholm Stock Exchange and on the Helsinki Stock Exchange.</p>
+			<p><?php echo $apiDescription; ?></p>
 		</article>
 		<div id="panelsContainer" class="panel3d panel flexColumn">
 			<div id="rowButtonContainer">

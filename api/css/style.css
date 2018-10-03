@@ -85,16 +85,27 @@
 
 
 #apiIcon{
-	background-image: url('../img/apple.png');
-	background-repeat: no-repeat;
-	background-position: 32px 32px;
-	background-size: contain;
 	height: 256px;
 	width:256px;
 	background-color:white;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 
+#apiIconTitle{
+	display:flex;
+}
+
+#apiIconBackground{
+	background-image: url('../img/apple.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	display:flex;
+	flex: 3;
+}
 
 #purchaseButton{
 	background-color: #990ae3;
