@@ -47,6 +47,7 @@
 }
 
 #sideBarRealContent{
+	height: 90vh;
 	display:flex;
 	flex-direction: column;
 	transition: top 0.35s ease-in-out;
@@ -85,6 +86,7 @@
 
 
 #apiIcon{
+	flex:0.5;
 	height: 180px;
 	width: 256px;
 	background-color:white;
