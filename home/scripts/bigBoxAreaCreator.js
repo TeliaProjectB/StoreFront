@@ -5,7 +5,8 @@ define(["retrieveApi"], function(retrieveApi){
 
 		this.appendBoxArea = function(element){
 			element.className += " rowContainer";
-			var titleEle = document.createElement("h1");
+			var titleEle = document.createElement("a");
+			titleEle.href = "/StoreFront/search?cat="+element.getAttribute("name");
 			titleEle.className= "rowTitle";
 			titleEle.style.position = "relative";
 			titleEle.innerHTML= element.getAttribute("name");
@@ -17,7 +18,7 @@ define(["retrieveApi"], function(retrieveApi){
 			});
 
 
-			var findMoreButton = document.createElement("a");
+			/*var findMoreButton = document.createElement("a");
 			findMoreButton.innerHTML = "More";
 			findMoreButton.className = "findMoreButton";
 			findMoreButton.href = "/StoreFront/search?cat="+element.getAttribute("name");
@@ -28,7 +29,7 @@ define(["retrieveApi"], function(retrieveApi){
 			container.appendChild(findMoreButton);
 
 
-			element.appendChild(container);
+			element.appendChild(container);*/
 
 			
 

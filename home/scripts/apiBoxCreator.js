@@ -15,16 +15,15 @@ define([], function(){
 
 			var apiTitle = document.createElement("div");
 			apiTitle.className = "apiTitle";
-			apiTitle.innerHTML = apiData.name;
-
+			apiTitle.innerHTML = apiData.Name;
 
 			var apiIcon = document.createElement("div");
 			apiIcon.className = "apiBackground";
-			apiIcon.style.backgroundImage = "url("+apiData.image+")";
+			apiIcon.style.backgroundImage = "url(/StoreFront/globalImages/API/"+apiData.imgName+")";
 
 			var apiDescription = document.createElement("div");
 			apiDescription.className = "apiDescription";
-			apiDescription.innerHTML = apiData.description;
+			apiDescription.innerHTML = apiData.Description;
 
 			var titleDescContainer = document.createElement("div");
 			titleDescContainer.className = "titleDescContainer";
@@ -37,7 +36,7 @@ define([], function(){
 			apiContainer.appendChild(newApi);
 			
 
-			newApi.setAttribute("myApiId", apiData.id);
+			newApi.setAttribute("myApiId", apiData.RandomId);
 			
 
 		}
@@ -51,16 +50,16 @@ define([], function(){
 
 			var apiTitle = document.createElement("div");
 			apiTitle.className = "apiTitle";
-			apiTitle.innerHTML = apiData.name;
+			apiTitle.innerHTML = apiData.Name;
 
 
 			var apiIcon = document.createElement("div");
 			apiIcon.className = "apiBackground";
-			apiIcon.style.backgroundImage = "url("+apiData.image+")";
+			apiIcon.style.backgroundImage = "url(/StoreFront/globalImages/API/"+apiData.imgName+")";
 
 			var apiDescription = document.createElement("div");
 			apiDescription.className = "apiDescription";
-			apiDescription.innerHTML = apiData.description;
+			apiDescription.innerHTML = apiData.Description;
 
 			var titleDescContainer = document.createElement("div");
 			titleDescContainer.className = "titleDescContainer";
@@ -74,7 +73,7 @@ define([], function(){
 			
 			
 			newApi.onclick = function(){
-				window.open("/StoreFront/api?id="+apiData.id, '_self');
+				window.open("/StoreFront/api?id="+apiData.RandomId, '_self');
 			};
 
 		}

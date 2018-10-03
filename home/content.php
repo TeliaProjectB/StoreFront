@@ -7,20 +7,17 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 
 
 
-<div id="topListCategory" class="contentRow" name="Top list"></div>
+<div id="topListCategory" class="contentRow" name="SMS"></div>
+<div id="freeCategory" class="contentRow" name="Call"></div>
 
 
-<div id="freeCategory" class="contentRow" name="Free"></div>
+<div class="bigBoxesCategories" name="for company" id="Statistics API" maximum="3"></div>
 
 
-<div class="bigBoxesCategories" name="paid" id="paidCategory" ></div>
+
+<div id="freeCategory" class="contentRow" name="fun"></div>
 
 
-<div class="rowSpace"></div>
+<div class="bigBoxesCategories" name="for company" id="Cloud storage" maximum="6"></div>
 
 
-<div id="recommendedCategory" class="contentRow" name="Recommended"></div>
-
-<div class="rowSpace"></div>
-
-<div id="mostBoughtCategory" class="contentRow" name="Most bought"></div>
