@@ -99,7 +99,7 @@ if(isset($_GET["id"])){
 					 </tr>
 					 <tr>
  						<td>Name</td>
-						<td>Apple API</td>
+						<td><?php echo $apiName; ?></td>
 					</tr>
 					<tr>
  						<td>Last update</td>
@@ -148,3 +148,4 @@ if(isset($_GET["id"])){
 	</div>
 </div>
     	<!--Real content end-->
+<div id="extraSpace"></div>

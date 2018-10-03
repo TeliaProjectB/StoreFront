@@ -1,8 +1,11 @@
 (function(){
 	var isFixed = false;
+	var contentContainer = document.getElementById("contentContainer");
 	var sideBar = document.getElementById("sideBarRealContent");
 	var centerContent = document.getElementById("CenterContent");
 	var header = document.getElementById("head");
+
+	sideBar.style.marginTop = contentContainer.offsetTop+"px";
 
 	var topOffset = header.offsetHeight + parseInt(window.getComputedStyle(header).marginBottom, 10);
 	topOffset+=32;

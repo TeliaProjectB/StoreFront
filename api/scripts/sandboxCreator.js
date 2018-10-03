@@ -1,5 +1,5 @@
 function createSandbox(elementName){
-	var apiSource = "http://vitalkia.com/skola/apiExample.php";
+	var apiSource = "/StoreFront/exampleApi/getWeather.php";
 
 	var element = document.getElementById(elementName);
 	element.className = "sandbox";
@@ -33,18 +33,21 @@ function createSandbox(elementName){
 	element.appendChild(inputContainer);
 
 
-	function createSpanResponse(response){
-		var span = document.createElement("div");
+	function createSpanResponse(response, status){
+		var span = document.createElement("span");
 		span.innerHTML = response;
 		span.className = "apiResponse";
 		outputElement.appendChild(span);
+		switch(status){
+			case 500: span.style.backgroundColor = "#f9acac";
+			break;
+		}
 
 		outputElement.scrollTop = outputElement.scrollHeight;
 	}
 
 
 	function requestToAPI(){
-		createSpanResponse("No response");
 
 		var xmlhttp;
 		if (window.XMLHttpRequest) { // Mozilla, Safari
@@ -57,13 +60,10 @@ function createSandbox(elementName){
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', apiSource, true);
 		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhr.setRequestHeader("Content-Encoding", "gzip");
 		xhr.onload = function () {
-			console.log(xhr.responseText);
-		    if (xhr.status == 200) {
-		    	createSpanResponse(xhr.responseText);
-		    }else{
 
+		    if (this.readyState == XMLHttpRequest.DONE) {
+		    	createSpanResponse(xhr.responseText, this.status);
 		    }
 		};
 

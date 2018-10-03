@@ -5,6 +5,15 @@ function addToCart(){
 	var offsets = cloneParent.getBoundingClientRect();
 	var clonedImage = cloneParent.cloneNode();
 
+	var apiBackgroundDiv = document.getElementById("apiIconBackground");
+
+	clonedImage.style.backgroundImage = apiBackgroundDiv.style.backgroundImage;
+	clonedImage.style.backgroundSize = "contain";
+	clonedImage.style.backgroundPosition = "center";
+	clonedImage.style.backgroundRepeat = "no-repeat";
+
+
+
 	var doc = document.documentElement;
 	var offsetTopRelativePos = 0;
 	
