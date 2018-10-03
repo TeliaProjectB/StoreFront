@@ -6,7 +6,6 @@
 }
 
 #thumbsUpDownContainer{
-	padding: 8px;
 	margin: 0px auto;
 	display:flex;
 	flex-direction: row;
@@ -22,7 +21,7 @@
 
 .thumbs{
 	cursor:pointer;
-	margin: 12px;
+	margin: 6px 16px;
 	transition: transform 0.5s ease-in;
 	background-repeat: no-repeat;
 }
