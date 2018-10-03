@@ -234,6 +234,7 @@
 		padding:0px;
 	}
 	#sideBarRealContent{
+		height:auto;
 		position: relative;
 		margin: 0px auto;
 		top: 0px;
