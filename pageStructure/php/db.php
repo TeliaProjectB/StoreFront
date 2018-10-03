@@ -1,8 +1,8 @@
 <?php
     /* Database connection settings */
     $servername = '10.11.3.71';
-    $username = 'teliaUser';
-    $password = 'bvuJiLgnBOQd6LHg';
+    $username = 'TeliaServer';
+    $password = 'hmXFXmZeMpBOdLKr';
     $dbname = 'telia';
 
     // Create connection
