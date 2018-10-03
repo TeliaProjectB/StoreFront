@@ -76,6 +76,10 @@ define([], function(){
 				window.open("/StoreFront/api?id="+apiData.RandomId, '_self');
 			};
 
+			newApi.addEventListener("mousedown", function(){
+				apiElement.className += " panelActive";
+			});
+
 		}
 
 

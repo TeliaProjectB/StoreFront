@@ -62,6 +62,7 @@
 	transition: margin 0.7s ease-out;
 }
 
+
 .apiBox{
 
 	flex-shrink: 0;
@@ -80,7 +81,7 @@
 	cursor: pointer;
 	padding: 0px 24px;
 
-	transition: width 0.12s ease-out, height 0.12s ease-out;
+	transition: width 0.12s ease-out, height 0.12s ease-out, transform 0.2s ease-out;
 
 	
 
@@ -93,6 +94,10 @@
 	transform: translateZ(0);
 }
 
+
+.apiBox:active{
+	transform: scale(0.79);
+}
 
 .apiBox:hover{
 	/*transform: scaleX(1.15) scaleY(1.15);*/

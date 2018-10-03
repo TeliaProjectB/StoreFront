@@ -129,9 +129,14 @@ define(["makeRepetitions"], function(makeRepetitions){
 				updateScrollPosition(rowData);
 			});
 
+			apiElement.addEventListener("mousedown", function(){
+				apiElement.className += " panelActive";
+			});
 			apiElement.onclick = function(){
-				window.open("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"), "_self");
 				document.body.style.cursor = "wait";
+				setTimeout(function(){
+					window.open("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"), "_self");
+				}, 60);
 			};
 		}
 
