@@ -29,7 +29,7 @@
 
 .headerButton{
 	background-color:transparent;
-	margin-left:8vw;
+	margin-left:4vw;
 	display:flex;
 	cursor:pointer;
 	padding: 10px;
@@ -43,11 +43,12 @@
 	background-color: #e8e8e8;
 	border-radius: 5px;
 	padding: 6px;
-	margin: 8px;
-	margin-left: 4vw;
+	margin-left: 2vw;
 	height: 16px;
 	display:flex;
-	margin-right:1vw;
+	position:fixed;
+	right:0;
+	margin-right:7vw;
 }
 
 #searchIcon{
@@ -76,7 +77,7 @@
 
 .dropdown {
 	position: relative;
-	margin-left:8vw;
+	margin-left:4vw;
 	flex-direction: column;
 }
 
@@ -94,7 +95,7 @@
 
 
 .dropdownButton {
-	flex:1;
+
 	display:flex;
 	cursor:pointer;
     color: black;
