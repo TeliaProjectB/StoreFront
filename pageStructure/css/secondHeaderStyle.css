@@ -14,7 +14,7 @@
 	height: 20px;
 	display:flex;
 	margin-left:1vw;
-	padding: 15px;
+	padding: 14px;
 	background-image: url('../img/contact.png');
 	background-repeat: no-repeat;
 	background-position: center;
@@ -32,7 +32,7 @@
 	margin-left:8vw;
 	display:flex;
 	cursor:pointer;
-	padding: 16px;
+	padding: 10px;
     font-size: 16px;
 	border-radius: 4px;
 	-webkit-transition-duration: 0.5s;
@@ -45,7 +45,7 @@
 	padding: 6px;
 	margin: 8px;
 	margin-left: 4vw;
-	height: 24px;
+	height: 16px;
 	display:flex;
 	margin-right:1vw;
 }
@@ -56,8 +56,8 @@
 	background-size:contain;
 	background-position:center;
 	background-repeat:no-repeat;
-	width: 24px;
-	height: 24px;
+	width: 16px;
+	height: 16px;
 	cursor:pointer;
 	
 }
@@ -67,7 +67,7 @@
     background-color: transparent;
     -webkit-transition-duration: 0.5s; 
     transition-duration: 0.5s;
-    padding: 16px;
+    padding: 10px;
     font-size: 16px;
 	border-radius: 4px;
 	cursor:pointer;
