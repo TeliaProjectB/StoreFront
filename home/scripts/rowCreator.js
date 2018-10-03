@@ -6,7 +6,7 @@ define(["makeRepetitions"], function(makeRepetitions){
 
 		var rowDatas = [];
 
-		this.appendRow = function(element){
+		this.appendRow = function(element, onComplete){
 			element.className += " rowContainer";
 
 			var titleEle = document.createElement("a");
@@ -94,6 +94,7 @@ define(["makeRepetitions"], function(makeRepetitions){
 
 				autoFillOnStart(rowData);
 
+				onComplete();
 			});
 
 			
