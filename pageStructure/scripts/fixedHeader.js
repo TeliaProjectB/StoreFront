@@ -1,10 +1,21 @@
 /* function for fixing only first header when user scroll down */
 
-window.onscroll = function (e) {  
+var lastScrollTop = 0;
+$(window).scroll(function () {
+    
     var scrollTop = $(this).scrollTop();
-    if (scrollTop <= 0) { /* top window */
-        $('.secondHeader').css({"display":"flex"});
-    } else { /* middle of the window */
-        $('.secondHeader').css({"display":"none"});
-    } 
-} 
+    if (scrollTop < lastScrollTop){
+        $('.secondHeader').slideDown();
+    } else {
+        $('.secondHeader').slideUp();
+       
+    }
+    lastScrollTop = scrollTop;
+})
+
+function showSecondHeader(){
+    
+    if($('.secondHeader:visible').length == 0){
+        $('.secondHeader').slideDown();
+    }
+}
