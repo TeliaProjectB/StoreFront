@@ -37,7 +37,7 @@ function checkUser(){
         $("#signedIn").css({"display": "inline"});  
     
             
-        document.getElementById("showUsername").innerHTML = "Hi, " + usernameText;
+        document.getElementById("showUsername").innerHTML = "Hi, " + usernameText + "!";
         $("#userIcon").css({"margin-left": "2vw"});  
         
     }
