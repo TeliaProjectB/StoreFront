@@ -3,7 +3,7 @@ define(["retrieveApi"], function(retrieveApi){
 
 
 
-		this.appendBoxArea = function(element){
+		this.appendBoxArea = function(element, onComplete){
 			element.className += " rowContainer";
 			var titleEle = document.createElement("a");
 			titleEle.href = "/StoreFront/search?cat="+element.getAttribute("name");
@@ -15,6 +15,7 @@ define(["retrieveApi"], function(retrieveApi){
 
 			apiRetriever.loadApisBoxes(element, element.getAttribute("name"), function(apiBoxContainer){
 
+				onComplete();
 			});
 
 
