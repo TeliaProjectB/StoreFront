@@ -1,4 +1,12 @@
+/************************************
+	Functions to open login sidebar
+************************************/
+
 function openSlideInWindow(){
+    if($('.helpWindow:visible').length != 0){
+        $(".helpWindow").animate({width: 'toggle'});
+    }
+
     $(".loginWindow").animate({width: 'toggle'});
 
     if($('.secondWindow:visible').length != 0){

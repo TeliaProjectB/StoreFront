@@ -6,14 +6,14 @@
 	width:100%;
 	background-color:white;
 	align-items: center;
-	border-top: 1px solid grey;
+	/*border-top: 1px solid grey;*/
 }
 
 
 #helpContact {
 	height: 20px;
 	display:flex;
-	margin-left:1vw;
+	margin-left:5vw;
 	padding: 14px;
 	background-image: url('../img/contact.png');
 	background-repeat: no-repeat;
@@ -22,8 +22,6 @@
 	cursor: pointer;
 	flex-direction: column;
 	margin-right:1vw;
-	position:absolute;
-	right:0;
 }
 
 
@@ -43,12 +41,10 @@
 	background-color: #e8e8e8;
 	border-radius: 5px;
 	padding: 6px;
-	margin-left: 2vw;
-	height: 16px;
+	margin-left: 22vw;
+	height: 20px;
 	display:flex;
-	position:fixed;
-	right:0;
-	margin-right:7vw;
+	margin-right:3vw;
 }
 
 #searchIcon{
@@ -57,8 +53,8 @@
 	background-size:contain;
 	background-position:center;
 	background-repeat:no-repeat;
-	width: 16px;
-	height: 16px;
+	width: 20px;
+	height: 20px;
 	cursor:pointer;
 	
 }
@@ -95,7 +91,6 @@
 
 
 .dropdownButton {
-
 	display:flex;
 	cursor:pointer;
     color: black;

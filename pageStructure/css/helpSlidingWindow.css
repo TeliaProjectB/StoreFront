@@ -5,7 +5,7 @@
     height: 100%;
     background-color: white;
 	right: 0px;
-	margin-top: -27px;
+	margin-top: -18px;
 	margin-right: -32px;
 	box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.1);
     display: none;
@@ -13,20 +13,23 @@
 }
 
 .posisionOfTheHelpWindow{
-	text-align: center;	
+    text-align: center;	
+    width:350px;
 }
 
 .questionText {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
+    padding: 8px 0px;
     font-size: 16px;
 	color: #000000;
 	background-color: rgb(255, 255, 255);
-    display: block;
     cursor: pointer;
     transition: 0.3s;
-    margin-right:10px;
     border-top: 2px solid rgb(191, 96, 255);
+    display:block;
+    margin-right:30px;
+    padding-right: 20px;
+    padding-left:20px;
+    margin-bottom:10px;
 }
 
 
@@ -45,6 +48,7 @@
     margin-right:30px;
     padding-right: 20px;
     padding-left:20px;
+    margin-bottom:10px;
 }
 
 .closeWindowButton{
@@ -58,7 +62,6 @@
     background-size: contain;
     width: 30px;
     height: 30px;
-    width:50%;
 }
 
 .closeWindowButton:hover {
