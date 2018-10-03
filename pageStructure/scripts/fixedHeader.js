@@ -1,18 +1,10 @@
-/* function for header fixed
+/* function for fixing only first header when user scroll down */
 
-var navbar = document.getElementById("head");
-var sticky = navbar.offsetTop;
-
-
-navbar.classList.add("sticky");
-
-$('#pageContentWrapper').on('scroll', function() {
+window.onscroll = function (e) {  
     var scrollTop = $(this).scrollTop();
-    if (scrollTop + $(this).innerHeight() >= this.scrollHeight) {
-        $('#secondHead').css({"display":"flex"});
-    } else if (scrollTop <= 0) {
-        $('#secondHead').css({"display":"flex"});
-    } else {
-        $('#secondHead').css({"display":"none"});
-    }
-  }); */
+    if (scrollTop <= 0) { /* top window */
+        $('.secondHeader').css({"display":"flex"});
+    } else { /* middle of the window */
+        $('.secondHeader').css({"display":"none"});
+    } 
+} 
