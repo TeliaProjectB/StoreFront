@@ -81,4 +81,8 @@ function goBackToStart(){
     $("#firstStep").css({"display": "inline"});
 }
 
+function closeLoginWindow(){
+    $(".loginWindow").animate({width: 'toggle'});
+}
+
 

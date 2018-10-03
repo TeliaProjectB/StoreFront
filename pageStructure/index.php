@@ -87,7 +87,7 @@
 								</div>
 							</div>
 							
-							<button class="closeWindowButton" onclick="openHelpWindow()">Close</button>
+							<button class="closeWindowButton" onclick="openHelpWindow()"></button>
 						</div>
 
 					</div>
@@ -119,6 +119,8 @@
 							<a href="#" class="sidenavText">Payment</a>
 							<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
 						</div>
+						
+						<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
 					</div>
 				</div>
 			
