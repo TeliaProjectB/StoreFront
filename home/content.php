@@ -9,17 +9,17 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 	<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 
-<div id="topListCategory" class="contentRow" name="SMS"></div>
-<div id="freeCategory" class="contentRow" name="Call"></div>
+<div id="topListCategory" class="contentRow" name="Top List"></div>
+<div id="freeCategory" class="contentRow" name="Free"></div>
 
 
 <div class="bigBoxesCategories" name="for company" id="Statistics API" maximum="3"></div>
 
 
 
-<div id="freeCategory" class="contentRow" name="fun"></div>
+<div id="freeCategory" class="contentRow" name="sms"></div>
 
 
-<div class="bigBoxesCategories" name="for company" id="Cloud storage" maximum="6"></div>
+<div class="bigBoxesCategories" name="for company" id="Call" maximum="6"></div>
 
 

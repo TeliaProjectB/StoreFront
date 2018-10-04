@@ -42,13 +42,13 @@ function getRealImageSrc($imgName){
 }
 
 if(isset($_POST["category"]) && isset($_POST["limit"])){
-	$category = htmlspecialchars($_POST["category"]);
+	$category = strtolower(htmlspecialchars($_POST["category"]));
 	$limit = htmlspecialchars($_POST["limit"]);
 
 
-	$sql = "SELECT * FROM `API` WHERE `Category`='$category'";
+	$sql = "SELECT * FROM `API` WHERE LOWER(`Category`) like '%$category%'";
 
-
+	
 	$result = $conn->query($sql);
 
 
