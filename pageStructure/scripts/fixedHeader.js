@@ -1,13 +1,32 @@
 /* function for fixing only first header when user scroll down */
 
+var scrollingUp = false;
+var scrollingDown = false;
+
+
 var lastScrollTop = 0;
 $(window).scroll(function () {
     
     var scrollTop = $(this).scrollTop();
     if (scrollTop < lastScrollTop){
-        $('.secondHeader').slideDown();
+        if(scrollingDown == false){
+            $('.secondHeader').stop();
+            $('.secondHeader').slideDown();
+
+            scrollingUp = false;
+            scrollingDown = true;
+        }
+        
+        
     } else {
-        $('.secondHeader').slideUp();
+        if(scrollingUp == false){
+            $('.secondHeader').stop();
+
+            $('.secondHeader').slideUp();
+            scrollingUp = true;
+            scrollingDown = false;
+        }  
+        
        
     }
     lastScrollTop = scrollTop;
