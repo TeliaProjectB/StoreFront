@@ -84,6 +84,8 @@ function openRegisterWindow(){
 }
 
 function checkUser(){
+    signInUser();
+    /*
     var usernameText = $('#username').val();
     var passwordText = $('#password').val();
     var username = document.getElementById('username');
@@ -129,7 +131,7 @@ function checkUser(){
             username.classList.remove('error-test');
             password.classList.remove('error-test');
         }, 1000);
-    }
+    }*/
 }
 
 function goBackToStart(){
