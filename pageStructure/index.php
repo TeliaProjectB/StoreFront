@@ -1,7 +1,7 @@
 <?php 
 	/* Main page with two forms: sign up and log in */
 	require 'php/db.php';
-	//session_start(); we need this later
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -132,7 +132,23 @@
 						</div>
 						
 						<div id="register">
-							<p>Put content here!</p>
+							<p>Username</p>
+							<input name="username" id="registerName" class="inputBoxSignIn inputBoxSignIn-text" type="text">
+
+							<p>First name</p>
+							<input name="username" id="registerFirstname" class="inputBoxSignIn inputBoxSignIn-text" type="text">
+
+							<p>Last name</p>
+							<input name="username" id="registerLastName" class="inputBoxSignIn inputBoxSignIn-text" type="text">
+
+							<p>Email</p>
+							<input name="username" id="registerEmail" class="inputBoxSignIn inputBoxSignIn-text" type="text">
+
+							<p>Password</p>
+							<input name="password" id="registerPassword"  class="inputBoxSignIn inputBoxSignIn-text" type="password">
+							<br>
+							<input type="checkbox">I agree to the terms and services.</br>
+							<button onclick="registerUser()">Register</button>
 						</div>
 
 						<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
@@ -167,6 +183,7 @@
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/scrollDownFunction.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/fixedHeader.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/helpSlidingWindow.js"></script>
+		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/registerUser.js"></script>
 		
 	</body>
 </html>
