@@ -19,15 +19,15 @@ function openSlideInWindow(){
     
 }
 
+/************************************
+	Functions to open question sidebar
+************************************/
 function openHelpWindow(){
     if(!$(".helpWindow").is(":animated")){
         $(".helpWindow").stop();
         
         if($('.loginWindow:visible').length != 0){
-            $(".loginWindow").animate({width: 'toggle'});
-        }
-        if($('.secondWindow:visible').length != 0){
-            $(".secondWindow").animate({width: 'toggle'});
+            $(".loginWindow").animate({width: 'toggle'});            
         }
 
         $(".helpWindow").animate({width: 'toggle'});
@@ -39,8 +39,10 @@ function openHelpWindow(){
         $("#answer3").css({"display": "none"});
         $("#answer4").css({"display": "none"});
         $("#answer5").css({"display": "none"});
+        
     }
-    
+    console.log("false")
+    flag = false
 }
 
 
@@ -50,7 +52,7 @@ $(document).on('click','#contentID',function(){
     if($('.loginWindow:visible').length != 0){
         $(".loginWindow").stop();
         $(".loginWindow").animate({width: 'toggle'});
-        flag = true;
+        //flag = true;
     }
 });
 
