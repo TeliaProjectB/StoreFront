@@ -77,7 +77,7 @@ define([], function(){
 			};
 
 			newApi.addEventListener("mousedown", function(){
-				apiElement.className += " panelActive";
+				newApi.className += " panelActive";
 			});
 
 		}
