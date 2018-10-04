@@ -13,13 +13,11 @@ function openSlideInWindow(){
 
         $(".loginWindow").animate({width: 'toggle'});
         flag = true;
-    }else{
-        flag = false;
-    }
-    
+    }    
 }
 
 function openHelpWindow(){
+    flag = false;
     if(!$(".helpWindow").is(":animated")){
         $(".helpWindow").stop();
         
@@ -39,8 +37,8 @@ function openHelpWindow(){
         $("#answer3").css({"display": "none"});
         $("#answer4").css({"display": "none"});
         $("#answer5").css({"display": "none"});
+        
     }
-    
 }
 
 
@@ -50,7 +48,7 @@ $(document).on('click','#contentID',function(){
     if($('.loginWindow:visible').length != 0){
         $(".loginWindow").stop();
         $(".loginWindow").animate({width: 'toggle'});
-        flag = true;
+        flag = false;
     }
 });
 
@@ -60,15 +58,14 @@ $(document).ready(function() {
     $(window).scroll(function() {
         // additional code
         //console.log("Length: ", $('.loginWindow:visible').length)
-        if(flag){
+        if(flag == true){
+            flag = false;
             if(!$(".loginWindow").is(":animated")){
                 $(".loginWindow").stop();
                 $(".loginWindow").animate({width: 'toggle'});
+                
             }
-            flag = false;
-        }
-        
-        
+        } 
     });
 });
 
