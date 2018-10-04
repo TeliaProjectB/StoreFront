@@ -1,7 +1,7 @@
 /************************************
 	Functions to open login sidebar
 ************************************/
-//var flag = false;
+var flag = false;
 
 function openSlideInWindow(){
     if(!$(".loginWindow").is(":animated")){
@@ -12,7 +12,33 @@ function openSlideInWindow(){
         }
 
         $(".loginWindow").animate({width: 'toggle'});
-        //flag = true;
+        flag = true;
+    }else{
+        flag = false;
+    }
+    
+}
+
+function openHelpWindow(){
+    if(!$(".helpWindow").is(":animated")){
+        $(".helpWindow").stop();
+        
+        if($('.loginWindow:visible').length != 0){
+            $(".loginWindow").animate({width: 'toggle'});
+        }
+        if($('.secondWindow:visible').length != 0){
+            $(".secondWindow").animate({width: 'toggle'});
+        }
+
+        $(".helpWindow").animate({width: 'toggle'});
+        $("#helpWindow").css({"display": "inline"});
+
+
+        $("#answer1").css({"display": "none"});
+        $("#answer2").css({"display": "none"});
+        $("#answer3").css({"display": "none"});
+        $("#answer4").css({"display": "none"});
+        $("#answer5").css({"display": "none"});
     }
     
 }
@@ -24,28 +50,37 @@ $(document).on('click','#contentID',function(){
     if($('.loginWindow:visible').length != 0){
         $(".loginWindow").stop();
         $(".loginWindow").animate({width: 'toggle'});
-        //flag = true;
+        flag = true;
     }
 });
 
 
 //Clossing login window when scrolling down
-/*$(document).ready(function() { 
+$(document).ready(function() { 
     $(window).scroll(function() {
         // additional code
         //console.log("Length: ", $('.loginWindow:visible').length)
-        if (flag) {
-            $(".loginWindow").animate({width: 'toggle'});
+        if(flag){
+            if(!$(".loginWindow").is(":animated")){
+                $(".loginWindow").stop();
+                $(".loginWindow").animate({width: 'toggle'});
+            }
             flag = false;
         }
         
+        
     });
-});*/
+});
 
 
 function openLoginWindow(){
     $("#firstStep").css({"display": "none"});
     $("#loginWindow").css({"display": "inline"});
+}
+
+function openRegisterWindow(){
+    $("#firstStep").css({"display": "none"});
+    $("#register").css({"display": "inline"});
 }
 
 function checkUser(){
