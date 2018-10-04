@@ -1,6 +1,7 @@
 /************************************
 	Functions to open login sidebar
 ************************************/
+var flag = false;
 
 function openSlideInWindow(){
     if($('.helpWindow:visible').length != 0){
@@ -8,20 +9,33 @@ function openSlideInWindow(){
     }
 
     $(".loginWindow").animate({width: 'toggle'});
+    flag = true;
 }
 
 
-
+//Clicking on the website the it will close the login window
 $(document).on('click','#contentID',function(){
-    //  $(this) = your current element that clicked.
     // additional code
     if($('.loginWindow:visible').length != 0){
         $(".loginWindow").animate({width: 'toggle'});
-    }
-    if($('.secondWindow:visible').length != 0){
-        $(".secondWindow").animate({width: 'toggle'});
+        flag = true;
     }
 });
+
+
+//Clossing login window when scrolling down
+$(document).ready(function() { 
+    $(window).scroll(function() {
+        // additional code
+        //console.log("Length: ", $('.loginWindow:visible').length)
+        if (flag) {
+            $(".loginWindow").animate({width: 'toggle'});
+            flag = false;
+        }
+        
+    });
+});
+
 
 function openLoginWindow(){
     $("#firstStep").css({"display": "none"});
