@@ -60,8 +60,8 @@ if(isset($_GET["id"])){
 <div id="contentContainer">
 	<div id="sideBar">
 		<div id="sideBarRealContent">
-			<div id="goHomeButton" class="panel panel3d">
-				<button onclick="window.open('/StoreFront/home/', '_self');">Go home</button>
+			<div class="panel panel3d">
+				<button id="goHomeButton" onclick="window.open('/StoreFront/home/', '_self');">Go home</button>
 			</div>
 			<div id="apiIcon" class="panel3d panel" >
 				<h1 id="apiIconTitle"><?php echo $apiName; ?></h1>
