@@ -1,7 +1,7 @@
 /************************************
 	Functions to open login sidebar
 ************************************/
-var flag = false;
+//var flag = false;
 
 function openSlideInWindow(){
     if($('.helpWindow:visible').length != 0){
@@ -9,7 +9,7 @@ function openSlideInWindow(){
     }
 
     $(".loginWindow").animate({width: 'toggle'});
-    flag = true;
+    //flag = true;
 }
 
 
@@ -18,13 +18,13 @@ $(document).on('click','#contentID',function(){
     // additional code
     if($('.loginWindow:visible').length != 0){
         $(".loginWindow").animate({width: 'toggle'});
-        flag = true;
+        //flag = true;
     }
 });
 
 
 //Clossing login window when scrolling down
-$(document).ready(function() { 
+/*$(document).ready(function() { 
     $(window).scroll(function() {
         // additional code
         //console.log("Length: ", $('.loginWindow:visible').length)
@@ -34,7 +34,7 @@ $(document).ready(function() {
         }
         
     });
-});
+});*/
 
 
 function openLoginWindow(){
