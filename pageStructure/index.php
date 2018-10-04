@@ -111,18 +111,18 @@
 							<button class="bottomBoxSignIn" onclick="alert('This function is not implemented yet!')">Register</button>
 						</div>
 				
-						<div id="loginWindow">
+						<form id="loginWindow">
 							<p>Username</p>
-							<input id="username" class="inputBoxSignIn inputBoxSignIn-text" type="text" id="username">
+							<input name="username" id="username" class="inputBoxSignIn inputBoxSignIn-text" type="text">
 
 							<p>Password</p>
-							<input id="password" class="inputBoxSignIn inputBoxSignIn-text" type="password" id="password">
+							<input name="password" id="password" class="inputBoxSignIn inputBoxSignIn-text" type="password">
 							<br>
 						
 							<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
 							<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
 
-						</div>
+						</form>
 
 						<div id="signedIn">
 							<a href="#" onclick="window.open('/StoreFront/myAccount?index=info','_self')" class="sidenavText">Account</a>
