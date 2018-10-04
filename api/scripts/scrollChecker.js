@@ -5,6 +5,8 @@
 	var centerContent = document.getElementById("CenterContent");
 	var header = document.getElementById("head");
 
+	var footerContent = document.getElementById("footerStyle");
+
 	sideBar.style.marginTop = contentContainer.offsetTop+"px";
 
 	var topOffset = header.offsetHeight + parseInt(window.getComputedStyle(header).marginBottom, 10);
@@ -41,8 +43,8 @@
 			var bodyHeight = Math.max( body.scrollHeight, body.offsetHeight, 
                        html.clientHeight, html.scrollHeight, html.offsetHeight );
 
-			if(scrollTop+sideBar.offsetHeight+128+topOffset > bodyHeight){
-				sideBar.style.top = (bodyHeight-sideBar.offsetHeight-128-topOffset)+"px";
+			if(scrollTop+sideBar.offsetHeight > bodyHeight -  footerContent.offsetHeight){
+				sideBar.style.top = (bodyHeight-sideBar.offsetHeight- footerContent.offsetHeight)+"px";
 			}else{
 				sideBar.style.top = scrollTop+"px";
 			}
