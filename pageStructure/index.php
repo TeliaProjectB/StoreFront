@@ -97,12 +97,12 @@
 									you can send an email to Telia Service Center and we will add it if possible." 
 								</div>
 							</div>
-							
 							<button class="closeWindowButton" onclick="openHelpWindow()"></button>
 						</div>
-
 					</div>
 				</div>
+
+
 				<!-- LOGIN WINDOW -->
 				<div class="loginWindow">
 					<div class="posisionOfTheloginWindow">
@@ -125,9 +125,9 @@
 						</div>
 
 						<div id="signedIn">
-							<a href="#" onclick="window.open('/StoreFront/myAccount','_self')" class="sidenavText">Account</a>
-							<a href="#" onclick="openSecondWindow()" class="sidenavText">Bought items</a>
-							<a href="#" class="sidenavText">Payment</a>
+							<a href="#" onclick="window.open('/StoreFront/myAccount?index=info','_self')" class="sidenavText">Account</a>
+							<a href="#" onclick="window.open('/StoreFront/myAccount?index=boughtItems','_self')" class="sidenavText">Bought items</a>
+							<a href="#" onclick="window.open('/StoreFront/myAccount?index=payment','_self')" class="sidenavText">Payment</a>
 							<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
 						</div>
 						
@@ -135,21 +135,6 @@
 					</div>
 				</div>
 			
-				<div class="secondWindow">
-					<div>Bought Items</div>
-					<table class="tableInfoBox">
- 						<tr>
- 							<th>API</th>
-							<th>Price</th>
-							<th>Bought</th>
-						 </tr>
-						 <tr>
- 							<td>Test API</td>
-							<td>200kr</td>
-							<td>2018-09-11</td>
-						</tr>
-					</table>
-				</div>
 			
 				<div id="contentID">
 					<?php
