@@ -41,7 +41,6 @@ function openHelpWindow(){
         $("#answer5").css({"display": "none"});
         
     }
-    console.log("false")
     flag = false
 }
 
