@@ -60,7 +60,7 @@ if(isset($_GET["id"])){
 <div id="contentContainer">
 	<div id="sideBar">
 		<div id="sideBarRealContent">
-			<div class="panel panel3d">
+			<div id="goHomeButtonParent" class="panel panel3d">
 				<button id="goHomeButton" onclick="window.open('/StoreFront/home/', '_self');">Go home</button>
 			</div>
 			<div id="apiIcon" class="panel3d panel" >
