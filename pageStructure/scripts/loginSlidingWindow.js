@@ -4,12 +4,17 @@
 //var flag = false;
 
 function openSlideInWindow(){
-    if($('.helpWindow:visible').length != 0){
-        $(".helpWindow").animate({width: 'toggle'});
-    }
+    if(!$(".loginWindow").is(":animated")){
+        $(".loginWindow").stop();
 
-    $(".loginWindow").animate({width: 'toggle'});
-    //flag = true;
+        if($('.helpWindow:visible').length != 0){
+            $(".helpWindow").animate({width: 'toggle'});
+        }
+
+        $(".loginWindow").animate({width: 'toggle'});
+        //flag = true;
+    }
+    
 }
 
 
@@ -17,6 +22,7 @@ function openSlideInWindow(){
 $(document).on('click','#contentID',function(){
     // additional code
     if($('.loginWindow:visible').length != 0){
+        $(".loginWindow").stop();
         $(".loginWindow").animate({width: 'toggle'});
         //flag = true;
     }
