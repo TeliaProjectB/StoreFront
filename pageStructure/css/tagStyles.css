@@ -67,6 +67,11 @@ p{
 
 a{
     display:inline-block;
-    margin: 4px;
-    font-family: Helvetica Neue,helvetica,arial,sans-serif;
+    margin-top: 4px;
+	font-family: Helvetica Neue,helvetica,arial,sans-serif;
+	text-decoration: none;
+	color: black;
+}
+a:hover{
+	text-decoration: underline;
 }
