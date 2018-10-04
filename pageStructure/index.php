@@ -108,7 +108,7 @@
 					<div class="posisionOfTheloginWindow">
 						<div id="firstStep">
 							<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
-							<button class="bottomBoxSignIn" onclick="alert('This function is not implemented yet!')">Register</button>
+							<button class="bottomBoxSignIn" onclick="openRegisterWindow()">Register</button>
 						</div>
 				
 						<form id="loginWindow">
@@ -131,6 +131,10 @@
 							<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
 						</div>
 						
+						<div id="register">
+							<p>Put content here!</p>
+						</div>
+
 						<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
 					</div>
 				</div>
