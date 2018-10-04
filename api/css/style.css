@@ -264,4 +264,7 @@
 	#goHomeButton{
 		display: none;
 	}
+	#goHomeButtonParent{
+		display:none;
+	}
 }
