@@ -8,15 +8,9 @@ function openSlideInWindow(){
     }
 
     $(".loginWindow").animate({width: 'toggle'});
-
-    if($('.secondWindow:visible').length != 0){
-        $(".secondWindow").animate({width: 'toggle'});
-    }
 }
 
-function openSecondWindow(){
-    $(".secondWindow").animate({width: 'toggle'});
-}
+
 
 $(document).on('click','#contentID',function(){
     //  $(this) = your current element that clicked.
