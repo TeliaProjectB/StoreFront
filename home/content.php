@@ -24,3 +24,6 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 <div id="funCategory" class="contentRow" name="Fun"></div>
 
 <div class="bigBoxesCategories" name="Most Recent" id="Statistics API" maximum="3"></div>
+
+<div id="mostBoughtCategory" class="contentRow" name="Most bought"></div>
+<div id="mostLikedCategory" class="contentRow" name="Most Liked"></div>
