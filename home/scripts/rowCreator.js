@@ -69,14 +69,22 @@ define(["makeRepetitions"], function(makeRepetitions){
 
 				leftButton.onclick = function(){
 					var maxVisibleApi = Math.floor(rowData.apiContainer.clientWidth / apiBoxSize);
-					for(var i=0; i<maxVisibleApi; i++){
+					var jumpSize = maxVisibleApi;
+					if(jumpSize > rowData.numberOfRepeatingApi){
+						jumpSize -= jumpSize-rowData.numberOfRepeatingApi;
+					}
+					for(var i=0; i<jumpSize; i++){
 						rowMoveLeft(rowData);
 					}
 				};
 
 				rightButton.onclick = function(){
 					var maxVisibleApi = Math.floor(rowData.apiContainer.clientWidth / apiBoxSize);
-					for(var i=0; i<maxVisibleApi; i++){
+					var jumpSize = maxVisibleApi;
+					if(jumpSize > rowData.numberOfRepeatingApi){
+						jumpSize -= jumpSize-rowData.numberOfRepeatingApi;
+					}
+					for(var i=0; i<jumpSize; i++){
 						rowMoveRight(rowData);
 					}
 				};
