@@ -1,0 +1,29 @@
+#thirdHead {
+    background-color:white;
+}
+
+ul.breadcrumbs {
+    padding: 10px 16px;
+    list-style: none;
+}
+
+ul.breadcrumbs li {
+    display: inline;
+    font-size: 18px;
+}
+
+ul.breadcrumbs li+li:before {
+    padding: 8px;
+    color: black;
+    content: attr(content-before);
+}
+
+ul.breadcrumbs li a {
+    color: #6700d2;
+    text-decoration: none;
+}
+
+ul.breadcrumbs li a:hover {
+    color: #330069;
+    text-decoration: underline;
+}
