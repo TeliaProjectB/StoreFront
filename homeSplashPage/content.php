@@ -1,18 +1,19 @@
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div id="splash" onclick="window.open('/StoreFront/api?id=3446','_self')">
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+<link rel="stylesheet" href="/StoreFront/homeSplashPage/w3.css">
+<div id="splash">
 
 
         <div class="w3-content w3-section box">
-            <div class="mySlides w3-animate-right" style="display: inline;">
+            <div class="mySlides w3-animate-right" onclick="window.open('/StoreFront/api?id=5u674','_self')">
                 <div class="splashTitle">Recommended for you</div>
-                <div class="splashSubTitle">Sms API</div>
+                <div class="splashSubTitle">SMS 1 000 pcs</div>
                 <div class="splashDescription">
-                    Being able send sms to alert your users can be a very powerfull tool. With this API it is noweasier than ever! 
+                    Send 1000 sms when you want, but it has to be during a year after you bought to API. 
                 </div>
-                <img class="imgDecoration" src="/StoreFront/globalImages/API/call1.jpg">
+                <img class="imgDecoration" src="/StoreFront/globalImages/API/sms3.png">
             </div>
             
-            <div class="mySlides w3-animate-right">
+            <div class="mySlides w3-animate-right" onclick="window.open('/StoreFront/api?id=e56u7r','_self')">
                 <div class="splashTitle">Best selling</div>
                 <div class="splashSubTitle">SMS 5 days</div>
                 <div class="splashDescription">
@@ -21,7 +22,7 @@
                 <img class="imgDecoration" src="/StoreFront/globalImages/API/sms1.png">
 
             </div>
-            <div class="mySlides w3-animate-right">
+            <div class="mySlides w3-animate-right" onclick="window.open('/StoreFront/api?id=b3bkv','_self')">
                 <div class="splashTitle">Most used</div>
                 <div class="splashSubTitle">Weather for sweden</div>
                 <div class="splashDescription">
@@ -30,7 +31,7 @@
                 <img class="imgDecoration" src="/StoreFront/globalImages/API/weather.png">
 
             </div>  
-            <div class="mySlides w3-animate-right">
+            <div class="mySlides w3-animate-right" onclick="window.open('/StoreFront/api?id=324rfe','_self')">
             <div class="splashTitle">Most recommended</div>
                 <div class="splashSubTitle">Call one month</div>
                 <div class="splashDescription">
