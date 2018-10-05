@@ -1,25 +1,28 @@
-function signInUser(){
+function signInUser(statusFromLogin){
 
     var sendUsername = document.getElementById('username').value;
     var sendPassword = document.getElementById('password').value;
-	
 
 
-    ajaxRequest("/StoreFront/pageStructure/php/signinUser.php", 
+    ajaxRequestSignIn("/StoreFront/pageStructure/php/signinUser.php", 
                 "userName=" + sendUsername +
                 "&password=" + sendPassword, 
                 function(responseText, status){
                     if(status == 200){
-                        window.open("/StoreFront/home", "_self");
-                    }
+						//window.open("/StoreFront/home", "_self");
+						statusFromLogin(true);
+                    }else{
+						statusFromLogin(false);
+					}
 	});
+
 }
 
 
 
 
 
-function ajaxRequest(phpCode, postData, onLoad){
+function ajaxRequestSignIn(phpCode, postData, onLoad){
 	var xhr = new XMLHttpRequest();
 
 	var postData = postData;
