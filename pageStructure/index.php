@@ -50,7 +50,8 @@
 						</div>
 					</div> 
 				
-					<div id="searchBar"><input type="text"><div id="searchIcon"></div></div>
+					<div id="searchBar" onkeypress="searchCategory()"><input type="text" id="searchInput"><div id="searchIcon" onclick="searchCategory()"></div></div>
+					
 					<div id="helpContact" onclick="openHelpWindow()"></div>
 				</div>
 			</div>
