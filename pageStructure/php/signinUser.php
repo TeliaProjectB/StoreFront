@@ -8,24 +8,25 @@ if(isset($_SESSION["userId"])){
 
 require  $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/signinUserClass.php';
 
-$signinManager = new registerUser;
+$signinManager = new signinUser;
+
 
 if(isset($_POST["userName"]) && isset($_POST["password"])){
     $name = htmlspecialchars($_POST["userName"]);
     $pass = htmlspecialchars($_POST["password"]);
     
 
-    $signinManager = $signinManager->checkUser($name, $pass);
+    $registerResult = $signinManager->checkUserFromSQL($name, $pass);
 
     
-	if($signinManager != false){
-		$userInfo = $signinManager->getIdFromName($name);
-
+	if($registerResult != false){
+		$userInfo = $signinManager->getInfoFromName($name);
+		/*
 		$_SESSION["userId"] = $userInfo["ID"];
 		$_SESSION["User_name"] = $userInfo["User_name"];
 		$_SESSION["firstname"] = $userInfo["firstname"];
-		$_SESSION["lastname"] = $userInfo["lastname"];
-		echo $signinManager;
+		$_SESSION["lastname"] = $userInfo["lastname"];*/
+		echo $registerResult;
 		die("success");
 	}else{
 		header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
@@ -33,9 +34,4 @@ if(isset($_POST["userName"]) && isset($_POST["password"])){
 	}
 
 }
-
-
-
-
-
 ?>

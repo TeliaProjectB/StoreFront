@@ -45,13 +45,14 @@ if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["email"])
 
 	$registerResult = $registerManager->addNewUser($name, $email, $password, $firstName, $lastname);
 	if($registerResult != false){
-		$userInfo = $registerManager->getIdFromName($name);
-
+		$userInfo = $registerManager->getInfoFromName($name);
+/* Pause this in secound
 		$_SESSION["userId"] = $userInfo["ID"];
 		$_SESSION["User_name"] = $userInfo["User_name"];
 		$_SESSION["firstname"] = $userInfo["firstname"];
 		$_SESSION["lastname"] = $userInfo["lastname"];
-		echo $registerResult;
+		*/echo $registerResult;
+		
 		die("success");
 	}else{
 		header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
