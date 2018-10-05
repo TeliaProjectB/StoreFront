@@ -38,20 +38,22 @@
 }
 
 
-.inputBoxSignIn{
-	font-size: 20px;
+.inputBoxSignIn {
+    font-size: 16px;
     border: 1px solid;
     width: 200px;
 }
 
-.bottomBoxSignIn{
-	font-size: 20px;
-	width: 200px;
-	padding: 10px;
-	margin: 10px;
-	cursor: pointer;
-	background-color: #f1f1f1
+.bottomBoxSignIn {
+    font-size: 20px;
+    width: 130px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border-radius: 18px;
 }
+
 
 .bottomBoxSignIn:hover, .bottomBoxSignIn:focus{
 	background-color: #ddd;
