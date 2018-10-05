@@ -1,13 +1,13 @@
 <?php
     /* Database connection settings */
-    $servername = '10.11.3.71';
-    $username = 'TeliaServer';
-    $password = 'hmXFXmZeMpBOdLKr';
+    $servernameDB = '10.11.3.71';
+    $usernameDB = 'TeliaServer';
+    $passwordDB = 'hmXFXmZeMpBOdLKr';
     $dbname = 'telia';
 
     // Create connection
     //$mysql = mysql_connect($servername, $username, $password);
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servernameDB, $usernameDB, $passwordDB, $dbname);
     
     // Check connection
     if ($conn->connect_error) {

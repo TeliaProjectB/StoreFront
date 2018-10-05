@@ -3,7 +3,7 @@
 session_start();
 if(isset($_SESSION["userId"])){
 	header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
-	echo "You need to log out in order to register a new account.";
+	die("You need to log out in order to register a new account.");
 }
 
 
@@ -18,7 +18,7 @@ $registerManager = new registerUser;
 if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["email"])
 	&& isset($_POST["firstName"]) && isset($_POST["lastName"])){
 	$name = htmlspecialchars($_POST["name"]);
-	$email = htmlspecialchars($_POST["name"]);
+	$email = htmlspecialchars($_POST["email"]);
 	$password = htmlspecialchars($_POST["password"]);
 	$firstName = htmlspecialchars($_POST["firstName"]);
 	$lastname = htmlspecialchars($_POST["lastName"]);
@@ -46,12 +46,12 @@ if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["email"])
 	$registerResult = $registerManager->addNewUser($name, $email, $password, $firstName, $lastname);
 	if($registerResult != false){
 		$userInfo = $registerManager->getInfoFromName($name);
-/* Pause this in secound
+		// Pause this in secound
 		$_SESSION["userId"] = $userInfo["ID"];
 		$_SESSION["User_name"] = $userInfo["User_name"];
 		$_SESSION["firstname"] = $userInfo["firstname"];
 		$_SESSION["lastname"] = $userInfo["lastname"];
-		*/echo $registerResult;
+		//echo $registerResult;
 		
 		die("success");
 	}else{

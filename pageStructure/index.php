@@ -2,6 +2,13 @@
 	/* Main page with two forms: sign up and log in */
 	require 'php/db.php';
 	session_start();
+
+	$Username = "";
+
+	if(isset($_SESSION["userId"])){
+		$Username = $_SESSION["User_name"];
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +38,7 @@
 				<div id="firstHead" class="firstHeader" onmouseenter="showSecondHeader()">
 					<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
 					
-					<div id="showUsername"></div>
+					<div id="showUsername"><?php echo $Username; ?></div>
 					<button id="userIcon" onclick="openSlideInWindow()"></button>
 				</div>
 
@@ -116,51 +123,14 @@
 				<!-- LOGIN WINDOW -->
 				<div class="loginWindow">
 					<div class="posisionOfTheloginWindow">
-						<div id="firstStep">
-							<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
-							<button class="bottomBoxSignIn" onclick="openRegisterWindow()">Register</button>
-						</div>
-				
-						<div id="loginWindow">
-							<p>Username</p>
-							<input name="username" id="username" class="inputBoxSignIn inputBoxSignIn-text" type="text">
-
-							<p>Password</p>
-							<input name="password" id="password" class="inputBoxSignIn inputBoxSignIn-text" type="password">
-							<br>
 						
-							<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
-							<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
-
-						</div>
-
-						<div id="signedIn">
-							<a href="#" onclick="window.open('/StoreFront/myAccount?index=info','_self')" class="sidenavText">Account</a>
-							<a href="#" onclick="window.open('/StoreFront/myAccount?index=boughtItems','_self')" class="sidenavText">Bought items</a>
-							<a href="#" onclick="window.open('/StoreFront/myAccount?index=payment','_self')" class="sidenavText">Payment</a>
-							<a href="#" onclick="goBackToStart()" class="sidenavText">Delete Account</a>	
-							<a href="#" onclick="goBackToStart()" class="sidenavText">Log out</a>	
-						</div>
-						
-						<div id="register">
-							<p>Username</p>
-							<input name="username" id="registerName" class="inputBoxSignIn inputBoxSignIn-text" type="text">
-
-							<p>First name</p>
-							<input name="username" id="registerFirstname" class="inputBoxSignIn inputBoxSignIn-text" type="text">
-
-							<p>Last name</p>
-							<input name="username" id="registerLastName" class="inputBoxSignIn inputBoxSignIn-text" type="text">
-
-							<p>Email</p>
-							<input name="username" id="registerEmail" class="inputBoxSignIn inputBoxSignIn-text" type="text">
-
-							<p>Password</p>
-							<input name="password" id="registerPassword"  class="inputBoxSignIn inputBoxSignIn-text" type="password">
-							<br>
-							<input type="checkbox">I agree to the terms and services.</br>
-							<button onclick="registerUser()">Register</button>
-						</div>
+						<?php
+							if(isset($_SESSION["userId"]) === false){
+								require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/loginWindow.php';
+							}else{
+								require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/signedIn.php';
+							}
+						?>
 
 						<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
 					</div>
@@ -196,6 +166,7 @@
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/fixedHeader.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/helpSlidingWindow.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/registerUser.js"></script>
+		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/signOutUser.js"></script>
 		
 	</body>
 </html>

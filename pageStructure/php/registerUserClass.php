@@ -53,6 +53,7 @@ class registerUser{
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 		$userPasswordHash = password_hash($password, PASSWORD_DEFAULT);
+		echo $userPasswordHash;
 
 		$sql = "INSERT INTO `user` (ID, User_name, User_pass, Email, firstname, lastname) VALUES (null, '$name', '$userPasswordHash', '$email', '$firstName', '$lastname')";
 
@@ -69,8 +70,6 @@ class registerUser{
 
 	function getInfoFromName($userName){
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
-
-		$userPasswordHash = password_hash($password, PASSWORD_DEFAULT);
 
 		$sql = "SELECT * from `user` where `User_name`='$userName'";
 

@@ -1,7 +1,7 @@
 function registerUser(){
 	var userName = document.getElementById("registerName").value;
-	var userPassword = document.getElementById("registerEmail").value;
-	var userEmail = document.getElementById("registerPassword").value;
+	var userPassword = document.getElementById("registerPassword").value;
+	var userEmail = document.getElementById("registerEmail").value;
 	var userFirstName = document.getElementById("registerFirstname").value;
 	var userLastName = document.getElementById("registerLastName").value;
 

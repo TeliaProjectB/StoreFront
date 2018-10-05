@@ -1,31 +1,32 @@
 <?php
 
 class signinUser{
-    function checkUserFromSQL($name, $password){
+    function checkUserFromSQL($name, $sentPass){
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 		// AND User_pass = '$password'
 
 		$sql = "SELECT * FROM `user` WHERE User_name = '$name'";
 
-		try{
-			$result = $conn->query($sql);
-			$row = $result->fetch_assoc();
+			
+		$result = $conn->query($sql);
+		$row = $result->fetch_assoc();
 
-			return password_verify($password , $row["User_pass"]); 
-		}
-		catch(Exception $e){
-			return false;
-		}
+		/*if(password_verify($password, $row["User_pass"]) === true){
+			return $row;
+		}*/
 
-		
+		$hashedPass = $row["User_pass"];
+		//echo strlen($hashedPass)."\n";
+		//echo "hashedPass: ".$hashedPass."\n";
+		//echo $sentPass;
+
+		return password_verify($sentPass, $hashedPass);
 	}
 
 
 	function getInfoFromName($userName){
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
-
-		$userPasswordHash = password_hash($password, PASSWORD_DEFAULT);
 
 		$sql = "SELECT * from `user` where `User_name`='$userName'";
 
