@@ -52,11 +52,7 @@
 		 </div>
 		</div>
 		
-		      <div class="account">
-			  <input id="account-four" type="checkbox" name="tabs">
-			  <label for="account-four" class="headerButton4">&ensp; Delete Account</label>
-			   <div class="account-content">
-			  <a href="#" class="button headerButton3" >Delete</a>
+		     
 		</div>
 		</div>
 		
