@@ -3,6 +3,7 @@ function signInUser(statusFromLogin){
     var sendUsername = document.getElementById('username').value;
     var sendPassword = document.getElementById('password').value;
 
+    var errorContainer = document.getElementById("errorMessagePanel");
 
     ajaxRequestSignIn("/StoreFront/pageStructure/php/signinUser.php", 
                 "userName=" + sendUsername +
@@ -12,6 +13,7 @@ function signInUser(statusFromLogin){
 						//window.open("/StoreFront/home", "_self");
 						statusFromLogin(true);
                     }else{
+                    	errorContainer.innerHTMl = responseText;
 						statusFromLogin(false);
 					}
 	});
@@ -30,6 +32,7 @@ function ajaxRequestSignIn(phpCode, postData, onLoad){
 	xhr.open("POST", phpCode, true);
 
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.setRequestHeader("charset", "utf-8");
 
 	xhr.onreadystatechange = function() {//Call a function when the state changes.
 	    if(this.readyState == XMLHttpRequest.DONE) {

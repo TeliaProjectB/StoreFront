@@ -96,3 +96,26 @@
 	50% { right: -5px; }
 	100% { right: 0px; }
 }
+
+#panelButton{
+    display: block;
+    margin: 8px auto;
+    color:  white;
+    font-family: helvetica nueve, helvetica;
+    cursor: pointer;
+    padding:8px;
+    background-color: #990ae3;
+    transition: background-color 0.5s ease-in;
+}
+
+#panelButton:hover{
+    background-color: rgb(204, 0, 255);
+}
+
+#errorMessagePanel{
+    padding: 8px;
+    display:block;
+    margin: 0px auto;
+    padding-right: 32px;
+    font-family: helvetica nueve, helvetica;
+}

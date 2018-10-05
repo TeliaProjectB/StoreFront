@@ -83,12 +83,7 @@ function openRegisterWindow(){
 function checkUser(){
     signInUser(function(statusFromLogin){
         if(statusFromLogin){
-            $("#loginWindow").css({"display": "none"});
-            $("#signedIn").css({"display": "inline"});  
-        
-                
-            document.getElementById("showUsername").innerHTML = "Hi, " + "hej" + "!";
-            $("#userIcon").css({"margin-left": "2vw"});  
+            window.open("/StoreFront/home", "_self");
             
         }
         else{

@@ -1,5 +1,5 @@
 /************************************
-	Functions to open help sidebar
+    Functions to open help sidebar
 ************************************/
 function openQuestion(id_clicked){
 

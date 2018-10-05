@@ -42,7 +42,7 @@
 	border-radius: 5px;
 	padding: 6px;
 	margin-left: 22vw;
-	height: 20px;
+	min-height: 32px;
 	display:flex;
 	margin-right:3vw;
 }
