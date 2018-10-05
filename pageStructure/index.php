@@ -111,7 +111,7 @@
 							<button class="bottomBoxSignIn" onclick="openRegisterWindow()">Register</button>
 						</div>
 				
-						<form id="loginWindow">
+						<div id="loginWindow">
 							<p>Username</p>
 							<input name="username" id="username" class="inputBoxSignIn inputBoxSignIn-text" type="text">
 
@@ -122,7 +122,7 @@
 							<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
 							<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
 
-						</form>
+						</div>
 
 						<div id="signedIn">
 							<a href="#" onclick="window.open('/StoreFront/myAccount?index=info','_self')" class="sidenavText">Account</a>
