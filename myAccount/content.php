@@ -1,19 +1,20 @@
 		<link rel="stylesheet" type="text/css"  href="/StoreFront/myAccount/css/myAccount.css">
-		<div class="w.s.t">
-		  <h1></h1>
-		   </div>
-			<div class="account">
-			  <input id="account-one" type="checkbox" name="tabs">
-			  <label for="account-one" class="headerButton1">Info</label>
-			  <div class="info">
-                <p>Lastname</p>
-				<p>Username</p>
-				<p>Gender</p>
-				<p>E-mail</p>
-				<p>Company ID</p>
+
+		
+		<div class="account">
+		<input id="account-one" type="checkbox" name="tabs">
+		<label for="account-one" class="headerButton2"  onclick="toggle_visibility('foo');" >&ensp; Information</label>
+		
+		
+<div id="foo" >
+<h1>Name</h1>
+<h1>LastName</h1>
+<h1>UserName</h1>
+<h1>Gender</h1>
+<h1>E-mail</h1>
+<h1>Company-ID</h1>
 </div>
-				
-				
+
 		
 		
 				
@@ -21,7 +22,7 @@
 		</div>
 		<div class="account">
 		<input id="account-two" type="checkbox" name="tabs">
-		<label for="account-two" class="headerButton2">Bought Items</label>
+		<label for="account-two" class="headerButton2">&ensp; Bought Items</label>
 		<div class="account-content">
 		 <table class="tableInfoBox">
 		 <br>
@@ -43,7 +44,7 @@
 		
 				<div class="account">
 			  <input id="account-tree" type="checkbox" name="tabs">
-			  <label for="account-tree"class="headerButton3">Peyment</label>
+			  <label for="account-tree"class="headerButton3">&ensp; Payment</label>
 			  <div class="account-content">
 			  <a href="#" class="button headerButton3" >Credit card</a>
               <a href="#" class="button headerButton3">Paypal</a>
@@ -53,20 +54,15 @@
 		
 		      <div class="account">
 			  <input id="account-four" type="checkbox" name="tabs">
-			  <label for="account-four" class="headerButton4">Delete Account</label>
+			  <label for="account-four" class="headerButton4">&ensp; Delete Account</label>
+			   <div class="account-content">
+			  <a href="#" class="button headerButton3" >Delete</a>
 		</div>
 		</div>
 		
-				
+<script type="text/javascript" src="/StoreFront/myAccount/scripts/Account.js"></script>	
 			 
 			
 			  
 			  
-			  
-		</div>
-		</div>
-		</br>
-		
-				
-
-				
+	
