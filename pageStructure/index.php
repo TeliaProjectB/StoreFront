@@ -16,6 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/panelStyles.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/helpSlidingWindow.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/breadcrumbs.css">
 
 		<?php
 			if(file_exists("customCss.php")){
@@ -53,6 +54,14 @@
 					<div id="searchBar" onkeypress="searchCategory()"><input type="text" id="searchInput"><div id="searchIcon" onclick="searchCategory()"></div></div>
 					
 					<div id="helpContact" onclick="openHelpWindow()"></div>
+				</div>
+
+				<!-- THIRD HEADER / BREADCRUMBS -->
+				<div id="thirdHead" class="thirdHeader">
+					<ul class="breadcrumbs">
+    					<li><a href="/StoreFront/home/" id="firstPage">Home</a></li>
+						<li><a href="" id="secondPage"></a></li>
+					</ul>
 				</div>
 			</div>
 			<!-- CONTENT -->
