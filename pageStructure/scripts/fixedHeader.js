@@ -20,7 +20,6 @@ $(window).scroll(function () {
             scrollingDown = true;
         }
         
-        
     } else {
         if(scrollingUp == false){
             $('.secondHeader').stop();
@@ -30,8 +29,8 @@ $(window).scroll(function () {
             $('.thirdHeader').slideUp();
             scrollingUp = true;
             scrollingDown = false;
-        }  
-        
+        }
+            
        
     }
     lastScrollTop = scrollTop;
@@ -40,7 +39,12 @@ $(window).scroll(function () {
 function showSecondHeader(){
     
     if($('.secondHeader:visible').length == 0){
+        $('.secondHeader').stop();
         $('.secondHeader').slideDown();
+
+        $('.thirdHeader').stop();
+        $('.thirdHeader').slideDown();
+        scrollingUp = false;
     }
 }
 

@@ -12,7 +12,11 @@ function openSlideInWindow(){
         }
 
         $(".loginWindow").animate({width: 'toggle'});
-        flag = true;
+        if(flag){
+            flag = false
+        }else{
+            flag = true;
+        }
     }    
 }
 
@@ -49,6 +53,7 @@ $(document).on('click','#contentID',function(){
         $(".loginWindow").stop();
         $(".loginWindow").animate({width: 'toggle'});
         flag = false;
+        goBackToStart();
     }
 });
 
@@ -124,6 +129,7 @@ function checkUser(){
 function goBackToStart(){
     $("#signedIn").css({"display": "none"});
     $("#loginWindow").css({"display": "none"}); 
+    $("#register").css({"display": "none"}); 
     $("#firstStep").css({"display": "inline"});
 }
 
