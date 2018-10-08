@@ -48,8 +48,8 @@
 					<button class="headerButton" onclick="scrollDownTo('freeCategory')">Free</button>
 					<button class="headerButton" onclick="scrollDownTo('recommendedCategory')">Recommended</button>
 					<button class="headerButton" onclick="scrollDownTo('mostRecentCategory')">Most recent</button>		
-					<div class="dropdown" onmouseenter="openCloseDropdown()" onmouseleave="openCloseDropdown()">
-						<button class="dropbtn">Others</button>
+					<div class="dropdown" ><!-- onmouseenter="openDropdown()" onmouseleave="closeDropDown()" -->
+						<button class="headerButton" style="display:inline;">Others</button>
 						<div class="dropdown-content">
 							<button class="dropdownButton" onclick="scrollDownTo('paidCategory')">Paid</button>
 							<button class="dropdownButton" onclick="scrollDownTo('mostBoughtCategory')">Most bought</button>
@@ -58,7 +58,7 @@
 						</div>
 					</div> 
 				
-					<div id="searchBar" onkeypress="searchCategory()"><input type="text" id="searchInput"><div id="searchIcon" onclick="searchCategory()"></div></div>
+					<div id="searchBar"><input type="text" id="searchInput"><div id="searchIcon" onclick="filterApi()"></div></div>
 					
 					<div id="helpContact" onclick="openHelpWindow()"></div>
 				</div>
@@ -131,8 +131,6 @@
 								require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/signedIn.php';
 							}
 						?>
-
-						<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
 					</div>
 				</div>
 			
@@ -167,6 +165,7 @@
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/helpSlidingWindow.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/registerUser.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/signOutUser.js"></script>
+		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/filterApiFunc.js"></script>
 		
 	</body>
 </html>

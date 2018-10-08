@@ -6,7 +6,7 @@ function scrollDownTo(nameOfTag){
     var pathname = window.location.href;
     if (pathname == "http://localhost/StoreFront/home/") { /* change with window href*/
         $([document.documentElement, document.body]).animate({
-            scrollTop: $("#" + nameOfTag).offset().top
+            scrollTop: (parseInt($("#" + nameOfTag).offset().top, 10)-140)+"px"
         }, 1000);
     }
     else {
@@ -36,11 +36,3 @@ function searchCategory(){
     
    
 }
-
-
-/* dropdown button other scroll*/
-
-function openCloseDropdown(){
-  $(".dropdown-content").animate({height: 'toggle'});  
-}
-

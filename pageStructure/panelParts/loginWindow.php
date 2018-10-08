@@ -2,6 +2,7 @@
 	<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
 	<br>
 	<button class="bottomBoxSignIn" onclick="openRegisterWindow()">Register</button>
+	<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
 </div>
 
 <div id="loginWindow">
@@ -16,6 +17,8 @@
 	<br>
 	<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
 
+
+	<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
 </div>
 
 
@@ -37,8 +40,10 @@
 	<input name="password" id="registerPassword"  class="inputBoxSignIn inputBoxSignIn-text" type="password">
 	<br>
 
-	<div id="errorMessagePanel"></div>
+	<div id="errorMessagePanel" style="color:red;"></div>
 
 	<input type="checkbox">I agree to the terms and services.</br>
 	<button onclick="registerUser()" id="panelButton">Register</button>
+
+	<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
 </div>

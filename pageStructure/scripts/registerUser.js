@@ -5,7 +5,7 @@ function registerUser(){
 	var userFirstName = document.getElementById("registerFirstname").value;
 	var userLastName = document.getElementById("registerLastName").value;
 
-	
+	var errorContainer = document.getElementById("errorMessagePanel");
 
 
 	ajaxRequest("/StoreFront/pageStructure/php/registerUser.php", "name="+userName+"&password="
@@ -15,6 +15,8 @@ function registerUser(){
 		function(responseText, status){
 			if(status == 200){
 				window.open("/StoreFront/home", "_self");
+			}else if(status == 500){
+				errorContainer.innerHTML = responseText;
 			}
 	});
 }

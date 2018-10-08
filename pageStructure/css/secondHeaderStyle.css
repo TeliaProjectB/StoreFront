@@ -21,7 +21,7 @@
 	background-size: contain;
 	cursor: pointer;
 	flex-direction: column;
-	margin-right:1vw;
+	margin-right:2vw;
 }
 
 
@@ -42,7 +42,7 @@
 	border-radius: 5px;
 	padding: 6px;
 	margin-left: 20vw;
-	min-height: 32px;
+	height: 40px;
 	display:flex;
 	margin-right:3vw;
 	flex:1;
@@ -55,7 +55,7 @@
 	background-position:center;
 	background-repeat:no-repeat;
 	width: 20px;
-	height: 20px;
+	height: auto;
 	cursor:pointer;
 	
 }
@@ -80,14 +80,15 @@
 
 .dropdown-content {
 	flex:1;
-	display: none;
+	overflow: hidden;
+	height: 0px;
 	flex-direction: column;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: white;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
 	z-index: 1;
-	transition: 0.06s ease-in-out;
+	transition: height 0.37s ease-out;
 }
 
 
@@ -99,18 +100,17 @@
 	text-decoration: none;
 	background-color:transparent;
     font-size: 16px;
-	-webkit-transition-duration: 0.5s;
-	transition-duration: 0.5s;
 	width:100%;
 }
 
 
 .dropdownButton:hover {
-	background-color: #ddd;
+	background-color: black;
+	color: white;
 }
 
-.dropdown:hover .dropbtn, .headerButton:hover {
-	background-color: rgb(223, 165, 252);
+.dropdown:hover .dropdown-content {
+	height: 192px;
 }
 
 .headerButton:active, .dropdown:hover .dropbtn:active {
