@@ -1,5 +1,6 @@
 <div id="firstStep">
 	<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
+	<br>
 	<button class="bottomBoxSignIn" onclick="openRegisterWindow()">Register</button>
 </div>
 
@@ -12,6 +13,7 @@
 	<br>
 						
 	<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
+	<br>
 	<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
 
 </div>
