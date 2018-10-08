@@ -41,10 +41,11 @@
 	background-color: #e8e8e8;
 	border-radius: 5px;
 	padding: 6px;
-	margin-left: 22vw;
+	margin-left: 20vw;
 	min-height: 32px;
 	display:flex;
 	margin-right:3vw;
+	flex:1;
 }
 
 #searchIcon{
