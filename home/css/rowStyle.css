@@ -19,7 +19,6 @@
 }
 .rowTitle{
 	display:block;
-	position:absolute;
 	font-size: 32px;
 	display:inline-block;
 	margin-top: 10px;
@@ -46,7 +45,6 @@
 
 .middleScrollingContainer{
 	width:100%;
-	padding-top: 32px;
 	padding-bottom: 32px;
 	padding-left: 24px;
 	padding-right: 24px;
