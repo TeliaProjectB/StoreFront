@@ -1,10 +1,7 @@
 <div id="signedIn">
-
-
-
-     <a href="#" onclick="window.open('/StoreFront/myAccount?index=info','_self')" class="sidenavText">Account</a>
-	<div onclick="toggle_visibility('foo')"  class="sidenavText" >Information</div>
-	<a href="/StoreFront/myAccount/"><label for="account-two" class="sidenavText">Bought Items</a></label>
-	<a href="/StoreFront/myAccount/"><label for="account-tree"class="sidenavText">Payment</a></label>
-	<a href="/StoreFront/myAccount/"><a onclick="userSignOut()" class="sidenavText">Log out</a></a>
+	<a href="#" onclick="window.open('/StoreFront/myAccount?index=info','_self')" class="sidenavText">Account</a>
+	<a href="#" onclick="window.open('/StoreFront/myAccount?index=boughtItems','_self')" class="sidenavText">Bought items</a>
+	<a href="#" onclick="window.open('/StoreFront/myAccount?index=payment','_self')" class="sidenavPayment"</a>
+	<!--<a href="#" onclick="goBackToStart()" class="sidenavText">Delete Account</a>-->	
+	<a href="#" onclick="userSignOut()" class="sidenavText">Log out</a>	
 </div>
