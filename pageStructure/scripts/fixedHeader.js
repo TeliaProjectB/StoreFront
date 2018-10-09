@@ -59,9 +59,9 @@ switch(pathname) {
         $('.breadcrumbs li+li').attr('content-before','/');
         document.getElementById('secondPage').innerHTML = "Single Api";
         break;
-    case "/StoreFront/search/":
+    case "/StoreFront/category/":
         $('.breadcrumbs li+li').attr('content-before','/');
-        document.getElementById('secondPage').innerHTML = "Single Category";
+        document.getElementById('secondPage').innerHTML = getURLVariable("cat").replace(/[&\/\\#,+()$~%20.'":*?<>{}]/g, ' ');;
         break;
     case "/StoreFront/myAccount/":
         $('.breadcrumbs li+li').attr('content-before','/');   
