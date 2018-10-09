@@ -6,7 +6,7 @@
 		<label for="account-one" class="headerButton2"  onclick="toggle_visibility('foo');" >&ensp; Information</label>
 		
 		
-<div id="foo" >
+<div id="foo" >			
 <h1>Name</h1>
 <h1>LastName</h1>
 <h1>UserName</h1>
@@ -56,9 +56,10 @@
 		</div>
 		</div>
 		
-<script type="text/javascript" src="/StoreFront/myAccount/scripts/Account.js"></script>	
+
+
 			 
 			
-			  
+			  <script type="text/javascript" src="/StoreFront/myAccount/scripts/Account.js"></script>	
 			  
 	
