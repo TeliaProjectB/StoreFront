@@ -88,7 +88,7 @@ function createTitle() {
 }
 
 /*connect to database and create all api */
-ajaxRequest("cat=" + getURLVariable("cat"), "/Storefront/search/php/retrieveCategory.php", function(response){
+ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/search/php/retrieveCategory.php", function(response){
     
     var retrievedData = JSON.parse(response);
     
