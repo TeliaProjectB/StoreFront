@@ -53,12 +53,12 @@ if(isset($_POST["cat"])){
 		
 		$newObj = new apiObject;
 		$newObj->Id = $row["Id"];
-		$newObj->RandomId = $row["randomId"];
+		$newObj->RandomId = $row["RandomId"];
 		$newObj->Name = $row["Name"];
 		$newObj->Description = $row["Description"];
 		$newObj->Category = $row["Category"];
 		$newObj->Price = $row["Price"];
-		$newObj->imgName = getRealImageSrc($row["imgName"]);
+		$newObj->imgName = getRealImageSrc($row["ImgName"]);
 
 		array_push($arrOfApi, $newObj);
 	}
