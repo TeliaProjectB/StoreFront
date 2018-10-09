@@ -10,7 +10,7 @@ define(["makeRepetitions"], function(makeRepetitions){
 			element.className += " rowContainer";
 
 			var titleEle = document.createElement("a");
-			titleEle.href = "/StoreFront/search?cat="+element.getAttribute("name");
+			titleEle.href = "/StoreFront/category?cat="+element.getAttribute("name");
 			titleEle.className= "rowTitle";
 			titleEle.innerHTML= element.getAttribute("name");
 
