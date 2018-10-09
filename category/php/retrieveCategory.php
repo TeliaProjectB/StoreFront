@@ -10,31 +10,31 @@ class apiObject
     public $Description = "";
     public $Category = "";
     public $Price = "";
-    public $imgName = "";
+    public $ImgName = "";
 }
 
 
-function getRealImageSrc($imgName){
+function getRealImageSrc($ImgName){
 	
 
-	if(strcmp(substr($imgName, -4), ".jpg") == 0){
-		return $imgName;
-	}else if(strcmp(substr($imgName, -4), ".png") == 0){
-		return $imgName;
-	}else if(strcmp(substr($imgName, -5), ".jpeg") == 0){
-		return $imgName;
+	if(strcmp(substr($ImgName, -4), ".jpg") == 0){
+		return $ImgName;
+	}else if(strcmp(substr($ImgName, -4), ".png") == 0){
+		return $ImgName;
+	}else if(strcmp(substr($ImgName, -5), ".jpeg") == 0){
+		return $ImgName;
 	}
 
 	
-	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".png")){
-		return $imgName.".png";
-	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpg")){
-		return $imgName.".jpg";
-	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpeg")){
-		return $imgName.".jpeg";
+	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$ImgName.".png")){
+		return $ImgName.".png";
+	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$ImgName.".jpg")){
+		return $ImgName.".jpg";
+	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$ImgName.".jpeg")){
+		return $ImgName.".jpeg";
 	}
 
-	return $imgName;
+	return $ImgName;
 }
 
 if(isset($_POST["cat"])){
