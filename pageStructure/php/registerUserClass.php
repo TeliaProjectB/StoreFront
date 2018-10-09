@@ -55,7 +55,7 @@ class registerUser{
 		$userPasswordHash = password_hash($password, PASSWORD_DEFAULT);
 		echo $userPasswordHash;
 
-		$sql = "INSERT INTO `user` (ID, User_name, User_pass, Email, firstname, lastname) VALUES (null, '$name', '$userPasswordHash', '$email', '$firstName', '$lastname')";
+		$sql = "INSERT INTO `user` (ID, User_name, User_pass, Email, Firstname, Lastname) VALUES (null, '$name', '$userPasswordHash', '$email', '$firstName', '$lastname')";
 
 		try{
 			$conn->query($sql);
