@@ -34,14 +34,14 @@ $apiCategory = "";
 $apiPrice = "";
 if(isset($_GET["id"])){
 	$randomId = htmlspecialchars($_GET["id"]);
-	$sql = "SELECT * FROM `API` WHERE `randomId`='$randomId'";
+	$sql = "SELECT * FROM `API` WHERE `RandomId`='$randomId'";
 
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 
 	$apiName = $row["Name"];
 	$apiDescription = $row["Description"];
-	$apiImage = getRealImageSrc($row["imgName"]);
+	$apiImage = getRealImageSrc($row["ImgName"]);
 	$apiCategory = $row["Category"];
 	$apiPrice = $row["Price"];
 	
