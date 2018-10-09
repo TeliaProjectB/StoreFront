@@ -58,7 +58,7 @@ if(isset($_POST["cat"])){
 		$newObj->Description = $row["Description"];
 		$newObj->Category = $row["Category"];
 		$newObj->Price = $row["Price"];
-		$newObj->imgName = getRealImageSrc($row["ImgName"]);
+		$newObj->ImgName = getRealImageSrc($row["ImgName"]);
 
 		array_push($arrOfApi, $newObj);
 	}
