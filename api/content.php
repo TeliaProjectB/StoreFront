@@ -1,4 +1,5 @@
-<?php  
+<?php 
+
 require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 function getRealImageSrc($imgName){
 	
@@ -28,18 +29,33 @@ if(isset($_GET["id"])){
 	$randomId = htmlspecialchars($_GET["id"]);
 	$sql = "SELECT * FROM `API` WHERE `RandomId`='$randomId'";
 	$result = $conn->query($sql);
+
+
 	$row = $result->fetch_assoc();
 	$apiName = $row["Name"];
 	$apiDescription = $row["Description"];
 	$apiImage = getRealImageSrc($row["ImgName"]);
 	$apiCategory = $row["Category"];
 	$apiPrice = $row["Price"];
-	
-	
+
+	if(is_null($apiName)){
+		echo "<script>window.open('/StoreFront/home/', '_self')</script>";
+		die();
+	}
 }else{
 	echo "<script>window.open('/StoreFront/home/', '_self')</script>";
 	die();
 }
+
+
+$onClickBuyButtonFunc = "openRegisterPanel()";
+if(isset($_SESSION["userId"])){
+	$onClickBuyButtonFunc = "addToCart('".$_GET["id"]."')";
+}
+
+
+
+
 ?>
 
 
@@ -59,7 +75,7 @@ if(isset($_GET["id"])){
 				<div><h4>Category:</h4> <?php echo $apiCategory; ?></div>
 				<div style="margin-bottom: 16px;"><h4>Last updated:</h4> 2018-02-00</div>
 				<div><h4>Price:</h4> <?php echo $apiPrice; ?> kr</div>
-				<button id="purchaseButton">Add to cart</button>
+				<button id="purchaseButton" onclick="<?php  echo $onClickBuyButtonFunc; ?>">Add to cart</button>
 				<div id="thumbsUpDownContainer">
 					<div id="thumbsUp" class="thumbs"></div>
 					<div id="thumbsDown" class="thumbs"></div>

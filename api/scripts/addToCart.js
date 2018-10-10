@@ -1,4 +1,4 @@
-function addToCart(){
+function addToCart(apiId){
 	var sideBarContent = document.getElementById("sideBarRealContent");
 	var header= document.getElementById("head");
 	var cloneParent  = document.getElementById("apiIcon");
@@ -39,9 +39,32 @@ function addToCart(){
 	setTimeout(function(){
 		clonedImage.parentElement.removeChild(clonedImage);
 	}, 1950);
+
+
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "/StoreFront/api/php/addToCart.php", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.onreadystatechange = function() {//Call a function when the state changes.
+		console.log(this.responseText);
+		if(this.readyState == XMLHttpRequest.DONE) {
+
+		}
+	}
+	 xhr.send("apiRandId="+apiId); 
+
+		
 	
 
 }
 
-var addToCartbutton = document.getElementById("purchaseButton");
-addToCartbutton.addEventListener("mouseup", addToCart);
+
+function openRegisterPanel(){
+	setTimeout(function(){
+		var slidingLoginWindow = document.getElementsByClassName("loginWindow")[0];
+		openSlideInWindow();
+		openRegisterWindow();
+	}, 32);
+}
+
+

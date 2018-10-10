@@ -32,11 +32,11 @@ if(isset($_POST["apiId"]) && isset($_POST["offset"]) && isset($_POST["from"])){
 	//echo $sql;
 	$result = $conn->query($sql);
 	if($result === false){
-		header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+		header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad request', true, 400);
 		die("There are no messages for this API");
 	}
 	if(mysqli_num_rows ($result) == 0){
-		header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+		header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad request', true, 400);
 		die("There are no messages for this API");
 	}
 
