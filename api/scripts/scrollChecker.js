@@ -43,17 +43,45 @@
 			var bodyHeight = Math.max( body.scrollHeight, body.offsetHeight, 
                        html.clientHeight, html.scrollHeight, html.offsetHeight );
 
-			if(scrollTop+sideBar.offsetHeight > bodyHeight -  footerContent.offsetHeight){
-				sideBar.style.top = (bodyHeight-sideBar.offsetHeight- footerContent.offsetHeight)+"px";
+			var headerHeight = header.offsetHeight + parseInt(window.getComputedStyle(header).marginBottom, 10);
+
+			
+			if(isOver(scrollTop)){
+				if(scrollTop+sideBar.offsetHeight > bodyHeight -  footerContent.offsetHeight-topOffset){
+					sideBar.style.top = (bodyHeight-sideBar.offsetHeight- footerContent.offsetHeight-topOffset)+"px";
+				}else{
+					sideBar.style.top = (scrollTop-topOffset+headerHeight+16)+"px";
+				}
 			}else{
-				sideBar.style.top = scrollTop+"px";
+				sideBar.style.top = 0+"px";
 			}
+			
 			
 		}else{
 			sideBar.style.top = "0px";
 		}
 	}
 
+
+
+
+	function isOver(scrollTop){
+		var body = document.body,
+		    html = document.documentElement;
+		
+		var bodyHeight = Math.max( body.scrollHeight, body.offsetHeight, 
+            html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+		var minus = header.offsetHeight;
+		if(minus >= topOffset){
+			minus = 0;
+		}
+
+		if(scrollTop > topOffset-header.offsetHeight){
+			return true;
+		}
+		return false;
+	}
 
 
 	setInterval(function(){

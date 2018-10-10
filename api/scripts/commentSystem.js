@@ -86,13 +86,16 @@ function createMessageBox(id){
 		//Load all messages that are connected to the api "apiId"
 		//Data should be loaded as JSON in similar format to "firstBatchOfMessages"
 		ajaxLoadMessages(false, 10, function(receivedMessages){
-			hasLoadedMessagesFrom = receivedMessages[0].order;
-			endedAt = receivedMessages[receivedMessages.length-1].order;
-			for(var i=0; i<receivedMessages.length; i++){
-				createMessageElement(receivedMessages[i].message, receivedMessages[i].name, false, false);
+			if(receivedMessages != false){
+				hasLoadedMessagesFrom = receivedMessages[0].order;
+				endedAt = receivedMessages[receivedMessages.length-1].order;
+				for(var i=0; i<receivedMessages.length; i++){
+					createMessageElement(receivedMessages[i].message, receivedMessages[i].name, false, false);
+				}
+				messagesContainer.scrollTop = messagesContainer.scrollHeight;
+				hasLoadedFirstBatchOfMessages = true;
 			}
-			messagesContainer.scrollTop = messagesContainer.scrollHeight;
-			hasLoadedFirstBatchOfMessages = true;
+			
 
 			startListeners();
 		});
@@ -138,8 +141,9 @@ function createMessageBox(id){
 	}
 
 	function ajaxLoadMessages(fromOrder, howMany, onRespons){
+		onRespons(false);
 		//this is where ajax communicates with php to select comments
-		if(fromOrder === false){//When fromOrder is false that means we want the 10 most recent messages
+		/*if(fromOrder === false){//When fromOrder is false that means we want the 10 most recent messages
 			firstBatchOfMessages.sort(sortMessages);
 			onRespons(firstBatchOfMessages);
 		}else if(fromOrder === 9){
@@ -147,7 +151,7 @@ function createMessageBox(id){
 			onRespons(secondBatchOfMessages);
 		}else{
 			onRespons(false);
-		}
+		}*/
 	}
 
 	function sortMessages(a, b){
@@ -165,89 +169,42 @@ function createMessageBox(id){
 	}
 
 
-	function sendRootMessage(e){
-		//Checks if textareas value contains something other than spaces and new lines.
-		if(textArea.value.replace(/ /g, '').replace(/\n/g, '') !== ""){
-			var fixedInput = textArea.value;
-			fixedInput = fixedInput.replace(/[\r\n]+/g, "</br></br>");
+	
 
 
-			sendMessageToServer(fixedInput, function(messagesOrder){
-				if(messagesOrder !== false){
-					endedAt = messagesOrder;
 
-					createMessageElement(fixedInput, "User", false, true);//This is a temporary solution, when php is up and running all
-					//new messages will be created from "listenForNewMessages"
+	function ajaxRequest(postData, phpSource, onLoad) {
+	    var xhr = new XMLHttpRequest();
 
-					textArea.value = "";
-				}else{
-					alert("An error occured");
-				}
-			});
-		}
+
+	    xhr.open("POST", phpSource, true);
+
+	    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	    xhr.onreadystatechange = function() {//Call a function when the state changes.
+	    	console.log(this.responseText);
+	        if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+	            onLoad(this);
+	        }
+	    }
+	    xhr.send(postData); 
+
 	}
-
 
 	function sendMessageToServer(message, onLoad){
 		//Use Ajax to send message to messages database
 		//If everything went smoothly, return newly created messages order, otherwise return false.
-		onLoad(endedAt+1);
+		//onLoad(endedAt+1);
+		var apiId = getParameterByName("id");
+		ajaxRequest("mess="+message+"&apiId="+apiId, "php/sendApiComment.php", function(response){
+			if(response.status == 200){
+				onLoad(response.responseText);
+			}
+		});
+
 	}
 
-	function createMessageElement(text, userName, appendAsFirst, animate){
-		messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-		
-
-		var newMessage = document.createElement("div");
-		newMessage.className = "messageBoxMessage";
-
-		var absoluteContainer = document.createElement("div");
-		absoluteContainer.className = "messageBoxAbsoluteContainer";
-
-		var nameTag = document.createElement("span");
-		nameTag.className = "messageBoxNameTag";
-		nameTag.innerHTML = userName;
-		absoluteContainer.appendChild(nameTag);
-
-		var textContainer = document.createElement("div");
-		textContainer.className = "messageBoxText";
-		textContainer.innerHTML = text;
-		absoluteContainer.appendChild(textContainer);
-
-			
-		newMessage.appendChild(absoluteContainer);
-
-		if(appendAsFirst){
-			messagesContainer.insertBefore(newMessage, messagesContainer.firstChild);
-		}else{
-			messagesContainer.appendChild(newMessage);
-		}
-		
-			
-		if(animate){
-			absoluteContainer.style.maxHeight = "1080px";
-
-			messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-			/*setTimeout(function(){
-				absoluteContainer.style.maxHeight = "1080px";
-
-				//auto scrolls message container to bottom while css transision is taking place. Css transition takes 2 seconds
-				for(var i=0; i<1000; i++){
-					setTimeout(function(){
-						messagesContainer.scrollTop = messagesContainer.scrollHeight;
-					}, i);
-				}
-					
-			}, 0);*/
-		}else{
-			absoluteContainer.style.transition = "";
-			absoluteContainer.style.maxHeight = "1080px";
-		}
-
-		
-	}
+	
 
 
 
@@ -287,4 +244,18 @@ function createMessageBox(id){
 		}
 		
 	}
+
+
+
+	function getParameterByName(name, url) {
+	    if (!url) url = window.location.href;
+	    name = name.replace(/[\[\]]/g, '\\$&');
+	    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+	        results = regex.exec(url);
+	    if (!results) return null;
+	    if (!results[2]) return '';
+	    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+	}
+
+
 }

@@ -1,11 +1,7 @@
-
 <?php  
 require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
-
-
 function getRealImageSrc($imgName){
 	
-
 	if(strcmp(substr($imgName, -4), ".jpg") == 0){
 		return $imgName;
 	}else if(strcmp(substr($imgName, -4), ".png") == 0){
@@ -13,7 +9,6 @@ function getRealImageSrc($imgName){
 	}else if(strcmp(substr($imgName, -5), ".jpeg") == 0){
 		return $imgName;
 	}
-
 	
 	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".png")){
 		return $imgName.".png";
@@ -22,11 +17,8 @@ function getRealImageSrc($imgName){
 	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpeg")){
 		return $imgName.".jpeg";
 	}
-
 	return $imgName;
 }
-
-
 $apiName = "";
 $apiDescription = "";
 $apiImage = "";
@@ -35,10 +27,8 @@ $apiPrice = "";
 if(isset($_GET["id"])){
 	$randomId = htmlspecialchars($_GET["id"]);
 	$sql = "SELECT * FROM `API` WHERE `RandomId`='$randomId'";
-
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-
 	$apiName = $row["Name"];
 	$apiDescription = $row["Description"];
 	$apiImage = getRealImageSrc($row["ImgName"]);
@@ -46,12 +36,10 @@ if(isset($_GET["id"])){
 	$apiPrice = $row["Price"];
 	
 	
-
 }else{
 	echo "<script>window.open('/StoreFront/home/', '_self')</script>";
 	die();
 }
-
 ?>
 
 
