@@ -96,10 +96,14 @@ foreach($result as $row){
 				$counter++;
 			}
 
+			if($counter == 0){
+				echo "<div class='apiRowTitle'>Your shopping cart is empty.</div>";
+			}
+
 		?>
 	</div>
 	
 
 
-	<button id="purchaseButton">Purchase</button>
+	<button id="purchaseButton" onclick="purchase()">Purchase</button>
 </div>
