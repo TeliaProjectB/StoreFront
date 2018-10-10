@@ -48,17 +48,17 @@
 
 				<!-- SECOND HEADER -->
 				<div id="secondHead" class="secondHeader">
-					<button class="headerButton" onclick="scrollDownTo('topListCategory')">Top list</button>	
-					<button class="headerButton" onclick="scrollDownTo('freeCategory')">Free</button>
-					<button class="headerButton" onclick="scrollDownTo('recommendedCategory')">Recommended</button>
-					<button class="headerButton" onclick="scrollDownTo('mostRecentCategory')">Most recent</button>		
+					<button class="headerButton" onclick="scrollDownTo('Top List')">Top list</button>	
+					<button class="headerButton" onclick="scrollDownTo('Free')">Free</button>
+					<button class="headerButton" onclick="scrollDownTo('Recommended')">Recommended</button>
+					<button class="headerButton" onclick="scrollDownTo('Most recent')">Most recent</button>		
 					<div class="dropdown" ><!-- onmouseenter="openDropdown()" onmouseleave="closeDropDown()" -->
 						<button class="headerButton" style="display:inline;">Others</button>
 						<div class="dropdown-content">
-							<button class="dropdownButton" onclick="scrollDownTo('paidCategory')">Paid</button>
-							<button class="dropdownButton" onclick="scrollDownTo('mostBoughtCategory')">Most bought</button>
-							<button class="dropdownButton" onclick="scrollDownTo('mostLikedCategory')">Most liked</button>
-							<button class="dropdownButton" onclick="scrollDownTo('allCategory')">All</button>
+							<button class="dropdownButton" onclick="scrollDownTo('Paid')">Paid</button>
+							<button class="dropdownButton" onclick="scrollDownTo('Most bought')">Most bought</button>
+							<button class="dropdownButton" onclick="scrollDownTo('Most Liked')">Most liked</button>
+							<button class="dropdownButton" onclick="scrollDownTo('All')">All</button>
 						</div>
 					</div> 
 				
