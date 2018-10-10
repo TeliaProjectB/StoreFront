@@ -3,15 +3,17 @@
 
 function scrollDownTo(nameOfTag){
 
-    var pathname = window.location.href;
+       var pathname = window.location.href;
     if (pathname == "http://localhost/StoreFront/home/") { /* change with window href*/
+        var el = document.getElementsByName(nameOfTag);
+        var idTag = el[0].getAttribute('id');
         $([document.documentElement, document.body]).animate({
-            scrollTop: (parseInt($("#" + nameOfTag).offset().top, 10)-140)+"px"
+            scrollTop: (parseInt($("#" + idTag).offset().top, 10)-140)+"px"
         }, 1000);
     }
     else {
         
-        window.open('/StoreFront/category','_self'); /*change depending on the category */
+        window.open('/StoreFront/category?cat='+nameOfTag,'_self'); /*change interface if we aren't in home */
     }
     
    

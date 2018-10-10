@@ -121,7 +121,7 @@
 }
 
 .dropdown:hover .dropdown-content {
-	height: 192px;
+	height: 210px;
 }
 
 .headerButton:active, .dropdown:hover .dropbtn:active {
