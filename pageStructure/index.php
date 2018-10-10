@@ -66,7 +66,7 @@
 				
 					<div id="searchBar"><input type="text" id="searchInput"><div id="searchIcon" onclick="filterApi()"></div></div>
 					
-					<div id="trolley" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
+					<div id="trolley" onclick="window.location='/StoreFront/checkout/'" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
 					<div id="helpContact" onclick="openHelpWindow()"></div>
 				</div>
 
