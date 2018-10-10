@@ -9,6 +9,7 @@
 	margin: 0px auto;
 	display:flex;
 	flex-direction: row;
+	align-items: center;
 }
 
 #thumbsUp{
@@ -17,6 +18,25 @@
 	background-image: url('../img/thumbs-up.svg');
 	background-size: contain;
 	display:inline-block;
+}
+
+#thumbsUpRatio{
+	width: 90%;
+	margin: 0px auto;
+	display: flex;
+	height: 8px;
+}
+
+#ratioUp{
+	height: 100%;
+	display: flex;
+	background-color: #353535;
+}
+
+#ratioDown{
+	height: 100%;
+	display: flex;
+	background-color: #f1f1f1;
 }
 
 .thumbs{
