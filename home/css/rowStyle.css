@@ -57,7 +57,7 @@
 	display:flex;
 	flex-direction: row;
 	align-items: center;
-	transition: margin 0.7s ease-out;
+	transition: margin 0.17s ease-out;
 }
 
 
@@ -79,9 +79,7 @@
 	cursor: pointer;
 	padding: 0px 24px;
 
-	transition: width 0.12s ease-out, height 0.12s ease-out, transform 0.2s ease-out;
-
-	
+	transition: margin 0.12s ease-out, transform 0.12s ease-out;
 
 
 	/*Dirty hack to enable hardware acceleration. Works for some browsers*/
@@ -98,10 +96,12 @@
 }
 
 .apiBox:hover{
-	/*transform: scaleX(1.15) scaleY(1.15);*/
-	width: 287px;
-	height: 178px;
+	transform: scaleX(1.2) scaleY(1.2);
+	/*width: 287px;
+	height: 178px;*/
 	z-index: 100;
+	margin-left: 23px;
+	margin-right: 23px;
 }
 
 

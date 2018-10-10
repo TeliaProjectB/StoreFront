@@ -211,7 +211,7 @@ define(["makeRepetitions"], function(makeRepetitions){
 				leftMargin -= (howMuchIsOutside(rowData))*apiBoxSize;
 			}*/
 			if(rowData.apiMoveWrapper.getAttribute("mouseover") === "true"){
-				leftMargin -= 17;
+				leftMargin -= 23;
 			}
 
 			leftMargin -= rowData.repeatingsLeft*apiBoxSize;
