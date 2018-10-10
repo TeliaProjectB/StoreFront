@@ -7,7 +7,7 @@
 				<li>
 				
 	  
-            <input type="checkbox" id="checkbox-1"  name="checkbox-accordion" checked /> 
+            <input type="checkbox" id="checkbox-1"  name="checkbox-accordion" /> 
 			<label for="checkbox-1" >Information<div class="closeWindowButton12"></div></label>
             <div class="content">
 			<h1>Name</h1>
@@ -47,7 +47,7 @@
         <li>
 		
         
-            <input type="checkbox" id="checkbox-3" name="checkbox-accordion"  />
+            <input type="checkbox" id="checkbox-3" name="checkbox-accordion" checked />
            <label for="checkbox-3" >Payment<div class="closeWindowButton12"></div></label>
             <div class="content">
 			  <a href="#" class="button headerButton3" >Credit card</a>
