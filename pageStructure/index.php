@@ -5,7 +5,10 @@
 
 	$Username = "";
 
+	$logged_check = false;
+
 	if(isset($_SESSION["userId"])){
+		$logged_check = true;
 		$Username = $_SESSION["User_name"];
 	}
 
@@ -29,6 +32,7 @@
 			if(file_exists("customCss.php")){
 				include "customCss.php";
 			}
+
 		?>
 	</head>
 	<body>
@@ -60,6 +64,7 @@
 				
 					<div id="searchBar"><input type="text" id="searchInput"><div id="searchIcon" onclick="filterApi()"></div></div>
 					
+					<div id="trolley" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
 					<div id="helpContact" onclick="openHelpWindow()"></div>
 				</div>
 
