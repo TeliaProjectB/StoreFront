@@ -70,12 +70,13 @@ foreach($result as $row){
 
 ?>
 
-<div class="panel" style="display:block;">
-	
+<div class="panel" style="display:block; margin: 32px 20vw">
+	<h1 style="margin-bottom: 64px;">Checkout</h1>
 	<div id="rowsContainer">
 		<?php
 
 		$counter = 0;
+		$totalAmount = 0;
 
 			foreach($arrOfApi as $api){
 				$classBackgroundUse = "back1";
@@ -83,27 +84,44 @@ foreach($result as $row){
 					$classBackgroundUse = "back2";
 				}
 				echo "<div class='row $classBackgroundUse' id='apiRow".$counter."'>
-						<div class='removeApi' onclick='removeApiFromCart($api->trolleyId, \"apiRow$counter\")'>X</div>
-						<div class='apiRowTitle'>$api->Name</div>
+						<div class='removeApi' onclick='removeApiFromCart($api->trolleyId, \"apiRow$counter\")'></div>
+						<div class='rowTitleCon'>
+							<a href='/StoreFront/api/?id=$api->RandomId' class='apiRowTitle'>$api->Name</a>
+						</div>
+						
 
-						<div class='apiRowImage' style='background-image:url(\"/StoreFront/globalImages/API/$api->imgName\")'></div>
-						<div class='apiRowDescription'>$api->Description</div>
-						<div class='aapiRowCategory'>Category: $api->Category</div>
+						<div class='imgDescCon'>
+							<div class='apiRowImage' style='background-image:url(\"/StoreFront/globalImages/API/$api->imgName\")'></div>
+							<div class='apiRowDescription'>$api->Description</div>
+						</div>
+						
+						<div class='apiRowCategory'>Category: $api->Category</div>
+						<div class='apiRowPrice'>$api->Price Kronor</div>
 
 
 					</div>";
 
+				$totalAmount += $api->Price;
 				$counter++;
 			}
 
 			if($counter == 0){
-				echo "<div class='apiRowTitle'>Your shopping cart is empty.</div>";
+				echo "<div class='apiRowTitle'>Your shopping cart is empty. Go play with some API!</div>";
 			}
 
 		?>
 	</div>
 	
 
+	<div id="priceAmount"><?php
+		echo "Total amount: ".$totalAmount." kronor.";
+	?></div>
 
-	<button id="purchaseButton" onclick="purchase()">Purchase</button>
+	<?php
+
+		if($counter != 0){
+			echo '<button id="purchaseButton" onclick="purchase()">Purchase</button>';
+		}
+	?>
+	
 </div>

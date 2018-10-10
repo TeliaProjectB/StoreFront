@@ -1,34 +1,61 @@
 .apiRowTitle{
-	display:block;
+	display:inline-block;
 	font-family: helvetica;
 	font-size: 32px;
 }
 
+.rowTitleCon{
+	display:block;
+}
+
+
+.imgDescCon{
+	display:flex;
+	flex-flow: row;
+}
+
 .apiRowImage{
+	flex-shrink:0;
+	display:flex;
 	background-size:contain;
 	background-repeat: no-repeat;
-	height: 128px;
-	width: 128px;
-	display:inline-block;
+	height: 64px;
+	width: 64px;
 }
 
 .apiRowDescription{
+	display:flex;
 	font-size: 19px;
-	position:absolute;
 	font-family:helvetica;
-	display:inline-block;
 }
 
-.aapiRowCategory{
+.apiRowCategory{
+	margin-top: 8px;
 	display:block;
 	font-family:helvetica;
+}
+
+.apiRowPrice{
+	float:right;
+	font-family:helvetica;
+	font-weight: bold;
 }
 
 #rowsContainer{
 	display:block;
 }
 
+#priceAmount{
+	margin-top: 64px;
+	border-top: solid 1px black;
+	display:block;
+	font-weight: 20vw;
+	font-family:helvetica;
+	font-weight: bold;
+}
+
 #purchaseButton{
+	cursor: pointer;
 	padding: 8px;
 	font-family: helvetica;
 	text-align:center;
@@ -38,12 +65,13 @@
 }
 
 .removeApi{
+	background-image: url('../img/remove_shopping_cart.svg');
+	padding: 14px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 	cursor: pointer;
-	font-family: helvetica;
-	font-size: 36px;
-	font-weight: bold;
 	float:right;
-	background-color: white;
 }
 
 	

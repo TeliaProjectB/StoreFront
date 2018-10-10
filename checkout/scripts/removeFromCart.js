@@ -1,6 +1,4 @@
 function removeApiFromCart(apiId, element){
-	console.log("apiId: "+apiId);
-
 	var xhr = new XMLHttpRequest();
 
 	var postData = "apiId="+apiId;
