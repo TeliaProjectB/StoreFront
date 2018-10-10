@@ -56,6 +56,15 @@ if(isset($_SESSION["userId"])){
 
 
 
+
+//Get thumbs down and up for this api
+$ThumbsUp = 69;
+$ThumbsDown = 10;
+
+$ThumbsUpRatio = $ThumbsUp/($ThumbsUp+$ThumbsDown);
+$ThumbsDownRatio = $ThumbsDown/($ThumbsUp+$ThumbsDown);
+
+
 ?>
 
 
@@ -77,9 +86,15 @@ if(isset($_SESSION["userId"])){
 				<div><h4>Price:</h4> <?php echo $apiPrice; ?> kr</div>
 				<button id="purchaseButton" onclick="<?php  echo $onClickBuyButtonFunc; ?>">Add to cart</button>
 				<div id="thumbsUpDownContainer">
-					<div id="thumbsUp" class="thumbs"></div>
-					<div id="thumbsDown" class="thumbs"></div>
+					<div id="thumbsUp" class="thumbs"></div><?php echo $ThumbsUp; ?>
+					<div id="thumbsDown" class="thumbs"></div><?php echo $ThumbsDown; ?>
 				</div>
+
+				<div id="thumbsUpRatio">
+					<div id="ratioUp" style="flex:<?php echo $ThumbsUpRatio; ?>"></div>
+					<div id="ratioDown" style="flex:<?php echo $ThumbsDownRatio; ?>"></div>
+				</div>
+
 			</aside>
 		</div>				
 	</div>
