@@ -78,9 +78,8 @@
 	width:50%;
 }
 
-.closeWindowButton:hover {
-    width:33px;
-    height:33px;
+.closeLoginButton:hover {
+    transform: scaleX(1.15) scaleY(1.15);
 }
 /*
 
