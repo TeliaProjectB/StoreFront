@@ -1,7 +1,7 @@
 function filterApi(){
 	var searchText = document.getElementById("searchInput").value;
 	if(searchText.replace(/ /g, '') != ""){
-		window.open("/StoreFront/search/?string="+searchText, "_self");
+		window.open("/StoreFront/category/?string="+searchText, "_self");
 	}
 }
 

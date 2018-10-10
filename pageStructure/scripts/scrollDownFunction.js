@@ -10,7 +10,8 @@ function scrollDownTo(nameOfTag){
         }, 1000);
     }
     else {
-        window.open('/StoreFront/search','_self'); /*change depending on the category */
+        
+        window.open('/StoreFront/category','_self'); /*change depending on the category */
     }
     
    
@@ -31,7 +32,7 @@ function searchCategory(){
         }, 1000);
     }
     else {
-        window.open('/StoreFront/search','_self'); /*change depending on the category */
+        window.open('/StoreFront/category','_self'); /*change depending on the category */
     }
     
    

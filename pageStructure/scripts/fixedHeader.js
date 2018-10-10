@@ -61,7 +61,7 @@ switch(pathname) {
         break;
     case "/StoreFront/category/":
         $('.breadcrumbs li+li').attr('content-before','/');
-        document.getElementById('secondPage').innerHTML = getURLVariable("cat").replace(/[&\/\\#,+()$~%20.'":*?<>{}]/g, ' ');;
+        document.getElementById('secondPage').innerHTML = getURLVariable("cat").replace(/[&\/\\#,+()$~%20.'":*?<>{}]/g, ' ');
         break;
     case "/StoreFront/myAccount/":
         $('.breadcrumbs li+li').attr('content-before','/');   
@@ -70,3 +70,9 @@ switch(pathname) {
     default:
         break;
 }
+
+/*function to make the dropdown-content appear only if child button other is clicked 
+$('.dropdown > .headerButton').hover(
+        $('.dropdown-content').css({"height": "192px;"}),
+        $('.dropdown-content').css({"display": "inline;"})
+)*/
