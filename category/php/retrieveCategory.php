@@ -10,31 +10,31 @@ class apiObject
     public $Description = "";
     public $Category = "";
     public $Price = "";
-    public $ImgName = "";
+    public $imgName = "";
 }
 
 
-function getRealImageSrc($ImgName){
+function getRealImageSrc($imgName){
 	
 
-	if(strcmp(substr($ImgName, -4), ".jpg") == 0){
-		return $ImgName;
-	}else if(strcmp(substr($ImgName, -4), ".png") == 0){
-		return $ImgName;
-	}else if(strcmp(substr($ImgName, -5), ".jpeg") == 0){
-		return $ImgName;
+	if(strcmp(substr($imgName, -4), ".jpg") == 0){
+		return $imgName;
+	}else if(strcmp(substr($imgName, -4), ".png") == 0){
+		return $imgName;
+	}else if(strcmp(substr($imgName, -5), ".jpeg") == 0){
+		return $imgName;
 	}
 
 	
-	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$ImgName.".png")){
-		return $ImgName.".png";
-	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$ImgName.".jpg")){
-		return $ImgName.".jpg";
-	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$ImgName.".jpeg")){
-		return $ImgName.".jpeg";
+	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".png")){
+		return $imgName.".png";
+	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpg")){
+		return $imgName.".jpg";
+	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpeg")){
+		return $imgName.".jpeg";
 	}
 
-	return $ImgName;
+	return $imgName;
 }
 
 if(isset($_POST["cat"])){
@@ -58,7 +58,7 @@ if(isset($_POST["cat"])){
 		$newObj->Description = $row["Description"];
 		$newObj->Category = $row["Category"];
 		$newObj->Price = $row["Price"];
-		$newObj->ImgName = getRealImageSrc($row["ImgName"]);
+		$newObj->imgName = getRealImageSrc($row["ImgName"]);
 
 		array_push($arrOfApi, $newObj);
 	}

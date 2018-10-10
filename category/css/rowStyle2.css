@@ -1,0 +1,156 @@
+
+.contentRow{
+	min-height: 300px;
+}
+
+.bigBoxesCategories {
+	min-height: 400px;
+}
+
+.rowContainer{
+	width: 90%;
+	display: block;
+	margin: 0px auto;
+}
+
+.rowFlexContainer{
+	display:flex;
+	flex-direction: row;
+}
+.rowTitle{
+	display:block;
+	font-size: 32px;
+	display:inline-block;
+	margin-top: 10px;
+}
+
+.rowButton{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	flex: 0;
+	padding: 32px;
+	display: flex;
+	background-color:transparent;
+	cursor: pointer;
+}
+
+.rowButton:hover{
+	transform: scale(1.2);
+}
+
+.rowButton:active{
+	transform: scale(0.823);
+}
+
+
+
+.apiBox{
+
+	flex-shrink: 0;
+	width: 239px;
+	height: 148px;
+	margin: 8px 0px;
+
+	/*border-left: solid 10px rgba(241,241,241,0.0);
+	border-right: solid 10px rgba(241,241,241,0.0);*/
+	
+	-webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box;
+
+	
+
+	cursor: pointer;
+	padding: 0px 24px;
+
+	transition: width 0.12s ease-out, height 0.12s ease-out, transform 0.2s ease-out;
+
+	
+
+
+	/*Dirty hack to enable hardware acceleration. Works for some browsers*/
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+
+.apiBox:active{
+	transform: scale(0.79);
+}
+
+.apiBox:hover{
+	/*transform: scaleX(1.15) scaleY(1.15);*/
+	width: 287px;
+	height: 178px;
+	z-index: 100;
+}
+
+
+.apiBackground{
+	display:flex;
+	background-color:white;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	flex:4;
+}
+
+.titleDescContainer{
+	background-color:white;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+
+	display: flex;
+	flex:1;
+	flex-direction: column;
+	height: 100%;
+
+	-webkit-box-shadow: 0px 10px 32px -12px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 10px 32px -12px rgba(0,0,0,0.15);
+	box-shadow: 0px 10px 32px -12px rgba(0,0,0,0.15);
+}
+.apiTitle{
+	z-index: 5;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding:4px;
+	font-size: 20px;
+	font-family: Helvetica Neue,helvetica,arial, sans-serif;
+	font-weight: bold;
+	display:flex;
+	flex:1;
+	flex-shrink: 0;
+}
+.apiDescription{
+	margin: 0px auto;
+	z-index: 5;
+	display:flex;
+	flex: 2;
+	background-color: rgba(255, 255, 255, 0.8);
+	font-family: Helvetica;
+	padding:4px;
+	font-size: 18px;
+	overflow:hidden;
+}
+
+
+
+.rowSpace{
+	display: block;
+	height: 128px
+}
+
+
+@media only screen and (max-width: 600px){
+	.rowContainer{
+		width: 100%;
+	}
+}
+
+
+
+
+
