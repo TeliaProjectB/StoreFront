@@ -7,7 +7,6 @@
 
 	var footerContent = document.getElementById("footerStyle");
 
-	sideBar.style.marginTop = contentContainer.offsetTop+"px";
 
 	var topOffset = header.offsetHeight + parseInt(window.getComputedStyle(header).marginBottom, 10);
 	topOffset+=32;
@@ -31,31 +30,35 @@
 		/*if(scrollTop < centerContent.offsetTop){
 			scrollTop = centerContent.offsetTop;
 		}*/
-
-		makeFixedPosition(scrollTop);
+		window.requestAnimationFrame(function() {
+	    	makeFixedPosition(scrollTop);
+	    });
+		
 	}
 
 	function makeFixedPosition(scrollTop){
-		if(window.getComputedStyle(sideBar).position == "absolute"){
+		if(window.getComputedStyle(sideBar).position == "fixed"){
 			var body = document.body,
 		    html = document.documentElement;
 		
 			var bodyHeight = Math.max( body.scrollHeight, body.offsetHeight, 
                        html.clientHeight, html.scrollHeight, html.offsetHeight );
 
-			var headerHeight = header.offsetHeight + parseInt(window.getComputedStyle(header).marginBottom, 10);
+			var headerHeight = header.offsetHeight;
 
-			
+			var requestedPosition;
 			if(isOver(scrollTop)){
-				if(scrollTop+sideBar.offsetHeight > bodyHeight -  footerContent.offsetHeight-topOffset){
-					sideBar.style.top = (bodyHeight-sideBar.offsetHeight- footerContent.offsetHeight-topOffset)+"px";
-				}else{
-					sideBar.style.top = (scrollTop-topOffset+headerHeight+16)+"px";
-				}
+				requestedPosition = (headerHeight);
 			}else{
-				sideBar.style.top = 0+"px";
+				requestedPosition = (centerContent.offsetTop-scrollTop);
 			}
-			
+
+			if(requestedPosition+scrollTop+headerHeight+48 > bodyHeight-scrollTop){
+				console.log("set");
+				requestedPosition = bodyHeight-scrollTop-sideBar.offsetHeight-116;
+			}
+
+			sideBar.style.top = requestedPosition+"px";
 			
 		}else{
 			sideBar.style.top = "0px";
@@ -77,7 +80,7 @@
 			minus = 0;
 		}
 
-		if(scrollTop > topOffset-header.offsetHeight){
+		if(scrollTop+16 > topOffset-header.offsetHeight){
 			return true;
 		}
 		return false;
@@ -86,7 +89,7 @@
 
 	setInterval(function(){
 		updatePosition();
-	}, 200);
+	}, 18);
 
 
 
