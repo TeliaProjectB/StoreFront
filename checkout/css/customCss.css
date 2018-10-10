@@ -1,0 +1,61 @@
+.apiRowTitle{
+	display:block;
+	font-family: helvetica;
+	font-size: 32px;
+}
+
+.apiRowImage{
+	background-size:contain;
+	background-repeat: no-repeat;
+	height: 128px;
+	width: 128px;
+	display:inline-block;
+}
+
+.apiRowDescription{
+	font-size: 19px;
+	position:absolute;
+	font-family:helvetica;
+	display:inline-block;
+}
+
+.aapiRowCategory{
+	display:block;
+	font-family:helvetica;
+}
+
+#rowsContainer{
+	display:block;
+}
+
+#purchaseButton{
+	padding: 8px;
+	font-family: helvetica;
+	text-align:center;
+	width:128px;
+	display:block;
+	margin: 32px auto;
+}
+
+.removeApi{
+	cursor: pointer;
+	font-family: helvetica;
+	font-size: 36px;
+	font-weight: bold;
+	float:right;
+	background-color: white;
+}
+
+	
+.row{
+	transition: opacity 0.7s ease-out;
+	padding: 32px 16px;
+}
+
+.back1{
+	background-color: #fbfbfb;
+}
+
+.back2{
+	background-color: white;
+}

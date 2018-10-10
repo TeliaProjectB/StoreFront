@@ -1,0 +1,1 @@
+<script src="scripts/removeFromCart.js"></script>
