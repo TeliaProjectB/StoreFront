@@ -30,6 +30,18 @@
 <table class="tableInfoBox">		
 <br>
 <?php
+echo "<table border='1' cellspacing='2' >
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Price</th>
+<th>ID</th>
+<th>Category</th>
+
+</tr>";
+
+
+
 require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 $sql = "SELECT id, userid FROM boughtItems WHERE `UserId`=".$_SESSION["userId"];
@@ -42,6 +54,7 @@ if(!$result){
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
+
 			echo "ID: " . $row["id"]. " UserID: " . $row["userid"] ."<br>";
 			$sql = "SELECT * FROM API WHERE `Id`=".$row["id"];
 
@@ -53,7 +66,15 @@ if(!$result){
 				if ($result->num_rows > 0) {
 					// output data of each row
 					while($row = $result->fetch_assoc()) {
-						echo "Name: " . $row["Name"]. " Description: " . $row["Description"] .  " Category: " . $row["Category"] .  " Price: " . $row["Price"]."<br>";
+
+						echo "<tr>";
+echo " <td>".$row["Name"] . "</td> ";
+echo " <td>".$row["Description"]. "</td> ";
+echo " <td>".$row["Category"] . "</td> ";
+echo " <td>".$row["Price"]. "</td> ";
+echo " <td>".$row["id"]. "</td> ";
+						
+						"<br>";
 
 					}
 				}
@@ -66,6 +87,8 @@ if(!$result){
 
 
 ?>
+
+
 
 
  
