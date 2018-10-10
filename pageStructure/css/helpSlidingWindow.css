@@ -65,8 +65,7 @@
 }
 
 .closeWindowButton:hover {
-    width:33px;
-    height:33px;
+    transform: scaleX(1.15) scaleY(1.15);
 }
 
 #infoTeliaUp {

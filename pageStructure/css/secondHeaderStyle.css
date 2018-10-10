@@ -88,6 +88,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
 	z-index: 1;
 	transition: height 0.37s ease-out;
+	margin-left:63px;
 }
 
 
@@ -118,6 +119,10 @@
 
 .headerButton:hover {
 	text-decoration: underline;
+}
+
+#helpContact:hover {
+	transform: scaleX(1.15) scaleY(1.15);
 }
 
 @media only screen and (max-width: 500px){
