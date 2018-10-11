@@ -56,7 +56,6 @@ function ajaxRequest(postData, phpSource, onLoad) {
 
     xhr.onreadystatechange = function() {//Call a function when the state changes.
             if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            console.log(this.responseText);
             onLoad(this.responseText);
         }
     }
@@ -91,14 +90,23 @@ function createTitle() {
 ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCategory.php", function(response){
     
     var retrievedData = JSON.parse(response);
-    
     var container = document.getElementById("searchedCategory");
+
+    if(retrievedData.length == 0){
+        container.innerHTML = "No result was found";
+    }else{
+        container.innerHTML = "";
+    }
+
+    
 
     createTitle();
 
     for(var i=0; i<retrievedData.length; i++){
         createApiBox(container, retrievedData[i]);
     }
+
+    document.getElementById("onStartloading").style.display = "none";
        
 });
 

@@ -1,6 +1,9 @@
 <?php  
 
 require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
+require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/category/php/filterClass.php';
+
+$filter = new filterManager;
 
 class apiObject
 {
@@ -40,25 +43,60 @@ function getRealImageSrc($imgName){
 if(isset($_POST["cat"])){
 	$category = strtolower(htmlspecialchars($_POST["cat"]));
 	
+	$keyWords = explode(' ', $category);
+
+	//Check for invalid keywords
+	for($i=0; $i<count($keyWords); $i++){
+		if(strcmp($keyWords[$i], ' ') == 0){
+			$keyWords[$i] = "";
+		}else if(strcmp($keyWords[$i], '.') == 0){
+			$keyWords[$i] = "";
+		}else if(strcmp($keyWords[$i], ',') == 0){
+			$keyWords[$i] = "";
+		}
+	}
 
 
-	$sql = "SELECT * FROM `API` WHERE LOWER(`Category`) like '%$category%'";
+	//go through every keyword and get all rows associated with them
+	for($i=0; $i<count($keyWords); $i++){
+		if(strcmp($keyWords[$i], '') != 0){
+			$sql = "SELECT * FROM `API` WHERE LOWER(`Category`) like '%$keyWords[$i]%'";
+			$result = $conn->query($sql);
+			foreach($result as $row){
+				$filter->addObject($row["Id"], $row, $row["Category"], $keyWords[$i]);
+			}
 
-	
-	$result = $conn->query($sql);
+			$sql = "SELECT * FROM `API` WHERE LOWER(`Description`) like '%$keyWords[$i]%'";
+			$result = $conn->query($sql);
+			foreach($result as $row){
+				$filter->addObject($row["Id"], $row, $row["Description"], $keyWords[$i]);
+			}
+
+			$sql = "SELECT * FROM `API` WHERE LOWER(`Name`) like '%$keyWords[$i]%'";
+			$result = $conn->query($sql);
+			foreach($result as $row){
+				$filter->addObject($row["Id"], $row, $row["Name"], $keyWords[$i]);
+			}
+
+		}
+	}
+
+
+	$filterResult = $filter->getContainer();
 
 
 	$arrOfApi = array();
-	foreach($result as $row){
+	foreach($filterResult as $api){
 		
 		$newObj = new apiObject;
-		$newObj->Id = $row["Id"];
-		$newObj->RandomId = $row["RandomId"];
-		$newObj->Name = $row["Name"];
-		$newObj->Description = $row["Description"];
-		$newObj->Category = $row["Category"];
-		$newObj->Price = $row["Price"];
-		$newObj->imgName = getRealImageSrc($row["ImgName"]);
+		$newObj->Id = $api->objectData["Id"];
+		$newObj->RandomId = $api->objectData["RandomId"];
+		$newObj->Name = $api->objectData["Name"];
+		$newObj->Description = $api->objectData["Description"];
+		$newObj->Category = $api->objectData["Category"];
+		$newObj->Price = $api->objectData["Price"];
+		$newObj->imgName = getRealImageSrc($api->objectData["ImgName"]);
+		$newObj->relevance = $api->relevance;
 
 		array_push($arrOfApi, $newObj);
 	}
