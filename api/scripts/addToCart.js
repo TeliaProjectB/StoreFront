@@ -49,6 +49,7 @@ function addToCart(apiId){
 		if(this.readyState == XMLHttpRequest.DONE) {
 			setTimeout(function(){
 				var trolleyCounter = document.getElementById("itemCount");
+				trolleyCounter.style.display = "block";
 				trolleyCounter.innerHTML = parseInt(trolleyCounter.innerHTML, 10)+1;
 			}, 950);
 			
