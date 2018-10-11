@@ -13,7 +13,7 @@
 #userIcon{
 	min-width:50px;
 	display:flex;
-	background-image: url('../img/user.png');
+	background-image: url('../img/user.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -52,13 +52,14 @@
 	width: 100%;
 }
   
-#showUsername {
+#showUsername{
 	display:flex;
 	color:black;
 	margin-left:8vw;
 	font-family: Helvetica Neue,helvetica,arial,sans-serif;
 	font-size: 20px;
-	position:fixed;
+	margin-right:98px;
+	float:right;
+	position:absolute;
 	right:0;
-	margin-right:7vw;
 }

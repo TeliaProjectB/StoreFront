@@ -56,8 +56,8 @@ $(document).on('click','#contentID',function(){
     }
 });
 $(document).on('click','#head',function(e){
-    if(e.target != document.getElementById("userIcon")) {
-        if($('.loginWindow:visible').length != 0){
+    if(e.target != document.getElementById("userIcon") && e.target != document.getElementById("helpContact")) {
+        if($('.loginWindow:visible').length != 0 ){
             $(".loginWindow").stop();
             $(".loginWindow").animate({width: 'toggle'});
             flag = false;

@@ -56,16 +56,28 @@ switch(pathname) {
     case "/StoreFront/home/":
         break;
     case "/StoreFront/api/":
+        document.getElementById("homeBreadcrumb").style.display="inline";
+
         $('.breadcrumbs li+li').attr('content-before','/');
-        document.getElementById('secondPage').innerHTML = "Single Api";
+        document.getElementById('secondPage').innerHTML = "API";
         break;
     case "/StoreFront/category/":
+        document.getElementById("homeBreadcrumb").style.display="inline";
+
         $('.breadcrumbs li+li').attr('content-before','/');
         document.getElementById('secondPage').innerHTML = getURLVariable("cat").replace(/[&\/\\#,+()$~%20.'":*?<>{}]/g, ' ');
         break;
     case "/StoreFront/myAccount/":
+        document.getElementById("homeBreadcrumb").style.display="inline";
+
         $('.breadcrumbs li+li').attr('content-before','/');   
         document.getElementById('secondPage').innerHTML = "My Account";
+        break;
+    case "/StoreFront/checkout/":
+        document.getElementById("homeBreadcrumb").style.display="inline";
+
+        $('.breadcrumbs li+li').attr('content-before','/');   
+        document.getElementById('secondPage').innerHTML = "Checkout";
         break;
     default:
         break;

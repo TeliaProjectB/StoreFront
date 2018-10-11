@@ -57,7 +57,7 @@ $(document).on('click','#contentID',function(){
     }
 });
 $(document).on('click','#head',function(e){
-    if(e.target != document.getElementById("helpContact")) {
+    if(e.target != document.getElementById("helpContact") && e.target != document.getElementById("userIcon")) {
         if($('.helpWindow:visible').length != 0){
             $(".helpWindow").stop();
             $(".helpWindow").animate({width: 'toggle'});

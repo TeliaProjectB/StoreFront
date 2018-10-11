@@ -74,7 +74,7 @@
 					?>
 					
 					<div id="shoppingBag">
-						<div id="itemCount" <?php if($logged_check) echo "style = 'display:block'"?>><?php echo $items; ?></div> <!-- numbers of items in checkAPI.php -->
+						<div id="itemCount" <?php if($logged_check && $items > 0) echo "style = 'display:block;'"; ?>><?php echo $items; ?></div> <!-- numbers of items in checkAPI.php -->
 						<div id="trolley" onclick="window.location='/StoreFront/checkout/'" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
 					</div>
 
@@ -84,7 +84,7 @@
 				<!-- THIRD HEADER / BREADCRUMBS -->
 				<div id="thirdHead" class="thirdHeader">
 					<ul class="breadcrumbs">
-    					<li><a href="/StoreFront/home/" id="firstPage">Home</a></li>
+    					<li id="homeBreadcrumb" style="display:none;"><a href="/StoreFront/home/" id="firstPage">Home</a></li>
 						<li><a href="" id="secondPage"></a></li>
 					</ul>
 				</div>
