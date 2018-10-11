@@ -4,7 +4,7 @@
 	session_start();
 
 	$Username = "";
-
+	$items = "";
 	$logged_check = false;
 
 	if(isset($_SESSION["userId"])){
@@ -32,7 +32,8 @@
 			if(file_exists("customCss.php")){
 				include "customCss.php";
 			}
-
+			
+			
 		?>
 	</head>
 	<body>
@@ -66,7 +67,17 @@
 				
 					<div id="searchBar"><input type="text" id="searchInput"><div id="searchIcon" onclick="filterApi()"></div></div>
 					
-					<div id="trolley" onclick="window.location='/StoreFront/checkout/'" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
+					<?php 
+						if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/pageStructure/php/checkAPI.php")){
+							require $_SERVER["DOCUMENT_ROOT"]."/StoreFront/pageStructure/php/checkAPI.php";
+						} 
+					?>
+					
+					<div id="shoppingBag">
+						<div id="itemCount" <?php if($logged_check) echo "style = 'display:block'"?>><?php echo $items; ?></div> <!-- numbers of items in checkAPI.php -->
+						<div id="trolley" onclick="window.location='/StoreFront/checkout/'" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
+					</div>
+
 					<div id="helpContact" onclick="openHelpWindow()"></div>
 				</div>
 
@@ -143,6 +154,7 @@
 			
 			
 				<div id="contentID">
+				
 					<?php
 						if(file_exists("content.php")){
 							include "content.php";
