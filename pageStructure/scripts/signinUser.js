@@ -1,3 +1,24 @@
+function checkAPI(statusFromLogin){
+
+    var userID = document.getElementById('ID').value;
+
+    var errorContainer = document.getElementById("errorMessagePanel");
+
+    ajaxRequestSignIn("/StoreFront/pageStructure/php/checkAPI.php", 
+                "userID=" + userID, 
+                function(responseText, status){
+                    if(status == 200){
+						//window.open("/StoreFront/home", "_self");
+						statusFromLogin(true);
+                    }else{
+                    	errorContainer.innerHTMl = responseText;
+						statusFromLogin(false);
+					}
+	});
+
+}
+
+
 function signInUser(statusFromLogin){
 
     var sendUsername = document.getElementById('username').value;
@@ -42,6 +63,5 @@ function ajaxRequestSignIn(phpCode, postData, onLoad){
 	}
 	xhr.send(postData); 
 
-
-
 }
+
