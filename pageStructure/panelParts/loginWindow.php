@@ -46,4 +46,5 @@
 	<button onclick="registerUser()" id="panelButton">Register</button>
 
 	<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
+	<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
 </div>
