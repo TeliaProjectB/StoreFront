@@ -12,8 +12,11 @@ function removeApiFromCart(apiId, element){
 				element.parentElement.removeChild(element);
 
 				var trolleyCounter = document.getElementById("itemCount");
-				console.log(trolleyCounter);
+				trolleyCounter.style.display = "block";
 				trolleyCounter.innerHTML = parseInt(trolleyCounter.innerHTML, 10)-1;
+				if(parseInt(trolleyCounter.innerHTML, 10) <= 0){
+					trolleyCounter.style.display = "none";
+				}
 
 			}, 700);
 			
