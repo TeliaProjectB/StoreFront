@@ -49,7 +49,18 @@ function openQuestion(id_clicked){
     }
 }
 
-
-
-
-
+//Clicking on the website the it will close the login window
+$(document).on('click','#contentID',function(){
+    if($('.helpWindow:visible').length != 0){
+        $(".helpWindow").stop();
+        $(".helpWindow").animate({width: 'toggle'});
+    }
+});
+$(document).on('click','#head',function(e){
+    if(e.target != document.getElementById("helpContact")) {
+        if($('.helpWindow:visible').length != 0){
+            $(".helpWindow").stop();
+            $(".helpWindow").animate({width: 'toggle'});
+        }
+    }
+});

@@ -53,10 +53,17 @@ $(document).on('click','#contentID',function(){
         $(".loginWindow").stop();
         $(".loginWindow").animate({width: 'toggle'});
         flag = false;
-        goBackToStart();
     }
 });
-
+$(document).on('click','#head',function(e){
+    if(e.target != document.getElementById("userIcon")) {
+        if($('.loginWindow:visible').length != 0){
+            $(".loginWindow").stop();
+            $(".loginWindow").animate({width: 'toggle'});
+            flag = false;
+        }
+    }
+});
 
 //Clossing login window when scrolling down
 $(document).ready(function() { 
