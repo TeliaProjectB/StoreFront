@@ -104,17 +104,21 @@ $likeThumbClass = "thumbs";
 $disLikeThumbClass = "thumbs";
 
 $apiIsLiked = null;
-$sql = "SELECT * from `APIlike` WHERE `UserId`=".$_SESSION["userId"]."";
+$sql = "SELECT * from `APIlike` WHERE `UserID`=".$_SESSION["userId"]." AND `itemID`='$randomId'";
 $result = $conn->query($sql);
 
-if(mysqli_num_rows($result) != 0){
+if(!empty($result)){
 	$apiIsLiked = $result->fetch_assoc()["IsLiked"];
-
-	if($apiIsLiked == 1){
-		$likeThumbClass = "pressedThumbs";
-	}else if($apiIsLiked == 0){
-		$disLikeThumbClass = "pressedThumbs";
+	
+	if(!is_null($apiIsLiked)){
+		if($apiIsLiked == 1){
+			$likeThumbClass = "pressedThumbs";
+		}else if($apiIsLiked == 0){
+			$disLikeThumbClass = "pressedThumbs";
+		}
 	}
+
+	
 }
 
 
