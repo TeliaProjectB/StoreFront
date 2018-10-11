@@ -34,7 +34,7 @@
 }
 .accordion ul li label:hover, .accordion [type=radio]:checked ~ label, .accordion [type=checkbox]:checked ~ label {
     background:#e9e2f7;
-    color:#211c1ce6;
+    color:#e91f1fb3;
     text-shadow:1px 1px 1px rgba(0,0,0,0.5)
 }
 .accordion .content {
@@ -103,7 +103,7 @@ h1 {
 		border-collapse: collapse;
 		width: 45%;
 		max-width: 96%;
-	    height: 0px;
+	    height: 76px;
         width: 68%;
         left: 6px;
 		top:  20px;
