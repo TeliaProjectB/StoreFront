@@ -17,6 +17,7 @@ function removeApiFromCart(apiId, element){
 				if(parseInt(trolleyCounter.innerHTML, 10) <= 0){
 					trolleyCounter.style.display = "none";
 				}
+				updatePrice();
 
 			}, 700);
 			
@@ -25,7 +26,17 @@ function removeApiFromCart(apiId, element){
 	xhr.send(postData);
 }
 
+function updatePrice(){
+	var priceContainer = document.getElementById("priceAmount");
 
+	var newPrice = 0;
+	var prices = document.getElementsByClassName("apiRowPrice");
+	for(var i=0; i<prices.length; i++){
+		newPrice += parseInt(prices[i].innerHTML, 10);
+	}
+
+	priceContainer.innerHTML = "Total amount: "+newPrice+" kronor.";
+}
 
 function purchase(){
 	var xhr = new XMLHttpRequest();
