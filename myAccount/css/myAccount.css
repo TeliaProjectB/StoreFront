@@ -34,7 +34,7 @@
 }
 .accordion ul li label:hover, .accordion [type=radio]:checked ~ label, .accordion [type=checkbox]:checked ~ label {
     background:#e9e2f7;
-    color:#211c1ce6;
+    color:#0c0b0b;
     text-shadow:1px 1px 1px rgba(0,0,0,0.5)
 }
 .accordion .content {
@@ -177,9 +177,9 @@ box-shadow: 0 5px #999;
 input:checked ~ label .closeWindowButton12:after {
 	position: relative;
     content: url('../img/open.png');
-	 width: 30px;
+	width: 30px;
     height: 30px;
-	left: -8px;
+	left: -15px;
     top:  -11px;
 	content:size: 300px 100px;
 }
