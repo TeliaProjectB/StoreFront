@@ -26,9 +26,8 @@
     transition: 0.3s;
     border-top: 2px solid rgb(191, 96, 255);
     display:block;
-    margin-right:30px;
-    padding-right: 20px;
-    padding-left:20px;
+    padding-right:35px;
+    padding-left:35px;
     margin-bottom:10px;
 }
 
@@ -45,9 +44,8 @@
     display: block;
     cursor: pointer;
     transition: 0.3s;
-    margin-right:30px;
-    padding-right: 20px;
-    padding-left:20px;
+    padding-right:35px;
+    padding-left:35px;
     margin-bottom:10px;
 }
 
