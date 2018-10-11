@@ -62,10 +62,9 @@ echo "<table border='1' cellspacing='2' >
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Category</th>
 <th>Price</th>
 <th>ID</th>
-
+<th>Category</th>
 
 </tr>";
 
@@ -116,16 +115,19 @@ if(!$result){
 
 
 ?>
-	</tr>
+
+
+
+
+ 
+
+			</tr>
 		</table>
         </div>
         </li>
         <li>
 			
-
-
- 
-
+			
 		
 		
         
