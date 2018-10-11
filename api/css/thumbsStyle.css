@@ -15,7 +15,7 @@
 #thumbsUp{
 	width: 32px;
 	height: 32px;
-	background-image: url('../img/thumbs-up.svg');
+	background-image: url('../img/thumbs-up.svg'); 
 	background-size: contain;
 	display:inline-block;
 }
@@ -30,7 +30,7 @@
 #ratioUp{
 	height: 100%;
 	display: flex;
-	background-color: #353535;
+	background-color: gray;
 }
 
 #ratioDown{
@@ -52,6 +52,14 @@
 
 .thumbs:active{
 	animation: thumbsMove 0.375s ease-in 0s 1 normal backwards;
+}
+
+.pressedThumbs{
+	cursor:pointer;
+	margin: 6px 16px;
+	transition: transform 0.5s ease-in;
+	background-repeat: no-repeat;
+	filter: grayscale(100%);
 }
 
 #thumbsDown{
