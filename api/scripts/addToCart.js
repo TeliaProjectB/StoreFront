@@ -46,9 +46,12 @@ function addToCart(apiId){
 	xhr.open("POST", "/StoreFront/api/php/addToCart.php", true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.onreadystatechange = function() {//Call a function when the state changes.
-		console.log(this.responseText);
 		if(this.readyState == XMLHttpRequest.DONE) {
-
+			setTimeout(function(){
+				var trolleyCounter = document.getElementById("itemCount");
+				trolleyCounter.innerHTML = parseInt(trolleyCounter.innerHTML, 10)+1;
+			}, 950);
+			
 		}
 	}
 	 xhr.send("apiRandId="+apiId); 
