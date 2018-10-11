@@ -54,7 +54,6 @@
 			}
 
 			if(requestedPosition+scrollTop+headerHeight+48 > bodyHeight-scrollTop){
-				console.log("set");
 				requestedPosition = bodyHeight-scrollTop-sideBar.offsetHeight-116;
 			}
 

@@ -25,6 +25,8 @@ $apiDescription = "";
 $apiImage = "";
 $apiCategory = "";
 $apiPrice = "";
+
+$randomId = "";
 if(isset($_GET["id"])){
 	$randomId = htmlspecialchars($_GET["id"]);
 	$sql = "SELECT * FROM `API` WHERE `RandomId`='$randomId'";
@@ -56,13 +58,66 @@ if(isset($_SESSION["userId"])){
 
 
 
+//GET Api likes and dislikes
+$ThumbsUp = 0;
+$ThumbsDown = 0;
 
-//Get thumbs down and up for this api
-$ThumbsUp = 69;
-$ThumbsDown = 10;
 
-$ThumbsUpRatio = $ThumbsUp/($ThumbsUp+$ThumbsDown);
-$ThumbsDownRatio = $ThumbsDown/($ThumbsUp+$ThumbsDown);
+$sql = "SELECT * FROM `APIlike` WHERE `ItemID` = '$randomId'";
+
+$result = $conn->query($sql);
+
+foreach($result as $row){
+	if($row["IsLiked"] == 1){
+		$ThumbsUp++;
+	}else{
+		$ThumbsDown++;
+	}
+}
+
+if($ThumbsUp === 0 && $ThumbsDown === 0){
+	$ThumbsUpRatio = 0.5;
+	$ThumbsDownRatio = 0.5;
+}else{
+	$ThumbsUpRatio = $ThumbsUp/($ThumbsUp+$ThumbsDown);
+	$ThumbsDownRatio = $ThumbsDown/($ThumbsUp+$ThumbsDown);
+}
+
+
+
+
+
+
+
+//Functions forlike dislike click
+$likeButtonFunc = "clickLikeApi('".$_GET["id"]."')";
+$disLikeButtonFunc = "clickDislikeApi('".$_GET["id"]."')";
+if(!isset($_SESSION["userId"])){
+	$likeButtonFunc = "openRegisterPanel()";
+	$disLikeButtonFunc = "openRegisterPanel()";
+}
+
+
+
+//check if current user has liked this api
+$likeThumbClass = "thumbs";
+$disLikeThumbClass = "thumbs";
+
+$apiIsLiked = null;
+$sql = "SELECT * from `APIlike` WHERE `UserId`=".$_SESSION["userId"]."";
+$result = $conn->query($sql);
+
+if(mysqli_num_rows($result) != 0){
+	$apiIsLiked = $result->fetch_assoc()["IsLiked"];
+
+	if($apiIsLiked == 1){
+		$likeThumbClass = "pressedThumbs";
+	}else if($apiIsLiked == 0){
+		$disLikeThumbClass = "pressedThumbs";
+	}
+}
+
+
 
 
 ?>
@@ -86,8 +141,10 @@ $ThumbsDownRatio = $ThumbsDown/($ThumbsUp+$ThumbsDown);
 				<div><h4>Price:</h4> <?php echo $apiPrice; ?> kr</div>
 				<button id="purchaseButton" onclick="<?php  echo $onClickBuyButtonFunc; ?>">Add to cart</button>
 				<div id="thumbsUpDownContainer">
-					<div id="thumbsUp" class="thumbs"></div><?php echo $ThumbsUp; ?>
-					<div id="thumbsDown" class="thumbs"></div><?php echo $ThumbsDown; ?>
+					<div id="thumbsUp" class="<?php echo $likeThumbClass; ?>" onclick="<?php  echo $likeButtonFunc;  ?>"></div>
+					<div id="thumbsUpNumber"><?php echo $ThumbsUp; ?></div>
+					<div id="thumbsDown" class="<?php echo $disLikeThumbClass; ?>" onclick="<?php  echo $disLikeButtonFunc;  ?>"></div>
+					<div id="thumbsDownNumber"><?php echo $ThumbsDown; ?></div>
 				</div>
 
 				<div id="thumbsUpRatio">

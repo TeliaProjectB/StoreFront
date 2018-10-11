@@ -6,4 +6,5 @@
 	createSandbox("sandboxArea");
 </script>
 <script src="scripts/addToCart.js"></script>
+<script src="scripts/handleLikeDislike.js"></script>
 <script data-main="scripts/commentSystem/main" src="scripts/commentSystem/require.min.js"></script>
