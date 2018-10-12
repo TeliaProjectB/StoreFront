@@ -4,8 +4,6 @@ class containerObject{
 	public $id = "";
 	public $objectData = "";
 	public $relevance = 0;
-	public $likes = 0;
-	public $disLikes = 0;
 }
 
 class filterManager{
@@ -52,8 +50,6 @@ class filterManager{
 			$newContainerObj->objectData = $objectData;
 			$newContainerObj->relevance = $this->calculateRelevance($haystack, $needle, $likes, $dislikes);
 
-			$newContainerObj->likes = $likes;
-			$newContainerObj->disLikes = $dislikes
 
 
 			array_push($this->container, $newContainerObj);
