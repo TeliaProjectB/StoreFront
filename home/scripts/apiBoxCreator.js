@@ -3,6 +3,7 @@ define([], function(){
 
 
 		this.createApiBox = function(apiContainer, apiData){
+			console.log(apiData);
 			apiContainer.setAttribute("mouseover", false);
 
 			var newApi = document.createElement("div");
@@ -33,6 +34,13 @@ define([], function(){
 			titleDescContainer.appendChild(apiDescription);
 
 			newApi.appendChild(titleDescContainer);
+
+
+			var price = document.createElement("div");
+			price.className = "apiPriceRow";
+			price.innerHTML = "Price: "+apiData.Price+" kr";
+			newApi.appendChild(price);
+
 			apiContainer.appendChild(newApi);
 			
 
