@@ -113,8 +113,12 @@ for($i=0; $i<count($limitedKeys); $i++){
 
 $filterResult = $filter->getContainer();
 
-
+$limit = 4;
+$counter = 0;
 foreach($filterResult as $api){
+	if($counter >= $limit){
+		break;
+	}
 		
 	/*$newObj = new apiObject;
 	$newObj->Id = $api->objectData["Id"];
@@ -137,6 +141,7 @@ foreach($filterResult as $api){
 			<div class='recApiPrice'>".$api->objectData["Price"]." kr</div>
 		</div>";
 
+	$counter++;
 }
 
 
