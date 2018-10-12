@@ -23,16 +23,10 @@
 	height: 216px;
 	margin: 10px 15px;
 	display:flex;
-	-webkit-background-clip: padding-box; /* for Safari */
-    background-clip: padding-box;
 	cursor: pointer;	
-	transition: transform 0.12s ease-out, opacity 0.12s ease-out, transform 0.2s ease-out;
-	/*Dirty hack to enable hardware acceleration. Works for some browsers*/
-	-webkit-transform: translateZ(0);
-	-moz-transform: translateZ(0);
-	-ms-transform: translateZ(0);
-	-o-transform: translateZ(0);
-	transform: translateZ(0);
+	transform-origin: 0% 50%;
+	transition: transform 0.4s ease, opacity 0.12s ease-out;
+	transform: perspective(2000px) rotateY(90deg) scaleX(0.9) scaleY(0.9);
 }
 
 .apiBox:active{

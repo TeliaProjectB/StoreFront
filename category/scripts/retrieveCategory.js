@@ -55,7 +55,7 @@ function ajaxRequest(postData, phpSource, onLoad) {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function() {//Call a function when the state changes.
-        console.log(this.responseText);
+        //console.log(this.responseText);
         if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             onLoad(this.responseText);
         }
@@ -108,6 +108,36 @@ ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCa
     }
 
     document.getElementById("onStartloading").style.display = "none";
-       
+    
+    //get all 3d panels
+    var panels3d = document.getElementsByClassName("apiBox");
+    for(var i=0; i<panels3d.length; i++){
+        animatePanel(panels3d[i], i, panels3d.length);
+    }
+
 });
 
+
+
+
+
+function animatePanel(panel, index, maxIndex){
+    var maxTime = 1000;
+    var waitTime = (index/maxIndex)*maxTime;
+    setTimeout(function(){
+        panel.style.transform += " perspective(2000px) rotateY(0deg) scaleX(1) scaleY(1) ";
+        addHooverFunction(panel);
+    }, waitTime);
+}
+
+
+function addHooverFunction(panel){
+    panel.addEventListener("mouseenter", function(){
+        panel.style.transformOrigin = "50% 50%";
+        panel.style.transform = " scale(1.15) ";
+    }, true);
+
+    panel.addEventListener("mouseleave", function(){
+        panel.style.transform = " scale(1) ";
+    });
+}
