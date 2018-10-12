@@ -1,5 +1,9 @@
 #thirdHead {
+    position: absolute;
+    width: 100%;
     background-color:white;
+    height: 44px;
+    margin-top: -44px;
 }
 
 ul.breadcrumbs {
