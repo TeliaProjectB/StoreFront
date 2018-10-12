@@ -40,6 +40,29 @@ function getRealImageSrc($imgName){
 	return $imgName;
 }
 
+
+
+function getLikesFromAPI($apiId){
+	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
+
+	$sql = "SELECT * FROM APIlike WHERE `IsLiked`=1 AND `ItemID` = '".htmlspecialchars($apiId)."'";
+	$result = $conn->query($sql);
+	
+	return mysqli_num_rows($result);
+
+}
+
+function getDisLikesFromAPI($apiId){
+	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
+
+	$sql = "SELECT * FROM APIlike WHERE `IsLiked`=0 AND `ItemID` = '".htmlspecialchars($apiId)."'";
+	$result = $conn->query($sql);
+
+	return mysqli_num_rows($result);
+}
+
+
+
 if(isset($_POST["cat"])){
 	$category = strtolower(htmlspecialchars($_POST["cat"]));
 	
@@ -63,19 +86,34 @@ if(isset($_POST["cat"])){
 			$sql = "SELECT * FROM `API` WHERE LOWER(`Category`) like '%$keyWords[$i]%'";
 			$result = $conn->query($sql);
 			foreach($result as $row){
-				$filter->addObject($row["Id"], $row, $row["Category"], $keyWords[$i]);
+				$filter->addObject($row["Id"], 
+					$row, 
+					$row["Category"], 
+					$keyWords[$i], 
+					getLikesFromAPI($row["RandomId"]),
+					getDisLikesFromAPI($row["RandomId"]));
 			}
 
 			$sql = "SELECT * FROM `API` WHERE LOWER(`Description`) like '%$keyWords[$i]%'";
 			$result = $conn->query($sql);
 			foreach($result as $row){
-				$filter->addObject($row["Id"], $row, $row["Description"], $keyWords[$i]);
+				$filter->addObject($row["Id"], 
+					$row, 
+					$row["Description"], 
+					$keyWords[$i], 
+					getLikesFromAPI($row["RandomId"]), 
+					getDisLikesFromAPI($row["RandomId"]));
 			}
 
 			$sql = "SELECT * FROM `API` WHERE LOWER(`Name`) like '%$keyWords[$i]%'";
 			$result = $conn->query($sql);
 			foreach($result as $row){
-				$filter->addObject($row["Id"], $row, $row["Name"], $keyWords[$i]);
+				$filter->addObject($row["Id"], 
+					$row, 
+					$row["Name"], 
+					$keyWords[$i], 
+					getLikesFromAPI($row["RandomId"]), 
+					getDisLikesFromAPI($row["RandomId"]));
 			}
 
 		}

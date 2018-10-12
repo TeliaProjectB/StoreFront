@@ -10,12 +10,25 @@ class filterManager{
 	private $container  = array();
 
 
-	function calculateRelevance($haystack, $needle){
-		return substr_count($haystack, $needle);
+	function calculateRelevance($haystack, $needle, $likes, $dislikes){
+		return substr_count($haystack, $needle) * $this->likesToDislikeRatio($likes, $dislikes);
 	}
 	
 
-	function addObject($objectId, $objectData, $haystack, $needle){
+	function likesToDislikeRatio($likes, $dislikes){
+		if($likes == 0 && $dislikes == 0){
+			return 0;
+		}
+		$ratio = $likes / ($likes+ $dislikes);
+
+		if($ratio <= 0.45){
+			$ratio = 0.45;
+		}
+		
+		return $ratio;
+	}
+
+	function addObject($objectId, $objectData, $haystack, $needle, $likes, $dislikes){
 		//echo "\"".$needle."\"\n";
 		//If object to insert is not inserted, instert it. otherwise a counter for the object is incremented
 
@@ -26,7 +39,7 @@ class filterManager{
 			if($obj->id == intval($objectId)){
 				//echo "Match\n";
 				$exists = true;
-				$obj->relevance += $this->calculateRelevance($haystack, $needle);
+				$obj->relevance += $this->calculateRelevance($haystack, $needle, $likes, $dislikes);
 				break;
 			}
 		}
@@ -35,7 +48,7 @@ class filterManager{
 			$newContainerObj = new containerObject;
 			$newContainerObj->id = intval($objectId);
 			$newContainerObj->objectData = $objectData;
-			$newContainerObj->relevance = $this->calculateRelevance($haystack, $needle);
+			$newContainerObj->relevance = $this->calculateRelevance($haystack, $needle, $likes, $dislikes);
 
 
 			array_push($this->container, $newContainerObj);
