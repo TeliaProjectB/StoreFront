@@ -53,9 +53,20 @@
 				requestedPosition = (centerContent.offsetTop-scrollTop);
 			}
 
-			if(requestedPosition+scrollTop+headerHeight+48 > bodyHeight-scrollTop){
+			/*if(requestedPosition+scrollTop+headerHeight+48 > bodyHeight-scrollTop){
 				requestedPosition = bodyHeight-scrollTop-sideBar.offsetHeight-116;
-			}
+			}*/
+
+			/*if((scrollTop+sideBar.clientHeight+headerHeight) > (bodyHeight-footerContent.clientHeight)){
+				var diff = (bodyHeight-footerContent.clientHeight+headerHeight) - (scrollTop+sideBar.clientHeight);
+				requestedPosition = diff;
+			}*/
+
+			//var domRect = sideBar.getBoundingClientRect();
+			//console.log("if "+(domRect.bottom-scrollTop)+" < "+(parseInt(footerContent.clientHeight,10)+parseInt(scrollTop,10)));
+			//if((domRect.bottom-scrollTop+headerHeight) < (parseInt(footerContent.clientHeight,10)+parseInt(scrollTop,10))){
+			//	console.log("over");
+			//}
 
 			sideBar.style.top = requestedPosition+"px";
 			

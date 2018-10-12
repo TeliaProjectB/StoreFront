@@ -20,6 +20,8 @@ function getRealImageSrc($imgName){
 	}
 	return $imgName;
 }
+
+
 $apiName = "";
 $apiDescription = "";
 $apiImage = "";
@@ -166,10 +168,10 @@ if(!empty($result)){
 		</article>
 		<div id="panelsContainer" class="panel3d panel flexColumn">
 			<div id="rowButtonContainer">
-				<button class="rowButton" id="infoButton">Info</button>
-				<button class="rowButton"  id="sandboxButton">Sandbox</button>
-				<button class="rowButton"  id="commentsButton">Comment</button>
-				<button class="rowButton"  id="recommendedButton">Recommended</button>
+				<button class="rowButton panelButtonBackground" id="infoButton">Info</button>
+				<button class="rowButton panelButtonBackground"  id="sandboxButton">Sandbox</button>
+				<button class="rowButton panelButtonBackground"  id="commentsButton">Comment</button>
+				<button class="rowButton panelButtonBackground"  id="recommendedButton">Recommended</button>
 			</div>
 			<div id="infoPanel">
  				<table class="tableInfoBox">
@@ -222,7 +224,10 @@ if(!empty($result)){
 				<div id="commentArea"></div>
 			</div>
 			<div id="recommendPanel">
-				<p>Recommended panel</p>
+				<?php
+					/*This code uses apiName, apiDescription to find related7recommended apis*/
+					require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/api/php/getRecommendedApi.php'; 
+				?>
 			</div>
 		</div>
 	</div>

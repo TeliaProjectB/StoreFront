@@ -209,15 +209,40 @@
 
 
 
-
-
-#sandboxButton{
-	background-image: url('../img/sandbox.svg');
+.panelButtonBackground{
 	background-repeat: no-repeat;
 	background-position: 8px;
 	background-size: 24px;
 	padding-left:38px;
 }
+
+#infoButton{
+	background-image: url('../img/info.svg');
+}
+
+
+#sandboxButton{
+	background-image: url('../img/sandbox.svg');
+}
+
+
+#commentsButton{
+	background-image: url('../img/comment.svg');
+}
+
+
+
+#recommendedButton{
+	background-image: url('../img/star.svg');
+}
+
+
+
+
+
+
+
+
 
 
 #extraSpace{
