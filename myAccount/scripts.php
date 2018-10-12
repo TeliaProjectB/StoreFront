@@ -1,1 +1,1 @@
-  
+<script src="scripts/changeInfo.js"></script>

@@ -87,7 +87,7 @@ h1 {
     transition: all .5s ease-out;
 }
 .vertical [type=checkbox]:checked ~ label ~ .content {
-    height:308px;
+    height:355px;
     border:1px solid #542437;
 }
 
@@ -181,11 +181,7 @@ input:checked ~ label .closeWindowButton12:after {
     height: 30px;
 	left: -15px;
     top:  -11px;
-	content:size: 300px 100px;
+
 }
-
-
-
-
 
 

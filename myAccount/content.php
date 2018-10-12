@@ -45,7 +45,14 @@ echo "</font>";
 	}
 }
 ?>
-
+		<button class="changeUserPsw" onclick="changeUserPsw()">Change Username and Password</button>
+			<div id="changeInfo" style="display:none">	
+				New Username: <input type="text" id="newUsername" class="changeInput" value=""><br>
+				New Password: <input type="text" id="newPassword" class="changeInput" value=""><br>
+				<button class="saveChanges" onclick="saveChanges()">Save</button>
+			</div>
+		
+		
 		</div>
             </li>
             <li>

@@ -1,0 +1,43 @@
+
+.changeUserPsw{
+	background-color:transparent;
+	display:flex;
+	cursor:pointer;
+	padding-top:30px;
+    font-size: 15px;
+	border-radius: 4px;
+	-webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    padding-bottom:13px;
+}
+
+
+.changeUserPsw:hover {
+	text-decoration: underline;
+}
+
+.changeInput {
+    display:inline;
+    height:22px;
+    border: 2px solid black;
+    margin-top:3px;
+    margin-bottom:3px;
+}
+
+.saveChanges {
+    background-color:red;
+	cursor:pointer;
+    font-size: 17px;
+	border-radius: 4px;
+	-webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    margin-top: 6px;
+    text-align: center;
+    width: 60px;
+    height: 25px;
+}
+
+.saveChanges:hover {
+    background-color:rgb(197, 5, 5);
+
+}
