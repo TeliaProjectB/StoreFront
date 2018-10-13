@@ -16,6 +16,7 @@ function removeApiFromCart(apiId, element){
 				trolleyCounter.innerHTML = parseInt(trolleyCounter.innerHTML, 10)-1;
 				if(parseInt(trolleyCounter.innerHTML, 10) <= 0){
 					trolleyCounter.style.display = "none";
+					document.getElementById("purchaseButton").parentElement.removeChild(document.getElementById("purchaseButton"));
 				}
 				updatePrice();
 
