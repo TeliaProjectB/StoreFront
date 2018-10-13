@@ -11,6 +11,11 @@ if(isset($_SESSION["userId"])){
 	
 	$result = $conn->query($sql);
 
+	if(!$result){
+		header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad request', true, 400);
+		die("No items in the shopping cart");
+	}
+
 	foreach($result as $row){
 		//Add to purchase list
 		$sql = "INSERT INTO `boughtItems` (ID, UserID, ItemID) VALUES (null, ".$_SESSION["userId"].", ".$row["IDApi"].")";
