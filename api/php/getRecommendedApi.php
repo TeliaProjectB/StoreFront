@@ -85,18 +85,9 @@ for($i=0; $i<count($limitedKeys); $i++){
 				getDisLikesFromAPI($row["RandomId"]));
 		}
 
-		$sql = "SELECT * FROM `API` WHERE LOWER(`Description`) like '%$limitedKeys[$i]%'";
-		$result = $conn->query($sql);
-		foreach($result as $row){
-			$filter->addObject($row["Id"], 
-				$row, 
-				$row["Description"], 
-				$limitedKeys[$i], 
-				getLikesFromAPI($row["RandomId"]), 
-				getDisLikesFromAPI($row["RandomId"]));
-		}
 
-		$sql = "SELECT * FROM `API` WHERE LOWER(`Name`) like '%$limitedKeys[$i]%'";
+
+		/*$sql = "SELECT * FROM `API` WHERE LOWER(`Name`) like '%$limitedKeys[$i]%'";
 		$result = $conn->query($sql);
 		foreach($result as $row){
 			$filter->addObject($row["Id"], 
@@ -105,7 +96,7 @@ for($i=0; $i<count($limitedKeys); $i++){
 				$limitedKeys[$i], 
 				getLikesFromAPI($row["RandomId"]), 
 				getDisLikesFromAPI($row["RandomId"]));
-		}
+		}*/
 
 	}
 }

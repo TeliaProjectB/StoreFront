@@ -89,6 +89,8 @@ if($ThumbsUp === 0 && $ThumbsDown === 0){
 
 
 
+$likeThumbClass = "thumbs";
+$disLikeThumbClass = "thumbs";
 
 
 //Functions forlike dislike click
@@ -97,33 +99,26 @@ $disLikeButtonFunc = "clickDislikeApi('".$_GET["id"]."')";
 if(!isset($_SESSION["userId"])){
 	$likeButtonFunc = "openRegisterPanel()";
 	$disLikeButtonFunc = "openRegisterPanel()";
-}
+}else{
+	//check if current user has liked this api
+	$apiIsLiked = null;
+	$sql = "SELECT * from `APIlike` WHERE `UserID`=".$_SESSION["userId"]." AND `itemID`='$randomId'";
+	$result = $conn->query($sql);
 
-
-
-//check if current user has liked this api
-$likeThumbClass = "thumbs";
-$disLikeThumbClass = "thumbs";
-
-$apiIsLiked = null;
-$sql = "SELECT * from `APIlike` WHERE `UserID`=".$_SESSION["userId"]." AND `itemID`='$randomId'";
-$result = $conn->query($sql);
-
-if(!empty($result)){
-	$apiIsLiked = $result->fetch_assoc()["IsLiked"];
-	
-	if(!is_null($apiIsLiked)){
-		if($apiIsLiked == 1){
-			$likeThumbClass = "pressedThumbs";
-		}else if($apiIsLiked == 0){
-			$disLikeThumbClass = "pressedThumbs";
+	if(!empty($result)){
+		$apiIsLiked = $result->fetch_assoc()["IsLiked"];
+		
+		if(!is_null($apiIsLiked)){
+			if($apiIsLiked == 1){
+				$likeThumbClass = "pressedThumbs";
+			}else if($apiIsLiked == 0){
+				$disLikeThumbClass = "pressedThumbs";
+			}
 		}
+
+		
 	}
-
-	
 }
-
-
 
 
 ?>
