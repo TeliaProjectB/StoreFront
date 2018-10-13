@@ -28,19 +28,17 @@ if(isset($_POST["likeIt"]) && isset($_POST["apiRandId"])){
 	$conn->query($sql);
 
 
-
 	//If previous selected like status is equal to requested like status, the user wants it undone.
-	if($previousLikeStatus != -1){
-		if($previousLikeStatus != $isLiked){
-			//Add new dislike or like
-			$sql = "INSERT INTO `APIlike` (ID, ItemID, UserId, IsLiked) VALUES 
-				(null, '$randApiId', ".$_SESSION["userId"].", $isLiked)";
+	if($previousLikeStatus != $isLiked){
+		//Add new dislike or like
+		$sql = "INSERT INTO `APIlike` (ID, ItemID, UserId, IsLiked) VALUES 
+			(null, '$randApiId', ".$_SESSION["userId"].", $isLiked)";
 
-			$conn->query($sql);
+		$conn->query($sql);
 
-			echo $isLiked;
-		}
+		echo $isLiked;
 	}
+	
 	
 
 	
