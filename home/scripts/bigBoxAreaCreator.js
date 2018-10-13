@@ -4,34 +4,24 @@ define(["retrieveApi"], function(retrieveApi){
 
 
 		this.appendBoxArea = function(element, onComplete){
+
+			/*
+			Create the container for simpleboxes
+			*/
 			element.className += " rowContainer";
 			var titleEle = document.createElement("a");
 			titleEle.href = "/StoreFront/category?cat="+element.getAttribute("name");
 			titleEle.className= "rowTitle";
 			titleEle.style.position = "relative";
 			titleEle.innerHTML= element.getAttribute("name");
-
 			element.appendChild(titleEle);
 
+			/*Load api element for simple boxcontainer, the elements for the api are generated in 
+			"loadApiBoxes" and appended automatically
+			*/
 			apiRetriever.loadApisBoxes(element, element.getAttribute("name"), function(apiBoxContainer){
-
 				onComplete();
 			});
-
-
-			/*var findMoreButton = document.createElement("a");
-			findMoreButton.innerHTML = "More";
-			findMoreButton.className = "findMoreButton";
-			findMoreButton.href = "/StoreFront/search?cat="+element.getAttribute("name");
-
-			var container = document.createElement("div");
-			container.style.width = "100%";
-			container.style.textAlign = "center";
-			container.appendChild(findMoreButton);
-
-
-			element.appendChild(container);*/
-
 			
 
 

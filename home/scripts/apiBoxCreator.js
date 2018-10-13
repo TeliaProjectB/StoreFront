@@ -3,16 +3,15 @@ define([], function(){
 
 
 		this.createApiBox = function(apiContainer, apiData){
-			console.log(apiData);
+			/*
+			Generate the api box element from "apiData"
+			"apiData" contains: Name, imgName,Description, Priceand RandomId
+			*/
 			apiContainer.setAttribute("mouseover", false);
 
 			var newApi = document.createElement("div");
 			newApi.className = "apiBox";
 
-			/*var apiBackground = document.createElement("div");
-			apiBackground.className = "apiBackground";
-			apiBackground.style.backgroundImage = "url("+apiData.image+")";
-			newApi.appendChild(apiBackground);*/
 
 			var apiTitle = document.createElement("div");
 			apiTitle.className = "apiTitle";
@@ -43,7 +42,7 @@ define([], function(){
 
 			apiContainer.appendChild(newApi);
 			
-
+			//stores the random id as an element attribute that will be accessed when clicking on the element
 			newApi.setAttribute("myApiId", apiData.RandomId);
 			
 
@@ -51,7 +50,11 @@ define([], function(){
 
 
 		this.createSimpleBox = function(apiContainer, apiData){
-
+			/*
+			Generate the api box element from "apiData"
+			"apiData" contains: Name, imgName,Description, Priceand RandomId
+			*/
+			
 			var newApi = document.createElement("div");
 			newApi.className = "simpleApiBox";
 

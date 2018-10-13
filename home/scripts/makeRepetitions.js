@@ -3,6 +3,10 @@ define(["retrieveApi"], function(retrieveApi){
 
 
 		this.addRepetitionRightSide = function(rowData){
+			/*
+			Each row as a property "repeatingsRight" that inicates how many newly created api has been added to the right side.
+			Use this variable modulo the number of api that were loaded and you'll make a circulation of api
+			*/
 			if(rowData.repeatingsRight < 0){
 				rowData.repeatingsRight = 0;
 			}

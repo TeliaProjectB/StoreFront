@@ -1,102 +1,87 @@
 define(["apiBoxCreator"], function(apiBoxCreator){
 	function initModule(){
-		var boxCreator =new apiBoxCreator.init();
+		var boxCreator = new apiBoxCreator.init();
 
-		var exampleDatabaseResult3 = [
-			{
-				name: "Send sms 1",
-				description: "Allows you to send sms through Telia's services.",
-				price: "10 000kr",
-				catagories: "Network, Cellular, Sms",
-				image: "https://images.vexels.com/media/users/3/136396/isolated/preview/0feda263cc7046c4f4a224bb70ed0b5f-colorful-message-icon-design-by-vexels.png",
-				id: "4713"
-			},
 
-			{
-				name: "Verify payment",
-				description: "Verifies if a user has enough funds to make a purchase.",
-				price: "8 500kr",
-				catagories: "Payment, Control, Verification",
-				image: "https://cdn1.iconfinder.com/data/icons/business-colored-vol-1/100/business-colored-9-01-512.png",
-				id: "8574"
-			},
-
-			{
-				name: "Send voice mail",
-				description: "Sends a custom voice message to a phone number.",
-				price: "10 000kr",
-				catagories: "Cellular, Voice, Phone",
-				image: "https://t4.ftcdn.net/jpg/01/14/38/39/240_F_114383977_bW7vvhEQ7SieyFx8gM7mp5hurfUwEuCf.jpg",
-				id: "5476"
-			},
-		];
-
-		var hasLoaded = 0;
 		this.loadApisRows = function(apiContainer, category, onLoad){
+			/*This function loads apifrom a given category. generates elements for each api and puts them in a moving wrapper.
+			After that itsends the container back*/
 			ajaxRequest(category, function(data){
+				//convert json response to javascript objects
 				var retrievedData = JSON.parse(data);
 
-				var apiMoveWrapper=document.createElement("div");
+				//create api moving wrapper container
+				var apiMoveWrapper = document.createElement("div");
 				apiMoveWrapper.className = "apiTransitionWrapper";
 				
+				//Itterate through every receieved api and create and api element. Append the element to apiMoveWrapper
 				for(var i=0; i<retrievedData.length; i++){
 					boxCreator.createApiBox(apiMoveWrapper, retrievedData[i]);
 				}
 
+				//Append the moving wrapper container to the parent container
 				apiContainer.appendChild(apiMoveWrapper);
 
+				//Load on complete function and send the
+				//Send as parameters the number of api that were loaded and the parent container
 				onLoad(retrievedData.length, apiMoveWrapper);
 
 			}, apiContainer.getAttribute("maximum"));
+			/*
+			apiContainer.getAttribute("maximum"): each parent element has an attribute called "macimum" that tells
+			the server how many api it should load at max
+			*/
 			
 
 		}
 
 
 		this.loadApisBoxes = function(apiContainer, category, onLoad){
+			/*This function loads apifrom a given category. generates elements for each api and puts them in a container.
+			After that itsends the container back*/
 			ajaxRequest(category, function(data){
+				//convert json response to javascript objects
 				var retrievedData = JSON.parse(data);
 
+				//create api moving wrapper container
 				var apiBoxContainer = document.createElement("div");
 				apiBoxContainer.className = "simpleBoxContainer";
 				
+				//Itterate through every receieved api and create and api element. Append the element to simpleBoxContainer
 				for(var i=0; i<retrievedData.length; i++){
 					boxCreator.createSimpleBox(apiBoxContainer, retrievedData[i]);
 				}
 
+				//Append the simple box container to the parent container
 				apiContainer.appendChild(apiBoxContainer);
 
+				//Load on complete function and send the
+				//Send as parameters the number of api that were loaded and the parent container
 				onLoad(retrievedData.length, apiBoxContainer);
 
 			}, apiContainer.getAttribute("maximum"));
-
-
+			/*
+			apiContainer.getAttribute("maximum"): each parent element has an attribute called "macimum" that tells
+			the server how many api it should load at max
+			*/
 		}
 
 
 
-
 		function ajaxRequest(category, onLoad, limit) {
+			/*Makes ajax request toretrieve apis. limit indicates howmany the server can send at max*/
 			limit = (limit == undefined) ? limit = 32 : limit = limit;
-
 			var xhr = new XMLHttpRequest();
-
 			var postData = "category="+category+"&limit="+limit;
-
 			xhr.open("POST", "php/retrieveApi.php", true);
-
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
 			xhr.onreadystatechange = function() {//Call a function when the state changes.
 			    if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-			    	//console.log(this.responseText);
+			    	//on a successfull response "onLoad" is called
 			    	onLoad(this.responseText);
 			    }
 			}
 			xhr.send(postData); 
-
-
-
 		}
 
 

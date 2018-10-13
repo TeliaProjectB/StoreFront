@@ -12,19 +12,21 @@ requirejs(["rowCreator", "bigBoxAreaCreator",
 
 	var completionCounter = 0;
 	function completed(){
+		//When all apis has been loaded, remove the loading element
 		completionCounter++;
 		if(completionCounter >= allContentRows.length + bogBoxAreas.length){
 			loadingStartElement.parentElement.removeChild(loadingStartElement);
 		}
 	}
 
-
+	//create rows for all elements with the class "contentRow"
 	for(var i=0; i<allContentRows.length; i++){
 		createRows.appendRow(allContentRows[i], completed);
 	}
 
 	
 
+	//create box areas for all elements with the class "bigBoxesCategories"
 	for(var i=0; i<bogBoxAreas.length; i++){
 		boxesArea.appendBoxArea(bogBoxAreas[i], completed);
 	}
