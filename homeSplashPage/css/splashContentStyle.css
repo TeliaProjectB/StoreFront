@@ -1,0 +1,153 @@
+#splash{
+	width: 90%;
+	margin: 8px auto;
+	overflow: hidden;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+	
+	background-color: white;
+	border: solid 1px gray;
+}
+
+@keyframes floatingone{
+	from {transform: scale(1); }
+	50% {transform: scale(1.03) rotate(-1.58deg); }
+	to {transform: scale(1); }
+}
+
+
+
+.splashinfoFlexCon{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.SplashTextInfoContainer{
+	margin-left:10vw;
+	display:inline-block;
+	
+}
+
+.splashTitle{
+	word-wrap: break-all;
+	margin-top: 8px;
+	font-family: helvetica;
+	font-size: 32px;
+	display:flex;
+	padding: 8px;
+	background-color: rgba(253, 97, 147, 1);
+	color:white;
+
+
+	transition: transform 2s linear;
+	animation: floatingone 5s infinite;
+}
+
+.splashSubTitle{
+	word-wrap: break-all;
+	margin-top: 8px;
+	font-family: helvetica;
+	font-size: 28px;
+	display:flex;
+	padding: 8px;
+	background-color: rgba(0, 0, 0, 1);
+	color:white;
+
+
+}
+
+.imgDecoration{
+    height: 150;
+    width: 150px;
+    float: right;
+    margin-top: -171px;
+    margin-right: -219px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+}
+
+.splashDescription{
+	max-width:500px;
+	word-wrap: break-all;
+	transform:  rotate(-1deg);
+	font-size: 19px;
+	display:flex;
+	margin: 8px;
+	padding: 8px;
+
+	font-family: helvetica;
+	color:  white;
+	background-color: rgba(97, 181, 253, 1);
+	padding-right: 16px;
+
+}
+
+.splashMiddleContent{
+	background-color: white;
+	width: 100%;
+	height: 256px;
+
+
+	background-image: url("https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?auto=compress&cs=tinysrgb&h=350");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right;
+
+	transition: transform 0.1s ease-in;
+
+
+}
+
+
+.splashButtonNavigators{
+	display: block;
+	margin: 0px auto;
+}
+
+.splashNavButton{
+	margin: 8px 0px;
+	padding: 6px;
+	border-radius: 50%;
+	background-color: gray;
+}
+
+.splashNavButtoSelected{
+	padding: 6px;
+	border-radius: 50%;
+	border: solid 1px black;
+}
+
+
+
+
+@keyframes envelopeFlying{
+	from {left:10%; }
+	to {left:83%; opacity: 0;}
+}
+
+
+
+.flyingEnvelope{
+	margin-top: 164px;
+	background-image: url("/StoreFront/homeSplashPage/img/envelope.png");
+	position: absolute;
+	padding: 48px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+
+	transition: left 1s ease-in, opacity 1s ease-in;
+	animation: envelopeFlying 2.4s infinite;
+}
+
+
+@media only screen and (max-width: 680px){
+	.SplashTextInfoContainer{
+		margin-left:8px;
+		display:inline-block;
+	}
+}
