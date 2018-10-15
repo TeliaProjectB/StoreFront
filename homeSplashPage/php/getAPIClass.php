@@ -9,11 +9,13 @@
 		}
 
 		function getMostLikedAPI(){
-			$returnedID = $this->getMostLikedID();
-			$selectedAPI = $this->getAPIFromID($returnedID);
+			$returnedRandomID = $this->getMostLikedID();
+			$selectedAPIByRandomId = $this->getAPIFromRandomID($returnedRandomID);
 			
-			return $selectedAPI;
+			return $selectedAPIByRandomId;
 		}
+
+
 
 
 		/***********************************
@@ -67,6 +69,23 @@
 			$sql = "SELECT * 
 				FROM `API` 
 				WHERE Id = '$insertID'";
+	
+	
+			$result = $conn->query($sql);
+			$row = $result->fetch_assoc();
+	
+			return $row;
+		}
+
+		/***********************************
+			Fetch info about an API by RandomID
+		***********************************/
+		function getAPIFromRandomID($insertrandomID){
+			require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
+			
+			$sql = "SELECT * 
+				FROM `API` 
+				WHERE RandomId = '$insertrandomID'";
 	
 	
 			$result = $conn->query($sql);
