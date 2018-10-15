@@ -51,13 +51,12 @@
 				<div id="secondHead" class="secondHeader">
 					<button class="headerButton" onclick="scrollDownTo('Top List')">Top list</button>	
 					<button class="headerButton" onclick="scrollDownTo('Free')">Free</button>
-					<button class="headerButton" onclick="scrollDownTo('Recommended')">Recommended</button>
-					<button class="headerButton" onclick="scrollDownTo('Most recent')">Most recent</button>		
+					<button class="headerButton" onclick="scrollDownTo('Recommended')">Recommended</button>		
+					<button class="headerButton" onclick="scrollDownTo('Most liked')">Most liked</button>
 					<div class="dropdown" ><!-- onmouseenter="openDropdown()" onmouseleave="closeDropDown()" -->
 						<button class="headerButton" style="display:inline;">Others</button>
 						<div class="dropdown-content">
 							<button class="dropdownButton" onclick="scrollDownTo('Most bought')">Most bought</button>
-							<button class="dropdownButton" onclick="scrollDownTo('Most liked')">Most liked</button>
 							<button class="dropdownButton" onclick="scrollDownTo('SMS')">SMS</button>
 							<button class="dropdownButton" onclick="scrollDownTo('Call')">Call</button>
 							<button class="dropdownButton" onclick="scrollDownTo('For Company')">For Company</button>
