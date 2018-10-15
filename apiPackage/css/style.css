@@ -1,0 +1,294 @@
+#mainContainer{
+	display:flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 256px;
+}
+#contentContainer{
+	width: 75vw;
+	opacity: 0;
+	margin: 0px auto;
+	transition: opacity 0.24s ease-in;
+	display: flex;
+	flex-direction: row;
+}
+
+#goHomeButton{
+	width: 100%;
+	margin: 4px auto;
+	border: none;
+	padding: 2px;
+	font-family: helvetica;
+	font-weight: bold;
+	background-color: transparent;
+	cursor: pointer;
+	font-size: 15px;
+	background-image: url('../img/home.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+#goHomeButton:active{
+
+}
+
+#panelsContainer{
+	padding: 0px;
+}
+
+#sideBar{
+	display: flex;
+	flex:1;
+	flex-direction: column;
+	font-family: helvetica;
+	min-width: 288px;
+}
+
+#sideBarRealContent{
+	height: 90vh;
+	display:flex;
+	flex-direction: column;
+	/*transition: top 0.041s ease-in-out;*/
+	position: fixed;
+}
+
+#CenterContent{
+	flex-direction: column;
+	display:flex;
+	flex:5;
+}
+
+
+#miniInfoBuyPanel{
+	background-color: white;
+	transition: transform 0.1s ease-in;
+}
+
+#infoPanel{
+	background-color:white;
+}
+
+#sandboxPanel{
+	background-color:white;
+}
+
+#commentPanel{
+	background-color:white;
+}
+
+#recommendPanel{
+	padding: 8px;
+	background-color:white;
+}
+
+
+#apiIcon{
+	flex:0.5;
+	min-height: 30vh;
+	height: 180px;
+	width: 256px;
+	background-color:white;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+#apiIconTitle{
+	display:flex;
+}
+
+#apiIconBackground{
+	background-image: url('../img/apple.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	display:flex;
+	flex: 3;
+}
+
+#purchaseButton{
+	background-color: #990ae3;
+	color:white;
+	padding:8px;
+	border-radius: 32px;
+	background-image: url('../img/shopping-cart.svg');
+	background-size: 22px;
+	background-repeat: no-repeat;
+	background-position: 11px;
+	cursor:pointer;
+	transition: background-color 0.16s ease-in, transform 0.01s ease-in;
+}
+
+#purchaseButton:hover{
+	background-color: #cc00ff;
+}
+
+#purchaseButton:active{
+	transform: scale(0.9);
+}
+
+#info1{
+	display:flex;
+	flex-direction: column;
+	padding-bottom:32px;
+	background-color: white;
+}
+
+.white{
+	color:white;
+}
+
+
+
+.flexColumn{
+	display:flex;
+	flex-direction: column;
+}
+
+#rowButtonContainer{
+	display:flex;
+	flex-direction: row;
+	width: 100%;
+	height: 32px;
+	border-bottom: solid 1px #e8e8e8;
+}
+
+.rowButton{
+	padding: 4px;
+	font-family: helvetica;
+	font-weight: bold;
+	background-color:transparent;
+	display:inline-block;
+	flex:2;
+	background-color: #990ae3;
+	color:white;
+	cursor:pointer;
+	transition: background-color 0.16s ease-in;
+	user-select: none;
+}
+.rowButton:hover{
+	background-color: #cc00ff!important;
+}
+
+
+
+
+.genericTeliaButton{
+	background-color: #990ae3;
+	color: white;
+	border-radius: 2.5rem;
+	border: none;
+	height: 32px;
+	cursor:pointer;
+	font-family: Helvetica, Neue,helvetica,arial,sans-serif;
+	transition: background-color 0.38s ease;
+	font-weight: bold;
+	padding: 16px;
+	padding-top: 8px;
+	text-align: center;
+
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+	margin: auto 8px;
+}
+.genericTeliaButton:hover{
+	background-color: #cc00ff;
+}
+.genericTeliaButton:focus {
+	outline:0;
+}
+
+
+
+
+.panelButtonBackground{
+	background-repeat: no-repeat;
+	background-position: 8px;
+	background-size: 24px;
+	padding-left:38px;
+}
+
+#infoButton{
+	background-image: url('../img/info.svg');
+}
+
+
+#sandboxButton{
+	background-image: url('../img/sandbox.svg');
+}
+
+
+#commentsButton{
+	background-image: url('../img/comment.svg');
+}
+
+
+
+#recommendedButton{
+	background-image: url('../img/star.svg');
+}
+
+
+
+
+
+
+
+
+
+
+#extraSpace{
+	display:block;
+	width: 100%;
+	height: 300px;
+}
+
+@media screen and (max-width: 800px){
+	#contentContainer{
+		flex-direction: column;
+		width: 100%;
+		margin: 0px;
+		padding:0px;
+	}
+	#sideBarRealContent{
+		height:auto;
+		position: relative;
+		margin: 0px auto;
+		top: 0px;
+		width: 100%;
+		margin-top:0px !important;
+	}
+	#miniInfoBuyPanel{
+		width: 100%;
+	}
+	#apiIcon{
+		width: 100%;
+		background-position: center;
+	}
+	#CenterContent{
+		width: 100%;
+	}
+	.panel{
+		width: 100%;
+		margin: 0px;
+	}
+	#purchaseButton{
+		width: 50vw;
+		margin: 4px auto;
+	}
+
+	#goHomeButton{
+		display: none;
+	}
+	#goHomeButtonParent{
+		display:none;
+	}
+}
