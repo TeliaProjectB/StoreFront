@@ -24,7 +24,7 @@ if(isset($_POST["likeIt"]) && isset($_POST["apiRandId"])){
 	}
 
 	//Delete all oldlike and dislikes from this user to this api
-	$sql = "DELETE from `APIlike` WHERE `UserId`='".$_SESSION["userId"]."'";
+	$sql = "DELETE from `APIlike` WHERE `ItemID`='$randApiId' AND `UserId`='".$_SESSION["userId"]."'";
 	$conn->query($sql);
 
 
