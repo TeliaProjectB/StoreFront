@@ -1,0 +1,72 @@
+@keyframes thumbsMove{
+	0% {transform: scaleX(1) scaleY(1) rotate(0deg);}
+	30% {transform: scaleX(1.5) scaleY(1.5) rotate(-8deg);}
+	70% {transform: scaleX(1.3) scaleY(1.3) rotate(0deg);}
+	to {transform: scaleX(1.3) scaleY(1.3) rotate(0deg);}
+}
+
+#thumbsUpDownContainer{
+	margin: 0px auto;
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#thumbsUp{
+	width: 32px;
+	height: 32px;
+	background-image: url('../img/thumbs-up.svg'); 
+	background-size: contain;
+	display:inline-block;
+}
+
+#thumbsUpRatio{
+	width: 90%;
+	margin: 0px auto;
+	display: flex;
+	height: 8px;
+}
+
+#ratioUp{
+	height: 100%;
+	display: flex;
+	background-color: gray;
+}
+
+#ratioDown{
+	height: 100%;
+	display: flex;
+	background-color: #f1f1f1;
+}
+
+.thumbs{
+	cursor:pointer;
+	margin: 6px 16px;
+	transition: transform 0.5s ease-in;
+	background-repeat: no-repeat;
+}
+
+.thumbs:hover{
+	animation: thumbsMove 0.375s ease-in 0s 1 normal forwards;
+}
+
+.thumbs:active{
+	animation: thumbsMove 0.375s ease-in 0s 1 normal backwards;
+}
+
+.pressedThumbs{
+	cursor:pointer;
+	margin: 6px 16px;
+	transition: transform 0.5s ease-in;
+	background-repeat: no-repeat;
+	filter: grayscale(100%);
+}
+
+#thumbsDown{
+	width: 32px;
+	height: 32px;
+	background-image: url('../img/thumbs-down.svg');
+	background-size: contain;
+	display:inline-block;
+}
+

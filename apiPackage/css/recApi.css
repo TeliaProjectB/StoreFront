@@ -1,0 +1,35 @@
+.recApiCon{
+	padding-top: 32px;
+	padding-bottom: 16px;
+	cursor: pointer;
+	transition: transform 0.5s ease;
+	background-color: white;
+	border-bottom: solid 1px #e8e8e8;
+}
+.recApiCon:hover{
+	transform: scale(1.02);
+}
+.recApiTitle{
+	font-weight: bold;
+	font-family: helvetica;
+}
+.recImgTxtCon{
+	display:flex;
+	flex-direction: row;
+}
+.recApiImage{
+	width: 48px;
+	height: 48px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: flex;
+}
+.recApiText{
+	font-family: helvetica;
+	display: flex;
+}
+.recApiPrice{
+	font-weight: bold;
+	font-family: helvetica;
+}
