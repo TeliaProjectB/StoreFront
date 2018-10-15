@@ -1,8 +1,7 @@
 var myIndex = 0;
-carousel();
+changeElement();
 
 function changeCurrentButton(myIndex){
-    console.log("CurrentIndex: ", myIndex)
     var x = document.getElementsByClassName("splashNavButton");
     for (i = 0; i < x.length; i++) {
         x[i].style.backgroundColor = "gray"; 
@@ -13,7 +12,7 @@ function changeCurrentButton(myIndex){
     button.style.backgroundColor = "white";
 }
 
-function carousel() {
+function changeElement() {
     var i;
     var x = document.getElementsByClassName("mySlides");
     for (i = 0; i < x.length; i++) {
@@ -26,13 +25,12 @@ function carousel() {
     x[myIndex-1].style.display = "block";
     
     changeCurrentButton(myIndex);
-    setTimeout(carousel, 6000);    
+    setTimeout(changeElement, 6000);    
 }
 
 
 
 function goToAPI(goToThisAPI){
-    console.log("API nr: ", goToThisAPI);
     myIndex = goToThisAPI;
     
     var i;
