@@ -54,7 +54,7 @@
 					<button class="headerButton" onclick="scrollDownTo('Recommended')">Recommended</button>		
 					<button class="headerButton" onclick="scrollDownTo('Most liked')">Most liked</button>
 					<div class="dropdown" ><!-- onmouseenter="openDropdown()" onmouseleave="closeDropDown()" -->
-						<button class="headerButton" style="display:inline;">Others</button>
+						<button class="headerButton" style="display:inline;">See more</button>
 						<div class="dropdown-content">
 							<button class="dropdownButton" onclick="scrollDownTo('Most bought')">Most bought</button>
 							<button class="dropdownButton" onclick="scrollDownTo('SMS')">SMS</button>
