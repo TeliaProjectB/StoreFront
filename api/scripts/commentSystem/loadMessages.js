@@ -1,4 +1,4 @@
-define(["ajaxFuncs", "createCommentElement"], 
+define(["scripts/commentSystem/ajaxFuncs", "scripts/commentSystem/createCommentElement"], 
 	function(ajaxFuncs, createCommentElement){
 	function initModule(messVars){
 		var ajaxF = new ajaxFuncs.init();

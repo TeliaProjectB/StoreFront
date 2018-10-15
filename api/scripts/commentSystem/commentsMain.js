@@ -1,5 +1,5 @@
-requirejs(["loadMessages", "createCommentElement",
-	"sendMessages", "ajaxFuncs"], function(loadMessages,
+requirejs(["scripts/commentSystem/loadMessages", "scripts/commentSystem/createCommentElement",
+	"scripts/commentSystem/sendMessages", "scripts/commentSystem/ajaxFuncs"], function(loadMessages,
 	createCommentElement, sendMessages, ajaxFuncs) {
 	
 	var ajaxF = new ajaxFuncs.init();
@@ -89,7 +89,7 @@ requirejs(["loadMessages", "createCommentElement",
 				setTimeout(function(){
 					var slidingLoginWindow = document.getElementsByClassName("loginWindow")[0];
 					openSlideInWindow();
-					//openRegisterWindow();
+					openRegisterWindow();
 				}, 32);
 			});
 

@@ -2,6 +2,9 @@ function createSandbox(elementName){
 	var apiSource = "/StoreFront/exampleApi/getWeather.php";
 
 	var element = document.getElementById(elementName);
+	if(element == null){
+		return;
+	}
 	element.className = "sandbox";
 
 
