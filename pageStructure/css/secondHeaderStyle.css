@@ -121,9 +121,6 @@
 	color: white;
 }
 
-.dropdown:hover .dropdown-content {
-	height: 210px;
-}
 
 .headerButton:active, .dropdown:hover .dropbtn:active {
 	transform: translateY(4px);
