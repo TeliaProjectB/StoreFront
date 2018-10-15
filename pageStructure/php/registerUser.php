@@ -15,13 +15,13 @@ $registerManager = new registerUser;
 
 
 
-if(isset(isset($_POST["password"]) && isset($_POST["email"])
-	&& isset($_POST["firstName"]) && isset($_POST["lastName"])){
+if(isset($_POST["password"]) && isset($_POST["email"])
+	&& isset($_POST["firstname"]) && isset($_POST["lastname"])){
 
 	$email = htmlspecialchars($_POST["email"]);
 	$password = htmlspecialchars($_POST["password"]);
-	$firstName = htmlspecialchars($_POST["firstName"]);
-	$lastname = htmlspecialchars($_POST["lastName"]);
+	$firstname = htmlspecialchars($_POST["firstname"]);
+	$lastname = htmlspecialchars($_POST["lastname"]);
 
 
 	if(!$registerManager->validEmail($email)){
@@ -38,7 +38,8 @@ if(isset(isset($_POST["password"]) && isset($_POST["email"])
 
 	
 
-	$registerResult = $registerManager->addNewUser($email, $password, $firstName, $lastname);
+	$registerResult = $registerManager->addNewUser($email, $password, $firstname, $lastname);
+	print_r($registerResult);
 	if($registerResult != false){
 		$userInfo = $registerManager->getInfoFromName($email);
 		// Pause this in secound
@@ -67,11 +68,11 @@ if(isset(isset($_POST["password"]) && isset($_POST["email"])
 		$errCode .= "password, ";
 	}
 
-	if(!isset($_POST["firstName"])){
+	if(!isset($_POST["firstname"])){
 		$errCode .= "first name,";
 	}
 
-	if(!isset($_POST["lastName"])){
+	if(!isset($_POST["lastname"])){
 		$errCode .= "last name ";
 	}
 

@@ -26,13 +26,13 @@
 <div id="register">
 	
 	<p>First name</p>
-	<input name="username" id="registerFirstname" class="inputBoxSignIn inputBoxSignIn-text" type="text">
+	<input name="firstname" id="registerFirstname" class="inputBoxSignIn inputBoxSignIn-text" type="text">
 
 	<p>Last name</p>
-	<input name="username" id="registerLastName" class="inputBoxSignIn inputBoxSignIn-text" type="text">
+	<input name="lastname" id="registerLastname" class="inputBoxSignIn inputBoxSignIn-text" type="text">
 
 	<p>Email</p>
-	<input name="username" id="registerEmail" class="inputBoxSignIn inputBoxSignIn-text" type="text">
+	<input name="email" id="registerEmail" class="inputBoxSignIn inputBoxSignIn-text" type="text">
 
 	<p>Password</p>
 	<input name="password" id="registerPassword"  class="inputBoxSignIn inputBoxSignIn-text" type="password">

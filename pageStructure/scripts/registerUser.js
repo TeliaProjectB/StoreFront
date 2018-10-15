@@ -3,15 +3,15 @@ function registerUser(){
 	var userPassword = document.getElementById("registerPassword").value;
 	var userEmail = document.getElementById("registerEmail").value;
 	var userFirstName = document.getElementById("registerFirstname").value;
-	var userLastName = document.getElementById("registerLastName").value;
+	var userLastName = document.getElementById("registerLastname").value;
 
 	var errorContainer = document.getElementById("errorMessagePanel");
 
 
-	ajaxRequest("/StoreFront/pageStructure/php/registerUser.php", "&password="
+	ajaxRequest("/StoreFront/pageStructure/php/registerUser.php", "password="
 		+userPassword+"&email="+userEmail+
-		"&firstName="+userFirstName+
-		"&lastName="+userLastName, 
+		"&firstname="+userFirstName+
+		"&lastname="+userLastName, 
 		function(responseText, status){
 			if(status == 200){
 				window.open("/StoreFront/home", "_self");

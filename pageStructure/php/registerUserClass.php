@@ -36,13 +36,14 @@ class registerUser{
 	}
 
 
-	function addNewUser($email, $password, $firstName, $lastname){
+	function addNewUser($email, $password, $firstname, $lastname){
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 		$userPasswordHash = password_hash($password, PASSWORD_DEFAULT);
 		echo $userPasswordHash;
 
-		$sql = "INSERT INTO `user` (ID, User_pass, Email, Firstname, Lastname) VALUES (null, '$userPasswordHash', '$email', '$firstName', '$lastname')";
+		$sql = "INSERT INTO `user` (ID, User_pass, Email, Firstname, Lastname) 
+		VALUES (null, '$userPasswordHash', '$email', '$firstname', '$lastname')";
 
 		try{
 			$conn->query($sql);

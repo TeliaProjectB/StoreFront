@@ -7,6 +7,7 @@
 	$items = "";
 	$logged_check = false;
 
+	print_r($_SESSION);
 	if(isset($_SESSION["userId"])){
 		$logged_check = true;
 		$Username = $_SESSION["firstname"];
