@@ -6,26 +6,26 @@
     $mostLiked = $getAPIClass->getMostLikedAPI();
 
     echo "
-        <div class='mySlides' onclick='window.open('/StoreFront/api?id=b3bkv','_self')'>
+        <div class='mySlides' onclick='window.open(\"/StoreFront/api/?id=".$mostBought["RandomId"]."\", \"_self\")'>
             <div class='splashTitle'>Most bought</div>
             <div class='splashSubTitle'>" . $mostBought['Name'] . "</div>
             <div class='splashDescription'>
                 " . $mostBought['Description'] . " 
             </div>
-            <img class='imgDecoration' src='/StoreFront/globalImages/API/" . $mostBought['ImgName'] . ".jpg'>
+            <img class='imgDecoration' src='/StoreFront/globalImages/API/" . $mostBought['ImgName'] . "'>
         </div>     
     ";
 
     
 
     echo "
-        <div class='mySlides' onclick='window.open('/StoreFront/api?id=b3bkv','_self')'>
+        <div class='mySlides' onclick='window.open(\"/StoreFront/api/?id=".$mostLiked["RandomId"]."\", \"_self\")'>
             <div class='splashTitle'>Most liked</div>
             <div class='splashSubTitle'>" . $mostLiked['Name'] . "</div>
             <div class='splashDescription'>
                 " . $mostLiked['Description'] . " 
             </div>
-            <img class='imgDecoration' src='/StoreFront/globalImages/API/" . $mostLiked['ImgName'] . ".png'>
+            <img class='imgDecoration' src='/StoreFront/globalImages/API/" . $mostLiked['ImgName'] . "'>
         </div>     
     ";
 ?>
