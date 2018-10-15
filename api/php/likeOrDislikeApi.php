@@ -14,30 +14,38 @@ if(isset($_POST["likeIt"]) && isset($_POST["apiRandId"])){
 	$randApiId = htmlspecialchars($_POST["apiRandId"]);
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
+	$previousLikeStatus = -1;
 
 	//check if user already has liked or disliked
-	$sql = "SELECT * FROM `APIlike` WHERE `UserId`='".$_SESSION["userId"]."'";
+	$sql = "SELECT * FROM `APIlike` WHERE `ItemID`='$randApiId' AND `UserId`='".$_SESSION["userId"]."'";
 	$result = $conn->query($sql);
-	$previousLikeStatus = -1;
+
+
+	//If user had liked or dislikedit before
 	if($result){
 		$previousLikeStatus = $result->fetch_assoc()["IsLiked"];
+
+		//Delete all oldlike and dislikes from this user to this api
+		$sql = "DELETE from `APIlike` WHERE `ItemID`='$randApiId' AND `UserId`='".$_SESSION["userId"]."'";
+		$conn->query($sql);
 	}
 
-	//Delete all oldlike and dislikes from this user to this api
-	$sql = "DELETE from `APIlike` WHERE `ItemID`='$randApiId' AND `UserId`='".$_SESSION["userId"]."'";
-	$conn->query($sql);
-
-
-	//If previous selected like status is equal to requested like status, the user wants it undone.
+	//If previous like status is not the same as target like status, execute query
 	if($previousLikeStatus != $isLiked){
+		//If previous selected like status is equal to requested like status, the user wants it undone.
 		//Add new dislike or like
 		$sql = "INSERT INTO `APIlike` (ID, ItemID, UserId, IsLiked) VALUES 
-			(null, '$randApiId', ".$_SESSION["userId"].", $isLiked)";
+				(null, '$randApiId', ".$_SESSION["userId"].", $isLiked)";
 
 		$conn->query($sql);
-
 		echo $isLiked;
 	}
+	
+
+
+	
+
+	
 	
 	
 
