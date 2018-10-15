@@ -6,15 +6,14 @@
 			<ul>
 				<li>
 				
-	  
+
+
             <input type="checkbox" id="checkbox-1"  name="checkbox-accordion" checked /> 
 			<label for="checkbox-1" >Information<div class="closeWindowButton12"></div></label>
             <div class="content">
-		
-			
-   
-	
+
 <?php
+
 require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 $sql = "SELECT * FROM user  WHERE `ID`=".$_SESSION["userId"]; ;
@@ -29,10 +28,13 @@ if(!$result){
 		while($row = $result->fetch_assoc()) {
 			
 echo "<br>";
-	
-echo "<font size=\"4\" face='Helvetica' color='DimGray' >";  
+  
+echo"<div style ='font: 19px/35px Helvetica;color: #171010b3;'>";  
+
+
 echo " User_name: &nbsp;" .$row["User_name"] ."<br>";	
 echo "<br>";
+
 echo " Firstname: &nbsp;".$row["Firstname"]. "<br>";
 echo "<br>";
 echo " Lastname: &nbsp;".$row["Lastname"]. "<br>";
@@ -53,18 +55,23 @@ echo "</font>";
 		
 					
 <input type="checkbox" id="checkbox-2" name="checkbox-accordion" />
-<label for="checkbox-2" >Bought-Items<div class="closeWindowButton12"></div></label>
-<div class="content">
-<table class="tableInfoBox">		
+<label for="checkbox-2"  >Bought-Items<div class="closeWindowButton12 "  "></div></label>
+
+<div style=" overflow: auto;" class="content " >
+<table class="tableInfoBox ">		
 <br>
+
 <?php
-echo "<table border='1' cellspacing='2' >
+
+echo  "<table border='1' cellpadding='0' cellspacing='0' style='border-collapse: collapse' bordercolor='#111111' width='100%' id='AutoNumber1' >
 <tr>
-<th>Name</th>
-<th>Description</th>
+<th>ID</th>
 <th>Category</th>
 <th>Price</th>
-<th>ID</th>
+<th>Name</th>
+<th>Description</th>
+
+
 
 
 </tr>";
@@ -97,11 +104,13 @@ if(!$result){
 					while($Prow = $Presult->fetch_assoc()) {
 
 						echo "<tr>";
-	echo " <td>".$Prow["Name"] . "</td> ";
-	echo " <td>".$Prow["Description"]. "</td> ";
+	echo " <td>".$Prow["Id"]. "</td> ";	
 	echo " <td>".$Prow["Category"] . "</td> ";
 	echo " <td>".$Prow["Price"]. "</td> ";
-	echo " <td>".$Prow["Id"]. "</td> ";
+	echo " <td>".$Prow["Name"] . "</td> ";
+	echo " <td>".$Prow["Description"]. "</td> ";
+
+	
 						
 						"<br>";
 
@@ -114,8 +123,8 @@ if(!$result){
 	}
 }
 
-
 ?>
+
 	</tr>
 		</table>
         </div>
