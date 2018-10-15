@@ -83,8 +83,19 @@ switch(pathname) {
         break;
 }
 
-/*function to make the dropdown-content appear only if child button other is clicked 
-$('.dropdown > .headerButton').hover(
-        $('.dropdown-content').css({"height": "192px;"}),
-        $('.dropdown-content').css({"display": "inline;"})
-)*/
+/*function to let the dropdown "see more" work */
+$(document).ready(function(){
+
+    $(".dropdown").hover(function(){
+        $(".dropdown > .headerButton").hover(function(){
+            $('.dropdown > .dropdown-content').css("height", "210px");
+        }, function(){
+            $(".dropdown-content").hover(function(){
+                $('.dropdown > .dropdown-content').css("height", "210px");
+            }, function(){
+                $('.dropdown > .dropdown-content').css("height", "0px");
+            });
+            $('.dropdown > .dropdown-content').css("height", "0px");
+        });
+    });
+});
