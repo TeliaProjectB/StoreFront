@@ -1,14 +1,17 @@
 .accordion {
     font-family:Helvetica; 
     margin:0 auto;
-    font-size:14px;
+    font-size:16px;
     border:1px solid #542437;
     border-radius:10px;
-    width:611px;
+    width:1164px;
     padding:10px;
     background:#fff;
+
 	
 }
+
+
 .accordion ul {
     list-style:none;
     margin:0;
@@ -25,7 +28,7 @@
     display:block;
     font-size:16px;
     line-height:16px;
-    background:#8B8F7E33;
+    background:#BDBDBD1A;
     border:1px solid #542437;
     color:#542437;
     text-shadow:1px 1px 1px rgba(255,255,255,0.3);
@@ -33,12 +36,12 @@
     text-transform:uppercase;
 }
 .accordion ul li label:hover, .accordion [type=radio]:checked ~ label, .accordion [type=checkbox]:checked ~ label {
-    background:#e9e2f7;
-    color:#211c1ce6;
+    background:#BDBDBD1A;
+    color:#0c0b0b;
     text-shadow:1px 1px 1px rgba(0,0,0,0.5)
 }
 .accordion .content {
-    padding:0 10px;
+    padding:0  28px;
     overflow:hidden;
     border:1px solid #fff;
     -webkit-transition: all .5s ease-out;
@@ -103,21 +106,30 @@ h1 {
 		border-collapse: collapse;
 		width: 45%;
 		max-width: 96%;
-	    height:16px;
-        width: 68%;
+	    height: 0px;
+        height: -2px;
+        width: 16%;
         left: 6px;
-		top:  20px;
 		
 	}
 
 td, th {
-		
+		position: relative;
 		border: 1px solid #a6d8a8;
-		padding: 8px;
-		max-width: 96%;
+	    height: 19px;
+        left: 1px;
+		top:  0px;
+
 		
 	}
-	
+
+.ScrollStyle
+{
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
+
 .button {
 position: relative;
 background-color: #c0c0b833;
@@ -132,8 +144,8 @@ margin: 4px 2px;
 cursor: pointer;
 font-family: Helvetica;
 height: 19px;
-width: 16%;
-left: 6px;
+width: 10%;
+left: 5px;
 top:  20px;
 border: solid 1px #a6d8a8;
 border-radius: 15px;
@@ -144,7 +156,7 @@ box-shadow: 0 5px #999;
 .closeWindowButton12 {
     position: relative;
     padding: 10px;
-    margin: 10px;
+    margin: 6px;
     cursor: pointer;
     background-color: #ffffff;
     background-image: url('../img/close.png');
@@ -153,8 +165,8 @@ box-shadow: 0 5px #999;
     background-size: contain;
     width: 30px;
     height: 11px;
-    left: 529px;
-    top: -24px;
+    left: 1090px;
+    top: -27px;
 }
 
 
@@ -177,9 +189,9 @@ box-shadow: 0 5px #999;
 input:checked ~ label .closeWindowButton12:after {
 	position: relative;
     content: url('../img/open.png');
-	 width: 30px;
+	width: 30px;
     height: 30px;
-	left: -8px;
+	left: -15px;
     top:  -11px;
 	content:size: 300px 100px;
 }
