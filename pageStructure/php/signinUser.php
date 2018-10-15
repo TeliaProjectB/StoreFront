@@ -12,12 +12,12 @@ require  $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/signinUserClas
 $signinManager = new signinUser;
 
 
-if(isset($_POST["userName"]) && isset($_POST["password"])){
-    $name = htmlspecialchars($_POST["userName"]);
+if(isset($_POST["email"]) && isset($_POST["password"])){
+    $email = htmlspecialchars($_POST["email"]);
     $pass = $_POST["password"];
     
 
-    $registerResult = $signinManager->checkUserFromSQL($name, $pass);
+    $registerResult = $signinManager->checkUserFromSQL($email, $pass);
 
     if( $registerResult  ===  true){
     	echo "true";
@@ -28,12 +28,12 @@ if(isset($_POST["userName"]) && isset($_POST["password"])){
 
     echo "\n";
 	if($registerResult === true){
-		$userInfo = $signinManager->getInfoFromName($name);
+		$userInfo = $signinManager->getInfoFromName($email);
 		
 		$_SESSION["userId"] = $userInfo["ID"];
-		$_SESSION["User_name"] = $userInfo["User_name"];
-		$_SESSION["firstname"] = $userInfo["firstname"];
-		$_SESSION["lastname"] = $userInfo["lastname"];
+		$_SESSION["email"] = $userInfo["Email"];
+		$_SESSION["firstname"] = $userInfo["Firstname"];
+		$_SESSION["lastname"] = $userInfo["Lastname"];
 
 		print_r($registerResult);
 		echo "password entered: ".$pass;

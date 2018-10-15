@@ -1,5 +1,5 @@
 function registerUser(){
-	var userName = document.getElementById("registerName").value;
+
 	var userPassword = document.getElementById("registerPassword").value;
 	var userEmail = document.getElementById("registerEmail").value;
 	var userFirstName = document.getElementById("registerFirstname").value;
@@ -8,7 +8,7 @@ function registerUser(){
 	var errorContainer = document.getElementById("errorMessagePanel");
 
 
-	ajaxRequest("/StoreFront/pageStructure/php/registerUser.php", "name="+userName+"&password="
+	ajaxRequest("/StoreFront/pageStructure/php/registerUser.php", "&password="
 		+userPassword+"&email="+userEmail+
 		"&firstName="+userFirstName+
 		"&lastName="+userLastName, 
