@@ -12,8 +12,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 <div id="topListCategory" class="contentRow" name="Top List"></div>
 <div id="freeCategory" class="contentRow" name="Free"></div>
 
-
-<div class="bigBoxesCategories" name="For Company" id="Statistics API" maximum="3"></div>
+<div class="bigBoxesCategories" name="Most liked" id="mostLikedCategories" maximum="3"></div>
 
 <div id="callCategory" class="contentRow" name="Call"></div>
 <div id="smsCategory" class="contentRow" name="SMS"></div>
@@ -23,7 +22,4 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 <div id="recommendedCategory" class="contentRow" name="Recommended"></div>
 <div id="funCategory" class="contentRow" name="Fun"></div>
 
-<div class="bigBoxesCategories" name="Most Recent" id="Statistics API" maximum="3"></div>
-
-<div id="mostBoughtCategory" class="contentRow" name="Most bought"></div>
-<div id="mostLikedCategory" class="contentRow" name="Most liked"></div>
+<div class="bigBoxesCategories" name="Most bought" id="mostBoughtCategory" maximum="3"></div>
