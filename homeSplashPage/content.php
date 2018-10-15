@@ -45,6 +45,6 @@
 -->
 </div>
 
-<script type="text/javascript" src="/StoreFront/homeSplashPage/scripts/contentInsideWindow.js"></script>
+
 <script type="text/javascript" src="/StoreFront/homeSplashPage/scripts/changeAPIScript.js"></script>
 
