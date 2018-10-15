@@ -103,14 +103,14 @@ $("#password").on('keyup', function (e) {
                 // Username
                 //box-shadow: 0 0 5px 10px #555;
                 //username.style.box-shadow = '0 0 5px 10px red';
-                username.classList.add('error-test');
+                email.classList.add('error-test');
                 
                 // Add a class that defines an animation
-                username.classList.add('error');
+                email.classList.add('error');
                   
                 // remove the class after the animation completes
                 setTimeout(function() {
-                    username.classList.remove('error');
+                    email.classList.remove('error');
                 }, 300);
         
         
@@ -127,7 +127,7 @@ $("#password").on('keyup', function (e) {
         
         
                 setTimeout(function() {
-                    username.classList.remove('error-test');
+                    email.classList.remove('error-test');
                     password.classList.remove('error-test');
                 }, 1000);
             }
@@ -145,14 +145,14 @@ function checkUser(){
             // Username
             //box-shadow: 0 0 5px 10px #555;
             //username.style.box-shadow = '0 0 5px 10px red';
-            username.classList.add('error-test');
+            email.classList.add('error-test');
             
             // Add a class that defines an animation
-            username.classList.add('error');
+            email.classList.add('error');
               
             // remove the class after the animation completes
             setTimeout(function() {
-                username.classList.remove('error');
+                email.classList.remove('error');
             }, 300);
     
     
@@ -169,7 +169,7 @@ function checkUser(){
     
     
             setTimeout(function() {
-                username.classList.remove('error-test');
+                email.classList.remove('error-test');
                 password.classList.remove('error-test');
             }, 1000);
         }
@@ -199,14 +199,14 @@ function checkTrolly(){
             // Username
             //box-shadow: 0 0 5px 10px #555;
             //username.style.box-shadow = '0 0 5px 10px red';
-            username.classList.add('error-test');
+            email.classList.add('error-test');
             
             // Add a class that defines an animation
-            username.classList.add('error');
+            email.classList.add('error');
               
             // remove the class after the animation completes
             setTimeout(function() {
-                username.classList.remove('error');
+                email.classList.remove('error');
             }, 300);
     
     
@@ -223,7 +223,7 @@ function checkTrolly(){
     
     
             setTimeout(function() {
-                username.classList.remove('error-test');
+                email.classList.remove('error-test');
                 password.classList.remove('error-test');
             }, 1000);
         }
