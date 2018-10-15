@@ -6,8 +6,8 @@
 </div>
 
 <div id="loginWindow">
-	<p>Username</p>
-	<input name="username" id="username" class="inputBoxSignIn inputBoxSignIn-text" type="text">
+	<p>Email</p>
+	<input name="email" id="email" class="inputBoxSignIn inputBoxSignIn-text" type="text">
 
 	<p>Password</p>
 	<input name="password" id="password" class="inputBoxSignIn inputBoxSignIn-text" type="password">
@@ -24,9 +24,7 @@
 
 
 <div id="register">
-	<p>Username</p>
-	<input name="username" id="registerName" class="inputBoxSignIn inputBoxSignIn-text" type="text">
-
+	
 	<p>First name</p>
 	<input name="username" id="registerFirstname" class="inputBoxSignIn inputBoxSignIn-text" type="text">
 
@@ -42,7 +40,7 @@
 
 	<div id="errorMessagePanel" style="color:red;"></div>
 
-	<input type="checkbox">I agree to the terms and services.</br>
+	<input type="checkbox">I agree to the terms and services.
 	<button onclick="registerUser()" id="panelButton">Register</button>
 
 	<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>

@@ -9,7 +9,7 @@
 
 	if(isset($_SESSION["userId"])){
 		$logged_check = true;
-		$Username = $_SESSION["User_name"];
+		$Username = $_SESSION["firstname"];
 	}
 
 ?>

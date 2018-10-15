@@ -1,12 +1,12 @@
 <?php
 
 class signinUser{
-    function checkUserFromSQL($name, $sentPass){
+    function checkUserFromSQL($email, $sentPass){
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 		// AND User_pass = '$password'
 
-		$sql = "SELECT * FROM `user` WHERE User_name = '$name'";
+		$sql = "SELECT * FROM `user` WHERE `Email` = '$email'";
 
 			
 		$result = $conn->query($sql);
@@ -25,10 +25,10 @@ class signinUser{
 	}
 
 
-	function getInfoFromName($userName){
+	function getInfoFromName($email){
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
-		$sql = "SELECT * from `user` where `User_name`='$userName'";
+		$sql = "SELECT * from `user` where `Email`='$email'";
 
 		$result = $conn->query($sql);
 

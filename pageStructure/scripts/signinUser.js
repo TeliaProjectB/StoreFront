@@ -21,13 +21,13 @@ function checkAPI(statusFromLogin){
 
 function signInUser(statusFromLogin){
 
-    var sendUsername = document.getElementById('username').value;
+    var sendEmail = document.getElementById('email').value;
     var sendPassword = document.getElementById('password').value;
 
     var errorContainer = document.getElementById("errorMessagePanel");
 
     ajaxRequestSignIn("/StoreFront/pageStructure/php/signinUser.php", 
-                "userName=" + sendUsername +
+                "email=" + sendEmail +
                 "&password=" + sendPassword, 
                 function(responseText, status){
                     if(status == 200){

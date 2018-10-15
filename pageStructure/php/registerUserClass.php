@@ -1,20 +1,7 @@
 <?php
 
 class registerUser{
-	function validUsername($name){
-		$name = htmlspecialchars($name);
-		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
-
-		$sql = "SELECT * from `user` WHERE `User_name`='$name'";
-
-		$result = $conn->query($sql);
-		if($result->num_rows > 0){
-			return false;
-		}
-
-		return true;
-	}
-
+	
 	function validEmail($email){
 		$email = htmlspecialchars($email);
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
@@ -49,13 +36,13 @@ class registerUser{
 	}
 
 
-	function addNewUser($name, $email, $password, $firstName, $lastname){
+	function addNewUser($email, $password, $firstName, $lastname){
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 		$userPasswordHash = password_hash($password, PASSWORD_DEFAULT);
 		echo $userPasswordHash;
 
-		$sql = "INSERT INTO `user` (ID, User_name, User_pass, Email, Firstname, Lastname) VALUES (null, '$name', '$userPasswordHash', '$email', '$firstName', '$lastname')";
+		$sql = "INSERT INTO `user` (ID, User_pass, Email, Firstname, Lastname) VALUES (null, '$userPasswordHash', '$email', '$firstName', '$lastname')";
 
 		try{
 			$conn->query($sql);
@@ -68,10 +55,10 @@ class registerUser{
 	}
 
 
-	function getInfoFromName($userName){
+	function getInfoFromName($email){
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
-		$sql = "SELECT * from `user` where `User_name`='$userName'";
+		$sql = "SELECT * from `user` where `Email`='$email'";
 
 		$result = $conn->query($sql);
 
