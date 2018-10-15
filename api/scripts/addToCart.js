@@ -67,7 +67,7 @@ function openRegisterPanel(){
 	setTimeout(function(){
 		var slidingLoginWindow = document.getElementsByClassName("loginWindow")[0];
 		openSlideInWindow();
-		openRegisterWindow();
+		//openRegisterWindow();
 	}, 32);
 }
 

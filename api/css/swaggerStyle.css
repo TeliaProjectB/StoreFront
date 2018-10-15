@@ -1,0 +1,104 @@
+.swaggerInfoCon{
+	border: solid 1px blue;
+}
+
+.swaggerDescription{
+	
+}
+
+.swaggerPathName{
+	display: inline-block;
+}
+
+#swaggerPatchInfo{
+	display:flex;
+	flex-direction: column;
+	flex:1;
+}
+
+.swaggerInput{
+	padding: 2px;
+	border:solid 1px gray;
+}
+
+.swaggerPathCon{
+	display: block;
+}
+
+.swaggerPathType{
+	display: inline-block;
+}
+
+
+.parListRow{
+	display: flex;
+	flex-direction: row;
+}
+
+.parListLeft{
+	text-align: center;
+	margin-bottom: 8px;
+	margin-top: 8px;
+	margin-right: 64px;
+}
+
+.swaggerMediumText{
+	font-family: helvetica;
+}
+
+.parListName{
+	display:block;
+}
+.parListType{
+	font-weight: bold;
+	font-size: 12px;
+	font-family: courier;
+	display:block;
+}
+.parListIn{
+	font-size: 12px;
+	font-family: monospace;
+	display:block;
+	color: gray;
+}
+
+.parListRight{
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+
+.swaggerExecuteButton{
+	margin: 8px auto;
+	font-family: helvetica;
+	width: 116px;
+	text-align: center;
+	display: block;
+}
+
+.swaggerToggleResponses{
+	margin-top: 48px;
+	font-family: helvetica;
+	width: 116px;
+	text-align: center;
+	display: block;
+}
+
+.swaggerAsterix{
+	color: red;
+	font-family: monospace, helvetica;
+	font-weight: bold;
+	display: inline;
+}
+
+.swaggerSubtitle{
+	font-size: 12px;
+	font-family: monospace;
+	display:block;
+	color: gray;
+}
+
+.swaggerLister{
+	margin: 0px auto;
+	width: 90%;
+}

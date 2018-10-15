@@ -213,7 +213,13 @@ if(!isset($_SESSION["userId"])){
 				-->
 			</div>
 			<div id="sandboxPanel">
-				<div id="sandboxArea"></div>
+				<!--<div id="sandboxArea"></div>-->
+				<div style="display:flex; flex-direction: row;">
+					<div id="fileSystem"></div>
+					<div id="swaggerPatchInfo"></div>
+				</div>
+				<div id="swaggerDisplay"></div>
+
 			</div>
 			<div id="commentPanel">
 				<div id="commentArea"></div>
