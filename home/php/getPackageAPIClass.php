@@ -1,30 +1,18 @@
 <?php
     class getPackageAPI{
-        function getFirstAPIPackage(){
-            $returnPackageID = $this->returnAPIPackageID(1);
-
-            
-        }
-
-
-        function returnAPIPackageID($insertID){
+        function returnAPIPackageFromID(){
             require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 	
 			$sql = "SELECT * 
                 FROM `APIpackage` 
-                WHERE ID = 1";
+                ORDER BY `PackageID` 
+                ASC 
+                LIMIT 3";
 	
 			$result = $conn->query($sql);
-			$row = $result->fetch_assoc();
+
 	
-			return $row['PackageID'];
-        }
-
-
-        function getAPIForAPackageID($packageID){
-
-        }
-    
-        
+			return $result;
+        }      
     }
 ?>
