@@ -1,30 +1,37 @@
 <div id="helpWindow">
 	<div id="infoTeliaUp">
-		<p>© Telia Sverige AB 556430-0142<br>
-		<p>Box 50077, 973 22 Luleå<br>
-		<p>Säte: Stockholm
+		<p>© Telia Sverige AB</p>
+		<p>Box 50077, 973 22 Luleå</p>
+		<p>Säte: Stockholm</p>
+		<a href="mailto:grwe1400@student.miun.se?Subject=Hello%20again" target="_top">Send Mail</a>
     </div>
     
 
-        <div id="contact1" class="contactTelia" onclick="openContact(this.id)"><p>Phone</div><br>
-        <div class="contactInfoTelia" id="contactInformation1">
-            <p>Fridays 08:00 - 19:00<br>
-            <p> Phone number: 90 200<br>
-            <p>From abroad: +46 771 99 02 00
-        </div>
-	
-		<div id="contact2" class="contactTelia" onclick="openContact(this.id)"><p>Auto. Support</div><br>
-        <div class="contactInfoTelia" id="contactInformation2">
-			<p>Open Twentyfour Seven<br>
-			<p>From Telia mobile subscription / other phone<br>
-			<p>Phone number: 455/454<br>
-			<p>From abroad: +46 771 41 10 00
+        <div id="contact1" class="contactTelia" onclick="openContact(this.id)">
+			<p>Phone</p>
 		</div>
-		
-		<div id="contact3" class="contactTelia" onclick="openContact(this.id)"><p>Chat</div><br>
+        <div class="contactInfoTelia" id="contactInformation1">
+            <p>Fridays 08:00 - 19:00</p>
+            <p> Phone number: 90 200</p>
+            <p>From abroad: +46 771 99 02 00</p>
+        </div>
+		<br>	
+		<div id="contact2" class="contactTelia" onclick="openContact(this.id)">
+			<p>Auto. Support</p>
+		</div>
+        <div class="contactInfoTelia" id="contactInformation2">
+			<p>Open Twentyfour Seven</p>
+			<p>From Telia mobile subscription / other phone</p>
+			<p>Phone number: 455/454</p>
+			<p>From abroad: +46 771 41 10 00</p>
+		</div>
+		<br>
+		<div id="contact3" class="contactTelia" onclick="openContact(this.id)">
+			<p>Chat</p>
+		</div>
         <div class="contactInfoTelia" id="contactInformation3">
-            <p>Today: 08:00 - 19:00<br>
-			<p>Tomorrow: 08:00 - 19:00<br>
+            <p>Today: 08:00 - 19:00</p>
+			<p>Tomorrow: 08:00 - 19:00</p>
 		</div>
 		
 
