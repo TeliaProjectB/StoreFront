@@ -42,6 +42,12 @@ define([], function(){
 			if(obj.description === undefined){
 				obj.description = "";
 			}
+			if(obj.type === undefined){
+				obj.type = "";
+			}
+			if(obj.name === undefined){
+				obj.name = "";
+			}
 
 			return obj;
 		}

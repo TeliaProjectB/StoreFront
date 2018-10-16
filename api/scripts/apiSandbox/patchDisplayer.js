@@ -2,7 +2,6 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 	"use strict";
 	
 	function initModule(swaggerJSON){
-		var requestTester = new sendTestRequest.init();
 		var swaggerHand = new swaggerHandler.init();
 		var basePath = "";
 
@@ -12,7 +11,9 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 
 		
 		var resultsWindow = document.createElement("div");
-		resultsWindow.className = "swaggerResultsWindow";
+		resultsWindow.id = "swaggerResultsWindow";
+
+		var requestTester = new sendTestRequest.init(resultsWindow);
 		
 
 		var responsesContainer = document.createElement("div");
@@ -45,13 +46,6 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 
 			parameterContainer.appendChild(resultsWindow);
 
-			//addExampleData(patchData);
-
-			var responsesSwitchButton = document.createElement("button");
-			responsesSwitchButton.innerHTML = "Responses";
-			responsesSwitchButton.onclick = switchResponseWindow;
-			responsesSwitchButton.className = "buttonSwagger";
-			parameterContainer.appendChild(responsesSwitchButton);
 
 			addResponses(patchData);
 		}
@@ -186,9 +180,14 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 
 			for(var i=0; i<patchData.parameters.length; i++){
 				var swaggerObject = swaggerHand.parseSwaggerObject(swaggerJSON, patchData.parameters[i]);
-				console.log(swaggerObject);
+
 				var row = document.createElement("li");
 				row.className = "parListRow";
+				if(i%2==0){
+					row.className += " swaggerBack1";
+				}else{
+					row.className += " swaggerBack2";
+				}
 
 				var leftPartContainer = document.createElement("div");
 				leftPartContainer.className = "parListLeft"
@@ -223,19 +222,14 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 
 				row.appendChild(leftPartContainer);
 
-				var paramDesc = document.createElement("div");
-				paramDesc.className = "parListRight swaggerMediumText"
-				paramDesc.innerHTML = swaggerObject.description;
-
-				if(swaggerObject.in == "body"){
-					paramDesc.appendChild(addBodyInputFromRef(swaggerObject.schema.$ref, swaggerObject.name, swaggerObject.in));
-				}else{
-					var paramInput = createInputField(swaggerObject.type, "", swaggerObject.name, swaggerObject.name, swaggerObject.in);
-					paramDesc.appendChild(paramInput);
-					
-				}
+				var paramInput = createInputField(
+						swaggerObject.type, 
+						swaggerObject.description, 
+						swaggerObject.name, 
+						swaggerObject.name, 
+						swaggerObject.in);
 				
-				row.appendChild(paramDesc);
+				row.appendChild(paramInput);
 				listOfPrams.appendChild(row);
 			}
 
@@ -304,23 +298,29 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 		}
 
 		function createInputField(type, value, thisParamName, targetParamName, paramIn){
+			var paramInputContainer = document.createElement("div");
+			paramInputContainer.className = "parListRight";
+
 			var paramInput = document.createElement("input");
-			paramInput.value = "("+type+")"+value;
+			paramInput.value = "("+type+")";
 			paramInput.name = thisParamName;
 			paramInput.setAttribute("targetparamname", targetParamName);
 			paramInput.setAttribute("type", type);
 			paramInput.setAttribute("in", paramIn);
 			paramInput.className = "swaggerInput";
-			return paramInput;
+
+			var inputDescription = document.createElement("span");
+			inputDescription.innerHTML = value;
+			inputDescription.className = "inputDescription";
+
+			paramInputContainer.appendChild(paramInput);
+			paramInputContainer.appendChild(inputDescription);
+
+			return paramInputContainer;
 		}
 
-		function switchResponseWindow(){
-			if(responsesContainer.style.display == "none"){
-				responsesContainer.style.display = "inline";
-			}else{
-				responsesContainer.style.display = "none";
-			}
-		}
+
+
 
 	}return{
 		init: initModule

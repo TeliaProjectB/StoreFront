@@ -52,6 +52,8 @@ if(isset($_GET["id"])){
 }
 
 
+$apiDescription = str_replace("\n", "</br>", $apiDescription);
+
 $purchasebuttonText = "sign in to purchase";
 
 $onClickBuyButtonFunc = "openRegisterPanel()";

@@ -1,7 +1,7 @@
 define([], function(){
 	"use strict";
 	
-	function initModule(){
+	function initModule(resultsWindow){
 
 
 		function makeAjaxRequest(postData, phpSource, sendMethod, onLoad) {
@@ -32,7 +32,6 @@ define([], function(){
 
 
 			requestUrl = makeRequestURL(requestUrl, parameters);
-			console.log(requestUrl);
 
 			var paramData = undefined;
 
@@ -47,7 +46,8 @@ define([], function(){
 			}
 
 			//makeAjaxRequest("", requestUrl, onResponse);
-
+			
+			postInWindowConsole("Sending request to: "+requestUrl);
 		}
 
 
@@ -58,11 +58,10 @@ define([], function(){
 			}
 			var paths = parameters["path"];
 
-			//If variable markers "{ }" from url
-			requestUrl = requestUrl.replace(/\{.*\}/g, '');
-
+			
+			//replace url folder names {name} with their variable value
 			for(var i=0; i<paths.length; i++){
-				requestUrl+="/"+paths[i].targetParamName+"/";
+				requestUrl = requestUrl.replace("{"+paths[i].nameParam+"}", paths[i].value);
 			}
 
 			//Remove repeating double slashes
@@ -94,6 +93,10 @@ define([], function(){
 		}
 
 
+
+		function postInWindowConsole(text){
+			resultsWindow.innerHTML = text;
+		}
 		
 
 	}return{
