@@ -65,7 +65,7 @@
 
 	flex-shrink: 0;
 	width: 239px;
-	height: 170px;
+	height: 179px;
 	margin: 8px 0px;
 
 	/*border-left: solid 10px rgba(241,241,241,0.0);
@@ -136,7 +136,7 @@
 	font-size: 20px;
 	font-family: Helvetica Neue,helvetica,arial, sans-serif;
 	font-weight: bold;
-	display:flex;
+
 	flex:1;
 	flex-shrink: 0;
 
@@ -149,12 +149,12 @@
 	background-color: rgba(255, 255, 255, 0.8);
 	font-family: Helvetica;
 	padding:4px;
-	font-size: 18px;
+	font-size: 17px;
 	overflow:hidden;
 }
 
 .apiPriceRow{
-	padding-top: 4px;
+	padding-top: 7px;
 	text-align: center;
 	font-family:helvetica;
 	font-weight: bold;
