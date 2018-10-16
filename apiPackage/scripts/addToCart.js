@@ -43,10 +43,11 @@ function addToCart(apiId){
 
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/StoreFront/api/php/addToCart.php", true);
+	xhr.open("POST", "/StoreFront/apiPackage/php/addToCart.php", true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.onreadystatechange = function() {//Call a function when the state changes.
 		if(this.readyState == XMLHttpRequest.DONE) {
+			console.log("log: " + this.responseText);
 			setTimeout(function(){
 				var trolleyCounter = document.getElementById("itemCount");
 				trolleyCounter.style.display = "block";
