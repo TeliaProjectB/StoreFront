@@ -122,7 +122,14 @@
     margin-bottom: 10px;
 }
 
+#sendEmail {
+    margin-bottom:20px;
+    color: #6700d2;
+}
 
+#sendEmail:hover {
+    color: #330069;
+}
 
 .error {
     position: relative;
