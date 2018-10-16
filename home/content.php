@@ -12,6 +12,16 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 <div id="topListCategory" class="contentRow" name="Top List"></div>
 <div id="freeCategory" class="contentRow" name="Free"></div>
 
+<div class="rowContainer">
+	<a href="/StoreFront/category?cat=Combined%API's" class="rowTitle">Combined API's</a>
+	<div class="simpleBoxContainer">
+		
+		<?php
+			require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/home/php/getPackageAPI.php'; 
+		?>
+	</div>
+</div>
+
 <div class="bigBoxesCategories" name="Most liked" id="mostLikedCategories" maximum="3"></div>
 
 <div id="callCategory" class="contentRow" name="Call"></div>
@@ -23,3 +33,6 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 <div id="funCategory" class="contentRow" name="Fun"></div>
 
 <div class="bigBoxesCategories" name="Most bought" id="mostBoughtCategory" maximum="3"></div>
+
+<div id="mobileCategory" class="contentRow" name="Mobile"></div>
+<div id="StatisticsAPICategory" class="contentRow" name="Statistics API"></div>
