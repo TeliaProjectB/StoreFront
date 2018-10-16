@@ -17,7 +17,7 @@ if(isset($_SESSION["userId"]) && isset($_POST["apiRandId"])){
 	}
 	$row = $result->fetch_assoc();
 
-	$normalId = $row["ID"] . "p";
+	$normalId = $normalId = $row["PackageID"] . "p";
 
 
 	//Add api to cart
