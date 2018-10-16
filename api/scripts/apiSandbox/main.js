@@ -25,7 +25,6 @@ swaggerRetriever.getSwagger(getParameterByName("id"), function(swaggerJSON){
 	}
 
 	infoPanelUpdater.update(swaggerJSON);
-	console.log(swaggerJSON);
 	
 	//Create manager of swagger data
 	fileSystem = new pathsFilesystem.init(swaggerJSON);

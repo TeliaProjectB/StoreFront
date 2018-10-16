@@ -10,8 +10,11 @@
 	display: inline-block;
 }
 
-.swaggerResultsWindow{
-	margin: 16px;
+#swaggerResultsWindow{
+	font-family: monospace;
+	font-size: 13px;
+	width: 90%;
+	margin: 16px auto;
 	display: block;
 	height: 128px;
 	padding: 8px;
@@ -49,6 +52,12 @@
 	padding: 2px;
 	border:solid 1px gray;
 	margin: 4px;
+}
+
+.inputDescription{
+	font-family: monospace;
+	font-size: 13px;
+	color: #2e2e2e;
 }
 
 .swaggerEnum{
@@ -100,6 +109,7 @@
 }
 
 .parListRight{
+	flex: 1;
 	margin-bottom: 8px;
 	margin-top: 8px;
 }

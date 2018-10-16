@@ -18,8 +18,8 @@
 	flex-direction: row;
 }
 .recApiImage{
-	width: 48px;
-	height: 48px;
+	min-width: 48px;
+	min-height: 48px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
