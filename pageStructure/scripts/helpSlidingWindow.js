@@ -3,13 +3,18 @@
 ************************************/
 
 /*show contact number */
-function openNumber(){
+
+function openContact(contact_clicked){
     
-    if ($('#infoCall:visible').length != 0){
-            $("#infoCall").css({"display": "none"});
+    for (var i = 1; i < 4; i++) {
+        if(contact_clicked == "contact" + i) {
+            if ($('#contactInformation' + i + ':visible').length != 0){
+                $("#contactInformation" + i).css({"display": "none"});
+            }
+            else {
+                $("#contactInformation" + i).css({"display": "block"});
+            }
         }
-    else {
-        $("#infoCall").css({"display": ""});
     }
 }
 
@@ -39,10 +44,10 @@ var answer4 = "You can pay the API with Mastercard, Visa or American Express."
 var answer5 = "You can search on the search bar if the API is in the website, if there isn't   \
 you can send an email to Telia Service Center and we will add it if possible." 
 
-function openAnswer(id_clicked){
+function openAnswer(question_clicked){
 
     for (var i = 1; i < 6; i++) {
-        if(id_clicked == "question" + i) {
+        if(question_clicked == "question" + i) {
             if ($('#answer' + i + ':visible').length != 0){
                 $("#answer" + i).css({"display": "none"});
             }

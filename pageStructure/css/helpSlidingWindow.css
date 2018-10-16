@@ -27,7 +27,7 @@
 	background-color: rgb(255, 255, 255);
     cursor: pointer;
     transition: 0.3s;
-    border-top: 2px solid rgb(191, 96, 255);
+    border-top: 2px solid #6700d2;
     display:block;
     padding-right:35px;
     padding-left:35px;
@@ -36,7 +36,7 @@
 
 
 .questionText:hover {
-    color: purple;
+    color: #6700d2;
 }
 
 .answerText {
@@ -47,8 +47,8 @@
     display: block;
     cursor: pointer;
     transition: 0.3s;
-    padding-right:35px;
-    padding-left:35px;
+    padding-right:45px;
+    padding-left:45px;
     margin-bottom:10px;
 }
 
@@ -80,6 +80,50 @@
 #helpWindow {
 	display: none;
 }
+
+
+.contactTelia {
+    background-color: #6700d2;
+    padding: 8px 0px;
+    width: 50%;
+    font-size: 16px;
+	color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    display:block;
+    padding-right:35px;
+    padding-left:35px;
+    margin: 0 auto;
+    border-radius: 18px;
+}
+
+.contactTelia p {
+    margin-top:0;
+}
+
+.contactTelia:hover {
+    background-color: #330069;
+}
+
+.contactInfoTelia {
+    display: none;
+    text-decoration: none;
+	color: #000000;
+	background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom:15px;
+    margin-top:-15px;
+}
+
+#mainQuestions h3 {
+    font-family: Helvetica Neue,helvetica,arial,sans-serif;
+    color: #222;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
 
 .error {
     position: relative;
