@@ -3,9 +3,9 @@
 		<p>© Telia Sverige AB</p>
 		<p>Box 50077, 973 22 Luleå</p>
 		<p>Säte: Stockholm</p>
-		<a href="mailto:grwe1400@student.miun.se?Subject=Hello%20again" target="_top">Send Mail</a>
     </div>
-    
+	
+    <a href="mailto:grwe1400@student.miun.se?Subject=Hello%20again" target="_top" id="sendEmail">Send Mail</a>
 
         <div id="contact1" class="contactTelia" onclick="openContact(this.id)">
 			<p>Phone</p>
