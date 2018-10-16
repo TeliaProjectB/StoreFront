@@ -18,7 +18,8 @@ if(isset($_SESSION["userId"])){
 
 	foreach($result as $row){
 		//Add to purchase list
-		$sql = "INSERT INTO `boughtItems` (ID, UserID, ItemID) VALUES (null, ".$_SESSION["userId"].", ".$row["IDApi"].")";
+		$sql = "INSERT INTO `boughtItems` (ID, UserID, ItemID) VALUES (null, ".$_SESSION["userId"].", '".$row["IDApi"]."')";
+		echo $sql;
 		$conn->query($sql);
 	}
 
