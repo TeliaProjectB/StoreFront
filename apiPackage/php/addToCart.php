@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+
 
 if(isset($_SESSION["userId"]) && isset($_POST["apiRandId"])){
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
@@ -9,6 +9,7 @@ if(isset($_SESSION["userId"]) && isset($_POST["apiRandId"])){
 
 	//get normal id
 	$sql = "SELECT `ID`from `APIpackage` WHERE `RandomId`='$randomId'";
+
 	$result = $conn->query($sql);
 	if(!$result){
 		header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad request', true, 400);
@@ -21,7 +22,7 @@ if(isset($_SESSION["userId"]) && isset($_POST["apiRandId"])){
 
 	//Add api to cart
 	$sql = "INSERT INTO shoppingTrolly (ID, IDApi, IDUser) VALUES 
-			(null, $normalId, ".$_SESSION['userId'].")";
+			(null, '$normalId', ".$_SESSION['userId'].")";
 	$result = $conn->query($sql);
 
 	if(!$result){
