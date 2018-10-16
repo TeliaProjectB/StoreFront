@@ -3,7 +3,7 @@
     require  $_SERVER["DOCUMENT_ROOT"].'/StoreFront/apiPackage/php/includeAPIClass.php';
     $includeAPI = new includeAPI;
 
-    $allAPI = $includeAPI->getAllIncludedAPIFromID(1);
+    $allAPI = $includeAPI->getAllIncludedAPIFromID($apiPackageID);
 
 
     
