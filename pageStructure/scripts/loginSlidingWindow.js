@@ -36,11 +36,9 @@ function openHelpWindow(){
         $("#helpWindow").css({"display": "inline"});
 
 
-        $("#answer1").css({"display": "none"});
-        $("#answer2").css({"display": "none"});
-        $("#answer3").css({"display": "none"});
-        $("#answer4").css({"display": "none"});
-        $("#answer5").css({"display": "none"});
+        for (var i = 0; i < 6; i++) {
+            $("#answer" + i).css({"display": "none"});
+        }
         
     }
 }

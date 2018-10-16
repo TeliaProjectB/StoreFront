@@ -86,16 +86,15 @@ switch(pathname) {
 /*function to let the dropdown "see more" work */
 $(document).ready(function(){
 
-    $(".dropdown").hover(function(){
-        $(".dropdown > .headerButton").hover(function(){
-            $('.dropdown > .dropdown-content').css("height", "210px");
+    $(".dropdown > .headerButton").hover(function(){
+        $('.dropdown > .dropdown-content').css("height", "290px");
+    }, function(){
+        $(".dropdown-content").hover(function(){
+            $('.dropdown > .dropdown-content').css("height", "290px");
         }, function(){
-            $(".dropdown-content").hover(function(){
-                $('.dropdown > .dropdown-content').css("height", "210px");
-            }, function(){
-                $('.dropdown > .dropdown-content').css("height", "0px");
-            });
             $('.dropdown > .dropdown-content').css("height", "0px");
         });
+        $('.dropdown > .dropdown-content').css("height", "0px");
     });
+
 });
