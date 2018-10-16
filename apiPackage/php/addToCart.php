@@ -8,7 +8,7 @@ if(isset($_SESSION["userId"]) && isset($_POST["apiRandId"])){
 	$randomId = htmlspecialchars($_POST["apiRandId"]);
 
 	//get normal id
-	$sql = "SELECT `ID`from `APIpackage` WHERE `RandomId`='$randomId'";
+	$sql = "SELECT `PackageID`from `APIpackage` WHERE `RandomId`='$randomId'";
 
 	$result = $conn->query($sql);
 	if(!$result){
@@ -17,7 +17,7 @@ if(isset($_SESSION["userId"]) && isset($_POST["apiRandId"])){
 	}
 	$row = $result->fetch_assoc();
 
-	$normalId = $row["PackageID"] . "p";
+	$normalId = $row['PackageID'] . "p";
 
 
 	//Add api to cart
