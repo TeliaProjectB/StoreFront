@@ -1,53 +1,44 @@
 /************************************
     Functions to open help sidebar
 ************************************/
-function openQuestion(id_clicked){
 
-    if(id_clicked == "question1") {
-        if ($('#answer1:visible').length != 0){
-            $("#answer1").css({"display": "none"});
-        }
-        else {
-            $("#answer1").css({"display": ""});
-        }
-    }
+/*show the questions */
+var question1 = "How can I find all the API?";
+var question2 = "How can I buy more API?";
+var question3 = "How can I change my account?"
+var question4 = "What are the accepted payment methods?" 						
+var question5 = "How can I find an API that there isn't on the site?" 
 
-    if(id_clicked == "question2") {
-        if ($('#answer2:visible').length != 0){
-            $("#answer2").css({"display": "none"});
-        }
-        else {
-            $("#answer2").css({"display": ""});
-        }
-    }
+for (var i = 1; i < 6; i++) {
+    document.getElementById("question" + i).innerHTML = window['question' + i];
+}
 
-    if(id_clicked == "question3") {
-        if ($('#answer3:visible').length != 0){
-            $("#answer3").css({"display": "none"});
-        }
-        else {
-            $("#answer3").css({"display": ""});
-        }
-    }
+/*show the answers */
+var answer1 = "There are two ways to find all the API. You can \
+search on the search bar, you can scroll down till the end or you can \
+click on the dropdown button others and then click on the button All.";
+var answer2 = "To buy more API you can go to an API, click the button add to card and continue shopping.";
+var answer3 = "If you want to change your account information you can click on your username \
+or your user icon and click on My account, then click on change information."
+var answer4 = "You can pay the API with Mastercard, Visa or American Express." 						
+var answer5 = "You can search on the search bar if the API is in the website, if there isn't   \
+you can send an email to Telia Service Center and we will add it if possible." 
 
-    if(id_clicked == "question4") {
-        if ($('#answer4:visible').length != 0){
-            $("#answer4").css({"display": "none"});
-        }
-        else {
-            $("#answer4").css({"display": ""});
-        }
-    }
+function openAnswer(id_clicked){
 
-    if(id_clicked == "question5") {
-        if ($('#answer5:visible').length != 0){
-            $("#answer5").css({"display": "none"});
-        }
-        else {
-            $("#answer5").css({"display": ""});
+    for (var i = 1; i < 6; i++) {
+        if(id_clicked == "question" + i) {
+            if ($('#answer' + i + ':visible').length != 0){
+                $("#answer" + i).css({"display": "none"});
+            }
+            else {
+                $("#answer" + i).css({"display": ""});
+                document.getElementById("answer" + i).innerHTML = window['answer' + i];
+            }
         }
     }
 }
+
 
 //Clicking on the website the it will close the login window
 $(document).on('click','#contentID',function(){

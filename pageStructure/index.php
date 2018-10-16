@@ -61,6 +61,9 @@
 							<button class="dropdownButton" onclick="scrollDownTo('Call')">Call</button>
 							<button class="dropdownButton" onclick="scrollDownTo('For Company')">For Company</button>
 							<button class="dropdownButton" onclick="scrollDownTo('Fun')">Fun</button>
+							<button class="dropdownButton" onclick="scrollDownTo('Mobile')">Mobile</button>
+							<button class="dropdownButton" onclick="scrollDownTo('Statistics API')">Statistics API</button>
+					
 						</div>
 					</div> 
 				
@@ -102,33 +105,20 @@
 							</div>
 
 							<div id="mainQuestions">
-								<a href="#" onclick="openQuestion(this.id)" class="questionText" id="question1">
-									How can I find all the API?</a>
-								<div class="answerText" id="answer1">"There are two ways to find all the API's. You can
-									search on the search bar, you can scroll down till the end or you can 
-									click on the dropdown button others and then click on the button All."
+								<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question1"></a>
+								<div class="answerText" id="answer1">
 								</div>
-								<a href="#" onclick="openQuestion(this.id)" class="questionText" id="question2">
-									How can I buy more APIs?</a>
+								<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question2"></a>
 								<div class="answerText" id="answer2">
-									"To buy more API you can go to an API, click the button add to card and continue shopping.";
 								</div>
-								<a href="#" onclick="openQuestion(this.id)" class="questionText" id="question3">
-									How can I change my account?</a>
+								<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question3"></a>
 								<div class="answerText" id="answer3">
-									"If you want to change your account information you can click on your username 
-									or your user icon and click on My account, then click on change information."
 								</div>
-								<a href="#" onclick="openQuestion(this.id)" class="questionText" id="question4">
-									What are the accepted payment methods?</a>
+								<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question4"></a>
 								<div class="answerText" id="answer4">
-									"You can pay the API with Mastercard, Visa or American Express." 
 								</div>
-								<a href="#" onclick="openQuestion(this.id)" class="questionText" id="question5">
-									How can I find an API that there isn't on the site?</a>
+								<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question5"></a>
 								<div class="answerText" id="answer5">
-									"You can search on the search bar if the API is in the website, if there isn't
-									you can send an email to Telia Service Center and we will add it if possible." 
 								</div>
 							</div>
 							<button class="closeWindowButton" onclick="openHelpWindow()"></button>
