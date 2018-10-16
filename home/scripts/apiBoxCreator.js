@@ -28,17 +28,21 @@ define([], function(){
 			var titleDescContainer = document.createElement("div");
 			titleDescContainer.className = "titleDescContainer";
 
+			var price = document.createElement("div");
+			price.className = "apiPriceRow";
+			if (apiData.Price == 0) {
+				price.innerHTML = "Free";
+			}
+			else {
+				price.innerHTML = "Price: "+apiData.Price+" kr";
+			}
+
 			titleDescContainer.appendChild(apiTitle);
 			titleDescContainer.appendChild(apiIcon);
 			titleDescContainer.appendChild(apiDescription);
+			titleDescContainer.appendChild(price);
 
 			newApi.appendChild(titleDescContainer);
-
-
-			var price = document.createElement("div");
-			price.className = "apiPriceRow";
-			price.innerHTML = "Price: "+apiData.Price+" kr";
-			newApi.appendChild(price);
 
 			apiContainer.appendChild(newApi);
 			
@@ -75,10 +79,20 @@ define([], function(){
 			var titleDescContainer = document.createElement("div");
 			titleDescContainer.className = "titleDescContainer";
 
+			var price = document.createElement("div");
+			price.className = "apiPriceRow";
+			if (apiData.Price == 0) {
+				price.innerHTML = "Free";
+			}
+			else {
+				price.innerHTML = "Price: "+apiData.Price+" kr";
+			}
+
 			titleDescContainer.appendChild(apiTitle);
 			titleDescContainer.appendChild(apiIcon);
 			titleDescContainer.appendChild(apiDescription);
-
+			titleDescContainer.appendChild(price);
+			
 			newApi.appendChild(titleDescContainer);
 			apiContainer.appendChild(newApi);
 			
