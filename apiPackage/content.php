@@ -23,6 +23,7 @@ function getRealImageSrc($imgName){
 
 
 $apiName = "";
+$apiPackageID = "";
 $apiDescription = "";
 $apiImage = "";
 $apiCategory = "";
@@ -32,7 +33,7 @@ $randomId = "";
 
 if(isset($_GET["id"])){
 	$randomId = htmlspecialchars($_GET["id"]);
-	$sql = "SELECT * FROM `APIpackage` WHERE `RandomId`='kj215'";
+	$sql = "SELECT * FROM `APIpackage` WHERE `RandomId`='$randomId'";
 	$result = $conn->query($sql);
 
 
@@ -40,7 +41,7 @@ if(isset($_GET["id"])){
 	$apiName = $row["Name"];
 	$apiPackageID = $row["PackageID"];	
 	$apiDescription = $row["Description"];
-	$apiImage = getRealImageSrc("Call1");
+	$apiImage = $row["ImgName"];
 	$apiPrice = $row["Price"];
 
 	if(is_null($apiName)){
@@ -135,7 +136,7 @@ if(!isset($_SESSION["userId"])){
 			</div>
 			<div id="apiIcon" class="panel3d panel" >
 				<h1 id="apiIconTitle"><?php echo $apiName; ?></h1>
-				<div id="apiIconBackground" style="background-image: url('/StoreFront/globalImages/API/call1.jpg?>')"></div>
+				<div id="apiIconBackground" style="background-image: url('/StoreFront/globalImages/API/<?php echo $apiImage; ?>')"></div>
 			</div>
 			<aside id="miniInfoBuyPanel" class="panel3d panel flexColumn">
 				<div style="margin-bottom: 16px;"><h4>Last updated:</h4> 2018-02-00</div>
