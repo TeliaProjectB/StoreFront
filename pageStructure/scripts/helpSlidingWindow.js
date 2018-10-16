@@ -2,6 +2,21 @@
     Functions to open help sidebar
 ************************************/
 
+/*show contact number */
+function openNumber(){
+    
+    if ($('#infoCall:visible').length != 0){
+            $("#infoCall").css({"display": "none"});
+        }
+    else {
+        $("#infoCall").css({"display": ""});
+    }
+}
+
+
+
+
+
 /*show the questions */
 var question1 = "How can I find all the API?";
 var question2 = "How can I buy more API?";
