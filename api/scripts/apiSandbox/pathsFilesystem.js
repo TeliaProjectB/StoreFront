@@ -1,9 +1,12 @@
 define(["scripts/apiSandbox/patchDisplayer"], function(patchDisplayer){
 	"use strict";
 	
-	function initModule(){
-		var patchWindow = new patchDisplayer.init();
+	function initModule(swaggerJSON){
+		var patchWindow = new patchDisplayer.init(swaggerJSON);
 
+		var fileSystemMinimizer = document.getElementById("swaggerMinimize");
+
+		/*Creates a new file explorer from "prettyFiles"  from script "prettyFileSystem.min.js*/
 		var parameters = {
 			itemName: "File",
 			disableInteraction: true,
@@ -11,16 +14,25 @@ define(["scripts/apiSandbox/patchDisplayer"], function(patchDisplayer){
 			createItemButtonOn: true,
 			canResize: false
 		};
-		var system = new prettyFiles.init().getInit("fileSystem", parameters);
 
 
+		var fileSystemVisible = true;
+		var fileSystemElem = document.getElementById("fileSystem");
+		var fileSystem = new prettyFiles.init().getInit("fileSystem", parameters);
+		var fileSystemSizeDiv = document.getElementById("fileSystem").childNodes[0];
+		var originalWidth = window.getComputedStyle(fileSystemSizeDiv).width;
+
+		/*An associative array to keep track of which path folders has been created.
+		The key is the path base name*/
 		var arrayOfRoots = [];
 
+		/*The object the filesystem reads from the generate its structure
+		When dataStructure is complete it's inserted with "insertDataToSystem" which 
+		calls a function from the filesystem to create a structure from a javascript object*/
 		var dataStructure = [];
 
 		//public
 		this.addPath = function(pathName, pathData, consumes, produces){
-			//get root name of path
 			addRootFolder(pathName, pathData, consumes, produces);
 			
 
@@ -37,17 +49,50 @@ define(["scripts/apiSandbox/patchDisplayer"], function(patchDisplayer){
 		}
 
 		this.insertDataToSystem = function(){
-			system.insertData(JSON.stringify(dataStructure));
+			fileSystem.insertData(JSON.stringify(dataStructure));
 		}
 
 
-		system.onClickFile = function(name, id, procced){
-			var rootName = getRootName(name, 2);
+
+		fileSystemMinimizer.onclick = function(){
 			
-			patchWindow.display(arrayOfRoots[rootName][name], name, arrayOfRoots[rootName].consumes, arrayOfRoots[rootName].produces);
+			fileSystemSizeDiv.style.transition = "width 0.24s ease-in";
+			fileSystemSizeDiv.style.webkitTransition = "width 0.24s ease-in";
+
+			
+			fileSystemElem.style.transition = "opacity 0.24s ease-in";
+			fileSystemElem.style.webkitTransition = "opacity 0.24s ease-in";
+
+			if(fileSystemVisible){
+				fileSystemSizeDiv.style.width = "0px";
+				fileSystemElem.style.opacity = "0";
+				fileSystemSizeDiv.style.minWidth = "0px";
+
+				fileSystemVisible = false;
+				fileSystemMinimizer.style.transform = "rotate(180deg)";
+			}else{
+				fileSystemElem.style.opacity = "1";
+				fileSystemSizeDiv.style.width = originalWidth;
+				fileSystemMinimizer.style.transform = "rotate(0deg)";
+				
+				fileSystemVisible = true;
+			}
+			
+			
+		};
+
+
+		fileSystem.onClickFile = function(name, id, image, customData){
+			var rootName = getRootName(name);
+			
+			patchWindow.display(arrayOfRoots[rootName].itemsData[customData.requestType+name], 
+				name, 
+				arrayOfRoots[rootName].consumes, 
+				arrayOfRoots[rootName].produces);
 		};
 
 		function addRootFolder(pathName, pathData, consumes, produces){
+			//Parses the name and creates a root folder of the base name if there is none
 			var rootName = getRootName(pathName);
 			if(arrayOfRoots[rootName] != undefined){
 				return;
@@ -59,6 +104,7 @@ define(["scripts/apiSandbox/patchDisplayer"], function(patchDisplayer){
 				contains: [],
 				consumes: consumes,
 				produces: produces,
+				itemsData: [],
 			};
 			arrayOfRoots[rootName] = rootFolder;
 
@@ -68,54 +114,66 @@ define(["scripts/apiSandbox/patchDisplayer"], function(patchDisplayer){
 
 
 		function addGetFunc(pathName, pathData){
+			/*Creates an item from the path name and store the path GET data in 
+			an associative array in the parent object property "itemsData"*/
 			if(pathData.get != undefined){
-				var funcName = "<div style='display:none;'>GET: </div>"+pathName;
+				var funcName = pathName;
 				var functionItem = {
 					type: "file",
 					name: funcName,
 					image: "scripts/apiSandbox/icons/get.png",
+					customData: {requestType: "GET"}
 				};
 				arrayOfRoots[getRootName(pathName)].contains.push(functionItem);
-				arrayOfRoots[getRootName(pathName)][funcName] = pathData.get;
+				arrayOfRoots[getRootName(pathName)].itemsData["GET"+funcName] = pathData.get;
 			}
 		}
 
 		function addPostFunc(pathName, pathData){
+			/*Creates an item from the path name and store the path POST data in 
+			an associative array in the parent object property "itemsData"*/
 			if(pathData.post != undefined){
-				var funcName = "<div style='display:none;'>POST: </div>"+pathName;
+				var funcName = pathName;
 				var functionItem = {
 					type: "file",
 					name: funcName,
 					image: "scripts/apiSandbox/icons/post.png",
+					customData: {requestType: "POST"}
 				};
 				arrayOfRoots[getRootName(pathName)].contains.push(functionItem);
-				arrayOfRoots[getRootName(pathName)][funcName] = pathData.post;
+				arrayOfRoots[getRootName(pathName)].itemsData["POST"+funcName] = pathData.post;
 			}
 		}
 
 		function addDeleteFunc(pathName, pathData){
+			/*Creates an item from the path name and store the path DELETE data in 
+			an associative array in the parent object property "itemsData"*/
 			if(pathData.delete != undefined){
-				var funcName = "<div style='display:none;'>DELETE: </div>"+pathName;
+				var funcName = pathName;
 				var functionItem = {
 					type: "file",
 					name: funcName,
 					image: "scripts/apiSandbox/icons/delete.png",
+					customData: {requestType: "DELETE"}
 				};
 				arrayOfRoots[getRootName(pathName)].contains.push(functionItem);
-				arrayOfRoots[getRootName(pathName)][funcName] = pathData.delete;
+				arrayOfRoots[getRootName(pathName)].itemsData["DELETE"+funcName] = pathData.delete;
 			}
 		}
 
 		function addPatchFunc(pathName, pathData){
+			/*Creates an item from the path name and store the path PATCH data in 
+			an associative array in the parent object property "itemsData"*/
 			if(pathData.patch != undefined){
-				var funcName = "<div style='display:none;'>PATCH: </div>"+pathName;
+				var funcName = pathName; 
 				var functionItem = {
 					type: "file",
 					name: funcName,
 					image: "scripts/apiSandbox/icons/patch.png",
+					customData: {requestType: "PATCH"}
 				};
 				arrayOfRoots[getRootName(pathName)].contains.push(functionItem);
-				arrayOfRoots[getRootName(pathName)][funcName] = pathData.patch;
+				arrayOfRoots[getRootName(pathName)].itemsData["PATCH"+funcName] = pathData.patch;
 			}
 		}
 
