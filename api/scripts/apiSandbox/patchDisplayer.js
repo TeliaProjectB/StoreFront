@@ -1,44 +1,102 @@
-define([], function(){
+define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest"], function(swaggerHandler, sendTestRequest){
 	"use strict";
 	
-	function initModule(){
+	function initModule(swaggerJSON){
+		var requestTester = new sendTestRequest.init();
+		var swaggerHand = new swaggerHandler.init();
 		var basePath = "";
 
 		var windowElement = document.getElementById("swaggerPatchInfo");
 		var parameterContainer = document.createElement("div");
 		windowElement.appendChild(parameterContainer);
 
-		var executebutton = document.createElement("button");
-		executebutton.innerHTML = "Execute query";
-		executebutton.className = "swaggerExecuteButton";
-		windowElement.appendChild(executebutton);
-
-
-		var responsesSwitchButton = document.createElement("button");
-		responsesSwitchButton.innerHTML = "Responses";
-		responsesSwitchButton.onclick = switchResponseWindow;
-		responsesSwitchButton.className = "swaggerToggleResponses";
-		windowElement.appendChild(responsesSwitchButton);
+		
+		var resultsWindow = document.createElement("div");
+		resultsWindow.className = "swaggerResultsWindow";
+		
 
 		var responsesContainer = document.createElement("div");
 		windowElement.appendChild(responsesContainer);
 
+		var executebutton = document.createElement("button");
+
+		var exampleValues
+
+		var currentPathData;
+		var currentPatchName;
+
 		this.display = function(patchData, name, consumes, produces){
+			consumes = (consumes == undefined) ? consumes = "" : consumes=consumes;
+			produces = (produces == undefined) ? produces = "" : produces=produces;
+
+
+			currentPathData = patchData;
+			currentPatchName = name;
 			cleanWindow();
 
 			addTitle(patchData, name);
 			addProduceConsume(consumes, produces);
 			addParameters(patchData);
 
+
+			executebutton.innerHTML = "Execute query";
+			executebutton.className = "buttonSwagger strongButton";
+			parameterContainer.appendChild(executebutton);
+
+			parameterContainer.appendChild(resultsWindow);
+
+			//addExampleData(patchData);
+
+			var responsesSwitchButton = document.createElement("button");
+			responsesSwitchButton.innerHTML = "Responses";
+			responsesSwitchButton.onclick = switchResponseWindow;
+			responsesSwitchButton.className = "buttonSwagger";
+			parameterContainer.appendChild(responsesSwitchButton);
+
 			addResponses(patchData);
 		}
 
 
 		this.setBasePath = function(baseUrlPath){
+
 			if(baseUrlPath[0] == "/"){
-				baseUrlPath = "ServerRoot"+baseUrlPath;
+				if(swaggerJSON.host == undefined){
+					baseUrlPath = "Unknown"+baseUrlPath;
+				}else{
+					baseUrlPath = swaggerJSON.host+baseUrlPath;
+				}
+				
 			}
 			basePath = baseUrlPath;
+		}
+
+
+
+
+		executebutton.onclick = function(){
+			var allParameters = document.getElementsByClassName("swaggerInput");
+			requestTester.send(currentPathData, allParameters, basePath+currentPatchName, function(response){
+				console.log(response);
+			});
+		};
+
+
+		function addExampleData(patchData){
+			exampleValues = document.createElement("div");
+
+			//exampleValues.
+			var pathTag = patchData.tags[0];
+
+			//get all property keys of definitions
+			var definitionKeys = Object.keys(swaggerJSON.definitions);
+			for(var i=0; i<definitionKeys.length; i++){
+				if(swaggerJSON.definitions[definitionKeys[i]].title == pathTag){
+
+				}
+			}
+
+			
+			parameterContainer.appendChild(exampleValues);
 		}
 
 		function addProduceConsume(consumes, produces){
@@ -49,7 +107,6 @@ define([], function(){
 		}
 
 		function addResponses(patchData){
-
 			var listOfResponses = document.createElement("ul");
 			listOfResponses.className = "swaggerLister";
 			var listHead = document.createElement("li");
@@ -74,6 +131,11 @@ define([], function(){
 
 				var row = document.createElement("li");
 				row.className = "parListRow";
+				if(i%2==0){
+					row.className += " swaggerBack1";
+				}else{
+					row.className += " swaggerBack2";
+				}
 
 				var code = document.createElement("div");
 				code.innerHTML = responsesKeys[i];
@@ -123,6 +185,8 @@ define([], function(){
 
 
 			for(var i=0; i<patchData.parameters.length; i++){
+				var swaggerObject = swaggerHand.parseSwaggerObject(swaggerJSON, patchData.parameters[i]);
+				console.log(swaggerObject);
 				var row = document.createElement("li");
 				row.className = "parListRow";
 
@@ -130,7 +194,7 @@ define([], function(){
 				leftPartContainer.className = "parListLeft"
 				var paramName = document.createElement("div");
 
-				if(patchData.parameters[i].required){
+				if(swaggerObject.required){
 					var asterix = document.createElement("div");
 					asterix.innerHTML = "*";
 					asterix.className = "swaggerAsterix";
@@ -138,21 +202,21 @@ define([], function(){
 				}
 
 				paramName.className = "parListName swaggerMediumText"
-				paramName.innerHTML += patchData.parameters[i].name;
+				paramName.innerHTML += swaggerObject.name;
 				leftPartContainer.appendChild(paramName);
 
-				if(patchData.parameters[i].type != undefined){
+				if(swaggerObject.type != undefined){
 					var paramType = document.createElement("div");
 					paramType.className = "parListType"
-					paramType.innerHTML = patchData.parameters[i].type;
+					paramType.innerHTML = swaggerObject.type;
 					leftPartContainer.appendChild(paramType);
 				}
 				
 
-				if(patchData.parameters[i].in != undefined){
+				if(swaggerObject.in != undefined){
 					var paramIn = document.createElement("div");
 					paramIn.className = "parListIn"
-					paramIn.innerHTML = "("+patchData.parameters[i].in+")";
+					paramIn.innerHTML = "("+swaggerObject.in+")";
 					leftPartContainer.appendChild(paramIn);
 				}
 				
@@ -161,12 +225,17 @@ define([], function(){
 
 				var paramDesc = document.createElement("div");
 				paramDesc.className = "parListRight swaggerMediumText"
-				paramDesc.innerHTML = patchData.parameters[i].description;
-				var paramInput = document.createElement("input");
-				paramInput.className = "swaggerInput";
-				paramDesc.appendChild(paramInput);
-				row.appendChild(paramDesc);
+				paramDesc.innerHTML = swaggerObject.description;
 
+				if(swaggerObject.in == "body"){
+					paramDesc.appendChild(addBodyInputFromRef(swaggerObject.schema.$ref, swaggerObject.name, swaggerObject.in));
+				}else{
+					var paramInput = createInputField(swaggerObject.type, "", swaggerObject.name, swaggerObject.name, swaggerObject.in);
+					paramDesc.appendChild(paramInput);
+					
+				}
+				
+				row.appendChild(paramDesc);
 				listOfPrams.appendChild(row);
 			}
 
@@ -174,7 +243,54 @@ define([], function(){
 			parameterContainer.appendChild(listOfPrams);
 
 
-			console.log(patchData);
+		}
+		
+
+
+		function addBodyInputFromRef($ref, targetPramName, paramIn){
+			var definition = swaggerHand.getDefinitionFromRef(swaggerJSON, $ref);
+
+			var objectProperties = Object.keys(definition.properties);
+
+			var bodyInputContainer = document.createElement("div");
+			for(var i=0; i<objectProperties.length; i++){
+				var nameAndInput = document.createElement("div");
+				nameAndInput.className = "swaggerAreaForInput";
+				if(i%2 == 0){
+					nameAndInput.className += " swaggerBack1";
+				}else{
+					nameAndInput.className += " swaggerBack2";
+				}
+
+				var name = document.createElement("span");
+				name.innerHTML = objectProperties[i];
+				nameAndInput.appendChild(name);
+
+				var swaggerObject = swaggerHand.parseSwaggerObject(swaggerJSON, definition.properties[objectProperties[i]]);
+
+				swaggerHand.getDefinitionFromRef(swaggerJSON, definition.properties[objectProperties[i]].$ref);
+				var paramInput = createInputField(
+					swaggerObject.type, 
+					swaggerObject.description,
+					objectProperties[i], 
+					targetPramName,
+					paramIn);
+				if(swaggerObject.enum != undefined){
+					var enumCon = document.createElement("span");
+					enumCon.className = "swaggerEnum";
+					enumCon.innerHTML = "</br>ENUM: ";
+					for(var x=0; x<swaggerObject.enum.length; x++){
+						enumCon.innerHTML += ", "+swaggerObject.enum[x];
+					}
+					name.appendChild(enumCon);
+				}
+
+				nameAndInput.appendChild(paramInput);
+
+				bodyInputContainer.appendChild(nameAndInput);
+			}
+			
+			return bodyInputContainer;
 		}
 
 		function cleanWindow(){
@@ -187,6 +303,16 @@ define([], function(){
 			}
 		}
 
+		function createInputField(type, value, thisParamName, targetParamName, paramIn){
+			var paramInput = document.createElement("input");
+			paramInput.value = "("+type+")"+value;
+			paramInput.name = thisParamName;
+			paramInput.setAttribute("targetparamname", targetParamName);
+			paramInput.setAttribute("type", type);
+			paramInput.setAttribute("in", paramIn);
+			paramInput.className = "swaggerInput";
+			return paramInput;
+		}
 
 		function switchResponseWindow(){
 			if(responsesContainer.style.display == "none"){

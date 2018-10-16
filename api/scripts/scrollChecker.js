@@ -99,7 +99,7 @@
 
 	setInterval(function(){
 		updatePosition();
-	}, 18);
+	}, 19);
 
 
 

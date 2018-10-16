@@ -59,20 +59,26 @@ if(isset($_POST["apiId"]) && isset($_POST["offset"]) && isset($_POST["from"])){
 		//get users current name from id
 		$sql = "SELECT `User_name` from user WHERE `ID`=$commentUserId";
 		$result = $conn->query($sql);
-		$row = $result->fetch_assoc();
-
-		$newObj->name = $row["User_name"];
-
-		array_push($arrOfComments, $newObj);
+		if($result){
+			$row = $result->fetch_assoc();
+			$newObj->name = $row["User_name"];
+			array_push($arrOfComments, $newObj);
+		}
+		
 	}
 
 	$arrOfComments = array_reverse($arrOfComments);
+
+	if(count($arrOfComments) == 0){
+		header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad request', true, 500);
+		die("There are no comments on this api");
+	}
 
 	echo json_encode($arrOfComments);
 
 
 }else{
-	header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+	header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad request', true, 500);
 	die("Target api doesn't exist");
 }
 

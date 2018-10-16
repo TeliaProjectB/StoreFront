@@ -52,8 +52,11 @@ if(isset($_GET["id"])){
 }
 
 
+$purchasebuttonText = "sign in to purchase";
+
 $onClickBuyButtonFunc = "openRegisterPanel()";
 if(isset($_SESSION["userId"])){
+	$purchasebuttonText = "Add to cart";
 	$onClickBuyButtonFunc = "addToCart('".$_GET["id"]."')";
 }
 
@@ -138,9 +141,9 @@ if(!isset($_SESSION["userId"])){
 			</div>
 			<aside id="miniInfoBuyPanel" class="panel3d panel flexColumn">
 				<div><h4>Category:</h4> <?php echo $apiCategory; ?></div>
-				<div style="margin-bottom: 16px;"><h4>Last updated:</h4> 2018-02-00</div>
+				<div style="margin-bottom: 16px;"><h4>Version:</h4> <span id="apiVersionInfo"></span></div>
 				<div><h4>Price:</h4> <?php echo $apiPrice; ?> kr</div>
-				<button id="purchaseButton" onclick="<?php  echo $onClickBuyButtonFunc; ?>">Add to cart</button>
+				<button id="purchaseButton" class="strongButton" onclick="<?php  echo $onClickBuyButtonFunc; ?>"><?php echo $purchasebuttonText; ?></button>
 				<div id="thumbsUpDownContainer">
 					<div id="thumbsUp" class="<?php echo $likeThumbClass; ?>" onclick="<?php  echo $likeButtonFunc;  ?>"></div>
 					<div id="thumbsUpNumber"><?php echo $ThumbsUp; ?></div>
@@ -179,24 +182,16 @@ if(!isset($_SESSION["userId"])){
 						<td><?php echo $apiName; ?></td>
 					</tr>
 					<tr>
- 						<td>Last update</td>
-						<td>2018-09-21</td>
-					</tr>
-					<tr>
  						<td>Type</td>
-						<td>Http, Https</td>
-					</tr>
-					<tr>
- 						<td>License</td>
-						<td>Apache License, Version 2.0</td>
+						<td id="apiTypeInfo"></td>
 					</tr>
 					<tr>
  						<td>Host</td>
-						<td>hahah.test.com</td>
+						<td id="apiHostInfo"></td>
 					</tr>
 					<tr>
- 						<td>Manual</td>
-						<td><a href="www.telia.se/manual?id=47gjew">Telia website manual</a></td>
+ 						<td>Swagger description</td>
+						<td id="apiSwagDescInfo"></td>
 					</tr>
 				</table>
 
@@ -215,10 +210,14 @@ if(!isset($_SESSION["userId"])){
 			<div id="sandboxPanel">
 				<!--<div id="sandboxArea"></div>-->
 				<div style="display:flex; flex-direction: row;">
-					<div id="fileSystem"></div>
+					<div>
+						<div id="swaggerMinimize"></div>
+						<div id="fileSystem"></div>
+						
+					</div>
+					
 					<div id="swaggerPatchInfo"></div>
 				</div>
-				<div id="swaggerDisplay"></div>
 
 			</div>
 			<div id="commentPanel">

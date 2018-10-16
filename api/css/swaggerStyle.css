@@ -10,15 +10,52 @@
 	display: inline-block;
 }
 
+.swaggerResultsWindow{
+	margin: 16px;
+	display: block;
+	height: 128px;
+	padding: 8px;
+	background-color:#fcfcfc;
+	border: solid 1px #d37f7f;
+}
+
 #swaggerPatchInfo{
 	display:flex;
 	flex-direction: column;
 	flex:1;
 }
 
+.swaggerAreaForInput{
+	/*margin-bottom: 16px;*/
+}
+
+.swaggerBack1{
+	padding: 8px;
+	background-color: #fbfbfb;
+}
+
+.swaggerBack2{
+	padding: 8px;
+	background-color: #e8e8e8;
+}
+
+
 .swaggerInput{
+	color: gray;
+	font-family: monospace;
+	background-color: white;
+	display:block;
+	width: 90%;
 	padding: 2px;
 	border:solid 1px gray;
+	margin: 4px;
+}
+
+.swaggerEnum{
+	color: red;
+	font-family: monospace, courier-new, courier;
+	font-size: 11px;
+	margin-bottom: 4px;
 }
 
 .swaggerPathCon{
@@ -68,15 +105,9 @@
 }
 
 
-.swaggerExecuteButton{
-	margin: 8px auto;
-	font-family: helvetica;
-	width: 116px;
-	text-align: center;
-	display: block;
-}
-
-.swaggerToggleResponses{
+.buttonSwagger{
+	cursor: pointer;
+	margin: 0px auto;
 	margin-top: 48px;
 	font-family: helvetica;
 	width: 116px;
@@ -99,6 +130,24 @@
 }
 
 .swaggerLister{
+	padding: 8px;
+	border: solid 1px #e8e8e8;
 	margin: 0px auto;
 	width: 90%;
+	margin-bottom: 16px;
 }
+
+#swaggerMinimize{
+	width: 32px;
+	height: 32px;
+	margin: 2px auto;
+	cursor: pointer;
+	background-image: url('../img/arrowBack.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: transform 0.24s ease-in;
+}
+
+
+

@@ -110,16 +110,10 @@
 }
 
 #purchaseButton{
-	background-color: #990ae3;
-	color:white;
-	padding:8px;
-	border-radius: 32px;
 	background-image: url('../img/shopping-cart.svg');
 	background-size: 22px;
 	background-repeat: no-repeat;
 	background-position: 11px;
-	cursor:pointer;
-	transition: background-color 0.16s ease-in, transform 0.01s ease-in;
 }
 
 #purchaseButton:hover{
@@ -127,6 +121,23 @@
 }
 
 #purchaseButton:active{
+	transform: scale(0.9);
+}
+
+.strongButton{
+	background-color: #990ae3;
+	color:white;
+	padding:8px;
+	border-radius: 32px;
+	cursor:pointer;
+	transition: background-color 0.16s ease-in, transform 0.01s ease-in;
+}
+
+.strongButton:hover{
+	background-color: #cc00ff;
+}
+
+.strongButton:active{
 	transform: scale(0.9);
 }
 
