@@ -7,7 +7,7 @@ function openSlideInWindow(){
     if(!$(".loginWindow").is(":animated")){
         $(".loginWindow").stop();
 
-        if($('.helpWindow:visible').length != 0){
+        if($('.helpWindow:visible').length != 0 && !$('.helpWindow').is(':animated')){
             $(".helpWindow").animate({width: 'toggle'});
         }
 
@@ -25,11 +25,8 @@ function openHelpWindow(){
     if(!$(".helpWindow").is(":animated")){
         $(".helpWindow").stop();
         
-        if($('.loginWindow:visible').length != 0){
+        if($('.loginWindow:visible').length != 0 && !$('.loginWindow').is(':animated')){
             $(".loginWindow").animate({width: 'toggle'});
-        }
-        if($('.secondWindow:visible').length != 0){
-            $(".secondWindow").animate({width: 'toggle'});
         }
 
         $(".helpWindow").animate({width: 'toggle'});
@@ -47,14 +44,14 @@ function openHelpWindow(){
 //Clicking on the website the it will close the login window
 $(document).on('click','#contentID',function(){
     // additional code
-    if($('.loginWindow:visible').length != 0){
+    if($('.loginWindow:visible').length != 0 && !$('.loginWindow:animated')){
         $(".loginWindow").stop();
         $(".loginWindow").animate({width: 'toggle'});
         flag = false;
     }
 });
 $(document).on('click','#head',function(e){
-    if(e.target != document.getElementById("userIcon") && e.target != document.getElementById("helpContact")) {
+    if(e.target != document.getElementById("userIcon") && e.target != document.getElementById("helpContact") && !$('.loginWindow').is(':animated')) {
         if($('.loginWindow:visible').length != 0 ){
             $(".loginWindow").stop();
             $(".loginWindow").animate({width: 'toggle'});
