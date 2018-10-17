@@ -18,16 +18,6 @@
         <?php
             require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/homeSplashPage/php/getAPIContent.php'; 
         ?>
-             
-        <div class="mySlides" onclick="window.open('/StoreFront/api?id=324rfe','_self')">
-            <div class="splashTitle">Most recommended</div>
-            <div class="splashSubTitle">Call one month</div>
-            <div class="splashDescription">
-                Charge your phone with calling time, this API let you call as mutch as you want for 30 day. 
-            </div>
-            <img class="imgDecoration" src="/StoreFront/globalImages/API/call3.png">
-
-        </div>
     </div>
     
     <div class="splashButtonNavigators">
