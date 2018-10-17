@@ -15,6 +15,14 @@
 			return $selectedAPIByRandomId;
 		}
 
+		function getMostBoughtAPIPackage(){
+			$returnedIDPackage = $this->getMostLikedAPIPackageID();
+			$selectedAPIpackage = $this->getAPIPackageFromID($returnedIDPackage);
+
+			return $selectedAPIpackage;
+			
+		}
+
 
 
 
@@ -57,7 +65,27 @@
 			return $row['ItemID'];
 		}
 
-		
+
+		/***********************************
+			Fetch the ID from the most liked package API
+		***********************************/
+		function getMostLikedAPIPackageID(){
+			require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
+	
+			$sql = "SELECT *, COUNT(`ItemID`) AS `value_occurrence` 
+				FROM `boughtItems` 
+				WHERE `ItemID` 
+				LIKE '%p%' 
+				GROUP BY `ItemID` 
+				ORDER BY `value_occurrence` 
+				DESC LIMIT 1";
+	
+	
+			$result = $conn->query($sql);
+			$row = $result->fetch_assoc();
+	
+			return $row['ItemID'];
+		}
 		
 		
 		/***********************************
@@ -94,6 +122,22 @@
 			return $row;
 		}
 
+
+		function getAPIPackageFromID($insertIDpackage){
+			require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
+
+			$refinedID = substr($insertIDpackage, 0, -1);
+			
+			$sql = "SELECT * 
+				FROM `APIpackage` 
+				WHERE `PackageID` = '$refinedID'";
+	
+	
+			$result = $conn->query($sql);
+			$row = $result->fetch_assoc();
+	
+			return $row;
+		}
 	}
 
 ?>
