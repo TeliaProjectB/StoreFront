@@ -37,15 +37,15 @@
 
 	<div id="mainQuestions">
 		<h3>Main Questions</h3>
-		<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question1"></a>
+		<a href="javascript:void();" onclick="openAnswer(this.id)" class="questionText" id="question1"></a>
 		<div class="answerText" id="answer1"></div>
-		<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question2"></a>
+		<a href="javascript:void();" onclick="openAnswer(this.id)" class="questionText" id="question2"></a>
 		<div class="answerText" id="answer2"></div>
-		<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question3"></a>
+		<a href="javascript:void();" onclick="openAnswer(this.id)" class="questionText" id="question3"></a>
 		<div class="answerText" id="answer3"></div>
-		<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question4"></a>
+		<a href="javascript:void();" onclick="openAnswer(this.id)" class="questionText" id="question4"></a>
 		<div class="answerText" id="answer4"></div>
-		<a href="#" onclick="openAnswer(this.id)" class="questionText" id="question5"></a>
+		<a href="javascript:void();" onclick="openAnswer(this.id)" class="questionText" id="question5"></a>
 		<div class="answerText" id="answer5"></div>
 	</div>
     
