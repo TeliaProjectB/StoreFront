@@ -91,32 +91,32 @@
 					</ul>
 				</div>
 			</div>
+			
+			<!-- HELP WINDOW -->
+			<div class="helpWindow">
+				<div class="posisionOfTheHelpWindow">
+					<?php
+						require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/helpWindow.php';
+					?>	
+				</div>
+			</div>
+
+			<!-- LOGIN WINDOW -->
+			<div class="loginWindow">
+				<div class="posisionOfTheloginWindow">
+						
+					<?php
+						if(isset($_SESSION["userId"]) === false){
+							require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/loginWindow.php';
+						}else{
+							require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/signedIn.php';
+						}
+					?>
+				</div>
+			</div>
+
 			<!-- CONTENT -->
 			<div class="content">
-				<!-- HELP WINDOW -->
-				<div class="helpWindow">
-					<div class="posisionOfTheHelpWindow">
-						<?php
-							require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/helpWindow.php';
-						?>	
-					</div>
-				</div>
-
-
-				<!-- LOGIN WINDOW -->
-				<div class="loginWindow">
-					<div class="posisionOfTheloginWindow">
-						
-						<?php
-							if(isset($_SESSION["userId"]) === false){
-								require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/loginWindow.php';
-							}else{
-								require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/signedIn.php';
-							}
-						?>
-					</div>
-				</div>
-			
 			
 				<div id="contentID">
 				
