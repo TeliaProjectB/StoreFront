@@ -61,6 +61,12 @@ switch(pathname) {
         $('.breadcrumbs li+li').attr('content-before','/');
         document.getElementById('secondPage').innerHTML = "API";
         break;
+    case "/StoreFront/apiPackage/":
+        document.getElementById("homeBreadcrumb").style.display="inline";
+
+        $('.breadcrumbs li+li').attr('content-before','/');
+        document.getElementById('secondPage').innerHTML = "APIpackage";
+        break;
     case "/StoreFront/category/":
         document.getElementById("homeBreadcrumb").style.display="inline";
 
