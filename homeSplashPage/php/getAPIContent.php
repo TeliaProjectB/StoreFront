@@ -4,6 +4,8 @@
 
     $mostBought = $getAPIClass->getMostBoughtAPI();
     $mostLiked = $getAPIClass->getMostLikedAPI();
+    $mostBoughtPackage = $getAPIClass->getMostBoughtAPIPackage();
+
 
     echo "
         <div class='mySlides' onclick='window.open(\"/StoreFront/api/?id=".$mostBought["RandomId"]."\", \"_self\")'>
@@ -17,7 +19,6 @@
     ";
 
     
-
     echo "
         <div class='mySlides' onclick='window.open(\"/StoreFront/api/?id=".$mostLiked["RandomId"]."\", \"_self\")'>
             <div class='splashTitle'>Most liked</div>
@@ -26,6 +27,18 @@
                 " . $mostLiked['Description'] . " 
             </div>
             <img class='imgDecoration' src='/StoreFront/globalImages/API/" . $mostLiked['ImgName'] . "'>
+        </div>     
+    ";
+
+
+    echo "
+        <div class='mySlides' onclick='window.open(\"/StoreFront/api/?id=".$mostBoughtPackage["RandomId"]."\", \"_self\")'>
+            <div class='splashTitle'>Most liked</div>
+            <div class='splashSubTitle'>" . $mostBoughtPackage['Name'] . "</div>
+            <div class='splashDescription'>
+                " . $mostBoughtPackage['Description'] . " 
+            </div>
+            <img class='imgDecoration' src='/StoreFront/globalImages/API/" . $mostBoughtPackage['ImgName'] . "'>
         </div>     
     ";
 ?>
