@@ -64,18 +64,14 @@ function getDisLikesFromAPI($apiId){
 
 
 if(isset($_POST["cat"])){
-	$category = strtolower(htmlspecialchars($_POST["cat"]));
+	$category = strtolower(htmlspecialchars($_POST["cat"], ENT_QUOTES));
 	
 	$keyWords = explode(' ', $category);
 
 	//Check for invalid keywords
 	for($i=0; $i<count($keyWords); $i++){
-		if(strcmp($keyWords[$i], ' ') == 0){
-			$keyWords[$i] = "";
-		}else if(strcmp($keyWords[$i], '.') == 0){
-			$keyWords[$i] = "";
-		}else if(strcmp($keyWords[$i], ',') == 0){
-			$keyWords[$i] = "";
+		if(!$filter->isValidKeyword($keyWords[$i])){
+			$keyWords[$i]  = "";
 		}
 	}
 
@@ -83,38 +79,51 @@ if(isset($_POST["cat"])){
 	//go through every keyword and get all rows associated with them
 	for($i=0; $i<count($keyWords); $i++){
 		if(strcmp($keyWords[$i], '') != 0){
-			$sql = "SELECT * FROM `API` WHERE LOWER(`Category`) like '%$keyWords[$i]%'";
+			$sql = "SELECT * FROM api, apipackage  WHERE (LOWER(api.Category) 
+			like '%a%' OR LOWER(apipackage.Category) like '%$keyWords[$i]%')";
 			$result = $conn->query($sql);
-			foreach($result as $row){
-				$filter->addObject($row["Id"], 
-					$row, 
-					$row["Category"], 
-					$keyWords[$i], 
-					getLikesFromAPI($row["RandomId"]),
-					getDisLikesFromAPI($row["RandomId"]));
+			if($result){
+				foreach($result as $row){
+					$filter->addObject($row["Id"], 
+						$row, 
+						$row["Category"], 
+						$keyWords[$i], 
+						getLikesFromAPI($row["RandomId"]),
+						getDisLikesFromAPI($row["RandomId"]));
+				}
+			}
+			
+
+			$sql = "SELECT * FROM api, apipackage  WHERE (LOWER(api.Description) 
+			like '%a%' OR LOWER(apipackage.Description) like '%$keyWords[$i]%')";
+			$result = $conn->query($sql);
+			if($result){
+				foreach($result as $row){
+					$filter->addObject($row["Id"], 
+						$row, 
+						$row["Description"], 
+						$keyWords[$i], 
+						getLikesFromAPI($row["RandomId"]), 
+						getDisLikesFromAPI($row["RandomId"]));
+				}
+			}
+			
+
+			$sql = "SELECT * FROM api, apipackage  WHERE (LOWER(api.Name) 
+			like '%a%' OR LOWER(apipackage.Name) like '%$keyWords[$i]%')";
+			$result = $conn->query($sql);
+			if($result){
+				foreach($result as $row){
+					$filter->addObject($row["Id"], 
+						$row, 
+						$row["Name"], 
+						$keyWords[$i], 
+						getLikesFromAPI($row["RandomId"]), 
+						getDisLikesFromAPI($row["RandomId"]));
+				}
 			}
 
-			$sql = "SELECT * FROM `API` WHERE LOWER(`Description`) like '%$keyWords[$i]%'";
-			$result = $conn->query($sql);
-			foreach($result as $row){
-				$filter->addObject($row["Id"], 
-					$row, 
-					$row["Description"], 
-					$keyWords[$i], 
-					getLikesFromAPI($row["RandomId"]), 
-					getDisLikesFromAPI($row["RandomId"]));
-			}
-
-			$sql = "SELECT * FROM `API` WHERE LOWER(`Name`) like '%$keyWords[$i]%'";
-			$result = $conn->query($sql);
-			foreach($result as $row){
-				$filter->addObject($row["Id"], 
-					$row, 
-					$row["Name"], 
-					$keyWords[$i], 
-					getLikesFromAPI($row["RandomId"]), 
-					getDisLikesFromAPI($row["RandomId"]));
-			}
+			
 
 		}
 	}

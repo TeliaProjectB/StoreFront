@@ -68,6 +68,23 @@ class filterManager{
 
 		return $this->container;
 	}
+
+
+	function isValidKeyword($keyword){
+		if(strlen($keyword) <= 1){
+			return false;
+		}
+
+		if(strcmp($keyword, ' ') == 0){
+			return false;
+		}else if(strcmp($keyword, '.') == 0){
+			return false;
+		}else if(strcmp($keyword, ',') == 0){
+			return false;
+		}
+
+		return true;
+	}
 }
 
 
