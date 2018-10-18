@@ -1,0 +1,175 @@
+.center {
+	position: relative;
+    text-align: left;
+	font-family:Helvetica; 
+	font-size:16px;
+	width: 53%;
+	left: 274px;
+	top: 31px;
+
+}
+
+.contentMyAccountBox{
+    position: relative;
+	background-color: white;
+	height: 54px;
+	width: 53%;
+	left: 275px;
+	top: 31px;
+}
+.contentMyAccountBox1{
+	position: relative;
+	background-color: white;
+	height: 54px;
+	width: 75.5%;
+	left: 94px;
+	top: 28px;
+}
+
+.contentMyAccountBox2{
+	position: relative;
+	background-color: white;
+	height: 57px;
+	width: 75.5%;
+	left: 94px;
+	top: 25px;
+}
+
+.contentMyAccountBox3{
+	position: relative;
+	background-color: white;
+	height: 54px;
+	width: 53%;
+	left: 275px;
+	top: 10px;
+}
+
+
+
+.contentMyAccount {
+	position: relative;
+	background-color: white;
+	height: 302px;
+	width: 613px;
+	left: 276px;
+	top: 29px;
+	padding: 16px;
+	overflow: auto;
+}
+.contentMyAccount1{
+	position: relative;
+	background-color: white;
+	height: 251px;
+    width: 614px;
+	left: 275px;
+	top: 32px;
+	padding: 15px;
+	overflow: auto;
+}
+.contentMyAccount3{
+   width: 100%;
+	padding: 20px;
+	
+}
+
+.contentMyAccount4{
+	position: relative;
+	background-color: white;
+	height: 235px;
+	width: 612px;
+	left: 276px;
+	top: 26px;
+	padding: 15px;
+	overflow: auto;
+   
+
+}
+
+
+
+
+
+/************************************
+		Table for bought items
+************************************/*
+
+.tableInfoBox {
+		position: relative;
+		font-family: Helvetica Neue,helvetica,arial,sans-serif;
+		border-collapse: collapse;
+		width: 40%;
+	    height: 0px;
+        height: -2px;
+        left: 6px;
+	}
+
+	
+td, th {
+	position: relative;
+	border: 1px solid #1815154d;
+	text-align: left;
+	padding: 1px;
+	width: 2%;
+	height: -5px;
+	left: 8px;
+    font: 14px/19px Helvetica;
+	table-layout: auto;
+}
+	
+
+.button {
+    position: relative;
+    background-color: #c0c0b833;
+    border: none;
+    color: black;
+    padding: 14px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Helvetica;
+    height: 19px;
+    width: 13%;
+    left: 5px;
+    top: 20px;
+    border: solid 1px #f7fbfc80;
+    border-radius: 15px;
+   
+}
+
+element {
+	position: relative;
+    font: 22px/26px Helvetica;
+    color: #171010b3;
+	left: 5px;
+    top:  20px;
+}
+
+
+
+input1 {
+	position: relative;
+    width: 99%;
+    background-color: transparent;
+	height:1px;
+    left: 1px;
+    top: 1px;
+}
+.accordion:after {
+    position: relative;
+    content: url('../img/close.png');
+    font-size: 13px;
+    color: #481c1c;
+    float: right;
+    margin-left: 13px;
+    height: 13px;
+    width: 13%;
+    left: -554px;
+    top: -7px;
+}
+
+.active:after {
+      content: url('../img/open.png');
+}
