@@ -150,6 +150,7 @@
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/registerUser.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/signOutUser.js"></script>
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/filterApiFunc.js"></script>
+		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/genericFunctions.js"></script>
 		
 	</body>
 </html>
