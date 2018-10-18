@@ -47,7 +47,7 @@ function purchase(){
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
 			console.log(this.responseText);
 			alert("Success! Youare now the owner of these API.");
-			window.open("/StoreFront/myAccount/items/?index=boughtItems", "_self");
+			window.open("/StoreFront/myAccount/?index=boughtItems", "_self");
 		}
 	}
 	xhr.send("");
