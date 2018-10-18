@@ -57,7 +57,7 @@
 	display:flex;
 	flex-direction: row;
 	align-items: center;
-	transition: margin 0.17s ease-out;
+	transition: margin 0.12s ease-out;
 }
 
 
@@ -96,7 +96,7 @@
 }
 
 .apiBox:hover{
-	transform: scaleX(1.2) scaleY(1.2);
+	transform: scaleX(1.185) scaleY(1.185);
 	/*width: 287px;
 	height: 178px;*/
 	z-index: 100;
@@ -154,12 +154,19 @@
 }
 
 .apiPriceRow{
+	height: 18px;
 	padding-top: 7px;
 	text-align: center;
 	font-family:helvetica;
 	font-weight: bold;
 }
 
+.firstApiMarker{
+	float:left;
+	height: 100%;
+	margin: 0px auto;
+	border: solid 1px black;
+}
 .rowSpace{
 	display: block;
 	height: 128px

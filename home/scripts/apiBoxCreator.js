@@ -2,16 +2,24 @@ define([], function(){
 	function initModule(){
 
 
-		this.createApiBox = function(apiContainer, apiData){
+		this.createApiBox = function(apiContainer, apiData, marked){
 			/*
 			Generate the api box element from "apiData"
 			"apiData" contains: Name, imgName,Description, Priceand RandomId
 			*/
 			apiContainer.setAttribute("mouseover", false);
 
+
+			
+
 			var newApi = document.createElement("div");
 			newApi.className = "apiBox";
 
+			if(marked){
+				var firstApiMarker = document.createElement("div");
+				firstApiMarker.className  = "firstApiMarker";
+				newApi.appendChild(firstApiMarker);
+			}
 
 			var apiTitle = document.createElement("div");
 			apiTitle.className = "apiTitle";

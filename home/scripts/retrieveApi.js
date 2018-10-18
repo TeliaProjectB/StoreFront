@@ -8,6 +8,7 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 			After that itsends the container back*/
 			ajaxRequest(category, function(data){
 				//convert json response to javascript objects
+				if(data.replace(/ /g, '') == ''){return;}
 				var retrievedData = JSON.parse(data);
 
 				//create api moving wrapper container
@@ -16,7 +17,11 @@ define(["apiBoxCreator"], function(apiBoxCreator){
 				
 				//Itterate through every receieved api and create and api element. Append the element to apiMoveWrapper
 				for(var i=0; i<retrievedData.length; i++){
-					boxCreator.createApiBox(apiMoveWrapper, retrievedData[i]);
+					if(i == 0){//if i==0 then we are at the first api box. send tru to markit so users can naviget easier
+						boxCreator.createApiBox(apiMoveWrapper, retrievedData[i], true);
+					}else{
+						boxCreator.createApiBox(apiMoveWrapper, retrievedData[i], false);
+					}
 				}
 
 				//Append the moving wrapper container to the parent container
