@@ -42,7 +42,7 @@ function updateThumbs(serverResponse){
 	}else if(serverResponse == "0"){
 		//make dislike
 		thumbsDown.className = "pressedThumbs";
-		thumbsDownNumber.innerHTML = parseInt(thumbsUpNumber.innerHTML, 10)+1;
+		thumbsDownNumber.innerHTML = parseInt(thumbsDownNumber.innerHTML, 10)+1;
 	}
 
 	updateThumbsBar(thumbsUpNumber.innerHTML, thumbsDownNumber.innerHTML);

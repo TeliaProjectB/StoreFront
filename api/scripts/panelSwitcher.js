@@ -16,21 +16,24 @@
 		resetAllButtonsColors();
 		hideAllPanels();
 		infoPanel.style.display = "block";
-		infoButton.style.backgroundColor = "#cc00ff";
+		infoButton.className = "rowButton panelButtonBackground rowButtonActive";
+		//infoButton.style.backgroundColor = "#cc00ff";
 	};
 
 	sandboxButton.onclick = function(){
 		resetAllButtonsColors();
 		hideAllPanels();
 		sandboxPanel.style.display = "block";
-		sandboxButton.style.backgroundColor = "#cc00ff";
+		sandboxButton.className = "rowButton panelButtonBackground rowButtonActive";
+		//sandboxButton.style.backgroundColor = "#cc00ff";
 	};
 
 	commentsButton.onclick = function(){
 		resetAllButtonsColors();
 		hideAllPanels();
 		commentPanel.style.display = "block";
-		commentsButton.style.backgroundColor = "#cc00ff";
+		commentsButton.className = "rowButton panelButtonBackground rowButtonActive";
+		//commentsButton.style.backgroundColor = "#cc00ff";
 
 		var messagesContainer = document.getElementsByClassName("messageBoxMessageContainer")[0];
 		messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -40,15 +43,16 @@
 		resetAllButtonsColors();
 		hideAllPanels();
 		recommendPanel.style.display = "block";
-		recommendedButton.style.backgroundColor = "#cc00ff";
+		recommendedButton.className = "rowButton panelButtonBackground rowButtonActive";
+		//recommendedButton.style.backgroundColor = "#cc00ff";
 	};
 
 
 	function resetAllButtonsColors(){
-		infoButton.style.backgroundColor = "#990ae3";
-		sandboxButton.style.backgroundColor = "#990ae3";
-		commentsButton.style.backgroundColor = "#990ae3";
-		recommendedButton.style.backgroundColor = "#990ae3";
+		infoButton.className = "rowButton panelButtonBackground";
+		sandboxButton.className = "rowButton panelButtonBackground";
+		commentsButton.className = "rowButton panelButtonBackground";
+		recommendedButton.className = "rowButton panelButtonBackground";
 	}
 
 	function hideAllPanels(){
@@ -94,7 +98,7 @@
 
 	hideAllPanels();
 	infoPanel.style.display = "block";
-	infoButton.style.backgroundColor = "#cc00ff";
+	infoButton.className = "rowButton panelButtonBackground rowButtonActive";
 
 
 	

@@ -11,12 +11,15 @@
 }
 
 #swaggerResultsWindow{
+	overflow-y: scroll;
+	word-break: break-all;
 	font-family: monospace;
 	font-size: 13px;
 	width: 90%;
 	margin: 16px auto;
 	display: block;
-	height: 128px;
+	height: 200px;
+	resize:vertical;
 	padding: 8px;
 	background-color:#fcfcfc;
 	border: solid 1px #d37f7f;
@@ -40,6 +43,11 @@
 .swaggerBack2{
 	padding: 8px;
 	background-color: #e8e8e8;
+}
+
+.swaggerBack3{
+	padding: 8px;
+	background-color: white;
 }
 
 
@@ -110,7 +118,7 @@
 
 .parListRight{
 	flex: 1;
-	margin-bottom: 8px;
+	/*margin-bottom: 48px;*/
 	margin-top: 8px;
 }
 
@@ -139,15 +147,22 @@
 	color: gray;
 }
 
+.swaggerTitle{
+	font-size: 18px;
+	font-weight: bold;
+	font-family: helvetica;
+}
+
 .swaggerLister{
 	padding: 8px;
 	border: solid 1px #e8e8e8;
 	margin: 0px auto;
-	width: 90%;
 	margin-bottom: 16px;
+	margin-right:8px;
 }
 
 #swaggerMinimize{
+	position:absolute;
 	width: 32px;
 	height: 32px;
 	margin: 2px auto;
@@ -161,3 +176,21 @@
 
 
 
+.sandBoxResponseLoading{
+	color: #16547c;
+}
+.sandBoxResponseInfo{
+	color: #7c6c16;
+}
+.sandBoxResponseError{
+	color:  #7c162d;
+}
+.sandBoxResponseText{
+	color: #1c1c1c;
+}
+.sandBoxResponseErrorText{
+	color: #1c1c1c;
+	border: solid 1px black;
+	padding: 8px;
+	background-color: white;
+}

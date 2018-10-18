@@ -49,7 +49,7 @@ if(isset($_SESSION["userId"]) && isset($_POST["apiId"]) && isset($_POST["mess"])
 	$createdId = $conn->insert_id;
 
 	$returnData = array();
-	array_push($returnData, $_SESSION["User_name"]);
+	array_push($returnData, $_SESSION["firstname"]." ".$_SESSION["lastname"]);
 	array_push($returnData, $createdId);
 	array_push($returnData, $currentDate);
 
