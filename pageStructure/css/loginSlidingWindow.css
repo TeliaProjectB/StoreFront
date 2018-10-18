@@ -48,7 +48,7 @@
 }
 .normalInput:focus {
     outline: none;
-    box-shadow: 0px 0px 5px 0px #ba99c3;
+    box-shadow: 0px 0px 5px 0px var(--hover-color);
 }
 
 .inputBoxSignIn {
@@ -62,7 +62,7 @@
 
 .inputBoxSignIn:focus {
     outline: none;
-    box-shadow: 0px 0px 5px 0px #ba99c3;
+    box-shadow: 0px 0px 5px 0px var(--hover-color);
 }
 
 .bottomBoxSignIn {
