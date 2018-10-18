@@ -1,3 +1,11 @@
+/*Site defined color variables*/
+:root {
+    --back-color: #6a3738;
+    --hover-color: #7e5899;
+    --active-color: #ba99c3;
+}
+
+
 *{
 	margin: 0;
 	padding: 0;
@@ -75,4 +83,23 @@ a{
 }
 a:hover{
 	text-decoration: underline;
+}
+
+
+
+.strongButton{
+	background-color: var(--back-color);
+	color:white;
+	padding:8px;
+	border-radius: 32px;
+	cursor:pointer;
+	transition: background-color 0.16s ease-in, transform 0.01s ease-in;
+}
+
+.strongButton:hover{
+	background-color: var(--hover-color);
+}
+
+.strongButton:active{
+	transform: scale(0.9);
 }
