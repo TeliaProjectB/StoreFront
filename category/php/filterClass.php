@@ -4,6 +4,7 @@ class containerObject{
 	public $id = "";
 	public $objectData = "";
 	public $relevance = 0;
+	public $isPackage = false;
 }
 
 class filterManager{
@@ -28,7 +29,7 @@ class filterManager{
 		return $ratio;
 	}
 
-	function addObject($objectId, $objectData, $haystack, $needle, $likes, $dislikes){
+	function addObject($objectId, $objectData, $haystack, $needle, $likes, $dislikes, $isAPackage){
 		//echo "\"".$needle."\"\n";
 		//If object to insert is not inserted, instert it. otherwise a counter for the object is incremented
 
@@ -48,6 +49,7 @@ class filterManager{
 			$newContainerObj = new containerObject;
 			$newContainerObj->id = intval($objectId);
 			$newContainerObj->objectData = $objectData;
+			$newContainerObj->isPackage = $isAPackage;
 			$newContainerObj->relevance = $this->calculateRelevance($haystack, $needle, $likes, $dislikes);
 
 

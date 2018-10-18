@@ -2,14 +2,17 @@
 function createApiBox(apiContainer, apiData){
     apiContainer.setAttribute("mouseover", false);
 
-    
 
     var newApi = document.createElement("div");
     newApi.className = "apiBox";
     newApi.onclick = function(){
         document.body.style.cursor = "wait";
         setTimeout(function(){
-            window.open("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"), "_self");
+            if(apiData.isPackage){
+                window.open("/StoreFront/apiPackage/?id="+apiElement.getAttribute("myApiId"), "_self");
+            }else{
+                window.open("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"), "_self");
+            }
         }, 60);
     };
 
@@ -41,7 +44,11 @@ function createApiBox(apiContainer, apiData){
     newApi.onclick = function(){
         document.body.style.cursor = "wait";
         setTimeout(function(){
-            window.open("/StoreFront/api/?id="+newApi.getAttribute("myApiId"), "_self");
+            if(apiData.isPackage){
+                window.open("/StoreFront/apiPackage/?id="+newApi.getAttribute("myApiId"), "_self");
+            }else{
+                window.open("/StoreFront/api/?id="+newApi.getAttribute("myApiId"), "_self");
+            }
         }, 60);
     };
 }
@@ -57,7 +64,7 @@ function ajaxRequest(postData, phpSource, onLoad) {
     xhr.onreadystatechange = function() {//Call a function when the state changes.
         //console.log(this.responseText);
         if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
             onLoad(this.responseText);
         }
     }

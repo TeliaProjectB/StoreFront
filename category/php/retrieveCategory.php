@@ -14,6 +14,7 @@ class apiObject
     public $Category = "";
     public $Price = "";
     public $imgName = "";
+    public $isPackage = false;
 }
 
 
@@ -89,7 +90,8 @@ if(isset($_POST["cat"])){
 						$row["Category"], 
 						$keyWords[$i], 
 						getLikesFromAPI($row["RandomId"]),
-						getDisLikesFromAPI($row["RandomId"]));
+						getDisLikesFromAPI($row["RandomId"]),
+						isset($row["PackageID"]));
 				}
 			}
 			
@@ -104,7 +106,8 @@ if(isset($_POST["cat"])){
 						$row["Description"], 
 						$keyWords[$i], 
 						getLikesFromAPI($row["RandomId"]), 
-						getDisLikesFromAPI($row["RandomId"]));
+						getDisLikesFromAPI($row["RandomId"]),
+						isset($row["PackageID"]));
 				}
 			}
 			
@@ -119,7 +122,8 @@ if(isset($_POST["cat"])){
 						$row["Name"], 
 						$keyWords[$i], 
 						getLikesFromAPI($row["RandomId"]), 
-						getDisLikesFromAPI($row["RandomId"]));
+						getDisLikesFromAPI($row["RandomId"]),
+						isset($row["PackageID"]));
 				}
 			}
 
@@ -144,6 +148,7 @@ if(isset($_POST["cat"])){
 		$newObj->Price = $api->objectData["Price"];
 		$newObj->imgName = getRealImageSrc($api->objectData["ImgName"]);
 		$newObj->relevance = $api->relevance;
+		$newObj->isPackage = $api->isPackage;
 
 		array_push($arrOfApi, $newObj);
 	}
