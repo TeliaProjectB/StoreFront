@@ -40,10 +40,28 @@ class registerUser{
 		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 		$userPasswordHash = password_hash($password, PASSWORD_DEFAULT);
-		echo $userPasswordHash;
+		//echo $userPasswordHash;
 
 		$sql = "INSERT INTO `user` (ID, User_pass, Email, Firstname, Lastname) 
 		VALUES (null, '$userPasswordHash', '$email', '$firstname', '$lastname')";
+
+		try{
+			$conn->query($sql);
+
+
+			return $sql;
+		}catch(Exception $e){
+			return false;
+		}
+	}
+
+
+	function updatePassword($newPassword){
+		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
+
+		$userPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+
+		$sql = "UPDATE `user`SET `User_pass`='$userPasswordHash'";
 
 		try{
 			$conn->query($sql);
