@@ -32,7 +32,7 @@
 
 
     echo "
-        <div class='mySlides' onclick='window.open(\"/StoreFront/api/?id=".$mostBoughtPackage["RandomId"]."\", \"_self\")'>
+        <div class='mySlides' onclick='window.open(\"/StoreFront/apiPackage/?id=".$mostBoughtPackage["RandomId"]."\", \"_self\")'>
             <div class='splashTitle'>Most Bought API Package</div>
             <div class='splashSubTitle'>" . $mostBoughtPackage['Name'] . "</div>
             <div class='splashDescription'>
