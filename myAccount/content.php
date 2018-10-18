@@ -1,17 +1,24 @@
+<?php
+	$whichwindowOpen = htmlspecialchars($_GET["index"]);
+?>
 
 
-<link rel="stylesheet" type="text/css"  href="/StoreFront/myAccount/css/myAccount.css">
-		<br>
-		<div class="accordion vertical">
-			<ul>
-				<li>
+
+	<link rel="stylesheet" type="text/css"  href="/StoreFront/myAccount/css/myAccount.css">	
+	<button for="identifier-1"  onclick="myFunction()" class="contentMyAccountBox center accordion">&emsp;&emsp;&nbsp;Information </button>
+	
+
+
+
+	
+		
+			<?php
+				if($whichwindowOpen == "info"){
+					
 				
-
-
-            <input type="checkbox" id="checkbox-1"  name="checkbox-accordion" checked /> 
-			<label for="checkbox-1" >Information<div class="closeWindowButton12"></div></label>
-            <div class="content">
-
+			?>
+			
+ <div id= "contentMyAccount" class="contentMyAccount1"  >
 <?php
 
 require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
@@ -30,11 +37,6 @@ if(!$result){
 echo "<br>";
   
 echo"<div style ='font: 19px/35px Helvetica;color: #171010b3;'>";  
-
-
-echo " User_name: &nbsp;" .$row["User_name"] ."<br>";	
-echo "<br>";
-
 echo " Firstname: &nbsp;".$row["Firstname"]. "<br>";
 echo "<br>";
 echo " Lastname: &nbsp;".$row["Lastname"]. "<br>";
@@ -47,22 +49,32 @@ echo "</font>";
 	}
 }
 ?>
-
-		</div>
-            </li>
-            <li>
-			
+</div>
 		
-					
-<input type="checkbox" id="checkbox-2" name="checkbox-accordion" />
-<label for="checkbox-2"  >Bought-Items<div class="closeWindowButton12 "  "></div></label>
+		</div>
 
-<div style=" overflow: auto;" class="content " >
-<table class="tableInfoBox ">		
-<br>
+	
+	<?php
+				}
+			?>
+
+	<p>
+
+		
+		<button onclick="Function()" class="contentMyAccountBox1 center accordion " >&emsp;&emsp;Bought items</button>
+		<div class="content " >
+		
+     
+			<?php
+				if($whichwindowOpen == "boughtItems"){
+					
+			?>
+			
+<div class="contentMyAccount " id= "contentMyAccount2" >			
+<table class="tableInfoBox">		
+
 
 <?php
-
 echo  "<table border='1' cellpadding='0' cellspacing='0' style='border-collapse: collapse' bordercolor='#111111' width='100%' id='AutoNumber1' >
 <tr>
 <th>ID</th>
@@ -124,31 +136,47 @@ if(!$result){
 }
 
 ?>
-
-	</tr>
+</tr>
 		</table>
         </div>
-        </li>
-        <li>
+       
 			
 
+	</P>
+	
+<?php
+				}
+				
+			?>
+
+
+			<p>
 
  
-
+		    <button onclick="unction()" class="contentMyAccountBox2 center accordion " >&emsp;&emsp;Payment</button>
 		
-		
-        
-            <input type="checkbox" id="checkbox-3" name="checkbox-accordion"  />
-           <label for="checkbox-3" >Payment<div class="closeWindowButton12"></div></label>
-            <div class="content">
+			<?php
+				if($whichwindowOpen == "payment"){
+			?>
+			    <div id= "contentMyAccount3" class="contentMyAccount4">
 			  <a href="#" class="button headerButton3" >Credit card</a>
               <a href="#" class="button headerButton3">Paypal</a>
             </div>
-           </li>
-          <li>    
-        </li>
-       </ul>
+       
 </div>
 </br>
+			<?php
+				}
+			?>
+	
+	</p>
+			
+
+
+
+		</div>	
+<script type="text/javascript" src="/StoreFront/myAccount/scripts/myAccount.js"></script>	
+			
+			
 
 

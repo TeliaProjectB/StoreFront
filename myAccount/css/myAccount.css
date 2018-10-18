@@ -1,203 +1,175 @@
-.accordion {
-    font-family:Helvetica; 
-    margin:0 auto;
-    font-size:16px;
-    border:1px solid #542437;
-    border-radius:10px;
-    width:1164px;
-    padding:10px;
-    background:#fff;
+.center {
+	position: relative;
+    text-align: left;
+	font-family:Helvetica; 
+	font-size:16px;
+	width: 53%;
+	left: 274px;
+	top: 31px;
 
-	
 }
 
-
-.accordion ul {
-    list-style:none;
-    margin:0;
-    padding:0;    
-}
-.accordion li {
-    margin:0;
-    padding:0;
-}
-.accordion [type=radio], .accordion [type=checkbox] {
-    display:none;
-}
-.accordion label {
-    display:block;
-    font-size:16px;
-    line-height:16px;
-    background:#BDBDBD1A;
-    border:1px solid #542437;
-    color:#542437;
-    text-shadow:1px 1px 1px rgba(255,255,255,0.3);
-    cursor:pointer;
-    text-transform:uppercase;
-}
-.accordion ul li label:hover, .accordion [type=radio]:checked ~ label, .accordion [type=checkbox]:checked ~ label {
-    background:#BDBDBD1A;
-    color:#0c0b0b;
-    text-shadow:1px 1px 1px rgba(0,0,0,0.5)
-}
-.accordion .content {
-    padding:0  28px;
-    overflow:hidden;
-    border:1px solid #fff;
-    -webkit-transition: all .5s ease-out;
-    -moz-transition: all .5s ease-out;
-}
-.accordion p {
-    color:#333;
-    margin:0 0 10px;
-}
-.accordion h4 {
-    color:#542437;
-    padding:0;
-    margin:10px 0;
-}
-
-h1 {
-    position: absolute;
-    font-family: Helvetica;
-    font-size: 24px;
+.contentMyAccountBox{
     position: relative;
-    margin-left: 1%;
-    color: #222c;
-    left: 4px;
-    top: 19px;
-    text-align: justify;
-    line-height: 180%;
+	background-color: white;
+	height: 54px;
+	width: 53%;
+	left: 275px;
+	top: 31px;
+}
+.contentMyAccountBox1{
+	position: relative;
+	background-color: white;
+	height: 54px;
+	width: 75.5%;
+	left: 94px;
+	top: 28px;
 }
 
-.vertical ul li {
-    overflow:hidden;
-    margin:0 0 1px;
+.contentMyAccountBox2{
+	position: relative;
+	background-color: white;
+	height: 57px;
+	width: 75.5%;
+	left: 94px;
+	top: 25px;
 }
-.vertical ul li label {
-    padding:10px;
+
+.contentMyAccountBox3{
+	position: relative;
+	background-color: white;
+	height: 54px;
+	width: 53%;
+	left: 275px;
+	top: 10px;
 }
-.vertical [type=radio]:checked ~ label, .vertical [type=checkbox]:checked ~ label {
-    border-bottom:0;
+
+
+
+.contentMyAccount {
+	position: relative;
+	background-color: white;
+	height: 302px;
+	width: 614.2px;
+	left: 276px;
+	top: 29px;
+	padding: 16px;
+	overflow: auto;
+}
+.contentMyAccount1{
+	position: relative;
+	background-color: white;
+	height: 251px;
+	width: 613.1px;
+	left: 275px;
+	top: 32px;
+	padding: 15px;
+	overflow: auto;
+}
+.contentMyAccount3{
+   width: 100%;
+	padding: 20px;
 	
 }
-.vertical ul li label:hover {
-    border:1px solid #542437;
+
+.contentMyAccount4{
+
+    position: relative;
+    background-color: white;
+    height: 235px;
+    width: 612px;
+    left: 276px;
+    top: 26px;
+    padding: 15px;
+    overflow: auto;
 }
-.vertical ul li .content {
-    height:0px;
-    border-top:0;
-    transition: all .5s ease-out;
 }
-.vertical [type=checkbox]:checked ~ label ~ .content {
-    height:308px;
-    border:1px solid #542437;
-}
+
+
 
 
 
 /************************************
 		Table for bought items
-************************************/
+************************************/*
 
 .tableInfoBox {
 		position: relative;
 		font-family: Helvetica Neue,helvetica,arial,sans-serif;
 		border-collapse: collapse;
-		width: 45%;
-		max-width: 96%;
+		width: 40%;
 	    height: 0px;
         height: -2px;
-        width: 16%;
         left: 6px;
-		
 	}
 
+	
 td, th {
-		position: relative;
-		border: 1px solid #a6d8a8;
-	    height: 19px;
-        left: 1px;
-		top:  0px;
-
-		
-	}
-
-.ScrollStyle
-{
-    max-height: 150px;
-    overflow-y: scroll;
+	position: relative;
+	border: 1px solid #1815154d;
+	text-align: left;
+	padding: 1px;
+	width: 2%;
+	height: -5px;
+	left: 8px;
+    font: 14px/19px Helvetica;
+	table-layout: auto;
 }
-
+	
 
 .button {
-position: relative;
-background-color: #c0c0b833;
-border: none;
-color: black;
-padding: 14px 32px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 4px 2px;
-cursor: pointer;
-font-family: Helvetica;
-height: 19px;
-width: 10%;
-left: 5px;
-top:  20px;
-border: solid 1px #a6d8a8;
-border-radius: 15px;
-box-shadow: 0 5px #999;
-}
-
-
-.closeWindowButton12 {
     position: relative;
-    padding: 10px;
-    margin: 6px;
+    background-color: #c0c0b833;
+    border: none;
+    color: black;
+    padding: 14px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
-    background-color: #ffffff;
-    background-image: url('../img/close.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 30px;
-    height: 11px;
-    left: 1090px;
-    top: -27px;
+    font-family: Helvetica;
+    height: 19px;
+    width: 13%;
+    left: 5px;
+    top: 20px;
+    border: solid 1px #f7fbfc80;
+    border-radius: 15px;
+   
 }
 
-
-.closeWindowButton12:after,.:after {
-    content: 'n';
-  
-    width: 15px;
-    display: block;
-    margin-top: 18px;
-    transition: 0.3s;
-}
-
-.closeWindowButton12:after {
-    transform: rotate(90deg);
-    margin-top: -2px;
-}
-
-
-
-input:checked ~ label .closeWindowButton12:after {
+element {
 	position: relative;
-    content: url('../img/open.png');
-	width: 30px;
-    height: 30px;
-	left: -15px;
-    top:  -11px;
-	content:size: 300px 100px;
+    font: 22px/26px Helvetica;
+    color: #171010b3;
+	left: 5px;
+    top:  20px;
 }
 
 
 
+input1 {
+	position: relative;
+    width: 99%;
+    background-color: transparent;
+	height:1px;
+    left: 1px;
+    top: 1px;
+}
+.accordion:after {
+    position: relative;
+    content: url('../img/close.png');
+    font-size: 13px;
+    color: #481c1c;
+    float: right;
+    margin-left: 13px;
+    height: 13px;
+    width: 13%;
+    left: -557px;
+    top: -7px;
+}
 
-
-
+.active:after {
+      content: url('../img/open.png');
+}
