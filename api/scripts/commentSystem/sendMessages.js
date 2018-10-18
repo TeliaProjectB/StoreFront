@@ -12,6 +12,7 @@ define(["scripts/commentSystem/ajaxFuncs", "scripts/commentSystem/createCommentE
 
 
 				sendMessageToServer(fixedInput, function(messageData){
+					//console.log(messageData);
 					messageData = JSON.parse(messageData);
 					var messagesOrder = messageData[1];
 					var messageUserSender = messageData[0];
@@ -38,6 +39,7 @@ define(["scripts/commentSystem/ajaxFuncs", "scripts/commentSystem/createCommentE
 			//If everything went smoothly, return newly created messages order, otherwise return false.
 			//onLoad(endedAt+1);
 			ajaxF.ajaxRequest("mess="+message+"&apiId="+messVars.apiId, "/StoreFront/api/php/sendApiComment.php", function(response){
+				//console.log(response.responseText);
 				if(response.status == 200){
 					onLoad(response.responseText);
 				}

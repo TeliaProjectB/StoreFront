@@ -57,11 +57,11 @@ if(isset($_POST["apiId"]) && isset($_POST["offset"]) && isset($_POST["from"])){
 			break;
 		}
 		//get users current name from id
-		$sql = "SELECT `User_name` from user WHERE `ID`=$commentUserId";
+		$sql = "SELECT `Firstname`, `Lastname` from user WHERE `ID`=$commentUserId";
 		$result = $conn->query($sql);
 		if($result){
 			$row = $result->fetch_assoc();
-			$newObj->name = $row["User_name"];
+			$newObj->name = $row["Firstname"]." ".$row["Lastname"];
 			array_push($arrOfComments, $newObj);
 		}
 		

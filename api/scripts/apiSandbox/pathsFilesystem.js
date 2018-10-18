@@ -1,8 +1,11 @@
-define(["scripts/apiSandbox/patchDisplayer"], function(patchDisplayer){
+define(["scripts/apiSandbox/patchDisplayer", "scripts/apiSandbox/parameterManager"], 
+	function(patchDisplayer, parameterManager){
 	"use strict";
 	
 	function initModule(swaggerJSON){
-		var patchWindow = new patchDisplayer.init(swaggerJSON);
+		var paramValuesManager = new parameterManager.init();
+
+		var patchWindow = new patchDisplayer.init(swaggerJSON, paramValuesManager);
 
 		var fileSystemMinimizer = document.getElementById("swaggerMinimize");
 
@@ -18,6 +21,7 @@ define(["scripts/apiSandbox/patchDisplayer"], function(patchDisplayer){
 
 		var fileSystemVisible = true;
 		var fileSystemElem = document.getElementById("fileSystem");
+		fileSystemElem.style.marginTop = "48px";
 		var fileSystem = new prettyFiles.init().getInit("fileSystem", parameters);
 		var fileSystemSizeDiv = document.getElementById("fileSystem").childNodes[0];
 		var originalWidth = window.getComputedStyle(fileSystemSizeDiv).width;
@@ -83,12 +87,14 @@ define(["scripts/apiSandbox/patchDisplayer"], function(patchDisplayer){
 
 
 		fileSystem.onClickFile = function(name, id, image, customData){
+			paramValuesManager.flushParameterList();
 			var rootName = getRootName(name);
 			
 			patchWindow.display(arrayOfRoots[rootName].itemsData[customData.requestType+name], 
 				name, 
 				arrayOfRoots[rootName].consumes, 
-				arrayOfRoots[rootName].produces);
+				arrayOfRoots[rootName].produces,
+				customData.requestType);
 		};
 
 		function addRootFolder(pathName, pathData, consumes, produces){
