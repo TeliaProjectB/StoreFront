@@ -40,8 +40,8 @@
 
 	<div id="errorMessagePanel" style="color:red;"></div>
 
-	<input type="checkbox">I agree to the <a href="/StoreFront/terms.php" style="color: blue;">terms</a> and services.
-	<button onclick="registerUser()" id="panelButton">Register</button>
+	<input type="checkbox" onclick="agreed()">I agree to the <a href="/StoreFront/terms.php" style="color: blue; font-style: italic;">terms</a> and services.
+	<button onclick="registerUser()" id="panelButton" disabled>Register</button>
 
 	<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
 	<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
