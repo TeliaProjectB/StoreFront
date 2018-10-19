@@ -70,12 +70,60 @@ if(count($keyWords) >  3){
 //go through every keyword and get all rows associated with them
 for($i=0; $i<count($limitedKeys); $i++){
 	if(strcmp($limitedKeys[$i], '') != 0){
-		$sql = "SELECT * FROM api  WHERE LOWER(Description) 
-		like '%$limitedKeys[$i]%'";
+
+		$sql = "SELECT * FROM API  WHERE (LOWER(Description) 
+		like '%".$limitedKeys[$i]."%')";
 		$result = $conn->query($sql);
 		if($result){
 			foreach($result as $row){
-				if($row["Name"] == $apiName){
+				if($apiName == $row["Name"]){
+					break;
+				}
+				
+				$PassId = $row["Id"];
+				if(isset($row["PackageID"])){
+					$PassId = $PassId."p";
+				}
+				$filter->addObject($PassId, 
+					$row, 
+					$row["Description"], 
+					$keyWords[$i], 
+					getLikesFromAPI($row["RandomId"]),
+					getDisLikesFromAPI($row["RandomId"]),
+					false);
+			}
+		}
+
+
+		$sql = "SELECT * FROM APIpackage  WHERE (LOWER(Description) 
+		like '%".$limitedKeys[$i]."%')";
+		$result = $conn->query($sql);
+		if($result){
+			foreach($result as $row){
+				if($apiName == $row["Name"]){
+					break;
+				}
+				
+				$PassId = $row["Id"]."p";
+				$filter->addObject($PassId, 
+					$row, 
+					$row["Description"], 
+					$keyWords[$i], 
+					getLikesFromAPI($row["RandomId"]),
+					getDisLikesFromAPI($row["RandomId"]),
+					true);
+			}
+		}
+
+
+
+
+		$sql = "SELECT * FROM API  WHERE (LOWER(Category) 
+		like '%".$limitedKeys[$i]."%')";
+		$result = $conn->query($sql);
+		if($result){
+			foreach($result as $row){
+				if($apiName == $row["Name"]){
 					break;
 				}
 				
@@ -89,13 +137,35 @@ for($i=0; $i<count($limitedKeys); $i++){
 					$keyWords[$i], 
 					getLikesFromAPI($row["RandomId"]),
 					getDisLikesFromAPI($row["RandomId"]),
-					isset($row["PackageID"]));
+					false);
 			}
 		}
 
 
-		$sql = "SELECT * FROM api  WHERE LOWER(Name) 
-		like '%$limitedKeys[$i]%'";
+		$sql = "SELECT * FROM APIpackage  WHERE (LOWER(Category) 
+		like '%".$limitedKeys[$i]."%')";
+		$result = $conn->query($sql);
+		if($result){
+			foreach($result as $row){
+				if($apiName == $row["Name"]){
+					break;
+				}
+				
+				$PassId = $row["Id"]."p";
+				$filter->addObject($PassId, 
+					$row, 
+					$row["Category"], 
+					$keyWords[$i], 
+					getLikesFromAPI($row["RandomId"]),
+					getDisLikesFromAPI($row["RandomId"]),
+					true);
+			}
+		}
+
+
+
+		/*$sql = "SELECT * FROM API, APIpackage  WHERE (LOWER(API.Name) 
+		like '%$limitedKeys[$i]%' OR LOWER(APIpackage.Name) like '%$limitedKeys[$i]%')";
 		$result = $conn->query($sql);
 		if($result){
 			foreach($result as $row){
@@ -115,7 +185,7 @@ for($i=0; $i<count($limitedKeys); $i++){
 					getDisLikesFromAPI($row["RandomId"]),
 					isset($row["PackageID"]));
 			}
-		}
+		}*/
 
 
 		/*$sql = "SELECT * FROM api, apipackage  WHERE (LOWER(api.Name) 

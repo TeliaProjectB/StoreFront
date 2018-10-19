@@ -22,7 +22,10 @@ define([], function(){
 		this.getSwagger = function(apiId, onLoad){
 			swaggerAjax("randomId="+apiId, "/StoreFront/api/php/getApiSwaggerFile.php", function(response){
 				if(response.status == 200){
-					//console.log(response.responseText);
+					if(response.responseText == ""){
+						document.getElementById("sandboxButton").style.display = "none";
+						return;
+					}
 					var swaggerObject = JSON.parse(response.responseText);
 					console.log(swaggerObject);
 					onLoad(swaggerObject);
