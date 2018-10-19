@@ -126,7 +126,7 @@
 }
 
 .strongButton{
-	background-color: #6a3738;
+	background-color: var(--back-color);
 	color:white;
 	padding:8px;
 	border-radius: 32px;
@@ -175,7 +175,7 @@
 	background-color:transparent;
 	display:inline-block;
 	flex:2;
-	background-color: #6a3738;
+	background-color: var(--back-color);
 	color:white;
 	cursor:pointer;
 	transition: background-color 0.16s ease-in;
