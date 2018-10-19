@@ -91,13 +91,13 @@ function sendEditRequest(){
 	var postData = "";
 
 	if(editing["inputFirstName"]){
-		postData += "inputFirstName="+document.getElementById("inputFirstName");
+		postData += "inputFirstName="+document.getElementById("inputFirstName").value;
 		isFirst = false;
 	}
 
 	if(editing["inputLastName"]){
 		if(!isFirst){postData+="&";};
-		postData += "inputLastName="+document.getElementById("inputFirstName");
+		postData += "inputLastName="+document.getElementById("inputFirstName").value;
 	}
 
 	if(editing["password"]){
@@ -106,8 +106,8 @@ function sendEditRequest(){
 			document.getElementById("errorMessage").innerHMTL = "Password fields don't match!";
 			return;
 		}
-		postData += "newPassword="+document.getElementById("inputPasswordEdit1");
-		postData += "&currentPassword="+document.getElementById("inputCurrentPassword");
+		postData += "newPassword="+document.getElementById("inputPasswordEdit1").value;
+		postData += "&currentPassword="+document.getElementById("inputCurrentPassword").value;
 	}
 
 
