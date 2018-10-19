@@ -36,6 +36,7 @@
 
 	<p>Password</p>
 	<input name="password" id="registerPassword"  class="inputBoxSignIn inputBoxSignIn-text" type="password">
+	<p id="uppercase_activated">
 	<br>
 
 	<div id="errorMessagePanel" style="color:red;"></div>
