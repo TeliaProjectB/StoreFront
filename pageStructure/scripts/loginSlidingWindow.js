@@ -44,7 +44,7 @@ function openHelpWindow(){
 //Clicking on the website the it will close the login window
 $(document).on('click','#contentID',function(){
     // additional code
-    if($('.loginWindow:visible').length != 0 && !$('.loginWindow').is(':animated')){
+    if($('.loginWindow:visible').length != 0 && !$('.loginWindow:animated')){
         $(".loginWindow").stop();
         $(".loginWindow").animate({width: 'toggle'});
         flag = false;
@@ -60,14 +60,14 @@ $(document).on('click','#head',function(e){
     }
 });
 
-//Closing login window when scrolling down
+//Clossing login window when scrolling down
 $(document).ready(function() { 
     $(window).scroll(function() {
         // additional code
         //console.log("Length: ", $('.loginWindow:visible').length)
         if(flag == true){
             flag = false;
-            if($('.loginWindow:visible').length != 0){
+            if(!$(".loginWindow").is(":animated")){
                 $(".loginWindow").stop();
                 $(".loginWindow").animate({width: 'toggle'});
                 
@@ -223,4 +223,10 @@ function checkTrolly(){
             }, 1000);
         }
     });
+}
+
+function agreed(){
+    console.log("Active");
+    $("#panelButton").css({"background-color": "#5a179c"});
+    $('#panelButton').prop('disabled', false);
 }
