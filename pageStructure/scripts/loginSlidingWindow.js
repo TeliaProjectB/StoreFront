@@ -44,7 +44,7 @@ function openHelpWindow(){
 //Clicking on the website the it will close the login window
 $(document).on('click','#contentID',function(){
     // additional code
-    if($('.loginWindow:visible').length != 0 && !$('.loginWindow:animated')){
+    if($('.loginWindow:visible').length != 0 && !$('.loginWindow').is(':animated')){
         $(".loginWindow").stop();
         $(".loginWindow").animate({width: 'toggle'});
         flag = false;
@@ -60,14 +60,14 @@ $(document).on('click','#head',function(e){
     }
 });
 
-//Clossing login window when scrolling down
+//Closing login window when scrolling down
 $(document).ready(function() { 
     $(window).scroll(function() {
         // additional code
         //console.log("Length: ", $('.loginWindow:visible').length)
         if(flag == true){
             flag = false;
-            if(!$(".loginWindow").is(":animated")){
+            if($('.loginWindow:visible').length != 0){
                 $(".loginWindow").stop();
                 $(".loginWindow").animate({width: 'toggle'});
                 
