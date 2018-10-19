@@ -20,7 +20,7 @@ class apiObject
 function getLikesFromAPI($apiId){
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
-	$sql = "SELECT * FROM APIlike WHERE `IsLiked`=1 AND `ItemID` = '".htmlspecialchars($apiId)."'";
+	$sql = "SELECT * FROM APIlike WHERE `IsLiked`=1 AND `ItemID` = '".htmlspecialchars($apiId, ENT_QUOTES)."'";
 	$result = $conn->query($sql);
 	
 	return mysqli_num_rows($result);
@@ -30,7 +30,7 @@ function getLikesFromAPI($apiId){
 function getDisLikesFromAPI($apiId){
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
-	$sql = "SELECT * FROM APIlike WHERE `IsLiked`=0 AND `ItemID` = '".htmlspecialchars($apiId)."'";
+	$sql = "SELECT * FROM APIlike WHERE `IsLiked`=0 AND `ItemID` = '".htmlspecialchars($apiId, ENT_QUOTES)."'";
 	$result = $conn->query($sql);
 
 	return mysqli_num_rows($result);
@@ -41,7 +41,7 @@ function getDisLikesFromAPI($apiId){
 
 $keysString = $apiName." ".$apiDescription;
 
-$category = strtolower(htmlspecialchars($keysString));
+$category = strtolower(htmlspecialchars($keysString, ENT_QUOTES));
 	
 $keyWords = explode(' ', $category);
 
@@ -51,18 +51,14 @@ $keyWords = explode(' ', $category);
 
 //Check for invalid keywords
 for($i=0; $i<count($keyWords); $i++){
-	if(strcmp($keyWords[$i], ' ') == 0){
-		$keyWords[$i] = "";
-	}else if(strcmp($keyWords[$i], '.') == 0){
-		$keyWords[$i] = "";
-	}else if(strcmp($keyWords[$i], ',') == 0){
+	if(!$filter->isValidKeyword($keyWords[$i])){
 		$keyWords[$i] = "";
 	}
 }
 
 
 
-if(count($keyWords) >  2){
+if(count($keyWords) >  3){
 	$limitedKeys = array();
 	array_push($limitedKeys, $keyWords[0], $keyWords[1]);
 }
@@ -74,29 +70,74 @@ if(count($keyWords) >  2){
 //go through every keyword and get all rows associated with them
 for($i=0; $i<count($limitedKeys); $i++){
 	if(strcmp($limitedKeys[$i], '') != 0){
-		$sql = "SELECT * FROM `API` WHERE LOWER(`Category`) like '%$limitedKeys[$i]%'";
+		$sql = "SELECT * FROM api  WHERE LOWER(Description) 
+		like '%$limitedKeys[$i]%'";
 		$result = $conn->query($sql);
-		foreach($result as $row){
-			$filter->addObject($row["Id"], 
-				$row, 
-				$row["Category"], 
-				$limitedKeys[$i], 
-				getLikesFromAPI($row["RandomId"]),
-				getDisLikesFromAPI($row["RandomId"]));
+		if($result){
+			foreach($result as $row){
+				if($row["Name"] == $apiName){
+					break;
+				}
+				
+				$PassId = $row["Id"];
+				if(isset($row["PackageID"])){
+					$PassId = $PassId."p";
+				}
+				$filter->addObject($PassId, 
+					$row, 
+					$row["Category"], 
+					$keyWords[$i], 
+					getLikesFromAPI($row["RandomId"]),
+					getDisLikesFromAPI($row["RandomId"]),
+					isset($row["PackageID"]));
+			}
 		}
 
 
-
-		$sql = "SELECT * FROM `API` WHERE LOWER(`Name`) like '%$limitedKeys[$i]%'";
+		$sql = "SELECT * FROM api  WHERE LOWER(Name) 
+		like '%$limitedKeys[$i]%'";
 		$result = $conn->query($sql);
-		foreach($result as $row){
-			$filter->addObject($row["Id"], 
-				$row, 
-				$row["Name"], 
-				$limitedKeys[$i], 
-				getLikesFromAPI($row["RandomId"]), 
-				getDisLikesFromAPI($row["RandomId"]));
+		if($result){
+			foreach($result as $row){
+				if($row["Name"] == $apiName){
+					break;
+				}
+
+				$PassId = $row["Id"];
+				if(isset($row["PackageID"])){
+					$PassId = $PassId."p";
+				}
+				$filter->addObject($PassId, 
+					$row, 
+					$row["Category"], 
+					$keyWords[$i], 
+					getLikesFromAPI($row["RandomId"]),
+					getDisLikesFromAPI($row["RandomId"]),
+					isset($row["PackageID"]));
+			}
 		}
+
+
+		/*$sql = "SELECT * FROM api, apipackage  WHERE (LOWER(api.Name) 
+		like '%$limitedKeys[$i]%' OR LOWER(apipackage.Name) like '%$keyWords[$i]%')";
+		echo $sql;
+		$result = $conn->query($sql);
+		if($result){
+			foreach($result as $row){
+				$PassId = $row["Id"];
+				if(isset($row["PackageID"])){
+					$PassId = $PassId."p";
+				}
+
+				$filter->addObject($PassId, 
+					$row, 
+					$row["Category"], 
+					$keyWords[$i], 
+					getLikesFromAPI($row["RandomId"]),
+					getDisLikesFromAPI($row["RandomId"]),
+					isset($row["PackageID"]));
+			}
+		}*/
 
 	}
 }
