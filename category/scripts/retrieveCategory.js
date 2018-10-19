@@ -92,7 +92,7 @@ function createTitle() {
 
 	titleCat.href = "/StoreFront/category?cat="+ getURLVariable("cat");
 	
-	titleCat.innerHTML= getURLVariable("cat").replace(/[&\/\\#,+()$~%20.'":*?<>{}]/g, ' ');
+	titleCat.innerHTML= getURLVariable("cat").replace(/[&\/\\#,+()$~%2027.'":*?<>{}]/g, ' ');
 }
 
 /*connect to database and create all api */
