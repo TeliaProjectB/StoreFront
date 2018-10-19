@@ -154,13 +154,13 @@
     font-family: helvetica nueve, helvetica;
     cursor: pointer;
     padding:8px;
-    background-color: #990ae3;
+    background-color: gray;
     transition: background-color 0.5s ease-in;
 }
-
+/*
 #panelButton:hover{
     background-color: rgb(204, 0, 255);
-}
+}*/
 
 #errorMessagePanel{
     padding: 8px;
