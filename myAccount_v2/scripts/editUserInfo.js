@@ -106,13 +106,13 @@ function sendEditRequest(){
 
 	if(editing["inputLastName"]){
 		if(!isFirst){postData+="&";};
-		postData += "inputLastName="+document.getElementById("inputFirstName").value;
+		postData += "inputLastName="+document.getElementById("inputLastName").value;
 	}
 
 	if(editing["password"]){
 		if(!isFirst){postData+="&";};
 		if(document.getElementById("inputPasswordEdit1").value != document.getElementById("inputPasswordEdit2").value){
-			document.getElementById("inputPasswordEdit1").className = "normalInput userInfoInputError";
+			document.getElementById("inputPasswordEdit1").className = "userInfoInput";
 		   	document.getElementById("inputPasswordEdit2").className = "normalInput userInfoInputError";
 
 			document.getElementById("errorMessage").innerHTML = "Password fields don't match!";
@@ -133,14 +133,14 @@ function sendEditRequest(){
 		   		console.log(this.responseText);
 		   		if(this.status == 200){
 		   			//This code reloads the same page and does not create a history entry
-		   			window.location.replace(window.location.pathname + window.location.search + window.location.hash);
+		   			//window.location.replace(window.location.pathname + window.location.search + window.location.hash);
 		   		}else{
 		   			if(this.responseText == "cpass"){
 		   				document.getElementById("errorMessage").innerHTML = "Current password input is incorrect";
 		   				document.getElementById("inputCurrentPassword").className = "normalInput userInfoInputError";
 		   			}else if(this.responseText == "npass"){
 		   				document.getElementById("errorMessage").innerHTML = "New password must at least have 6 characters and may only contain letters A to Z, numbers 1 to 9 and _@!#£&";
-		   				document.getElementById("inputPasswordEdit1").className = "normalInput userInfoInputError";
+		   				document.getElementById("inputPasswordEdit1").className = "userInfoInput";
 		   				document.getElementById("inputPasswordEdit2").className = "normalInput userInfoInputError";
 		   			}
 		   			

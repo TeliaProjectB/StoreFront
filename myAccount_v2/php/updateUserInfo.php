@@ -32,13 +32,13 @@ if(isset($_POST["inputFirstName"])){//Change user first name
 if(isset($_POST["inputLastName"])){//Change user last name
 	$newLastName = htmlspecialchars($_POST["inputLastName"], ENT_QUOTES);
 
-	$sql = "UPDATE `user`SET `Last`='$newLastName' WHERE `ID`=".$_SESSION["userId"];
+	$sql = "UPDATE `user`SET `Lastname`='$newLastName' WHERE `ID`=".$_SESSION["userId"];
 	$result = $conn->query($sql);
 	if(!$result){
 		header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad request', true, 400);
 		die("Could not update last name.");
 	}
-	$_SESSION["lastname"] = $newFirstName;
+	$_SESSION["lastname"] = $newLastName;
 }
 
 

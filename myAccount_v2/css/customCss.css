@@ -1,4 +1,15 @@
 
+span{
+	font-family: helvetica;
+	font-size: 16px;
+	vertical-align: bottom;
+}
+
+#panelInfoFlexCon{
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+}
 
 .panelParent{
 	width: 70vw;
@@ -8,6 +19,7 @@
 }
 
 .panelHeaderTitle{
+	margin-left: 0px;
 	user-select: none;
 	padding: 8px;
 	cursor: pointer;
@@ -34,7 +46,7 @@ a{
 
 
 .editButton{
-	margin-left: 48px;
+	margin-left: 16px;
 	padding: 10px;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -83,10 +95,14 @@ a{
 
 
 .minPanelIcon{
+	background-position: center;
+	background-size: 65%;
 	background-image: url("../img/minus.svg");
 }
 
 .maxPanelIcon{
+	background-position: center;
+	background-size: 55%;
 	background-image: url("../img/plus.svg");
 }
 
@@ -101,6 +117,7 @@ a{
 	margin: 4px;
 	width: auto;
 	display: inline-block;
+	border:none;
 }
 
 .userInfoInputActive{
@@ -140,4 +157,10 @@ a{
 
 .strongButton:hover{
 	background-color: #cc00ff;
+}
+
+
+#welcomeHeader{
+	width: 70vw;
+	margin: 0px auto;
 }
