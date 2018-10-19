@@ -3,8 +3,8 @@
 
 function scrollDownTo(nameOfTag){
 
-       var pathname = window.location.href;
-    if (pathname == "http://localhost/StoreFront/home/") { /* change with window href*/
+    var pathname = window.location.pathname;
+    if (pathname == "/StoreFront/home/") { /* change with window href*/
         var el = document.getElementsByName(nameOfTag);
         var idTag = el[0].getAttribute('id');
         $([document.documentElement, document.body]).animate({
@@ -27,8 +27,8 @@ function searchCategory(){
     var searchCat = document.getElementsByName(searchInput);
     var id = searchCat[0].getAttribute('id');
     
-    var pathname = window.location.href;
-    if (pathname == "http://localhost/StoreFront/home/") { /* change with window href*/
+    var pathname = window.location.pathname;
+    if (pathname == "/StoreFront/home/") { /* change with window href*/
         $([document.documentElement, document.body]).animate({
             scrollTop: $("#" + id).offset().top
         }, 1000);
