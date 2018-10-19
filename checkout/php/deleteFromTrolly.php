@@ -7,7 +7,7 @@ if(isset($_SESSION["userId"]) && isset($_POST["apiId"])){
 
 	$apiId = htmlspecialchars($_POST["apiId"]);
 
-	$sql = "DELETE FROM `shoppingTrolly` WHERE `IDApi`=$apiId AND `IDUser`=".$_SESSION["userId"]." limit 1";
+	$sql = "DELETE FROM `shoppingTrolly` WHERE `IDApi`='$apiId' AND `IDUser`=".$_SESSION["userId"]." limit 1";
 	try{
 		$result = $conn->query($sql);
 	}catch(Exception $e){

@@ -103,7 +103,7 @@
 					$classBackgroundUse = "back2";
 				}
 				echo "<div class='row $classBackgroundUse' id='apiRow".$counter."'>
-						<div class='removeApi' onclick='removeApiFromCart($api->trolleyId, \"apiRow$counter\")'></div>
+						<div class='removeApi' onclick='removeApiFromCart(\"$api->trolleyId\", \"apiRow$counter\")'></div>
 						<div class='rowTitleCon'>
 							<a href='/StoreFront/api/?id=$api->RandomId' class='apiRowTitle'>$api->Name</a>
 						</div>
