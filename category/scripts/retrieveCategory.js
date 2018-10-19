@@ -62,7 +62,7 @@ function ajaxRequest(postData, phpSource, onLoad) {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function() {//Call a function when the state changes.
-        //console.log(this.responseText);
+        console.log(this.responseText);
         if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             //console.log(this.responseText);
             onLoad(this.responseText);
@@ -97,7 +97,6 @@ function createTitle() {
 
 /*connect to database and create all api */
 ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCategory.php", function(response){
-    
     var retrievedData = JSON.parse(response);
     var container = document.getElementById("searchedCategory");
 

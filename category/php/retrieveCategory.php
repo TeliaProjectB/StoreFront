@@ -78,11 +78,13 @@ if(isset($_POST["cat"])){
 
 
 	//go through every keyword and get all rows associated with them
+
 	for($i=0; $i<count($keyWords); $i++){
 		if(strcmp($keyWords[$i], '') != 0){
-			$sql = "SELECT * FROM api, apipackage  WHERE (LOWER(api.Category) 
-			like '%a%' OR LOWER(apipackage.Category) like '%$keyWords[$i]%')";
+			$sql = "SELECT * FROM API, APIpackage  WHERE (LOWER(API.Category) 
+			like '%$keyWords[$i]%' OR LOWER(APIpackage.Category) like '%$keyWords[$i]%')";
 			$result = $conn->query($sql);
+
 			if($result){
 				foreach($result as $row){
 					$filter->addObject($row["Id"], 
@@ -96,8 +98,8 @@ if(isset($_POST["cat"])){
 			}
 			
 
-			$sql = "SELECT * FROM api, apipackage  WHERE (LOWER(api.Description) 
-			like '%a%' OR LOWER(apipackage.Description) like '%$keyWords[$i]%')";
+			$sql = "SELECT * FROM API, APIpackage  WHERE (LOWER(API.Description) 
+			like '%$keyWords[$i]%' OR LOWER(APIpackage.Description) like '%$keyWords[$i]%')";
 			$result = $conn->query($sql);
 			if($result){
 				foreach($result as $row){
@@ -112,8 +114,8 @@ if(isset($_POST["cat"])){
 			}
 			
 
-			$sql = "SELECT * FROM api, apipackage  WHERE (LOWER(api.Name) 
-			like '%a%' OR LOWER(apipackage.Name) like '%$keyWords[$i]%')";
+			$sql = "SELECT * FROM API, APIpackage  WHERE (LOWER(API.Name) 
+			like '%$keyWords[$i]%' OR LOWER(APIpackage.Name) like '%$keyWords[$i]%')";
 			$result = $conn->query($sql);
 			if($result){
 				foreach($result as $row){
@@ -134,7 +136,6 @@ if(isset($_POST["cat"])){
 
 
 	$filterResult = $filter->getContainer();
-
 
 	$arrOfApi = array();
 	foreach($filterResult as $api){
