@@ -109,26 +109,6 @@
 	flex: 3;
 }
 
-#purchaseButton{
-	background-color: #990ae3;
-	color:white;
-	padding:8px;
-	border-radius: 32px;
-	background-image: url('../img/shopping-cart.svg');
-	background-size: 22px;
-	background-repeat: no-repeat;
-	background-position: 11px;
-	cursor:pointer;
-	transition: background-color 0.16s ease-in, transform 0.01s ease-in;
-}
-
-#purchaseButton:hover{
-	background-color: #cc00ff;
-}
-
-#purchaseButton:active{
-	transform: scale(0.9);
-}
 
 #info1{
 	display:flex;
@@ -163,15 +143,19 @@
 	background-color:transparent;
 	display:inline-block;
 	flex:2;
-	background-color: #990ae3;
+	background-color: var(--back-color);
 	color:white;
 	cursor:pointer;
 	transition: background-color 0.16s ease-in;
 	user-select: none;
 }
 .rowButton:hover{
-	background-color: #cc00ff!important;
+	background-color: #7e5899!important;
 }
+.rowButtonActive{
+	background-color: #ba99c3;
+}
+
 
 
 

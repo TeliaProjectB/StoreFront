@@ -9,7 +9,7 @@
 
 
 	var topOffset = header.offsetHeight + parseInt(window.getComputedStyle(header).marginBottom, 10);
-	topOffset+=32;
+	topOffset += 48;
 
 
 	var firstOffsetTop = sideBar.offsetTop;

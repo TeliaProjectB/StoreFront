@@ -141,7 +141,7 @@ if(!isset($_SESSION["userId"])){
 			<aside id="miniInfoBuyPanel" class="panel3d panel flexColumn">
 				<div style="margin-bottom: 16px;"><h4>Last updated:</h4> 2018-02-00</div>
 				<div><h4>Price:</h4> <?php echo $apiPrice; ?> kr</div>
-				<button id="purchaseButton" onclick="<?php  echo $onClickBuyButtonFunc; ?>">Add to cart</button>
+				<button class="strongButton" onclick="<?php  echo $onClickBuyButtonFunc; ?>">Add to cart</button>
 				<div id="thumbsUpDownContainer">
 					<div id="thumbsUp" class="<?php echo $likeThumbClass; ?>" onclick="<?php  echo $likeButtonFunc;  ?>"></div>
 					<div id="thumbsUpNumber"><?php echo $ThumbsUp; ?></div>
@@ -164,42 +164,9 @@ if(!isset($_SESSION["userId"])){
 		</article>
 		<div id="panelsContainer" class="panel3d panel flexColumn">
 			<div id="rowButtonContainer">
-				<button class="rowButton panelButtonBackground" id="infoButton">Info</button>
 				<button class="rowButton panelButtonBackground"  id="includeButton">Includes</button>
 				<button class="rowButton panelButtonBackground"  id="commentsButton">Comment</button>
 				<button class="rowButton panelButtonBackground"  id="recommendedButton">Recommended</button>
-			</div>
-			<div id="infoPanel">
- 				<table class="tableInfoBox">
- 					<tr>
- 						<th>Info</th>
- 						<th>Type</th>
-					 </tr>
-					 <tr>
- 						<td>Name</td>
-						<td><?php echo $apiName; ?></td>
-					</tr>
-					<tr>
- 						<td>Last update</td>
-						<td>2018-09-21</td>
-					</tr>
-					<tr>
- 						<td>Type</td>
-						<td>Http, Https</td>
-					</tr>
-					<tr>
- 						<td>License</td>
-						<td>Apache License, Version 2.0</td>
-					</tr>
-					<tr>
- 						<td>Host</td>
-						<td>hahah.test.com</td>
-					</tr>
-					<tr>
- 						<td>Manual</td>
-						<td><a href="www.telia.se/manual?id=47gjew">Telia website manual</a></td>
-					</tr>
-				</table>
 			</div>
 			<div id="includePanel">
 				<?php
