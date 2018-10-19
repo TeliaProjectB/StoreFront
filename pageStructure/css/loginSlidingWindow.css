@@ -53,11 +53,13 @@
 
 .inputBoxSignIn {
     font-size: 16px;
+    padding: .40em 1.7em 0.38em 1em;
     border: 1px solid #9e9e9e;
-    padding: 1.0em 1.7em .38em 1.0em;
     border-radius: 6px;
     width: 200px;
     background-color: white;
+    margin-top:5px;
+    margin-bottom:5px;
 }
 
 .inputBoxSignIn:focus {
