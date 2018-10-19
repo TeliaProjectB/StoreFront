@@ -60,8 +60,8 @@
 			$sql = "SELECT * FROM `APIpackage` WHERE `PackageID`=".$refinedID;
 			$apiResult = $conn->query($sql)->fetch_assoc();
 	
-			$newObj->Id = $apiResult["ID"];
-			$newObj->RandomId = $apiResult["RandomID"];
+			$newObj->Id = $apiResult["Id"];
+			$newObj->RandomId = $apiResult["RandomId"];
 			$newObj->Name = $apiResult["Name"];
 			$newObj->Description = $apiResult["Description"];
 			$newObj->Category = "Cobination";
@@ -139,7 +139,7 @@
 	<?php
 
 		if($counter != 0){
-			echo '<button id="purchaseButton" onclick="purchase()">Purchase</button>';
+			echo '<button id="purchaseButton" class="strongButton" onclick="purchase()">Purchase</button>';
 		}
 	?>
 	
