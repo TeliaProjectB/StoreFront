@@ -20,6 +20,7 @@
 }
 
 .questionText {
+    padding-top:90px;
     padding: 8px 0px;
     font-size: 16px;
 	color: #000000;
@@ -68,8 +69,11 @@
     transform: scaleX(1.15) scaleY(1.15);
 }
 
+#contact1 {
+    margin-top:95px;
+}
+
 #infoTeliaUp {
-    padding-top:90px;
     border-color: lightgray;
     border-style: solid;
     margin-top: 20px;
@@ -118,12 +122,13 @@
 #mainQuestions h3 {
     font-family: Helvetica Neue,helvetica,arial,sans-serif;
     color: #222;
-    margin-top: 15px;
+    margin-top: 25px;
     margin-bottom: 10px;
 }
 
 #sendEmail {
-    margin-bottom:20px;
+    margin-top:15px;
+    margin-bottom:5px;
     color: #6700d2;
 }
 
@@ -154,13 +159,13 @@
     font-family: helvetica nueve, helvetica;
     cursor: pointer;
     padding:8px;
-    background-color: gray;
+    background-color: #990ae3;
     transition: background-color 0.5s ease-in;
 }
-/*
+
 #panelButton:hover{
     background-color: rgb(204, 0, 255);
-}*/
+}
 
 #errorMessagePanel{
     padding: 8px;
