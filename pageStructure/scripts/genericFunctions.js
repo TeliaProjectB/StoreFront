@@ -4,7 +4,7 @@ document.addEventListener("keydown", function(e){
 	if(isSafari){
 		if(e.keyCode == 91){
 			documentCTRLKeyIsActivated = true;
-			break;
+			return;
 		}
 	}
 	if(e.keyCode == 17){//ctrl
@@ -16,7 +16,7 @@ document.addEventListener("keyup", function(e){
 	if(isSafari){
 		if(e.keyCode == 91){
 			documentCTRLKeyIsActivated = false;
-			break;
+			return;
 		}
 	}
 
