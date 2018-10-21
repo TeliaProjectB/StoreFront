@@ -21,11 +21,12 @@
 	height: 200px;
 	resize:vertical;
 	padding: 8px;
-	background-color:#fcfcfc;
-	border: solid 1px #d37f7f;
+	background-color:white;
+	border: solid 1px var(--back-color);
 }
 
 #swaggerPatchInfo{
+	padding: 8px;
 	display:flex;
 	flex-direction: column;
 	flex:1;
@@ -33,23 +34,18 @@
 
 .swaggerAreaForInput{
 	/*margin-bottom: 16px;*/
+	border-left: solid 1px black;
 }
 
 .swaggerBack1{
 	padding: 8px;
-	background-color: #fbfbfb;
+	background-color: white;
 }
 
 .swaggerBack2{
 	padding: 8px;
-	background-color: #e8e8e8;
+	background-color: #dddddd;
 }
-
-.swaggerBack3{
-	padding: 8px;
-	background-color: white;
-}
-
 
 .swaggerInput{
 	color: gray;
@@ -64,8 +60,9 @@
 
 .inputDescription{
 	font-family: monospace;
-	font-size: 13px;
+	font-size: 14px;
 	color: #2e2e2e;
+	margin-bottom: 8px;
 }
 
 .swaggerEnum{
@@ -93,7 +90,7 @@
 	text-align: center;
 	margin-bottom: 8px;
 	margin-top: 8px;
-	margin-right: 64px;
+	margin-right: 16px;
 }
 
 .swaggerMediumText{
@@ -134,6 +131,8 @@
 }
 
 .swaggerAsterix{
+	position: absolute;
+	margin-left: -8px;
 	color: red;
 	font-family: monospace, helvetica;
 	font-weight: bold;
@@ -141,13 +140,15 @@
 }
 
 .swaggerSubtitle{
-	font-size: 12px;
+	font-size: 15px;
 	font-family: monospace;
 	display:block;
 	color: gray;
+	margin-bottom: 8px;
 }
 
 .swaggerTitle{
+	word-break: break-all;
 	font-size: 18px;
 	font-weight: bold;
 	font-family: helvetica;
@@ -162,7 +163,6 @@
 }
 
 #swaggerMinimize{
-	position:absolute;
 	width: 32px;
 	height: 32px;
 	margin: 2px auto;
@@ -170,10 +170,19 @@
 	background-image: url('../img/arrowBack.svg');
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: left;
 	transition: transform 0.24s ease-in;
 }
 
+
+#fileSystemTitle{
+	pointer-events: none;
+	display:block; 
+	position: absolute; 
+	margin-top: -24px;
+	margin-left: 8px;
+	font-family: helvetica;
+}
 
 
 .sandBoxResponseLoading{

@@ -5,7 +5,7 @@ if(isset($_POST["randomId"])){
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 
-	$randomId = htmlspecialchars($_POST["randomId"]);
+	$randomId = htmlspecialchars($_POST["randomId"], ENT_QUOTES);
 
 	$sql = "SELECT `swaggerFile` FROM `API` WHERE `RandomId`='$randomId'";
 

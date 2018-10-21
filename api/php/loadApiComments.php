@@ -13,9 +13,9 @@ class apiObject
 
 if(isset($_POST["apiId"]) && isset($_POST["offset"]) && isset($_POST["from"])){
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
-	$apiId = htmlspecialchars($_POST["apiId"]);
-	$offset = htmlspecialchars($_POST["offset"]);
-	$from = htmlspecialchars($_POST["from"]);
+	$apiId = htmlspecialchars($_POST["apiId"], ENT_QUOTES);
+	$offset = htmlspecialchars($_POST["offset"], ENT_QUOTES);
+	$from = htmlspecialchars($_POST["from"], ENT_QUOTES);
 	$limit = 10;
 
 	$sql = "SELECT * from `comments` WHERE `APIowner`='$apiId'";

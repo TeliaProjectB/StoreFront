@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION["userId"]) && isset($_POST["apiRandId"])){
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
-	$randomId = htmlspecialchars($_POST["apiRandId"]);
+	$randomId = htmlspecialchars($_POST["apiRandId"], ENT_QUOTES);
 
 	//get normal id
 	$sql = "SELECT `Id`from `API` WHERE `RandomId`='$randomId'";

@@ -4,9 +4,9 @@ session_start();
 
 if(isset($_SESSION["userId"]) && isset($_POST["apiId"]) && isset($_POST["mess"])){
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
-	$comment = htmlspecialchars($_POST["mess"]);
-	$apiId = htmlspecialchars($_POST["apiId"]);
-	$postUserId = htmlspecialchars($_SESSION["userId"]);
+	$comment = htmlspecialchars($_POST["mess"], ENT_QUOTES);
+	$apiId = htmlspecialchars($_POST["apiId"], ENT_QUOTES);
+	$postUserId = htmlspecialchars($_SESSION["userId"], ENT_QUOTES);
 
 	//Check if target api id exists
 	$sql = "SELECT * FROM `API` WHERE `randomId`='$apiId'";

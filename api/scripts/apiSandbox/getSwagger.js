@@ -3,8 +3,7 @@ define([], function(){
 	
 	function initModule(){
 
-		//getApiSwaggerFile.php
-
+		
 		function swaggerAjax(postData, phpSource, onLoad) {
 		    var xhr = new XMLHttpRequest();
 		    xhr.open("POST", phpSource, true);

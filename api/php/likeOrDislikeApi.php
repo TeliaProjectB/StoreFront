@@ -10,8 +10,8 @@ if(!isset($_SESSION["userId"])){
 
 
 if(isset($_POST["likeIt"]) && isset($_POST["apiRandId"])){
-	$isLiked = htmlspecialchars($_POST["likeIt"]);
-	$randApiId = htmlspecialchars($_POST["apiRandId"]);
+	$isLiked = htmlspecialchars($_POST["likeIt"], ENT_QUOTES);
+	$randApiId = htmlspecialchars($_POST["apiRandId"], ENT_QUOTES);
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 
 	$previousLikeStatus = -1;

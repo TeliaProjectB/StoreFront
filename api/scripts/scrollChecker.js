@@ -1,107 +1,76 @@
 (function(){
-	var isFixed = false;
-	var contentContainer = document.getElementById("contentContainer");
 	var sideBar = document.getElementById("sideBarRealContent");
 	var centerContent = document.getElementById("CenterContent");
 	var header = document.getElementById("head");
-
 	var footerContent = document.getElementById("footerStyle");
-
-
-	var topOffset = header.offsetHeight + parseInt(window.getComputedStyle(header).marginBottom, 10);
-	topOffset += 48;
-
-
-	var firstOffsetTop = sideBar.offsetTop;
-	window.addEventListener("scroll", function(){
-		updatePosition();
-	});
-
-	window.onresize = function(){
-		updatePosition();
-	};
+	var pageContainerWrapper = document.getElementsByClassName("pageContentWrapper")[0];
 
 
 
-	function updatePosition(){
-		var doc = document.documentElement;
-		var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-
-		/*if(scrollTop < centerContent.offsetTop){
-			scrollTop = centerContent.offsetTop;
-		}*/
-		window.requestAnimationFrame(function() {
-	    	makeFixedPosition(scrollTop);
-	    });
-		
-	}
 
 	function makeFixedPosition(scrollTop){
+		//If the window size is big enough for the sidebar to scroll
 		if(window.getComputedStyle(sideBar).position == "fixed"){
-			var body = document.body,
-		    html = document.documentElement;
-		
-			var bodyHeight = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
-
-			var headerHeight = header.offsetHeight;
 
 			var requestedPosition;
-			if(isOver(scrollTop)){
-				requestedPosition = (headerHeight);
-			}else{
+			if(isOverContentContainer(scrollTop)){//If header is over content container, put sidebar right below it
+				requestedPosition = header.offsetHeight;
+			}else{//Else put the sidebar at the content top minus scroll bar so it follows the content container on scrolling.
 				requestedPosition = (centerContent.offsetTop-scrollTop);
 			}
 
-			/*if(requestedPosition+scrollTop+headerHeight+48 > bodyHeight-scrollTop){
-				requestedPosition = bodyHeight-scrollTop-sideBar.offsetHeight-116;
-			}*/
-
-			/*if((scrollTop+sideBar.clientHeight+headerHeight) > (bodyHeight-footerContent.clientHeight)){
-				var diff = (bodyHeight-footerContent.clientHeight+headerHeight) - (scrollTop+sideBar.clientHeight);
-				requestedPosition = diff;
-			}*/
-
-			//var domRect = sideBar.getBoundingClientRect();
-			//console.log("if "+(domRect.bottom-scrollTop)+" < "+(parseInt(footerContent.clientHeight,10)+parseInt(scrollTop,10)));
-			//if((domRect.bottom-scrollTop+headerHeight) < (parseInt(footerContent.clientHeight,10)+parseInt(scrollTop,10))){
-			//	console.log("over");
-			//}
-
-			sideBar.style.top = requestedPosition+"px";
 			
-		}else{
+			//Calculate how much the sidebars bottom is overlapping the footer.
+			var footerOverlapping = bottomIsOverFooter(scrollTop, requestedPosition);
+			//Remove the overlapping from th requested position to limit its position
+			sideBar.style.top = (requestedPosition-footerOverlapping)+"px";
+
+			
+			
+		}else{//The screen is too small, attach it to the top
 			sideBar.style.top = "0px";
 		}
 	}
 
 
-
-
-	function isOver(scrollTop){
+	function bottomIsOverFooter(scrollTop, requestedPosition){
+		//create variable of the allowed space the penel can move inside. The body height minus the footer height
 		var body = document.body,
 		    html = document.documentElement;
-		
-		var bodyHeight = Math.max( body.scrollHeight, body.offsetHeight, 
-            html.clientHeight, html.scrollHeight, html.offsetHeight );
+		var allowedSpace = Math.max( body.scrollHeight, body.offsetHeight, 
+            html.clientHeight, html.scrollHeight, html.offsetHeight) - footerContent.offsetHeight;
+		//var allowedSpace = pageContainerWrapper.offsetHeight;
 
-		var minus = header.offsetHeight;
-		if(minus >= topOffset){
-			minus = 0;
+
+		var sidePanelRelativeBottomPos = scrollTop + requestedPosition + sideBar.offsetHeight;
+
+		if(sidePanelRelativeBottomPos > allowedSpace){
+			return sidePanelRelativeBottomPos-allowedSpace;
 		}
+		return 0;
+	}
 
-		if(scrollTop+16 > topOffset-header.offsetHeight){
+
+
+	function isOverContentContainer(scrollTop){
+		//If scroll position plus header height is larger than the top offset of the content container
+		//Then the header is above the content container
+		if(scrollTop+header.offsetHeight > pageContainerWrapper.offsetTop){
 			return true;
 		}
 		return false;
 	}
 
 
-	setInterval(function(){
-		updatePosition();
-	}, 19);
 
+	function updatePosition(){
+		var doc = document.documentElement;
+		var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+		makeFixedPosition(scrollTop);
+	}
 
-
+	setInterval(updatePosition, 15);
+	window.onresize = updatePosition;
+	window.onscroll = updatePosition;
 
 })();

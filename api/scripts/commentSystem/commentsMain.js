@@ -65,6 +65,7 @@ requirejs(["scripts/commentSystem/loadMessages", "scripts/commentSystem/createCo
 		//Fix bottom bar
 		var bottomBar = document.createElement("div");
 		bottomBar.className = "messageBoxBottomBar";
+		bottomBar.style.alignItems = "center";
 
 		messVars.textArea = document.createElement("textarea");
 		messVars.textArea.className = "messageBoxTextArea";
@@ -73,7 +74,8 @@ requirejs(["scripts/commentSystem/loadMessages", "scripts/commentSystem/createCo
 
 		var sendButton = document.createElement("button");
 		sendButton.setAttribute("noFancyClicking", "true");
-		sendButton.className = "genericTeliaButton";
+		sendButton.className = "strongButton";
+		sendButton.style.margin = "8px";
 		sendButton.innerHTML = "Send";
 		sendButton.onclick = messageSender.sendRootMessage;
 		bottomBar.appendChild(sendButton);

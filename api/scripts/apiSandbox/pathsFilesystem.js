@@ -1,11 +1,11 @@
-define(["scripts/apiSandbox/patchDisplayer", "scripts/apiSandbox/parameterManager"], 
-	function(patchDisplayer, parameterManager){
+define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager"], 
+	function(pathDisplayer, parameterManager){
 	"use strict";
 	
 	function initModule(swaggerJSON){
 		var paramValuesManager = new parameterManager.init();
 
-		var patchWindow = new patchDisplayer.init(swaggerJSON, paramValuesManager);
+		var pathWindow = new pathDisplayer.init(swaggerJSON, paramValuesManager);
 
 		var fileSystemMinimizer = document.getElementById("swaggerMinimize");
 
@@ -20,8 +20,9 @@ define(["scripts/apiSandbox/patchDisplayer", "scripts/apiSandbox/parameterManage
 
 
 		var fileSystemVisible = true;
+		var fileSystemContainer = document.getElementById("fileSystemContainer");
 		var fileSystemElem = document.getElementById("fileSystem");
-		fileSystemElem.style.marginTop = "48px";
+		
 		var fileSystem = new prettyFiles.init().getInit("fileSystem", parameters);
 		var fileSystemSizeDiv = document.getElementById("fileSystem").childNodes[0];
 		var originalWidth = window.getComputedStyle(fileSystemSizeDiv).width;
@@ -37,19 +38,17 @@ define(["scripts/apiSandbox/patchDisplayer", "scripts/apiSandbox/parameterManage
 
 		//public
 		this.addPath = function(pathName, pathData, consumes, produces){
+			//Collect all similar path names into the same folder name
 			addRootFolder(pathName, pathData, consumes, produces);
 			
-
 			addGetFunc(pathName, pathData);
 			addPostFunc(pathName, pathData);
 			addDeleteFunc(pathName, pathData);
 			addPatchFunc(pathName, pathData);
-
-			
 		}
 
 		this.setBasePath = function(basePath){
-			patchWindow.setBasePath(basePath);
+			pathWindow.setBasePath(basePath);
 		}
 
 		this.insertDataToSystem = function(){
@@ -64,18 +63,18 @@ define(["scripts/apiSandbox/patchDisplayer", "scripts/apiSandbox/parameterManage
 			fileSystemSizeDiv.style.webkitTransition = "width 0.24s ease-in";
 
 			
-			fileSystemElem.style.transition = "opacity 0.24s ease-in";
-			fileSystemElem.style.webkitTransition = "opacity 0.24s ease-in";
+			fileSystemContainer.style.transition = "opacity 0.24s ease-in";
+			fileSystemContainer.style.webkitTransition = "opacity 0.24s ease-in";
 
 			if(fileSystemVisible){
 				fileSystemSizeDiv.style.width = "0px";
-				fileSystemElem.style.opacity = "0";
+				fileSystemContainer.style.opacity = "0";
 				fileSystemSizeDiv.style.minWidth = "0px";
 
 				fileSystemVisible = false;
 				fileSystemMinimizer.style.transform = "rotate(180deg)";
 			}else{
-				fileSystemElem.style.opacity = "1";
+				fileSystemContainer.style.opacity = "1";
 				fileSystemSizeDiv.style.width = originalWidth;
 				fileSystemMinimizer.style.transform = "rotate(0deg)";
 				
@@ -90,11 +89,19 @@ define(["scripts/apiSandbox/patchDisplayer", "scripts/apiSandbox/parameterManage
 			paramValuesManager.flushParameterList();
 			var rootName = getRootName(name);
 			
-			patchWindow.display(arrayOfRoots[rootName].itemsData[customData.requestType+name], 
+			pathWindow.display(arrayOfRoots[rootName].itemsData[customData.requestType+name], 
 				name, 
 				arrayOfRoots[rootName].consumes, 
 				arrayOfRoots[rootName].produces,
 				customData.requestType);
+
+			//Update filesystem height
+			fileSystemElem.style.height = document.getElementById("swaggerPatchInfo").offsetHeight+"px";
+			//
+
+			if(document.getElementById("apiSandboxInfo") != null){
+				document.getElementById("apiSandboxInfo").parentElement.removeChild(document.getElementById("apiSandboxInfo"));
+			}
 		};
 
 		function addRootFolder(pathName, pathData, consumes, produces){

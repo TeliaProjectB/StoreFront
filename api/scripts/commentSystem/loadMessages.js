@@ -104,6 +104,7 @@ define(["scripts/commentSystem/ajaxFuncs", "scripts/commentSystem/createCommentE
 						}else{
 							alert("An error occured");
 						}
+						incrementMessageCounter();
 					}
 					
 				}
@@ -167,6 +168,12 @@ define(["scripts/commentSystem/ajaxFuncs", "scripts/commentSystem/createCommentE
 
 				messVars.messagesContainer.insertBefore(messVars.noMoreMessages, messVars.messagesContainer.firstChild);
 			}
+		}
+
+
+		function incrementMessageCounter(){
+			var messageNumberEle = document.getElementById("panelNumber");
+			messageNumberEle.innerHTML = parseInt(messageNumberEle.innerHTML, 10)+1;
 		}
 
 

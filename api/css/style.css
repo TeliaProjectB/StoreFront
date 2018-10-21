@@ -6,7 +6,7 @@
 	padding-bottom: 256px;
 }
 #contentContainer{
-	width: 90vw;
+	width: 97vw;
 	opacity: 0;
 	margin: 0px auto;
 	transition: opacity 0.24s ease-in;
@@ -47,7 +47,6 @@
 }
 
 #sideBarRealContent{
-	height: 90vh;
 	display:flex;
 	flex-direction: column;
 	/*transition: top 0.041s ease-in-out;*/
@@ -96,8 +95,19 @@
 	justify-content: center;
 }
 
+.infoBuyPanelText{
+	margin-bottom: 16px;
+}
+
+#panelNumber{
+	color:  white;
+	font-family: helvetica;
+	font-weight: bold;
+	margin-right: 8px;
+}
 
 #apiIconTitle{
+	font-size: 22px;
 	display:flex;
 }
 
@@ -173,7 +183,8 @@
 	font-family: helvetica;
 	font-weight: bold;
 	background-color:transparent;
-	display:inline-block;
+	display: flex;
+	justify-content: center;
 	flex:2;
 	background-color: var(--back-color);
 	color:white;
@@ -190,45 +201,11 @@
 
 
 
-
-.genericTeliaButton{
-	background-color: #990ae3;
-	color: white;
-	border-radius: 2.5rem;
-	border: none;
-	height: 32px;
-	cursor:pointer;
-	font-family: Helvetica, Neue,helvetica,arial,sans-serif;
-	transition: background-color 0.38s ease;
-	font-weight: bold;
-	padding: 16px;
-	padding-top: 8px;
-	text-align: center;
-
-	-webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-	margin: auto 8px;
-}
-.genericTeliaButton:hover{
-	background-color: #cc00ff;
-}
-.genericTeliaButton:focus {
-	outline:0;
-}
-
-
-
-
 .panelButtonBackground{
 	background-repeat: no-repeat;
 	background-position: 8px;
 	background-size: 24px;
-	padding-left:38px;
+	/*padding-left:38px;*/
 }
 
 #infoButton{
@@ -305,5 +282,12 @@
 	}
 	#goHomeButtonParent{
 		display:none;
+	}
+}
+
+
+@media screen and (max-width: 500px){
+	.panelButtonBackground{
+		background-size: 0px;
 	}
 }

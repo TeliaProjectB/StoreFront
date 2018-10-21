@@ -30,7 +30,7 @@ $apiPrice = "";
 
 $randomId = "";
 if(isset($_GET["id"])){
-	$randomId = htmlspecialchars($_GET["id"]);
+	$randomId = htmlspecialchars($_GET["id"], ENT_QUOTES);
 	$sql = "SELECT * FROM `API` WHERE `RandomId`='$randomId'";
 	$result = $conn->query($sql);
 
@@ -126,6 +126,16 @@ if(!isset($_SESSION["userId"])){
 }
 
 
+
+//Get the number of comments on this api and add it to the indicator
+$thisId = htmlspecialchars($_GET["id"], ENT_QUOTES);
+$sql = "SELECT * from `comments` WHERE `APIowner`='$thisId'";
+$result = $conn->query($sql);
+$numberOfComments = mysqli_num_rows($result);
+
+
+
+require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/api/php/getRecommendedApiGetData.php'; 
 ?>
 
 
@@ -135,16 +145,14 @@ if(!isset($_SESSION["userId"])){
 	<div id="sideBar">
 		<div id="sideBarRealContent">
 			<div id="goHomeButtonParent" class="panel panel3d">
-				<button id="goHomeButton" onclick="window.open('/StoreFront/home/', '_self');">Go home</button>
+				<button id="goHomeButton" onclick="window.open('/StoreFront/home/', '_self');">Home</button>
 			</div>
 			<div id="apiIcon" class="panel3d panel" >
 				<h1 id="apiIconTitle"><?php echo $apiName; ?></h1>
 				<div id="apiIconBackground" style="background-image: url('/StoreFront/globalImages/API/<?php echo $apiImage; ?>')"></div>
 			</div>
 			<aside id="miniInfoBuyPanel" class="panel3d panel flexColumn">
-				<div><h4>Category:</h4> <?php echo $apiCategory; ?></div>
-				<div style="margin-bottom: 16px;"><h4>Version:</h4> <span id="apiVersionInfo"></span></div>
-				<div><h4>Price:</h4> <?php echo $apiPrice; ?> kr</div>
+				<div class="infoBuyPanelText"><h4>Price:</h4> <?php echo $apiPrice; ?> kr</div>
 				<button id="purchaseButton" class="strongButton" onclick="<?php  echo $onClickBuyButtonFunc; ?>"><?php echo $purchasebuttonText; ?></button>
 				<div id="thumbsUpDownContainer">
 					<div id="thumbsUp" class="<?php echo $likeThumbClass; ?>" onclick="<?php  echo $likeButtonFunc;  ?>"></div>
@@ -170,18 +178,26 @@ if(!isset($_SESSION["userId"])){
 			<div id="rowButtonContainer">
 				<button class="rowButton panelButtonBackground" id="infoButton">Info</button>
 				<button class="rowButton panelButtonBackground"  id="sandboxButton">Sandbox</button>
-				<button class="rowButton panelButtonBackground"  id="commentsButton">Comment</button>
-				<button class="rowButton panelButtonBackground"  id="recommendedButton">Recommended</button>
+				<button class="rowButton panelButtonBackground"  id="commentsButton">
+					<div id="panelNumber">
+					<?php echo $numberOfComments; ?>
+					</div>Comments 
+				</button>
+				<button class="rowButton panelButtonBackground"  id="recommendedButton">
+				<div id="panelNumber">
+					<?php echo count($filterResult); ?>
+				</div>Recommended
+			</button>
 			</div>
 			<div id="infoPanel">
  				<table class="tableInfoBox">
- 					<tr>
- 						<th>Info</th>
- 						<th>Type</th>
-					 </tr>
-					 <tr>
- 						<td>Name</td>
-						<td><?php echo $apiName; ?></td>
+					<tr>
+						<td>Category</td>
+						<td><?php echo $apiCategory; ?></td>
+					</tr>
+					<tr>
+						<td>Version</td>
+						<td><span id="apiVersionInfo"></span></td>
 					</tr>
 					<tr>
  						<td>Type</td>
@@ -192,7 +208,7 @@ if(!isset($_SESSION["userId"])){
 						<td id="apiHostInfo"></td>
 					</tr>
 					<tr>
- 						<td>Swagger description</td>
+ 						<td>Api description</td>
 						<td id="apiSwagDescInfo"></td>
 					</tr>
 				</table>
@@ -211,14 +227,21 @@ if(!isset($_SESSION["userId"])){
 			</div>
 			<div id="sandboxPanel">
 				<!--<div id="sandboxArea"></div>-->
+				
 				<div style="display:flex; flex-direction: row;">
+
 					<div>
 						<div id="swaggerMinimize"></div>
-						<div id="fileSystem"></div>
+						<div id="fileSystemContainer">
+							<span id="fileSystemTitle">Functions:</span>
+							<div style="display:block;" id="fileSystem"></div>
+						</div>
+					</div>
 						
+					<div id="swaggerPatchInfo">
+						<p style="display:block;" id="apiSandboxInfo">API(Application Programming Interface) can have one or multiple functions. Here you can try out different functions of this API.</p>
 					</div>
 					
-					<div id="swaggerPatchInfo"></div>
 				</div>
 
 			</div>
@@ -228,7 +251,7 @@ if(!isset($_SESSION["userId"])){
 			<div id="recommendPanel">
 				<?php
 					/*This code uses apiName, apiDescription to find related7recommended apis*/
-					require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/api/php/getRecommendedApi.php'; 
+					require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/api/php/getRecommendedApiEchoData.php'; 
 				?>
 			</div>
 		</div>

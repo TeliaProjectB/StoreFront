@@ -20,31 +20,54 @@ define([], function(){
 			paramValuesManager.addRootParam(newParamPath);
 
 
-			return parseinputObject(swaggerObject, newParamPath, index);
+			return parseinputObject(swaggerObject, newParamPath, index, "", false);
 		}
 		
 
-		function parseinputObject(swaggerObject, inputParents, index){
+		function parseinputObject(swaggerObject, inputParents, index, objectPath, printName){
 			//console.log(swaggerObject);
 			var bodyInputContainer = document.createElement("div");
 
-			var paramInput;
+			var returnedType = "";
+			
 			if(swaggerObject.type == "array"){
-				paramInput = addArrayInput(swaggerObject, swaggerHand.swagAccess(swaggerObject, "name"), inputParents, index);
+				returnedType = "array";
+				var paramInput = addArrayInput(swaggerObject, swaggerHand.swagAccess(swaggerObject, "name"), 
+					inputParents, index, objectPath, printName);
+				bodyInputContainer.appendChild(paramInput);
 			}else if(swaggerObject.type == "object"){
-				paramInput = addObjectInput(swaggerObject, swaggerHand.swagAccess(swaggerObject, "name"), inputParents, index);
+				returnedType = "object";
+				var paramInput = addObjectInput(swaggerObject, swaggerHand.swagAccess(swaggerObject, "name"), 
+					inputParents, index, objectPath, printName);
+				bodyInputContainer.appendChild(paramInput);
 			}else{
-				paramInput = addStringOrIntegerInput(swaggerObject, swaggerHand.swagAccess(swaggerObject, "name"),  inputParents, index);
+				//This object has no type, check if it contains a "properties" with ojects or arrays
+				if(swaggerObject.properties != undefined){
+					var keys = Object.keys(swaggerObject.properties);
+					for(var i=0; i<keys.length; i++){
+						var swagProp = swaggerObject.properties[keys[i]];
+						//add name from property key
+						swagProp.name = keys[i];
+						var paramEle = parseinputObject(swagProp, inputParents, index, objectPath, true);
+						bodyInputContainer.appendChild(paramEle);
+					}
+				}else{//No owen properties tag, then it's an input field
+					returnedType = "input";
+					var paramInput = addStringOrIntegerInput(swaggerObject, swaggerHand.swagAccess(swaggerObject, "name"),  
+						inputParents, index, printName);
+					bodyInputContainer.appendChild(paramInput);
+				}
+				
 			}
 
-			bodyInputContainer.appendChild(paramInput);
+			
 
 			
 			return bodyInputContainer;
 		}
 
 
-		function addArrayInput(swaggerObject, targetPramName, inputParents, index){
+		function addArrayInput(swaggerObject, targetPramName, inputParents, index, objectPath, printName){
 
 			var arrayItems = [];
 			if(typeof swaggerObject.items == "object"){
@@ -62,10 +85,18 @@ define([], function(){
 				nameAndInput.className += " swaggerBack2";
 			}
 
+			var hasANameTag = false;
 			var name = document.createElement("span");
 			name.className = "swaggerTitle";
-			name.innerHTML = swaggerObject.name;
-			nameAndInput.appendChild(name);
+			name.innerHTML = "<span style='color:gray;'>"+objectPath+".</span>"+swaggerObject.name;
+			if(swaggerObject.name != undefined && printName){//Print name is false for the first container since it's name is already printed on the left side
+				hasANameTag = true;
+				nameAndInput.appendChild(name);
+			}
+			if(swaggerObject.name != undefined){
+				objectPath += "."+swaggerObject.name;
+			}
+			
 
 			var param = {
 				name:  swaggerObject.name,
@@ -82,36 +113,48 @@ define([], function(){
 			nameAndInput.appendChild(arrayDescription);
 
 
-
 			for(var i=0; i<arrayItems.length; i++){
-				var arr = swaggerHand.swagAccess(arrayItems, i);//arrayItems[i];
-				//console.log(arr);
-				var input = parseinputObject(arr,  param, i);
-				nameAndInput.appendChild(input);
+				var arr = swaggerHand.swagAccess(arrayItems, i);
+				nameAndInput.appendChild(parseinputObject(arr,  param, i, objectPath, true));
 			}
 
 
+
+
+			if(hasANameTag){
+				nameAndInput.style.marginLeft = "32px";
+			}
+			
+			
 
 			return nameAndInput;
 		}
 
 
-		function addObjectInput(swaggerObject, targetPramName, inputParents, index){
+		function addObjectInput(swaggerObject, targetPramName, inputParents, index, objectPath, printName){
 			var nameAndInput = document.createElement("div");
 				nameAndInput.className = "swaggerAreaForInput";
 				if(index%2 == 0){
 					nameAndInput.className += " swaggerBack1";
 				}else{
-					nameAndInput.className += " swaggerBack3";
+					nameAndInput.className += " swaggerBack2";
 				}
 
-
+			var hasANameTag = false;
 			var name = document.createElement("span");
-			name.className = "swaggerMediumText";
 			name.className = "swaggerTitle";
-			name.innerHTML = swaggerObject.name;
-			if(swaggerObject.name != undefined){
+			name.innerHTML = "<span style='color:gray;'>"+objectPath+".</span>"+swaggerObject.name;
+			if(swaggerObject.name != undefined && printName){//Print name is false for the first container since it's name is already printed on the left side
+				hasANameTag = true;
 				nameAndInput.appendChild(name);
+			}
+			if(swaggerObject.name != undefined){
+				objectPath += "."+swaggerObject.name;
+			}
+
+
+			if(!printName){//If we are at the root container we removethe left side border
+				nameAndInput.style.border = "none";
 			}
 
 			if(swaggerObject.items != undefined){
@@ -134,20 +177,30 @@ define([], function(){
 
 			var objectProperties  = Object.keys(swaggerHand.swagAccess(swaggerObject, "properties"));
 
+
+
 			for(var i=0; i<objectProperties.length; i++){
 				var prop = swaggerHand.swagAccess(swaggerObject, "properties")[objectProperties[i]];
 				prop.name = objectProperties[i];
 				prop = swaggerHand.parseSwaggerObject(swaggerJSON, prop);
-				var input = parseinputObject(prop, param, i);
-				nameAndInput.appendChild(input);
+				nameAndInput.appendChild(parseinputObject(prop, param, i, objectPath, true));
 			}
 
 
 
+
+			if(hasANameTag){
+				nameAndInput.style.marginLeft = "32px";
+			}
+			
+			
+			
+
 			return nameAndInput;
 		}
 
-		function addStringOrIntegerInput(swaggerObject, targetPramName, inputParents, index){
+
+		function addStringOrIntegerInput(swaggerObject, targetPramName, inputParents, index, printName){
 			var nameAndInput = document.createElement("div");
 				nameAndInput.className = "swaggerAreaForInput";
 				if(index%2 == 0){
@@ -159,10 +212,13 @@ define([], function(){
 			var name = document.createElement("span");
 			name.className = "swaggerMediumText";
 			name.innerHTML = targetPramName;
-			if(targetPramName != undefined){
+			if(targetPramName != undefined  && printName){
 				nameAndInput.appendChild(name);
 			}
 
+			if(!printName){//If we are at the root container we removethe left side border
+				nameAndInput.style.border = "none";
+			}
 
 			var paramInput = createInputField(
 					swaggerObject.type, 
@@ -192,6 +248,11 @@ define([], function(){
 
 			nameAndInput.appendChild(paramInput.inputContainer);
 
+
+
+
+
+
 			return nameAndInput;
 		}
 
@@ -202,7 +263,8 @@ define([], function(){
 			paramInputContainer.className = "parListRight";
 
 			var paramInput = document.createElement("input");
-			paramInput.value = "("+type+")";
+			//paramInput.value =
+			paramInput.placeholder =  "("+type+")";
 			paramInput.className = "swaggerInput";
 
 			var inputDescription = document.createElement("span");

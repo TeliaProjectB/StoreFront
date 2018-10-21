@@ -25,6 +25,9 @@ define(["scripts/commentSystem/ajaxFuncs", "scripts/commentSystem/createCommentE
 						//new messages will be created from "listenForNewMessages"
 
 						messVars.textArea.value = "";
+
+						incrementMessageCounter();
+						
 					}else{
 						alert("An error occured");
 					}
@@ -49,6 +52,10 @@ define(["scripts/commentSystem/ajaxFuncs", "scripts/commentSystem/createCommentE
 
 
 
+		function incrementMessageCounter(){
+			var messageNumberEle = document.getElementById("panelNumber");
+			messageNumberEle.innerHTML = parseInt(messageNumberEle.innerHTML, 10)+1;
+		}
 
 
 	}return{
