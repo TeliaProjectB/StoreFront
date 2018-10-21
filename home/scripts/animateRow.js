@@ -2,7 +2,9 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 	function initModule(apiBoxSize){
 		var reapeatAPI = new makeRepetitions.init();
 
-		var rowDatas = [];
+		var rowDatas = [];	
+
+		var rowIsAnimating = false;
 
 		this.addRowData = function(rowData){
 			rowDatas.push(rowData);
@@ -10,18 +12,21 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 
 		this.rowMoveLeft = function(rowData){
-			goBackToRoot(rowData);
+			if(rowIsAnimating){
+				return;
+			}
+			goBackToRoot(rowData, "left");
 
 			removeTransition(rowData);
 			addListenersOnApi(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
 			rowScrollPositionUpdate(rowData);
 
 
-			
+			removeGeneratedApiOnRight(rowData);
 
-
+			rowIsAnimating = true;
 			setTimeout(function(){
-				restoreTransition(rowData);
+				restoreTransition(rowData, 1);
 				rowData.index--;
 				rowScrollPositionUpdate(rowData);
 
@@ -33,15 +38,21 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 					rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.lastChild);
 					rowData.repeatingsRight--;
 				}
-
-			}, 75);
+				setTimeout(function(){
+					rowIsAnimating = false;
+				}, 300);
+			}, 1);
 
 		}
 
 
 
 		this.rowMoveRight = function(rowData){
-			goBackToRoot(rowData);
+			if(rowIsAnimating){
+				return;
+			}
+
+			goBackToRoot(rowData, "right");
 
 			addListenersOnApi(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 
@@ -52,12 +63,16 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				removeGeneratedApiOnLeft(rowData);
 				rowScrollPositionUpdate(rowData);
 			}
-				
+			
+			rowIsAnimating = true;
 			setTimeout(function(){
 				rowData.index++;
-				restoreTransition(rowData);
+				restoreTransition(rowData, 1);
 				rowScrollPositionUpdate(rowData);
-			}, 75);
+				setTimeout(function(){
+					rowIsAnimating = false;
+				}, 300);
+			}, 1);
 			
 		}
 
@@ -128,13 +143,17 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 		}
 
 
-		function restoreTransition(rowData){
-			rowData.apiMoveWrapper.style.WebkitTransition = "margin 0.12s ease-out";
-			rowData.apiMoveWrapper.style.MozTransition = "margin 0.12s ease-out";
-			rowData.apiMoveWrapper.style.transition = "margin 0.12s ease-out";
+		function restoreTransition(rowData, transitionSpeed){
+			if(transitionSpeed == undefined){
+				transitionSpeed = 0.25;
+			}
+			transitionSpeed = 0.3;
+			rowData.apiMoveWrapper.style.WebkitTransition = "margin "+transitionSpeed+"s ease-out";
+			rowData.apiMoveWrapper.style.MozTransition = "margin "+transitionSpeed+"s ease-out";
+			rowData.apiMoveWrapper.style.transition = "margin "+transitionSpeed+"s ease-out";
 		}
 
-		function goBackToRoot(rowData){
+		function goBackToRoot(rowData, sourceAction){
 
 			//takes the index ofrotation (-1 is clicked left onece, 1 is clicked right once)
 			var mod = rowData.numberOfRepeatingApi;
@@ -142,11 +161,31 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 			//if the index modulo the original repeating api is 0 then the user has madeacomplete rotation to start.
 			if(numb % mod == 0){
+				console.log("Go back to root");
 				//remove css transition, move api index to start position and update scrol position.
 				removeTransition(rowData);
 				rowData.index = 0;
 				autoFillOnStart(rowData);
 				updateScrollPosition(rowData);
+
+
+				if(rowData.numberOfRepeatingApi > 0){
+					var maxVisibleApi = Math.round(rowData.apiContainer.clientWidth / apiBoxSize);
+					var excessiveApiOnRight = rowData.apiMoveWrapper.children.length - maxVisibleApi;
+					while(excessiveApiOnRight > 0 && rowData.repeatingsRight > 0){
+						removeGeneratedApiOnRight(rowData);
+						excessiveApiOnRight--;
+					}
+				}
+
+				if(sourceAction == "left"){
+					//remove all repeatings on left since we are at the root
+					while(rowData.repeatingsLeft > 0){
+						removeGeneratedApiOnLeft(rowData);
+					}
+				}
+				
+				
 			}
 		}
 
@@ -157,6 +196,15 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			if(rowData.repeatingsLeft > 0){
 				rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.firstChild);
 				rowData.repeatingsLeft--;
+			}
+		}
+
+
+		function removeGeneratedApiOnRight(rowData){
+			//Remove repeatings on right side if there are any
+			if(rowData.repeatingsRight > 0){
+				rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.lastChild);
+				rowData.repeatingsRight--;
 			}
 		}
 

@@ -15,11 +15,7 @@ define([], function(){
 			var newApi = document.createElement("div");
 			newApi.className = "apiBox";
 
-			if(marked){
-				var firstApiMarker = document.createElement("div");
-				firstApiMarker.className  = "firstApiMarker";
-				newApi.appendChild(firstApiMarker);
-			}
+			
 
 			var apiTitle = document.createElement("div");
 			apiTitle.className = "apiTitle";
@@ -34,7 +30,7 @@ define([], function(){
 			apiDescription.innerHTML = apiData.Description;
 
 			var titleDescContainer = document.createElement("div");
-			titleDescContainer.className = "titleDescContainer";
+			titleDescContainer.className = "titleDescContainerApiRow";
 
 			var price = document.createElement("div");
 			price.className = "apiPriceRow";
@@ -51,6 +47,12 @@ define([], function(){
 			titleDescContainer.appendChild(price);
 
 			newApi.appendChild(titleDescContainer);
+
+			if(marked){
+				var firstApiMarker = document.createElement("div");
+				firstApiMarker.className  = "firstApiMarker";
+				newApi.appendChild(firstApiMarker);
+			}
 
 			apiContainer.appendChild(newApi);
 			

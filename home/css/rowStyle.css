@@ -57,7 +57,6 @@
 	display:flex;
 	flex-direction: row;
 	align-items: center;
-	transition: margin 0.12s ease-out;
 }
 
 
@@ -79,7 +78,7 @@
 	cursor: pointer;
 	padding: 0px 24px;
 
-	transition: margin 0.12s ease-out, transform 0.12s ease-out;
+	transition: margin 0.3s ease-out, transform 0.3s ease-out, width 0.3s ease-out, height 0.3s ease-out;
 
 
 	/*Dirty hack to enable hardware acceleration. Works for some browsers*/
@@ -96,12 +95,12 @@
 }
 
 .apiBox:hover{
-	transform: scaleX(1.185) scaleY(1.185);
-	/*width: 287px;
-	height: 178px;*/
+	/*transform: scaleX(1.185) scaleY(1.185);*/
+	width: 283px;
+	height: 212px;
 	z-index: 100;
-	margin-left: 23px;
-	margin-right: 23px;
+	/*margin-left: 23px;
+	margin-right: 23px;*/
 }
 
 
@@ -114,7 +113,10 @@
 	flex:4;
 }
 
-.titleDescContainer{
+.titleDescContainerApiRow{
+	width: 239px;
+	height: 179px;
+	margin: 0px auto;
 	background-color:white;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -123,49 +125,83 @@
 	display: flex;
 	flex:1;
 	flex-direction: column;
-	height: 100%;
 
-	/*-webkit-box-shadow: 0px 10px 32px -12px rgba(0,0,0,0.15);
-	-moz-box-shadow: 0px 10px 32px -12px rgba(0,0,0,0.15);
-	box-shadow: 0px 10px 32px -12px rgba(0,0,0,0.15);*/
+
+	transition: box-shadow 0.25s ease-out, transform 0.25s ease-out, width 0.25s ease-out, height 0.25s ease-out;
 }
+
+.titleDescContainerApiRow:hover{
+	box-shadow: 0px 32px 63px -14px rgba(0,0,0,0.135);
+}
+
+
+
+
+.titleDescContainer{
+	width: 239px;
+	height: 100%;
+	margin: 0px auto;
+	background-color:white;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+
+	display: flex;
+	flex:1;
+	flex-direction: column;
+
+	transition: box-shadow 5s ease-out, transform 0.25s ease-out;
+}
+
+.titleDescContainer:hover{
+	box-shadow: 0px 32px 63px -14px rgba(0,0,0,0.135);
+}
+
+
 .apiTitle{
 	z-index: 5;
 	background-color: rgba(255, 255, 255, 0.8);
-	padding:4px;
+	padding:8px;
 	font-size: 20px;
 	font-family: Helvetica Neue,helvetica,arial, sans-serif;
 	font-weight: bold;
-
+	text-align: center;
 	flex:1;
 	flex-shrink: 0;
 
 }
 .apiDescription{
+	font-size: 80%;
+	transition: font-size 0.25s ease-out;
 	margin: 0px auto;
 	z-index: 5;
 	display:flex;
 	flex: 2;
 	background-color: rgba(255, 255, 255, 0.8);
 	font-family: Helvetica;
-	padding:4px;
-	font-size: 17px;
+	padding:8px;
 	overflow:hidden;
 }
 
 .apiPriceRow{
 	height: 18px;
-	padding-top: 7px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	text-align: center;
 	font-family:helvetica;
 	font-weight: bold;
 }
 
 .firstApiMarker{
-	float:left;
-	height: 100%;
 	margin: 0px auto;
-	border: solid 1px black;
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+	position: absolute;
+	width: inherit;
+}
+.firstApiMarker::after{
+	content: ".";
 }
 .rowSpace{
 	display: block;

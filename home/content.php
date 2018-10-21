@@ -13,7 +13,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 <div id="freeCategory" class="contentRow" name="Free"></div>
 
 <div class="rowContainer">
-	<a href="/StoreFront/category?cat=Combined API's" class="rowTitle">Combined API's</a>
+	<a href="/StoreFront/category?cat=Combined%API's" class="rowTitle">Combined API's</a>
 	<div class="simpleBoxContainer">
 		
 		<?php
