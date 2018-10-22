@@ -3,8 +3,6 @@ html{
   min-height: 100%;
 }
 
-.pageContentWrapper{
-  margin-bottom:15%;/* Height of footer*/
 } 
 .footer{
    bottom: 0;
