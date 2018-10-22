@@ -9,7 +9,7 @@
             <p>From abroad: +46 771 99 02 00</p>
         </div>
 		<br>	
-		<div id="contact2" class="contactTelia" onclick="openContact(this.id)">
+		
 			
 		</div>
         <div class="contactInfoTelia" id="contactInformation2">
