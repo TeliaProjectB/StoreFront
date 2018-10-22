@@ -1,9 +1,6 @@
+<span id="goToTopText" onclick="footerScrollToTop()">Go to top</span>
+
 <div id="footerStyle">
-
-<div id="footerGoToTopContainer">
-	<span id="goToTopText" onclick="footerScrollToTop()">Go to top</span>
-</div>
-
 
 	<div id="footer-info" style="display:flex;">
 		<div id="footerIconContainer">
