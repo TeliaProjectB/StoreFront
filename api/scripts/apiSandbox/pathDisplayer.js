@@ -33,21 +33,22 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 		var currentPatchName;
 		var requestMethod;
 
-		this.display = function(patchData, name, consumes, produces, requestType){
+		this.display = function(pathData, name, consumes, produces, requestType){
 			consumes = (consumes == undefined) ? consumes = "" : consumes=consumes;
 			produces = (produces == undefined) ? produces = "" : produces=produces;
 			requestType = (requestType == undefined) ? requestType = "" : requestType=requestType;
 
 			requestTester.setConsumesProduces(consumes, produces);
 
-			currentPathData = patchData;
+			currentPathData = pathData;
 			currentPatchName = name;
 			requestMethod = requestType;
 			cleanWindow();
 
-			addTitle(patchData, name);
+			addTitle(pathData, name);
 			addProduceConsume(consumes, produces);
-			addParameters(patchData);
+			addMainDescription(pathData);
+			addParameters(pathData);
 
 
 			executebutton.innerHTML = "Execute query";
@@ -57,7 +58,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			parameterContainer.appendChild(resultsWindow);
 
 
-			addResponses(patchData);
+			addResponses(pathData);
 		}
 
 
@@ -84,11 +85,11 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 		};
 
 
-		function addExampleData(patchData){
+		function addExampleData(pathData){
 			exampleValues = document.createElement("div");
 
 			//exampleValues.
-			var pathTag = patchData.tags[0];
+			var pathTag = pathData.tags[0];
 
 			//get all property keys of definitions
 			var definitionKeys = Object.keys(swaggerJSON.definitions);
@@ -109,7 +110,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			parameterContainer.appendChild(subtitle);
 		}
 
-		function addResponses(patchData){
+		function addResponses(pathData){
 			var listOfResponses = document.createElement("ul");
 			listOfResponses.className = "swaggerLister";
 			var listHead = document.createElement("li");
@@ -128,7 +129,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 
 
 
-			var responsesKeys = Object.keys(patchData.responses);
+			var responsesKeys = Object.keys(pathData.responses);
 			for(var i=0; i<responsesKeys.length; i++){
 				var responseCode = document.createElement("div");
 
@@ -146,7 +147,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 				row.appendChild(code);
 
 				var description = document.createElement("div");
-				description.innerHTML = patchData.responses[responsesKeys[i]].description;
+				description.innerHTML = pathData.responses[responsesKeys[i]].description;
 				description.className = "parListRight parListName swaggerMediumText"
 				row.appendChild(description);
 
@@ -158,13 +159,21 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			responsesContainer.appendChild(listOfResponses);
 		}
 
-		function addTitle(patchData, name){
+		function addTitle(pathData, name){
 			var title = document.createElement("h1");
 			title.innerHTML = name;
 			parameterContainer.appendChild(title);
 		}
+
+		function addMainDescription(pathData){
+			if(pathData.description != undefined){
+				var mainDesc = document.createElement("span");
+				mainDesc.innerHTML = "<h2>Function description:</h2><br>"+pathData.description;
+				parameterContainer.appendChild(mainDesc);
+			}
+		}
 		
-		function addParameters(patchData){
+		function addParameters(pathData){
 			var paramCon = document.createElement("div");
 			var paramTitle = document.createElement("h2");
 			paramTitle.innerHTML = "Parameters";
@@ -175,7 +184,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			var listHead = document.createElement("li");
 			listHead.className = "parListRow";
 
-			var name = document.createElement("span");
+			/*var name = document.createElement("span");
 			name.innerHTML = "Name";
 			name.className = "parListLeft parListName swaggerMediumText";
 			listHead.appendChild(name);
@@ -184,11 +193,11 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			description.innerHTML = "Description";
 			description.className = "parListRight parListName swaggerMediumText";
 			listHead.appendChild(description);
-			listOfPrams.appendChild(listHead);
+			listOfPrams.appendChild(listHead);*/
 
 
-			for(var i=0; i<patchData.parameters.length; i++){
-				var swaggerObject = swaggerHand.parseSwaggerObject(swaggerJSON, patchData.parameters[i]);
+			for(var i=0; i<pathData.parameters.length; i++){
+				var swaggerObject = swaggerHand.parseSwaggerObject(swaggerJSON, pathData.parameters[i]);
 				
 
 				var row = document.createElement("li");
@@ -234,7 +243,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 
 				row.appendChild(leftPartContainer);
 				
-				
+
 				row.appendChild(propertiesinput.parseInput(swaggerObject, i));
 				listOfPrams.appendChild(row);
 			}
@@ -244,6 +253,9 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 
 
 		}
+
+
+		
 		
 
 		function cleanWindow(){
