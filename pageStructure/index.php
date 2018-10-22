@@ -58,12 +58,14 @@
 					<button class="headerButton" onclick="scrollDownTo('Recommended')">Recommended</button>		
 					<button class="headerButton" onclick="scrollDownTo('Most liked')">Most liked</button>
 					<div class="dropdown" ><!-- onmouseenter="openDropdown()" onmouseleave="closeDropDown()" -->
-						<button class="headerButton" style="display:inline;">See more</button>
-						<div class="dropdown-content">
+						<button class="headerButton " style="display:inline;" >See more &nbsp;<i class="down"></i></button>
+						
+						    <div class="dropdown-content">
+					
 							<button class="dropdownButton" onclick="scrollDownTo('Most bought')">Most bought</button>
 							<button class="dropdownButton" onclick="scrollDownTo('SMS')">SMS</button>
 							<button class="dropdownButton" onclick="scrollDownTo('Call')">Call</button>
-							<button class="dropdownButton" onclick="scrollDownTo('For Company')">For Company</button>
+							<button class="dropdownButton" onclick="scrollDownTo('For new started company')">For Company</button>
 							<button class="dropdownButton" onclick="scrollDownTo('Fun')">Fun</button>
 							<button class="dropdownButton" onclick="scrollDownTo('Mobile')">Mobile</button>
 							<button class="dropdownButton" onclick="scrollDownTo('Statistics API')">Statistics API</button>
@@ -84,7 +86,7 @@
 						<div id="trolley" onclick="window.location='/StoreFront/checkout/'" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
 					</div>
 
-					<div id="helpContact" onclick="openHelpWindow()"></div>
+					<div id="helpContact"  class="icon cat_circle"  onclick="openHelpWindow()"></div>
 				</div>
 
 				<!-- THIRD HEADER / BREADCRUMBS -->
