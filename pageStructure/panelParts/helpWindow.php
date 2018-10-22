@@ -7,10 +7,8 @@
             <p>Fridays 08:00 - 19:00</p>
             <p> Phone number: 90 200</p>
             <p>From abroad: +46 771 99 02 00</p>
-        </div>
-		<br>	
-		<div id="contact2" class="contactTelia" onclick="openContact(this.id)">
-			<p>Auto. Support</p>
+        </div>	
+		
 		</div>
         <div class="contactInfoTelia" id="contactInformation2">
 			<p>Open Twentyfour Seven</p>
