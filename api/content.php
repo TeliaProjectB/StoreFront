@@ -239,7 +239,10 @@ require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/api/php/getRecommendedApiGetData.
 					</div>
 						
 					<div id="swaggerPatchInfo">
-						<p style="display:block;" id="apiSandboxInfo">API(Application Programming Interface) can have one or multiple functions. Here you can try out different functions of this API.</p>
+						<p style="display:block;" id="apiSandboxInfo">
+							API(Application Programming Interface) gives you a way tocommunicate another program, service or database. They can have one or multiple functions that take in multipleparameters. Here you can try out different functions of this API. open a folder in the functions explorer and select a function.							
+						</p>
+						<div id="sandboxArrowLeft"></div>
 					</div>
 					
 				</div>
