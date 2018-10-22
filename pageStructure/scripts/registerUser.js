@@ -45,3 +45,50 @@ function ajaxRequest(phpCode, postData, onLoad){
 
 
 }
+
+
+
+function uppercase_pressed(e){
+
+    e = (e) ? e : window.event;
+
+    var flagCode = false;
+    if (e.which) {
+        flagCode = e.which;
+    } else if (e.keyCode) {
+        flagCode = e.keyCode;
+    }
+
+    var flagShift = false;
+    if (e.shiftKey) {
+        flagShift = e.shiftKey;
+    } else if (e.modifiers) {
+        flagShift = !!(e.modifiers & 4);
+    }
+
+    if (flagCode >= 97 && flagCode <= 122 && flagShift) {
+        return true;
+    }
+
+    if (flagCode >= 65 && flagCode <= 90 && !flagShift) {
+        return true;
+    }
+
+    return false;
+
+}
+
+var regPsw = document.getElementById("registerPassword");
+if (regPsw) {
+    regPsw.addEventListener("keypress",function(e){
+        var upper_case = document.getElementById("uppercase_activated");
+        if(uppercase_pressed(e)){
+            upper_case.innerHTML = "CapsLocks enabled";
+            upper_case.style.color = "red";
+        }
+        else {
+            upper_case.innerHTML = "";
+        }
+    },false);
+    
+}
