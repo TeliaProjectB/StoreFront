@@ -68,13 +68,14 @@ define([], function(){
 
 
 		function addArrayInput(swaggerObject, targetPramName, inputParents, index, objectPath, printName){
-
 			var arrayItems = [];
 			if(typeof swaggerObject.items == "object"){
 				arrayItems.push(swaggerObject.items);
 			}else{
+				sortArrayItems(swaggerObject);
 				arrayItems = swaggerObject.items;
 			}
+
 
 
 			var nameAndInput = document.createElement("div");
@@ -107,10 +108,9 @@ define([], function(){
 			inputParents.next.push(param);
 
 
-			var arrayDescription = document.createElement("div");
-			arrayDescription.className = "inputDescription";
-			arrayDescription.innerHTML = swaggerHand.swagAccess(swaggerObject, "items").description;
+			var arrayDescription = getDescription(swaggerObject);
 			nameAndInput.appendChild(arrayDescription);
+
 
 
 			for(var i=0; i<arrayItems.length; i++){
@@ -123,6 +123,8 @@ define([], function(){
 
 			if(hasANameTag){
 				nameAndInput.style.marginLeft = "32px";
+				name.insertBefore(getPanelTogglebutton(), name.firstChild);
+				hidePanel(nameAndInput, name);
 			}
 			
 			
@@ -157,14 +159,8 @@ define([], function(){
 				nameAndInput.style.border = "none";
 			}
 
-			if(swaggerObject.items != undefined){
-				if(swaggerObject.items.description != undefined){
-					var arrayDescription = document.createElement("div");
-					arrayDescription.className = "inputDescription";
-					arrayDescription.innerHTML = swaggerObject.items.description;
-					nameAndInput.appendChild(arrayDescription);
-				}
-			}
+			var arrayDescription = getDescription(swaggerObject);
+			nameAndInput.appendChild(arrayDescription);
 			
 			
 
@@ -177,7 +173,7 @@ define([], function(){
 
 			var objectProperties  = Object.keys(swaggerHand.swagAccess(swaggerObject, "properties"));
 
-
+			sortObjectProperties(swaggerObject, objectProperties);
 
 			for(var i=0; i<objectProperties.length; i++){
 				var prop = swaggerHand.swagAccess(swaggerObject, "properties")[objectProperties[i]];
@@ -191,8 +187,9 @@ define([], function(){
 
 			if(hasANameTag){
 				nameAndInput.style.marginLeft = "32px";
-			}
-			
+				name.insertBefore(getPanelTogglebutton(), name.firstChild);
+				hidePanel(nameAndInput, name);
+			}			
 			
 			
 
@@ -224,7 +221,12 @@ define([], function(){
 					swaggerObject.type, 
 					swaggerObject.description,
 			);
-
+			if(swaggerObject.required){
+				paramInput.input.style.border = "solid 1px red";
+				paramInput.input.setAttribute("required", "true");
+			}else{
+				paramInput.input.setAttribute("required", "false");
+			}
 
 			var param = {
 				name:  swaggerObject.name,
@@ -285,6 +287,161 @@ define([], function(){
 
 
 
+		function hidePanel(panel, nameElem){
+			hidePanelsContent(panel);
+			panel.style.maxHeight = "32px";
+			panel.setAttribute("minimized", "true");
+			panel.setAttribute("animating", "false");
+
+
+			var panelsTitle = panel.getElementsByClassName("swaggerTitle")[0];
+			var panelToggleButton = panelsTitle.getElementsByTagName("BUTTON")[0];
+
+			panelToggleButton.addEventListener("mouseup", function(e){
+				if(panel.getAttribute("animating") == "true"){
+					return;
+				}
+				panel.setAttribute("animating", "true");
+
+				var updateButtonText = "";
+				if(panel.getAttribute("minimized") == "true"){
+					showPanelsContent(panel);
+					panel.setAttribute("minimized", "false");
+					panel.style.maxHeight = "100vh";
+					updateButtonText = "url('img/minus.svg')";
+					setTimeout(function(){
+						panel.setAttribute("animating", "false");
+					}, 450);
+
+				}else if(panel.getAttribute("minimized") == "false"){
+					panel.setAttribute("minimized", "true");
+					panel.style.maxHeight = "32px";
+					updateButtonText = "url('img/plus.svg')";
+					//Hide content thwn animation is done
+					setTimeout(function(){
+						panel.setAttribute("animating", "false");
+						hidePanelsContent(panel);
+					}, 450);
+				}
+
+
+				var panelsTitle = panel.getElementsByClassName("swaggerTitle")[0];
+				var panelToggleButton = panelsTitle.getElementsByTagName("button")[0];
+				panelToggleButton.style.backgroundImage = updateButtonText;
+			});
+
+		}
+
+
+		function hidePanelsContent(panel){
+			var directChildren = panel.children;
+			for(var i=0; i<directChildren.length; i++){
+				if(directChildren[i].tagName == "DIV"){
+					directChildren[i].style.opacity = "0";
+				}
+			}
+		}
+
+		function showPanelsContent(panel){
+			var directChildren = panel.children;
+			for(var i=0; i<directChildren.length; i++){
+				if(directChildren[i].tagName == "DIV"){
+					directChildren[i].style.opacity = "1";
+				}
+			}
+		}
+
+
+		function getPanelTogglebutton(){
+			var button = document.createElement("button");
+			button.className = "sandboxMinMaxButton";
+			button.style.backgroundImage = "url('img/plus.svg')";
+			return button;
+		}
+
+
+		function getDescription(swaggerObject){
+			var description = swaggerHand.swagAccess(swaggerObject, "description");
+			if(description == undefined){
+				description = swaggerHand.swagAccess(swaggerObject, "items").description;
+				if(description == undefined){
+					description = "";
+				}
+			}
+
+			var arrayDescription = document.createElement("div");
+			arrayDescription.className = "inputDescription";
+			arrayDescription.innerHTML = description;
+			return arrayDescription;
+		}
+
+
+
+		function sortObjectProperties(swaggerObject, objectProperties){
+			var swaggerPropArr = swaggerHand.swagAccess(swaggerObject, "properties");
+
+			objectProperties.sort(function(a, b){
+				a = swaggerPropArr[a];
+				b = swaggerPropArr[b];
+
+				var depthOfA = getDepthOfParameter(a, 0);
+
+				var depthOfB = getDepthOfParameter(b, 0);
+
+				return depthOfA - depthOfB;
+			});
+			//var prop = swaggerHand.swagAccess(swaggerObject, "properties")[objectProperties[i]];
+		}
+
+
+		function sortArrayItems(swaggerObject){
+			if(swaggerObject.items != undefined){
+				swaggerObject.items.sort(function(a, b){
+
+					var depthOfA = getDepthOfParameter(a, 0);
+
+					var depthOfB = getDepthOfParameter(b, 0);
+
+					return depthOfA - depthOfB;
+				});
+			}
+		}
+
+
+		function getDepthOfParameter(parameter, depth){
+			parameter =  swaggerHand.parseSwaggerObject(swaggerJSON, parameter);
+			
+			if(parameter.type == undefined){
+				return depth;
+			}
+
+			if(parameter.type == "object"){
+				depth++;
+				var keys = Object.keys(parameter.properties);
+				for(var i=0; i<keys.length; i++){
+					var depthTest = getDepthOfParameter(parameter.properties[keys[i]], depth);
+					if(depthTest > depth){
+						depth = depthTest;
+					}
+				}
+
+				return depth;
+			}
+
+			if(parameter.type == "array"){
+				depth++;
+				for(var i=0; i<parameter.items.length; i++){
+					var depthTest = getDepthOfParameter(parameter[i], depth);
+					if(depthTest > depth){
+						depth = depthTest;
+					}
+				}
+				return depth;
+			}
+
+
+			return depth;
+		}
 
 
 	}return{

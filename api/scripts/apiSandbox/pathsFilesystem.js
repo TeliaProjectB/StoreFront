@@ -101,6 +101,7 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 
 			if(document.getElementById("apiSandboxInfo") != null){
 				document.getElementById("apiSandboxInfo").parentElement.removeChild(document.getElementById("apiSandboxInfo"));
+				document.getElementById("sandboxArrowLeft").parentElement.removeChild(document.getElementById("sandboxArrowLeft"));
 			}
 		};
 

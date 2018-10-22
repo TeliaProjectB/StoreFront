@@ -30,14 +30,14 @@ define([], function(){
 		    xhr.onerror = function(){
 		    	console.log("onerror");
 		    	sendingRequest  = false;
-			    clearConsole();
+			    //clearConsole();
 			    postInWindowConsole("Terminal server error.\n", "error");
 		    };
 
 		    xhr.onabort = function(){
 		    	console.log("onabort");
 		    	sendingRequest  = false;
-			    clearConsole();
+			    //clearConsole();
 			    postInWindowConsole("Terminal sending error. Query aborted. Check website console log nor more info.\n", "error");
 		    };
 
@@ -92,7 +92,7 @@ define([], function(){
 				}
 			}
 
-			console.log(bodyData);
+			//console.log(bodyData);
 
 			requestUrl = getSendingScheme(requestUrl);
 			
@@ -269,6 +269,8 @@ define([], function(){
 		    }
 		    return s;
 		}
+
+
 
 
 
