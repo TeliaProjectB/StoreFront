@@ -23,6 +23,7 @@ function openRegisterPanel(){
 
 
 function updateThumbs(serverResponse){
+	console.log(serverResponse);
 	removeLikedOrDisliked();
 	var thumbsUp = document.getElementById("thumbsUp");
 	var thumbsDown = document.getElementById("thumbsDown");

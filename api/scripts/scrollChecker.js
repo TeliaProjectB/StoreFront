@@ -16,14 +16,15 @@
 			if(isOverContentContainer(scrollTop)){//If header is over content container, put sidebar right below it
 				requestedPosition = header.offsetHeight;
 			}else{//Else put the sidebar at the content top minus scroll bar so it follows the content container on scrolling.
-				requestedPosition = (centerContent.offsetTop-scrollTop);
+				requestedPosition = Math.round(centerContent.offsetTop-scrollTop);
 			}
 
 			
 			//Calculate how much the sidebars bottom is overlapping the footer.
-			var footerOverlapping = bottomIsOverFooter(scrollTop, requestedPosition);
+			var footerOverlapping = Math.round(bottomIsOverFooter(scrollTop, requestedPosition));
 			//Remove the overlapping from th requested position to limit its position
 			sideBar.style.top = (requestedPosition-footerOverlapping)+"px";
+			
 
 			
 			
@@ -69,7 +70,7 @@
 		makeFixedPosition(scrollTop);
 	}
 
-	setInterval(updatePosition, 15);
+	setInterval(updatePosition, 14);
 	window.onresize = updatePosition;
 	window.onscroll = updatePosition;
 
