@@ -33,18 +33,20 @@
 }
 
 .swaggerAreaForInput{
+	overflow: hidden;
 	/*margin-bottom: 16px;*/
-	border-left: solid 1px black;
+	border-left: dotted 3px rgba(0, 0, 0, 0.6);
+	transition: opacity 0.45s ease-out, max-height 0.45s linear;
 }
 
 .swaggerBack1{
-	padding: 8px;
+	padding: 16px;
 	background-color: white;
 }
 
 .swaggerBack2{
-	padding: 8px;
-	background-color: #dddddd;
+	padding: 16px;
+	background-color: #e8e8e8;
 }
 
 .swaggerInput{
@@ -60,7 +62,7 @@
 
 .inputDescription{
 	font-family: monospace;
-	font-size: 14px;
+	font-size: 16px;
 	color: #2e2e2e;
 	margin-bottom: 8px;
 }
@@ -68,7 +70,7 @@
 .swaggerEnum{
 	color: red;
 	font-family: monospace, courier-new, courier;
-	font-size: 11px;
+	font-size: 15px;
 	margin-bottom: 4px;
 }
 
@@ -144,7 +146,7 @@
 	font-family: monospace;
 	display:block;
 	color: gray;
-	margin-bottom: 8px;
+	margin-bottom: 16px;
 }
 
 .swaggerTitle{
@@ -157,9 +159,7 @@
 .swaggerLister{
 	padding: 8px;
 	border: solid 1px #e8e8e8;
-	margin: 0px auto;
-	margin-bottom: 16px;
-	margin-right:8px;
+	margin: 16px auto;
 }
 
 #swaggerMinimize{
