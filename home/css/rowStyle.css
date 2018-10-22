@@ -14,6 +14,7 @@
 }
 
 .rowFlexContainer{
+	height: 316px;
 	display:flex;
 	flex-direction: row;
 }
@@ -25,6 +26,7 @@
 }
 
 .rowButton{
+	height: 232px;
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -97,10 +99,15 @@
 .apiBox:hover{
 	/*transform: scaleX(1.185) scaleY(1.185);*/
 	width: 283px;
-	height: 212px;
+	/*height: 212px;*/
 	z-index: 100;
 	/*margin-left: 23px;
 	margin-right: 23px;*/
+}
+
+.apiBox:hover .titleDescContainerApiRow{
+	transform: scale(1.2);
+	box-shadow: 0px 32px 63px -14px rgba(0,0,0,0.135);
 }
 
 
@@ -122,6 +129,7 @@
 	background-size: contain;
 	background-position: center;
 
+	transform-origin: 50% 75%;
 	display: flex;
 	flex:1;
 	flex-direction: column;
@@ -130,9 +138,7 @@
 	transition: box-shadow 0.25s ease-out, transform 0.25s ease-out, width 0.25s ease-out, height 0.25s ease-out;
 }
 
-.titleDescContainerApiRow:hover{
-	box-shadow: 0px 32px 63px -14px rgba(0,0,0,0.135);
-}
+
 
 
 
@@ -150,11 +156,11 @@
 	flex:1;
 	flex-direction: column;
 
-	transition: box-shadow 5s ease-out, transform 0.25s ease-out;
+	transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .titleDescContainer:hover{
-	box-shadow: 0px 32px 63px -14px rgba(0,0,0,0.135);
+	box-shadow: 0px 64px 63px -14px rgba(0,0,0,0.065);
 }
 
 
