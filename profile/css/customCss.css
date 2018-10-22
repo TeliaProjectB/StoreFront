@@ -1,0 +1,166 @@
+
+span{
+	font-family: helvetica;
+	font-size: 16px;
+	vertical-align: bottom;
+}
+
+#panelInfoFlexCon{
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.panelParent{
+	width: 70vw;
+	margin: 8px auto;
+	display: block;
+	padding: 0px;
+}
+
+.panelHeaderTitle{
+	margin-left: 0px;
+	user-select: none;
+	padding: 8px;
+	cursor: pointer;
+}
+
+ul{
+	list-style: none;
+}
+
+li{
+	font-family: helvetica;
+	margin: 8px;
+}
+
+a{
+	display: block;
+}
+.boughtApi{
+	margin-bottom: 32px;
+	transition: transform 0.18s ease-in;
+	cursor: pointer;
+	transform-origin: 0% 50%;
+}
+
+
+.editButton{
+	margin-left: 16px;
+	padding: 10px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	background-color: white;
+	cursor: pointer;
+	background-image: url("../img/pen.svg");
+}
+
+.boughtApi:hover{
+	transform: scale(1.1);
+	margin-bottom: 32px;
+}
+
+
+.liInfo{
+	font-weight: bold;
+	font-family: helvetica;
+	display: block;
+}
+
+.apiImageBought{
+	display: inline-block;
+	width: 48px;
+	height: 48px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.apiBoughtTitleDesc{
+	display:inline-block;
+}
+
+.minmaxIcon{
+	display: inline-block;
+	float:right;
+	width: 32px;
+	height: 32px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	background-color: white;
+	cursor: pointer;
+}
+
+
+.minPanelIcon{
+	background-position: center;
+	background-size: 65%;
+	background-image: url("../img/minus.svg");
+}
+
+.maxPanelIcon{
+	background-position: center;
+	background-size: 55%;
+	background-image: url("../img/plus.svg");
+}
+
+.panelContent{
+	overflow: hidden;
+	transition: all 0.45s ease-out;
+	max-height: 0px;
+}
+
+
+.userInfoInput{
+	margin: 4px;
+	width: auto;
+	display: inline-block;
+	border:none;
+}
+
+.userInfoInputActive{
+	margin: 4px;
+	border: solid 1px black;
+	width: auto;
+	display: inline-block;
+}
+
+.userInfoInputError{
+	margin: 4px;
+	border: solid 1px red;
+	width: auto;
+	display: inline-block;
+}
+
+#errorMessage{
+	margin: 8px;
+	font-family: helvetica;
+	color: red;
+}
+
+#submitEditedInfo{
+	padding: 8px;
+	margin: 8px auto;
+	display: block;
+}
+
+.strongButton{
+	background-color: #990ae3;
+	color:white;
+	padding:8px;
+	border-radius: 32px;
+	cursor:pointer;
+	transition: background-color 0.16s ease-in, transform 0.01s ease-in;
+}
+
+.strongButton:hover{
+	background-color: #cc00ff;
+}
+
+
+#welcomeHeader{
+	width: 70vw;
+	margin: 0px auto;
+}
