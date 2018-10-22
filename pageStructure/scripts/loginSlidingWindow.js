@@ -225,11 +225,7 @@ function checkTrolly(){
     });
 }
 
-function agreed(){
-    console.log("Active");
-    $("#panelButton").css({"background-color": "#5a179c"});
-    $('#panelButton').prop('disabled', false);
-}
+
 
 function uppercase_pressed(e){
 

@@ -1,4 +1,5 @@
 function registerUser(){
+	document.getElementById("errorMessagePanel").innerHTML = "";
 
 	var userPassword = document.getElementById("registerPassword").value;
 	var userEmail = document.getElementById("registerEmail").value;
@@ -7,6 +8,12 @@ function registerUser(){
 
 	var errorContainer = document.getElementById("errorMessagePanel");
 
+	var termsCheckBox = document.getElementById("agreedToTerms");
+
+	if(!termsCheckBox.checked){
+		document.getElementById("errorMessagePanel").innerHTML = "You need to agree to the terms of service before you may register.";
+		return;
+	}
 
 	ajaxRequest("/StoreFront/pageStructure/php/registerUser.php", "password="
 		+userPassword+"&email="+userEmail+

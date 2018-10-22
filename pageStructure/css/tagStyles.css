@@ -34,6 +34,9 @@ body{
 	-o-transform: translateZ(0);
 	transform: translateZ(0);*/
 }
+span{
+	font-family: helvetica;
+}
 
 #contentID {
 	margin-top:148px;
