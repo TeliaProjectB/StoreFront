@@ -6,6 +6,7 @@ span{
 }
 
 #panelInfoFlexCon{
+	flex-wrap: wrap;
 	display:flex;
 	flex-direction: row;
 	justify-content: center;
@@ -124,7 +125,7 @@ a{
 .userInfoInputActive{
 	font-size: 24px;
 	margin: 4px;
-	border: solid 1px black;
+	border: solid 1px gray;
 	width: auto;
 	display: inline-block;
 }
@@ -143,24 +144,10 @@ a{
 }
 
 #submitEditedInfo{
-	font-weight: bold;
-	font-size: 18px;
-	padding: 16px;
+	font-size: 17px;
+	padding: 8px;
 	margin: 20px auto;
 	display: block;
-}
-
-.strongButton{
-	background-color: #990ae3;
-	color:white;
-	padding:8px;
-	border-radius: 32px;
-	cursor:pointer;
-	transition: background-color 0.16s ease-in, transform 0.01s ease-in;
-}
-
-.strongButton:hover{
-	background-color: #cc00ff;
 }
 
 
@@ -168,3 +155,23 @@ a{
 	width: 70vw;
 	margin: 0px auto;
 }
+
+
+#boughtListerUl{
+	overflow-x: hidden;
+	overflow-y:scroll;
+	max-height: 73vh;
+}
+
+
+@media screen and (max-width: 800px){
+	.panelParent{
+		width: 100%;
+	}
+	ul{
+		width:85%;
+		margin: 0px auto;
+	}
+}
+
+
