@@ -133,7 +133,7 @@ function sendEditRequest(){
 		   		console.log(this.responseText);
 		   		if(this.status == 200){
 		   			//This code reloads the same page and does not create a history entry
-		   			//window.location.replace(window.location.pathname + window.location.search + window.location.hash);
+		   			window.location.replace(window.location.pathname + window.location.search + window.location.hash);
 		   		}else{
 		   			if(this.responseText == "cpass"){
 		   				document.getElementById("errorMessage").innerHTML = "Current password input is incorrect";
