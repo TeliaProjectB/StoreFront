@@ -10,7 +10,7 @@
         </div>
 		<br>	
 		<div id="contact2" class="contactTelia" onclick="openContact(this.id)">
-			<p>Auto. Support</p>
+			
 		</div>
         <div class="contactInfoTelia" id="contactInformation2">
 			<p>Open Twentyfour Seven</p>
