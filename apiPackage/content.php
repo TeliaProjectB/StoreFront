@@ -132,7 +132,7 @@ if(!isset($_SESSION["userId"])){
 	<div id="sideBar">
 		<div id="sideBarRealContent">
 			<div id="goHomeButtonParent" class="panel panel3d">
-				<button id="goHomeButton" onclick="window.open('/StoreFront/home/', '_self');">Go home</button>
+				<button id="goHomeButton" onclick="window.open('/StoreFront/home/', '_self');">Home</button>
 			</div>
 			<div id="apiIcon" class="panel3d panel" >
 				<h1 id="apiIconTitle"><?php echo $apiName; ?></h1>
