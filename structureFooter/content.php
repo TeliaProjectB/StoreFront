@@ -1,5 +1,9 @@
 <div id="footerStyle">
 
+<div id="footerGoToTopContainer">
+	<span id="goToTopText" onclick="footerScrollToTop()">Go to top</span>
+</div>
+
 
 	<div id="footer-info" style="display:flex;">
 		<div id="footerIconContainer">
@@ -39,3 +43,5 @@
 		<a href="http://www.telia.com/privat/om/tekniska-krav" class="footerLink" data-tracking-value="Om webbplatsen">Om webbplatsen</a>
 	</div>
 </div>
+
+<script src="/StoreFront/structureFooter/scrollToTopFooter.js"></script>
