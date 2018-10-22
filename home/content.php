@@ -27,7 +27,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 <div id="callCategory" class="contentRow" name="Call"></div>
 <div id="smsCategory" class="contentRow" name="SMS"></div>
 
-<div class="bigBoxesCategories" name="For Company" id="Call" maximum="6"></div>
+<div class="bigBoxesCategories" name="For new started company" id="Call" maximum="6"></div>
 
 <div id="recommendedCategory" class="contentRow" name="Recommended"></div>
 <div id="funCategory" class="contentRow" name="Fun"></div>
