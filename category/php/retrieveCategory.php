@@ -63,7 +63,8 @@ function getDisLikesFromAPI($apiId){
 }
 
 
-
+/*if the user click on header or home the name of category should show only the api of that category */
+/*if the user search in the search bar should show thanks to keyword also in description and name api */
 if(isset($_POST["cat"])){
 	$category = strtolower(htmlspecialchars($_POST["cat"], ENT_QUOTES));
 	
@@ -78,10 +79,25 @@ if(isset($_POST["cat"])){
 	}
 
 
-	//go through every keyword and get all rows associated with them
-
+	//check if you have searched for a category or you have clicked on a category
+	$nameCat = "";
+	for($i=0; $i<count($keyWords); $i++){
+		$nameCat .= $keyWords[$i];
+	}
+	
+	if ($nameCat == "toplist" or $nameCat == "free" or $nameCat == "mostliked" or $nameCat == "mostbought" 
+	or $nameCat == "sms" or $nameCat == "call" or $nameCat == "forcompany" or $nameCat == "fun" or
+	$nameCat == "mobile" or $nameCat == "statisticsapi") {
+		$clicked_category = true;
+	}
+	else {
+		$clicked_category = false;
+	}
+	
+	//go through every keyword and get all rows associated with them if you search 
 	for($i=0; $i<count($keyWords); $i++){
 		if(strcmp($keyWords[$i], '') != 0){
+			
 			$sql = "SELECT * FROM API  WHERE (LOWER(Category) like '%$keyWords[$i]%')";
 			$result = $conn->query($sql);
 
@@ -112,6 +128,7 @@ if(isset($_POST["cat"])){
 				}
 			}
 
+			if ($clicked_category == false) {
 			$sql = "SELECT * FROM API  WHERE (LOWER(Description) like '%$keyWords[$i]%')";
 			$result = $conn->query($sql);
 
@@ -169,7 +186,7 @@ if(isset($_POST["cat"])){
 						true);
 				}
 			}
-			
+		}
 
 		}
 	}
