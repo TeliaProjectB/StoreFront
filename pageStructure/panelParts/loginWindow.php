@@ -41,7 +41,7 @@
 
 	<div id="errorMessagePanel" style="color:red;"></div>
 
-	<input type="checkbox" id="agreedToTerms" style="display: block; margin: 0px auto;">
+	<input type="checkbox" id="agreedToTerms" style="display: block; margin: 0px auto; width: 16px;">
 	<span>I agree to the </span><a href="/StoreFront/terms.php" style="color: blue; font-style: italic;">terms</a><span> and services.</span>
 	<button onclick="registerUser()" id="panelButton">Register</button>
 
