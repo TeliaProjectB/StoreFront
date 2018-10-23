@@ -59,7 +59,7 @@ function removeLikedOrDisliked(){
 	if(thumbsUp.className == "pressedThumbs"){
 		thumbsUpNumber.innerHTML = Math.max(0, parseInt(thumbsUpNumber.innerHTML, 10)-1);
 	}else if(thumbsDown.className == "pressedThumbs"){
-		thumbsDownNumber.innerHTML = Math.max(0, parseInt(thumbsUpNumber.innerHTML, 10)-1);
+		thumbsDownNumber.innerHTML = Math.max(0, parseInt(thumbsDownNumber.innerHTML, 10)-1);
 	}
 }
 
