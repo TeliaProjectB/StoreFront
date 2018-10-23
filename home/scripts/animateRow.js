@@ -7,6 +7,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 		var rowIsAnimating = false;
 
 		this.addRowData = function(rowData){
+			addMoveWrapperListener(rowData);
 			rowDatas.push(rowData);
 		}
 
@@ -22,7 +23,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			rowScrollPositionUpdate(rowData);
 
 
-			removeGeneratedApiOnRight(rowData);
+			removeGeneratedApiOnRight(rowData, 1);
 
 			rowIsAnimating = true;
 			setTimeout(function(){
@@ -47,6 +48,21 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 
 
+		function addMoveWrapperListener(rowData){
+			rowData.apiMoveWrapper.addEventListener("mouseenter", function(){
+				restoreTransition(rowData);
+				rowData.apiMoveWrapper.setAttribute("mouseover", true);
+				updateScrollPosition(rowData);
+			});
+
+			rowData.apiMoveWrapper.addEventListener("mouseleave", function(){
+				restoreTransition(rowData);
+				rowData.apiMoveWrapper.setAttribute("mouseover", false);
+				updateScrollPosition(rowData);
+			});
+		}
+
+
 		this.rowMoveRight = function(rowData){
 			if(rowIsAnimating){
 				return;
@@ -54,6 +70,8 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 			goBackToRoot(rowData, "right");
 
+			
+			addListenersOnApi(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 			addListenersOnApi(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 
 
@@ -93,7 +111,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 			leftMargin -= rowData.repeatingsLeft*apiBoxSize;
 
-			rowData.apiMoveWrapper.style.marginLeft = leftMargin+"px";
+			rowData.apiMoveWrapper.style.transform = "translateX("+leftMargin+"px)";
 		}
 
 
@@ -148,9 +166,9 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				transitionSpeed = 0.25;
 			}
 			transitionSpeed = 0.3;
-			rowData.apiMoveWrapper.style.WebkitTransition = "margin "+transitionSpeed+"s ease-out";
-			rowData.apiMoveWrapper.style.MozTransition = "margin "+transitionSpeed+"s ease-out";
-			rowData.apiMoveWrapper.style.transition = "margin "+transitionSpeed+"s ease-out";
+			rowData.apiMoveWrapper.style.WebkitTransition = "transform "+transitionSpeed+"s ease-out";
+			rowData.apiMoveWrapper.style.MozTransition = "transform "+transitionSpeed+"s ease-out";
+			rowData.apiMoveWrapper.style.transition = "transform "+transitionSpeed+"s ease-out";
 		}
 
 		function goBackToRoot(rowData, sourceAction){
@@ -161,7 +179,6 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 			//if the index modulo the original repeating api is 0 then the user has madeacomplete rotation to start.
 			if(numb % mod == 0){
-				console.log("Go back to root");
 				//remove css transition, move api index to start position and update scrol position.
 				removeTransition(rowData);
 				rowData.index = 0;
@@ -173,7 +190,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 					var maxVisibleApi = Math.round(rowData.apiContainer.clientWidth / apiBoxSize);
 					var excessiveApiOnRight = rowData.apiMoveWrapper.children.length - maxVisibleApi;
 					while(excessiveApiOnRight > 0 && rowData.repeatingsRight > 0){
-						removeGeneratedApiOnRight(rowData);
+						removeGeneratedApiOnRight(rowData, 1);
 						excessiveApiOnRight--;
 					}
 				}
@@ -200,9 +217,9 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 		}
 
 
-		function removeGeneratedApiOnRight(rowData){
+		function removeGeneratedApiOnRight(rowData, repeatingsToLeave){
 			//Remove repeatings on right side if there are any
-			if(rowData.repeatingsRight > 0){
+			if(rowData.repeatingsRight > repeatingsToLeave){
 				rowData.apiMoveWrapper.removeChild(rowData.apiMoveWrapper.lastChild);
 				rowData.repeatingsRight--;
 			}
@@ -235,17 +252,6 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 		}
 
 		function addListenersOnApi(apiElement, rowData){
-			apiElement.addEventListener("mouseenter", function(){
-				restoreTransition(rowData);
-				rowData.apiMoveWrapper.setAttribute("mouseover", true);
-				updateScrollPosition(rowData);
-			});
-
-			apiElement.addEventListener("mouseleave", function(){
-				restoreTransition(rowData);
-				rowData.apiMoveWrapper.setAttribute("mouseover", false);
-				updateScrollPosition(rowData);
-			});
 
 			apiElement.addEventListener("mousedown", function(){
 				apiElement.className += " panelActive";
@@ -257,6 +263,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				}, 60);
 			};
 		}
+
 
 
 

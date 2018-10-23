@@ -55,10 +55,12 @@
 }
 
 .apiTransitionWrapper{
-	height:232px;
+	height:179px;
+	margin-top: 48px;
 	display:flex;
 	flex-direction: row;
 	align-items: center;
+	transition: transform 0.3s ease-out;
 }
 
 

@@ -60,7 +60,7 @@ define(["makeRepetitions", "animateRow"], function(makeRepetitions, animateRow){
 					originalRepeatingAPI: originalRepeatingAPI,
 					repeatingsRight: 0,
 					repeatingsLeft: 0,
-					oldApiClientWidth: 0
+					oldApiClientWidth: 0,
 				};
 				
 
