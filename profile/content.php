@@ -104,6 +104,14 @@ if(isset($_GET["index"])){
 			</ul>
 
 			<ul class="profileUl" style="display:flex; flex-direction: column;">
+				
+				<li class="profileLi">
+					<div class="liInfo"><span>Email:</span></div>
+					<input class="userInfoInput normalInput" id="inputEditButton" value="<?php echo $userEmail; ?>" disabled>
+					<!--<button class="editButton" onclick="enableEditing('inputEditButton')"></button>-->
+				</li>
+
+
 				<li class="profileLi" id="passwordPart" style="display:flex; flex-direction: column;">
 					<div class="liInfo"><span>Password: </span><button class="editButton" onclick="enablePasswordEditing()"></button></div>
 					<input class="userInfoInput normalInput" id="inputCurrentPassword" type="password" value="" placeholder="Current password" style="display: none;">
@@ -116,11 +124,7 @@ if(isset($_GET["index"])){
 				</li>
 
 
-				<li class="profileLi">
-					<div class="liInfo"><span>Email:</span></div>
-					<input class="userInfoInput normalInput" id="inputEditButton" value="<?php echo $userEmail; ?>" disabled>
-					<!--<button class="editButton" onclick="enableEditing('inputEditButton')"></button>-->
-				</li>
+				
 			</ul>
 
 			
