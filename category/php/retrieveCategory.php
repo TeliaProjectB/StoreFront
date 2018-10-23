@@ -3,6 +3,7 @@
 require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/category/php/filterClass.php';
 
+
 $filter = new filterManager;
 
 class apiObject
@@ -65,9 +66,21 @@ function getDisLikesFromAPI($apiId){
 
 /*if the user click on header or home the name of category should show only the api of that category */
 /*if the user search in the search bar should show thanks to keyword also in description and name api */
+
+$SpecialCase = false;
+
 if(isset($_POST["cat"])){
 	$category = strtolower(htmlspecialchars($_POST["cat"], ENT_QUOTES));
 	
+	if($category == "most bought"){
+		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/category/php/retriveMostBoughtItem.php';
+		$SpecialCase = true;
+	}
+	elseif($category == "most liked"){
+		require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/category/php/retriveMostLikedItem.php';
+		$SpecialCase = true;
+	}
+	else{
 
 	$keyWords = explode(' ', $category);
 
@@ -197,35 +210,36 @@ if(isset($_POST["cat"])){
 				}
 			}
 		}
+	}
 
 		}
 	}
 
+	if(!$SpecialCase){
+		$filterResult = $filter->getContainer();
 
-	$filterResult = $filter->getContainer();
+		$arrOfApi = array();
+		foreach($filterResult as $api){
+			
+			$newObj = new apiObject;
+			$newObj->Id = $api->objectData["Id"];
+			$newObj->RandomId = $api->objectData["RandomId"];
+			$newObj->Name = $api->objectData["Name"];
+			$newObj->Description = $api->objectData["Description"];
+			$newObj->Category = $api->objectData["Category"];
+			$newObj->Price = $api->objectData["Price"];
+			$newObj->imgName = getRealImageSrc($api->objectData["ImgName"]);
+			$newObj->relevance = $api->relevance;
+			$newObj->isPackage = $api->isPackage;
 
-	$arrOfApi = array();
-	foreach($filterResult as $api){
-		
-		$newObj = new apiObject;
-		$newObj->Id = $api->objectData["Id"];
-		$newObj->RandomId = $api->objectData["RandomId"];
-		$newObj->Name = $api->objectData["Name"];
-		$newObj->Description = $api->objectData["Description"];
-		$newObj->Category = $api->objectData["Category"];
-		$newObj->Price = $api->objectData["Price"];
-		$newObj->imgName = getRealImageSrc($api->objectData["ImgName"]);
-		$newObj->relevance = $api->relevance;
-		$newObj->isPackage = $api->isPackage;
+			array_push($arrOfApi, $newObj);
+		}
 
-		array_push($arrOfApi, $newObj);
+
+
+		echo json_encode($arrOfApi);
+
 	}
-
-
-
-	echo json_encode($arrOfApi);
-
-
 }
 
 ?>
