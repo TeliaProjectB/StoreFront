@@ -181,11 +181,11 @@
         	$('.breadcrumbs li+li').attr('content-before','/');
         	document.getElementById('secondPage').innerHTML = getURLVariable("cat").replace(/[&\/\\#,+()$~%207.'":*?<>{}]/g, ' ');
         	break;
-    	case "/StoreFront/myAccount/":
+    	case "/StoreFront/profile/":
         	document.getElementById("homeBreadcrumb").style.display="inline";
 
         	$('.breadcrumbs li+li').attr('content-before','/');   
-       	 	document.getElementById('secondPage').innerHTML = "My Account";
+       	 	document.getElementById('secondPage').innerHTML = "Profile";
         	break;
     	case "/StoreFront/checkout/":
         	document.getElementById("homeBreadcrumb").style.display="inline";
