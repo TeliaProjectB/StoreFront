@@ -26,11 +26,11 @@ span{
 	cursor: pointer;
 }
 
-ul{
+.profileUl{
 	list-style: none;
 }
 
-li{
+.profileLi{
 	font-family: helvetica;
 	margin: 8px;
 }
