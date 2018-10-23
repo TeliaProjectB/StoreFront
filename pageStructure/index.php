@@ -55,7 +55,6 @@
 				<div id="secondHead" class="secondHeader">
 					<button class="headerButton" onclick="scrollDownTo('Top List')">Top list</button>	
 					<button class="headerButton" onclick="scrollDownTo('Free')">Free</button>
-					<button class="headerButton" onclick="scrollDownTo('Recommended')">Recommended</button>		
 					<button class="headerButton" onclick="scrollDownTo('Most liked')">Most liked</button>
 					<div class="dropdown" ><!-- onmouseenter="openDropdown()" onmouseleave="closeDropDown()" -->
 						<button class="headerButton " style="display:inline;" >See more &nbsp;<i class="down"></i></button>
@@ -69,6 +68,7 @@
 							<button class="dropdownButton" onclick="scrollDownTo('Fun')">Fun</button>
 							<button class="dropdownButton" onclick="scrollDownTo('Mobile')">Mobile</button>
 							<button class="dropdownButton" onclick="scrollDownTo('Statistics API')">Statistics API</button>
+							<button class="dropdownButton" onclick="scrollDownTo('All')">All</button>
 					
 						</div>
 					</div> 
