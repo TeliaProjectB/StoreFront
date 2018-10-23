@@ -13,6 +13,7 @@ function createApiBox(apiContainer, apiData){
             }else{
                 smartJsLink("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"));
             }
+            document.body.style.cursor = "auto";
         }, 60);
     };
 
@@ -49,6 +50,7 @@ function createApiBox(apiContainer, apiData){
             }else{
                 smartJsLink("/StoreFront/api/?id="+newApi.getAttribute("myApiId"));
             }
+            document.body.style.cursor = "auto";
         }, 60);
     };
 }
