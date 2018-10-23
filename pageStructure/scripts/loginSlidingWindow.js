@@ -4,6 +4,7 @@
 var flag = false;
 
 function openSlideInWindow(){
+    console.log("hel")
     if(!$(".loginWindow").is(":animated")){
         $(".loginWindow").stop();
 
@@ -13,7 +14,7 @@ function openSlideInWindow(){
 
         $(".loginWindow").animate({width: 'toggle'});
         if(flag){
-            flag = false
+            flag = false;
         }else{
             flag = true;
         }
@@ -64,7 +65,6 @@ $(document).on('click','#head',function(e){
 $(document).ready(function() { 
     $(window).scroll(function() {
         // additional code
-        //console.log("Length: ", $('.loginWindow:visible').length)
         if(flag == true){
             flag = false;
             if(!$(".loginWindow").is(":animated")){
@@ -80,11 +80,13 @@ $(document).ready(function() {
 function openLoginWindow(){
     $("#firstStep").css({"display": "none"});
     $("#loginWindow").css({"display": "inline"});
+    flag = false;
 }
 
 function openRegisterWindow(){
     $("#firstStep").css({"display": "none"});
     $("#register").css({"display": "inline"});
+    flag = false;
 }
 
 $("#password").on('keyup', function (e) {
@@ -176,10 +178,12 @@ function goBackToStart(){
     $("#loginWindow").css({"display": "none"}); 
     $("#register").css({"display": "none"}); 
     $("#firstStep").css({"display": "inline"});
+    flag = true;
 }
 
 function closeLoginWindow(){
     $(".loginWindow").animate({width: 'toggle'});
+    flag = true;
 }
 
 
