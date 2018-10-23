@@ -2,6 +2,7 @@
 	width:100%;
 	background-color: #990ae3;
 	margin-top: 50vh;
+	background-color: var(--back-color);
 }
 
 
