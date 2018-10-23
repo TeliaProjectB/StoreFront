@@ -122,14 +122,18 @@
 	height: 0px;
 	flex-direction: column;
     position: absolute;
-    background-color: white;
-    min-width: 160px;
+    background-color: rgb(255, 255, 255);
+    min-width: 412px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
 	z-index: 1;
 	transition: height 0.37s ease-out;
 	margin-left:63px;
 }
 
+.column {
+	float: left;
+    width: 33.33%;
+}
 
 .dropdownButton {
 	display:flex;
