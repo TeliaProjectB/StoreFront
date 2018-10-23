@@ -87,7 +87,8 @@
 
 
 .contactTelia {
-    background-color: #6700d2;
+   
+    background-color:#6a3787;
     padding: 8px 0px;
     width: 50%;
     font-size: 16px;
@@ -106,7 +107,8 @@
 }
 
 .contactTelia:hover {
-    background-color: #330069;
+   background-color:  #7e5899;
+	
 }
 
 .contactInfoTelia {
