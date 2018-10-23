@@ -67,7 +67,7 @@ if(isset($_GET["index"])){
 	if($_GET["index"] == "info"){
 		$infoPanelVisible = "style=\"max-height:500px;\"";	
 		$infoPanelMinMax = "minPanelIcon";
-	}else if($_GET["index"] == "bought"){
+	}else if($_GET["index"] == "boughtItems"){
 		$boughtPanelVisible = "style=\"max-height:500px;\"";
 		$boughtPanelMinMax = "minPanelIcon";	
 	}else if($_GET["index"] == "payment"){
