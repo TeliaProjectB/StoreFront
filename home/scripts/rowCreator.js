@@ -41,6 +41,9 @@ define(["makeRepetitions", "animateRow"], function(makeRepetitions, animateRow){
 
 
 			apiRetriever.loadApisRows(apiElementContainer, element.getAttribute("name"), function(numberOfElements, apiMoveWrapper){
+				if(apiMoveWrapper.firstChild === null){
+					return;
+				}
 				var style = getComputedStyle(apiMoveWrapper.firstChild);
 				apiBoxSize = apiMoveWrapper.firstChild.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
 				rowAnimator = new animateRow.init(apiBoxSize);

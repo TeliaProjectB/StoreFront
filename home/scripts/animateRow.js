@@ -271,6 +271,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				document.body.style.cursor = "wait";
 				setTimeout(function(){
 					smartJsLink("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"));
+					document.body.style.cursor = "auto";
 				}, 60);
 			};
 		}
