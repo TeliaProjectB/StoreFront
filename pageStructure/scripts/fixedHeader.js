@@ -54,10 +54,10 @@ function showSecondHeader(){
 $(document).ready(function(){
 
     $(".dropdown > .headerButton").hover(function(){
-        $('.dropdown > .dropdown-content').css("height", "335px");
+        $('.dropdown > .dropdown-content').css("height", "210px");
     }, function(){
         $(".dropdown-content").hover(function(){
-            $('.dropdown > .dropdown-content').css("height", "335px");
+            $('.dropdown > .dropdown-content').css("height", "210px");
         }, function(){
             $('.dropdown > .dropdown-content').css("height", "0px");
         });
