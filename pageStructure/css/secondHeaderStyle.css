@@ -35,7 +35,7 @@
 	cursor: pointer;
 	flex-direction: column;
 	margin-right: 2vw;
-	top:-3px;
+
 		 
 }
 
@@ -77,17 +77,14 @@
 }
 
 #searchBar{
-	position: relative;
 	background-color: #e8e8e8;
 	border-radius: 5px;
-	padding: 5px;
-	margin-left: 12vw;
-	max-height: 48px;
-	display: flex;
-	margin-right: 3vw;
-	flex: 4;
-	left: -5px;
-	
+	padding: 6px;
+	margin-left: 20vw;
+	max-height: 32px;
+	display:flex;
+	margin-right:3vw;
+	flex:1;
 }
 
 #searchIcon{
