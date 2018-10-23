@@ -109,7 +109,7 @@ a{
 
 .panelContent{
 	overflow: hidden;
-	transition: all 0.45s ease-out;
+	transition: max-height 0.7s ease-out;
 	max-height: 0px;
 }
 

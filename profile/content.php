@@ -88,7 +88,7 @@ if(isset($_GET["index"])){
 <div class="panel panelParent">
 	<h2 onclick="clickPanelMinMax('panelContentInfo', 'panelMinMax1')" class="panelHeaderTitle">Information <div class="minmaxIcon <?php echo $infoPanelMinMax; ?>" id="panelMinMax1"></h2>
 
-	<div class="panelContent" id="panelContentInfo" name="visible" <?php echo $infoPanelVisible; ?>>
+	<div class="panelContent" id="panelContentInfo" <?php echo $infoPanelVisible; ?>>
 
 		<div id="panelInfoFlexCon">
 			<ul style="display:flex; flex-direction: column;">
@@ -140,7 +140,7 @@ if(isset($_GET["index"])){
 
 <div class="panel panelParent">
 	<h2 onclick="clickPanelMinMax('panelContentBought', 'panelMinMax2')" class="panelHeaderTitle">Bought items <div class="minmaxIcon <?php echo $boughtPanelMinMax; ?>" id="panelMinMax2"></div></h2>
-	<div class="panelContent"  id="panelContentBought" name="visible" <?php echo $boughtPanelVisible; ?>>
+	<div class="panelContent"  id="panelContentBought" <?php echo $boughtPanelVisible; ?>>
 		
 		<ul id="boughtListerUl">
 			<?php
@@ -177,10 +177,10 @@ if(isset($_GET["index"])){
 
 <div class="panel panelParent">
 	<h2 onclick="clickPanelMinMax('panelContentPayment', 'panelMinMax3')" class="panelHeaderTitle">Payment <div class="minmaxIcon <?php echo $paymentPanelMinMax; ?>" id="panelMinMax3"></h2>
-	<div class="panelContent" id="panelContentPayment" name="visible" <?php echo $paymentPanelVisible;?> >
+	<div class="panelContent" id="panelContentPayment" <?php echo $paymentPanelVisible;?> >
 		<div style="text-align: center; margin: 32px;">
-			<button class="strongButton">Kivra</button>
-			<button class="strongButton">Paypal</button>
+			<button class="strongButton" style="font-size: 20px;">Kivra</button>
+			<button class="strongButton" style="font-size: 20px;">Paypal</button>
 		</div>
 		
 	</div>
