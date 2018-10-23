@@ -1,5 +1,73 @@
-/* function to create the Api of a single category */
 function createApiBox(apiContainer, apiData){
+    /*
+    Generate the api box element from "apiData"
+    "apiData" contains: Name, imgName,Description, Priceand RandomId
+    */
+            
+    var newApi = document.createElement("div");
+    newApi.className = "simpleApiBox panel3d";
+
+
+    var apiTitle = document.createElement("div");
+    apiTitle.className = "apiTitle";
+    apiTitle.innerHTML = apiData.Name;
+
+
+    var apiIcon = document.createElement("div");
+    apiIcon.className = "apiBackground";
+    apiIcon.style.backgroundImage = "url(/StoreFront/globalImages/API/"+apiData.imgName+")";
+
+    var apiDescription = document.createElement("div");
+    apiDescription.className = "apiDescription";
+    apiDescription.innerHTML = apiData.Description;
+
+    var titleDescContainer = document.createElement("div");
+    titleDescContainer.className = "titleDescContainer";
+
+    var price = document.createElement("div");
+    price.className = "apiPriceRow";
+    if (apiData.Price == 0) {
+        price.innerHTML = "Free";
+    }
+    else {
+        price.innerHTML = "Price: "+apiData.Price+" kr";
+    }
+
+    titleDescContainer.appendChild(apiTitle);
+    titleDescContainer.appendChild(apiIcon);
+    titleDescContainer.appendChild(apiDescription);
+    titleDescContainer.appendChild(price);
+            
+    newApi.appendChild(titleDescContainer);
+    apiContainer.appendChild(newApi);
+            
+    
+    newApi.setAttribute("myApiId", apiData.RandomId);
+
+
+    newApi.onclick = function(){
+        document.body.style.cursor = "wait";
+        setTimeout(function(){
+            if(apiData.isPackage){
+                smartJsLink("/StoreFront/apiPackage/?id="+newApi.getAttribute("myApiId"));
+            }else{
+                smartJsLink("/StoreFront/api/?id="+newApi.getAttribute("myApiId"));
+            }
+            document.body.style.cursor = "auto";
+        }, 60);
+    };
+
+    newApi.addEventListener("mousedown", function(){
+        newApi.className += " panelActive";
+    });
+
+}
+
+
+
+
+/* function to create the Api of a single category */
+/*function createApiBox(apiContainer, apiData){
     apiContainer.setAttribute("mouseover", false);
 
 
@@ -53,7 +121,7 @@ function createApiBox(apiContainer, apiData){
             document.body.style.cursor = "auto";
         }, 60);
     };
-}
+}*/
 
 /* function to connect with retrieveCategory.php and the database */
 function ajaxRequest(postData, phpSource, onLoad) {
@@ -119,9 +187,9 @@ ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCa
     document.getElementById("onStartloading").style.display = "none";
     
     //get all 3d panels
-    var panels3d = document.getElementsByClassName("apiBox");
+    var panels3d = document.getElementsByClassName("panel3d");
     for(var i=0; i<panels3d.length; i++){
-        animatePanel(panels3d[i], i, panels3d.length);
+        animatePanel(panels3d.length, panels3d[i], i, panels3d.length);
     }
 
 });
@@ -130,9 +198,12 @@ ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCa
 
 
 
-function animatePanel(panel, index, maxIndex){
-    var maxTime = 1000;
+function animatePanel(numberOfPanels, panel, index, maxIndex){
+    var maxTime = 70*numberOfPanels;
     var waitTime = (index/maxIndex)*maxTime;
+    if(waitTime < 70){
+        waitTime = 70;
+    }
     setTimeout(function(){
         panel.style.transform += " perspective(2000px) rotateY(0deg) scaleX(1) scaleY(1) ";
         addHooverFunction(panel);
