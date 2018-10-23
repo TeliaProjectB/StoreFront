@@ -36,3 +36,5 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 
 <div id="mobileCategory" class="contentRow" name="Mobile"></div>
 <div id="StatisticsAPICategory" class="contentRow" name="Statistics API"></div>
+
+<div id="allCategory" class="contentRow" name="All"></div>
