@@ -108,7 +108,7 @@ define([], function(){
 			
 			
 			newApi.onclick = function(){
-				window.open("/StoreFront/api?id="+apiData.RandomId, '_self');
+				smartJsLink("/StoreFront/api?id="+apiData.RandomId);
 			};
 
 			newApi.addEventListener("mousedown", function(){
