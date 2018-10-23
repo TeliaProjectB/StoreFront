@@ -25,10 +25,10 @@ document.addEventListener("keyup", function(e){
 	}
 });
 function smartJsLink(smartLinkURL){
-	console.log(documentCTRLKeyIsActivated);
 	if(documentCTRLKeyIsActivated){
 		window.open(smartLinkURL);
 	}else{
 		window.open(smartLinkURL, "_self");
 	}
+	documentCTRLKeyIsActivated = false;
 }
