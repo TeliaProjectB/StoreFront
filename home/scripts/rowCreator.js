@@ -73,9 +73,7 @@ define(["makeRepetitions", "animateRow"], function(makeRepetitions, animateRow){
 					if(jumpSize > rowData.numberOfRepeatingApi){
 						jumpSize -= jumpSize-rowData.numberOfRepeatingApi;
 					}
-					for(var i=0; i<jumpSize; i++){
-						rowAnimator.rowMoveLeft(rowData);
-					}
+					rowAnimator.rowMoveLeft(rowData, jumpSize);
 				};
 
 				rightButton.onclick = function(){
@@ -84,9 +82,7 @@ define(["makeRepetitions", "animateRow"], function(makeRepetitions, animateRow){
 					if(jumpSize > rowData.numberOfRepeatingApi){
 						jumpSize -= jumpSize-rowData.numberOfRepeatingApi;
 					}
-					for(var i=0; i<jumpSize; i++){
-						rowAnimator.rowMoveRight(rowData);
-					}
+					rowAnimator.rowMoveRight(rowData, jumpSize);
 				};
 
 

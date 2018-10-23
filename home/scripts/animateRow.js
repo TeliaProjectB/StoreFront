@@ -12,14 +12,37 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 		}
 
 
-		this.rowMoveLeft = function(rowData){
+		
+
+
+
+		function addMoveWrapperListener(rowData){
+			/*rowData.apiMoveWrapper.addEventListener("mouseenter", function(){
+				restoreTransition(rowData);
+				rowData.apiMoveWrapper.setAttribute("mouseover", true);
+				updateScrollPosition(rowData);
+			});
+
+			rowData.apiMoveWrapper.addEventListener("mouseleave", function(){
+				restoreTransition(rowData);
+				rowData.apiMoveWrapper.setAttribute("mouseover", false);
+				updateScrollPosition(rowData);
+			});*/
+		}
+
+
+
+		this.rowMoveLeft = function(rowData, jumpSize){
 			if(rowIsAnimating){
 				return;
 			}
 			goBackToRoot(rowData, "left");
 
 			removeTransition(rowData);
-			addListenersOnApi(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
+			for(var i=0; i<jumpSize; i++){
+				addListenersOnApi(reapeatAPI.addRepetitionLeftSide(rowData), rowData);
+			}
+			
 			rowScrollPositionUpdate(rowData);
 
 
@@ -27,8 +50,9 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 			rowIsAnimating = true;
 			setTimeout(function(){
-				restoreTransition(rowData, 1);
-				rowData.index--;
+				var transitionTime = 800;
+				restoreTransition(rowData, transitionTime);
+				rowData.index-=jumpSize;
 				rowScrollPositionUpdate(rowData);
 
 				var maxVisibleApi = Math.round(rowData.apiContainer.clientWidth / apiBoxSize);
@@ -41,37 +65,23 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				}
 				setTimeout(function(){
 					rowIsAnimating = false;
-				}, 300);
+				}, transitionTime);
 			}, 1);
 
 		}
 
 
 
-		function addMoveWrapperListener(rowData){
-			rowData.apiMoveWrapper.addEventListener("mouseenter", function(){
-				restoreTransition(rowData);
-				rowData.apiMoveWrapper.setAttribute("mouseover", true);
-				updateScrollPosition(rowData);
-			});
-
-			rowData.apiMoveWrapper.addEventListener("mouseleave", function(){
-				restoreTransition(rowData);
-				rowData.apiMoveWrapper.setAttribute("mouseover", false);
-				updateScrollPosition(rowData);
-			});
-		}
-
-
-		this.rowMoveRight = function(rowData){
+		this.rowMoveRight = function(rowData, jumpSize){
 			if(rowIsAnimating){
 				return;
 			}
 
 			goBackToRoot(rowData, "right");
 
-			
-			addListenersOnApi(reapeatAPI.addRepetitionRightSide(rowData), rowData);
+			for(var i=0; i<jumpSize; i++){
+				addListenersOnApi(reapeatAPI.addRepetitionRightSide(rowData), rowData);
+			}
 			addListenersOnApi(reapeatAPI.addRepetitionRightSide(rowData), rowData);
 
 
@@ -84,12 +94,13 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			
 			rowIsAnimating = true;
 			setTimeout(function(){
-				rowData.index++;
-				restoreTransition(rowData, 1);
+				rowData.index+=jumpSize;
+				var transitionTime = 800;
+				restoreTransition(rowData, transitionTime);
 				rowScrollPositionUpdate(rowData);
 				setTimeout(function(){
 					rowIsAnimating = false;
-				}, 300);
+				}, transitionTime);
 			}, 1);
 			
 		}
@@ -106,7 +117,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 				leftMargin -= (howMuchIsOutside(rowData))*apiBoxSize;
 			}*/
 			if(rowData.apiMoveWrapper.getAttribute("mouseover") === "true"){
-				leftMargin -= 23;
+				//leftMargin -= 23;
 			}
 
 			leftMargin -= rowData.repeatingsLeft*apiBoxSize;
@@ -163,12 +174,12 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 
 		function restoreTransition(rowData, transitionSpeed){
 			if(transitionSpeed == undefined){
-				transitionSpeed = 0.25;
+				transitionSpeed = 500;
 			}
-			transitionSpeed = 0.3;
-			rowData.apiMoveWrapper.style.WebkitTransition = "transform "+transitionSpeed+"s ease-out";
-			rowData.apiMoveWrapper.style.MozTransition = "transform "+transitionSpeed+"s ease-out";
-			rowData.apiMoveWrapper.style.transition = "transform "+transitionSpeed+"s ease-out";
+			transitionSpeed /= 1000;
+			rowData.apiMoveWrapper.style.WebkitTransition = "transform "+transitionSpeed+"s ease-in-out";
+			rowData.apiMoveWrapper.style.MozTransition = "transform "+transitionSpeed+"s ease-in-our";
+			rowData.apiMoveWrapper.style.transition = "transform "+transitionSpeed+"s ease-in-out";
 		}
 
 		function goBackToRoot(rowData, sourceAction){
