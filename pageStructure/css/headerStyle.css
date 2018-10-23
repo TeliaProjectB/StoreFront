@@ -1,11 +1,19 @@
 
 #teliaIcon{
+	font-family: helvetica;
+	font-size: 24px;
+	font-weight: bold;
+	text-align:center;
+	line-height: 75px;
+	padding-left: 64px;
+	color: var(--back-color);
+
 	min-width:128px;
 	height: 50px;
 	display:flex;
-	background-image: url('../img/Telia icon.png');
+	background-image: url('../img/logo-pebble.svg');
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: left;
 	background-size: contain;
 	cursor: pointer;
 }
