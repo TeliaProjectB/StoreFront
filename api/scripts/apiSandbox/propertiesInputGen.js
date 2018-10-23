@@ -34,12 +34,16 @@ define([], function(){
 				returnedType = "array";
 				var paramInput = addArrayInput(swaggerObject, swaggerHand.swagAccess(swaggerObject, "name"), 
 					inputParents, index, objectPath, printName);
-				bodyInputContainer.appendChild(paramInput);
+				if(paramInput !== null){
+					bodyInputContainer.appendChild(paramInput);
+				}
 			}else if(swaggerObject.type == "object"){
 				returnedType = "object";
 				var paramInput = addObjectInput(swaggerObject, swaggerHand.swagAccess(swaggerObject, "name"), 
 					inputParents, index, objectPath, printName);
-				bodyInputContainer.appendChild(paramInput);
+				if(paramInput !== null){
+					bodyInputContainer.appendChild(paramInput);
+				}
 			}else{
 				//This object has no type, check if it contains a "properties" with ojects or arrays
 				if(swaggerObject.properties != undefined){
@@ -55,7 +59,9 @@ define([], function(){
 					returnedType = "input";
 					var paramInput = addStringOrIntegerInput(swaggerObject, swaggerHand.swagAccess(swaggerObject, "name"),  
 						inputParents, index, printName);
-					bodyInputContainer.appendChild(paramInput);
+					if(paramInput !== null){
+						bodyInputContainer.appendChild(paramInput);
+					}
 				}
 				
 			}
@@ -112,11 +118,20 @@ define([], function(){
 			nameAndInput.appendChild(arrayDescription);
 
 
-
-			for(var i=0; i<arrayItems.length; i++){
-				var arr = swaggerHand.swagAccess(arrayItems, i);
-				nameAndInput.appendChild(parseinputObject(arr,  param, i, objectPath, true));
+			if(noInfiniteLoopInReferences(objectPath)){
+				for(var i=0; i<arrayItems.length; i++){
+					var arr = swaggerHand.swagAccess(arrayItems, i);
+					if(arr.required == undefined){
+						arr.required = ifInputCheckIfRequired(swaggerObject, i);;
+					}
+					var inputObject = parseinputObject(arr,  param, i, objectPath, true);
+					
+					nameAndInput.appendChild(inputObject);
+				}
+			}else{
+				return null
 			}
+			
 
 
 
@@ -154,7 +169,6 @@ define([], function(){
 				objectPath += "."+swaggerObject.name;
 			}
 
-
 			if(!printName){//If we are at the root container we removethe left side border
 				nameAndInput.style.border = "none";
 			}
@@ -174,13 +188,23 @@ define([], function(){
 			var objectProperties  = Object.keys(swaggerHand.swagAccess(swaggerObject, "properties"));
 
 			sortObjectProperties(swaggerObject, objectProperties);
+			if(noInfiniteLoopInReferences(objectPath)){
+				for(var i=0; i<objectProperties.length; i++){
+					var prop = swaggerHand.swagAccess(swaggerObject, "properties")[objectProperties[i]];
+					prop.name = objectProperties[i];
+					prop = swaggerHand.parseSwaggerObject(swaggerJSON, prop);
 
-			for(var i=0; i<objectProperties.length; i++){
-				var prop = swaggerHand.swagAccess(swaggerObject, "properties")[objectProperties[i]];
-				prop.name = objectProperties[i];
-				prop = swaggerHand.parseSwaggerObject(swaggerJSON, prop);
-				nameAndInput.appendChild(parseinputObject(prop, param, i, objectPath, true));
+					
+					if(prop.required == undefined){
+						prop.required = ifInputCheckIfRequired(swaggerObject, objectProperties[i]);
+					}
+					var inputObject = parseinputObject(prop, param, i, objectPath, true);
+					nameAndInput.appendChild(inputObject);
+				}
+			}else{
+				return null;
 			}
+			
 
 
 
@@ -197,7 +221,7 @@ define([], function(){
 		}
 
 
-		function addStringOrIntegerInput(swaggerObject, targetPramName, inputParents, index, printName){
+		function addStringOrIntegerInput(swaggerObject, targetPramName, inputParents, index, printName, required){
 			var nameAndInput = document.createElement("div");
 				nameAndInput.className = "swaggerAreaForInput";
 				if(index%2 == 0){
@@ -221,7 +245,7 @@ define([], function(){
 					swaggerObject.type, 
 					swaggerObject.description,
 			);
-			if(swaggerObject.required){
+			if(swaggerObject.required || required){
 				paramInput.input.style.border = "solid 1px red";
 				paramInput.input.setAttribute("required", "true");
 			}else{
@@ -251,13 +275,80 @@ define([], function(){
 			nameAndInput.appendChild(paramInput.inputContainer);
 
 
-
-
-
-
 			return nameAndInput;
 		}
 
+
+		function ifInputCheckIfRequired(swaggerObject, inputName){
+			if(swaggerObject.required == undefined){
+				return;
+			}
+			if(typeof swaggerObject.required == "boolean"){
+				if(swaggerObject.required){
+					return true;
+				}
+			}
+			//assume swaggerObject.required is an array
+			if(typeof inputName == "string"){
+				for(var i=0; i<swaggerObject.required.length; i++){
+					if(swaggerObject.required[i] == inputName){
+						return true;
+					}
+				}
+			}
+			
+			if(typeof swaggerObject.required == "boolean"){
+				if(swaggerObject.required){
+					return true;
+				}
+			}
+			return false;
+		}
+
+
+		function noInfiniteLoopInReferences(pathName){
+			//Some faulty swagger files may have an infinite loop of references, this is a simple method of detecting a bad repetition by looking at the names
+			var pathNames = pathName.split(".");
+			if(pathNames == undefined){
+				return true;
+			}
+
+			if(pathNames.length <= 4){
+				return true;
+			}
+
+			var repetitionsOfPath = 0;
+			for(var x=0; x<pathNames.length; x++){
+				//Repetitions of one
+				repetitionsOfPath = 0;
+				for(var y=0; y<pathNames.length; y++){
+					if(pathNames[y] == pathNames[x]){
+						repetitionsOfPath++;
+					}
+				}
+				if(repetitionsOfPath > 2){
+					return false;
+				}
+
+				//Repetitions of two
+				repetitionsOfPath = 0;
+				for(var y=x; y<pathNames.length; y+=2){
+					if(pathNames[y] == undefined){
+						break;
+					}
+					if(pathNames[y] == pathNames[x]){
+						repetitionsOfPath++;
+					}
+				}
+				if(repetitionsOfPath >= 1){
+					return false;
+				}
+			}
+			
+
+			console.log("false");
+			return true;
+		}
 
 		function createInputField(type, description){
 			inputFieldCounter++;
@@ -291,37 +382,27 @@ define([], function(){
 			hidePanelsContent(panel);
 			panel.style.maxHeight = "32px";
 			panel.setAttribute("minimized", "true");
-			panel.setAttribute("animating", "false");
 
 
 			var panelsTitle = panel.getElementsByClassName("swaggerTitle")[0];
 			var panelToggleButton = panelsTitle.getElementsByTagName("BUTTON")[0];
 
 			panelToggleButton.addEventListener("mouseup", function(e){
-				if(panel.getAttribute("animating") == "true"){
-					return;
-				}
-				panel.setAttribute("animating", "true");
 
 				var updateButtonText = "";
 				if(panel.getAttribute("minimized") == "true"){
 					showPanelsContent(panel);
 					panel.setAttribute("minimized", "false");
-					panel.style.maxHeight = "100vh";
+					panel.style.maxHeight = "";
 					updateButtonText = "url('img/minus.svg')";
-					setTimeout(function(){
-						panel.setAttribute("animating", "false");
-					}, 450);
 
 				}else if(panel.getAttribute("minimized") == "false"){
 					panel.setAttribute("minimized", "true");
 					panel.style.maxHeight = "32px";
+					panel.style.overflowY = "hidden";
 					updateButtonText = "url('img/plus.svg')";
 					//Hide content thwn animation is done
-					setTimeout(function(){
-						panel.setAttribute("animating", "false");
-						hidePanelsContent(panel);
-					}, 450);
+					hidePanelsContent(panel);
 				}
 
 
