@@ -26,7 +26,8 @@
 }
 
 .rowButton{
-	height: 232px;
+	margin-top: 98px;
+	height: 98px;
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -100,7 +101,7 @@
 
 .apiBox:hover{
 	/*transform: scaleX(1.185) scaleY(1.185);*/
-	width: 283px;
+	/*width: 283px;*/
 	/*height: 212px;*/
 	z-index: 100;
 	/*margin-left: 23px;
