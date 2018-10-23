@@ -270,7 +270,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			apiElement.onclick = function(){
 				document.body.style.cursor = "wait";
 				setTimeout(function(){
-					window.open("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"), "_self");
+					smartJsLink("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"));
 				}, 60);
 			};
 		}
