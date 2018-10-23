@@ -45,9 +45,9 @@ function createApiBox(apiContainer, apiData){
         document.body.style.cursor = "wait";
         setTimeout(function(){
             if(apiData.isPackage){
-                window.open("/StoreFront/apiPackage/?id="+newApi.getAttribute("myApiId"), "_self");
+                smartJsLink("/StoreFront/apiPackage/?id="+newApi.getAttribute("myApiId"));
             }else{
-                window.open("/StoreFront/api/?id="+newApi.getAttribute("myApiId"), "_self");
+                smartJsLink("/StoreFront/api/?id="+newApi.getAttribute("myApiId"));
             }
         }, 60);
     };
