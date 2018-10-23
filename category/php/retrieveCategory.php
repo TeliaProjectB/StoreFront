@@ -93,12 +93,17 @@ if(isset($_POST["cat"])){
 	else {
 		$clicked_category = false;
 	}
-	
+
 	//go through every keyword and get all rows associated with them if you search 
 	for($i=0; $i<count($keyWords); $i++){
 		if(strcmp($keyWords[$i], '') != 0){
 			
-			$sql = "SELECT * FROM API  WHERE (LOWER(Category) like '%$keyWords[$i]%')";
+			if ($nameCat == "all") {
+				$sql = "SELECT * FROM API";
+			}
+			else {
+				$sql = "SELECT * FROM API WHERE (LOWER(Category) like '%$keyWords[$i]%')";
+			}
 			$result = $conn->query($sql);
 
 			if($result){
@@ -113,7 +118,12 @@ if(isset($_POST["cat"])){
 				}
 			}
 			
-			$sql = "SELECT * FROM APIpackage  WHERE (LOWER(Category) like '%$keyWords[$i]%')";
+			if ($nameCat == "all") {
+				$sql = "SELECT * FROM APIpackage";
+			}
+			else {
+				$sql = "SELECT * FROM APIpackage WHERE (LOWER(Category) like '%$keyWords[$i]%')";
+			}
 			$result = $conn->query($sql);
 			
 			if($result){
