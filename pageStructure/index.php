@@ -53,24 +53,35 @@
 
 				<!-- SECOND HEADER -->
 				<div id="secondHead" class="secondHeader">
-					<button class="headerButton" onclick="scrollDownTo('Top List')">Top list</button>	
+					<button class="headerButton" onclick="scrollDownTo('Top list')">Top list</button>	
 					<button class="headerButton" onclick="scrollDownTo('Free')">Free</button>
 					<button class="headerButton" onclick="scrollDownTo('Most liked')">Most liked</button>
 					<div class="dropdown" ><!-- onmouseenter="openDropdown()" onmouseleave="closeDropDown()" -->
 						<button class="headerButton " style="display:inline;" >See more &nbsp;<i class="down"></i></button>
 						
 						    <div class="dropdown-content">
-					
-							<button class="dropdownButton" onclick="scrollDownTo('Most bought')">Most bought</button>
-							<button class="dropdownButton" onclick="scrollDownTo('SMS')">SMS</button>
-							<button class="dropdownButton" onclick="scrollDownTo('Call')">Call</button>
-							<button class="dropdownButton" onclick="scrollDownTo('For new started company')">For Company</button>
-							<button class="dropdownButton" onclick="scrollDownTo('Fun')">Fun</button>
-							<button class="dropdownButton" onclick="scrollDownTo('Mobile')">Mobile</button>
-							<button class="dropdownButton" onclick="scrollDownTo('Statistics API')">Statistics API</button>
-							<button class="dropdownButton" onclick="scrollDownTo('All')">All</button>
-					
-						</div>
+								<div class="column">
+								<button class="dropdownButton" onclick="scrollDownTo('Most bought')">Most bought</button>
+								<button class="dropdownButton" onclick="scrollDownTo('SMS')">SMS</button>
+								<button class="dropdownButton" onclick="scrollDownTo('Call')">Call</button>
+								<button class="dropdownButton" onclick="scrollDownTo('Fun')">Fun</button>
+								<button class="dropdownButton" onclick="scrollDownTo('Mobile')">Mobile</button>
+								</div>	
+								<div class="column">
+								<button class="dropdownButton" onclick="scrollDownTo('For new started company')">New Company</button>
+								<button class="dropdownButton" onclick="scrollDownTo('For company')">Company</button>
+								<button class="dropdownButton" onclick="scrollDownTo('For industry')">Industry</button>
+								<button class="dropdownButton" onclick="scrollDownTo('Employer')">Employer</button>
+								<button class="dropdownButton" onclick="scrollDownTo('Management')">Management</button>
+								</div>
+								<div class="column">
+								<button class="dropdownButton" onclick="scrollDownTo('APIpackage')">API Package</button>
+								<button class="dropdownButton" onclick="scrollDownTo('Payment')">Payment</button>
+								<button class="dropdownButton" onclick="scrollDownTo('Statistics API')">Statistics API</button>
+								<button class="dropdownButton" onclick="scrollDownTo('Cloud storage')">Cloud</button>
+								<button class="dropdownButton" onclick="scrollDownTo('All')">All</button>	
+								</div>
+							</div>
 					</div> 
 				
 					<div id="searchBar"><input type="text" id="searchInput"><div id="searchIcon" onclick="filterApi()"></div></div>
