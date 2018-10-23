@@ -16,7 +16,7 @@
 		}
 
 		function getMostBoughtAPIPackage(){
-			$returnedIDPackage = $this->getMostLikedAPIPackageID();
+			$returnedIDPackage = $this->getMostBoughtAPIPackageID();
 			$selectedAPIpackage = $this->getAPIPackageFromID($returnedIDPackage);
 
 			return $selectedAPIpackage;
@@ -69,7 +69,7 @@
 		/***********************************
 			Fetch the ID from the most liked package API
 		***********************************/
-		function getMostLikedAPIPackageID(){
+		function getMostBoughtAPIPackageID(){
 			require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
 	
 			$sql = "SELECT *, COUNT(`ItemID`) AS `value_occurrence` 
