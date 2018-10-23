@@ -35,7 +35,7 @@ span{
 	margin: 8px;
 }
 
-a{
+.linkBought{
 	display: block;
 }
 .boughtApi{
@@ -168,7 +168,7 @@ a{
 	.panelParent{
 		width: 100%;
 	}
-	ul{
+	.profileUl{
 		width:85%;
 		margin: 0px auto;
 	}

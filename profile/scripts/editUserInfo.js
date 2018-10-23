@@ -35,6 +35,8 @@ function enablePasswordEditing() {
 		passNewInput1.style.display = "block";
 		passNewInput2.style.display = "block";
 
+		passNewInput1.value = "";
+
 		passinCurrent.disabled = false;
 		passNewInput1.disabled = false;
 		passNewInput2.disabled = false;
@@ -56,6 +58,8 @@ function enablePasswordEditing() {
 		passinCurrent.disabled = true;
 		passNewInput1.disabled = true;
 		passNewInput2.disabled = true;
+
+		passNewInput1.value = "123456";
 
 		passinCurrent.className = "normalInput userInfoInput";
 		passNewInput1.className = "normalInput userInfoInput";

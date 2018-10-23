@@ -159,9 +159,9 @@ if(isset($_GET["index"])){
 					$apiDescription = "<div>".$item["Description"]."</div>";
 					$titleAndDescription = "<div class='apiBoughtTitleDesc'>".$apiTitle.$apiDescription."</div>";
 					if(isset($item["PackageID"])){
-						echo "<a href='/StoreFront/apiPackage/?id=".$item["RandomId"]."'><li class='boughtApi'>".$apiImageElement.$titleAndDescription."</li></a>";
+						echo "<a class='linkBought' href='/StoreFront/apiPackage/?id=".$item["RandomId"]."'><li class='boughtApi'>".$apiImageElement.$titleAndDescription."</li></a>";
 					}else{
-						echo "<a href='/StoreFront/api/?id=".$item["RandomId"]."'><li class='boughtApi'>".$apiImageElement.$titleAndDescription."</li></a>";
+						echo "<a class='linkBought' href='/StoreFront/api/?id=".$item["RandomId"]."'><li class='boughtApi'>".$apiImageElement.$titleAndDescription."</li></a>";
 					}
 					
 				}
