@@ -10,7 +10,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 </div>
 
 
-<div id="topListCategory" class="contentRow" name="Top List"></div>
+<div id="topListCategory" class="contentRow" name="Top list"></div>
 <div id="freeCategory" class="contentRow" name="Free"></div>
 
 <div class="bigBoxesCategories" name="Most liked" id="mostLikedCategories" maximum="3"></div>
