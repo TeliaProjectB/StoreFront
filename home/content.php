@@ -22,7 +22,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 
 
 <div id="combinedAPI" class="rowContainer" name="combinedAPI">
-	<a href="/StoreFront/category?cat=Combined%API's" class="rowTitle">Combined API's</a>
+	<a href="/StoreFront/category?cat=Combined%API's" class="rowTitle">Combined API</a>
 	<div class="simpleBoxContainer">
 		
 		<?php
