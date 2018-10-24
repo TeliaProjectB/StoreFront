@@ -167,6 +167,7 @@ if(isset($_POST["cat"])){
 				}
 			}
 			
+			
 			$sql = "SELECT * FROM APIpackage  WHERE (LOWER(Description) like '%$keyWords[$i]%')";
 			$result = $conn->query($sql);
 
