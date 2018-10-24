@@ -7,7 +7,7 @@
     
     foreach($getPackageAPIContent as $api){  
         echo "
-        <div class='simpleApiBox panelActive' onclick='SmartJsLink(\"/StoreFront/api/?id=".$api["RandomId"] . "&p=true"."\")'>
+        <div class='simpleApiBox panelActive' onclick='smartJsLink(\"/StoreFront/api/?id=".$api["RandomId"] . "&p=true"."\")'>
             <div class='titleDescContainer'>
                 <div class='apiTitle'>". $api['Name'] ."</div>
                 <div class='apiBackground' style='background-image:url(\" /StoreFront/globalImages/API/". $api['ImgName']."\")'></div>
