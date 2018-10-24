@@ -84,7 +84,7 @@ if(isset($_POST["cat"])){
 	if ($nameCat == "top list" or $nameCat == "free" or $nameCat == "sms" or $nameCat == "call" 
 	or $nameCat == "for company" or $nameCat == "fun" or $nameCat == "mobile" or $nameCat == "statistics api"
 	or $nameCat == "for new started company" or $nameCat == "for industry" or $nameCat == "employer"
-	or $nameCat == "management" or $nameCat == "cloud" or $nameCat == "payment" or $nameCat == "combined apis") {
+	or $nameCat == "management" or $nameCat == "cloud" or $nameCat == "payment" or $nameCat == "combined api") {
 		$clicked_category = true;
 	}
 	else {
@@ -122,7 +122,7 @@ if(isset($_POST["cat"])){
 				$sql = "SELECT * FROM APIpackage";
 			}
 			else if ($clicked_category == true) {
-				$sql = "SELECT * FROM API WHERE (LOWER(Category) like '%$nameCat%')";
+				$sql = "SELECT * FROM APIpackage WHERE (LOWER(Category) like '%$nameCat%')";
 			}
 			else {
 				$sql = "SELECT * FROM APIpackage WHERE (LOWER(Category) like '%$keyWords[$i]%')";
