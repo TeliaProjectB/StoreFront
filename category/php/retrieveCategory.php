@@ -19,30 +19,6 @@ class apiObject
 }
 
 
-function getRealImageSrc($imgName){
-	
-
-	if(strcmp(substr($imgName, -4), ".jpg") == 0){
-		return $imgName;
-	}else if(strcmp(substr($imgName, -4), ".png") == 0){
-		return $imgName;
-	}else if(strcmp(substr($imgName, -5), ".jpeg") == 0){
-		return $imgName;
-	}
-
-	
-	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".png")){
-		return $imgName.".png";
-	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpg")){
-		return $imgName.".jpg";
-	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpeg")){
-		return $imgName.".jpeg";
-	}
-
-	return $imgName;
-}
-
-
 
 function getLikesFromAPI($apiId){
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
@@ -230,7 +206,7 @@ if(isset($_POST["cat"])){
 			$newObj->Description = $api->objectData["Description"];
 			$newObj->Category = $api->objectData["Category"];
 			$newObj->Price = $api->objectData["Price"];
-			$newObj->imgName = getRealImageSrc($api->objectData["ImgName"]);
+			$newObj->imgName = $api->objectData["ImgName"];
 			$newObj->relevance = $api->relevance;
 			$newObj->isPackage = $api->isPackage;
 
