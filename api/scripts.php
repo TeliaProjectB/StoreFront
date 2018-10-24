@@ -19,5 +19,10 @@
 	   content.start();
 	});*/
 	require(['scripts/commentSystem/commentsMain']);
-   	require(['scripts/apiSandbox/main']);
+	<?php
+		if($isPackage == false){
+			echo "require(['scripts/apiSandbox/main']);";
+		}
+	?>
+   	
 </script>

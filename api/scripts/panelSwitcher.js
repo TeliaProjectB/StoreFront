@@ -1,32 +1,35 @@
 (function(){
 	var addFancyClicking = new fancyClicker;
 	//Panels
-	var infoPanel = document.getElementById("infoPanel");
+	var firstPanel = document.getElementById("firstPanel");
 	var sandboxPanel = document.getElementById("sandboxPanel");
 	var commentPanel = document.getElementById("commentPanel");
 	var recommendPanel = document.getElementById("recommendPanel");
 
 	//Buttons controlling the panels
-	var infoButton = document.getElementById("infoButton");
+	var firstButton = document.getElementById("firstButton");
 	var sandboxButton = document.getElementById("sandboxButton");
 	var commentsButton = document.getElementById("commentsButton");
 	var recommendedButton = document.getElementById("recommendedButton");
 
-	infoButton.onclick = function(){
+	firstButton.onclick = function(){
 		resetAllButtonsColors();
 		hideAllPanels();
-		infoPanel.style.display = "block";
-		infoButton.className = "rowButton panelButtonBackground rowButtonActive";
-		//infoButton.style.backgroundColor = "#cc00ff";
+		firstPanel.style.display = "block";
+		firstButton.className = "rowButton panelButtonBackground rowButtonActive";
+		//firstButton.style.backgroundColor = "#cc00ff";
 	};
-
-	sandboxButton.onclick = function(){
-		resetAllButtonsColors();
-		hideAllPanels();
-		sandboxPanel.style.display = "block";
-		sandboxButton.className = "rowButton panelButtonBackground rowButtonActive";
-		//sandboxButton.style.backgroundColor = "#cc00ff";
-	};
+	
+	if(sandboxButton != null){
+		sandboxButton.onclick = function(){
+			resetAllButtonsColors();
+			hideAllPanels();
+			sandboxPanel.style.display = "block";
+			sandboxButton.className = "rowButton panelButtonBackground rowButtonActive";
+			//sandboxButton.style.backgroundColor = "#cc00ff";
+		};
+	}
+	
 
 	commentsButton.onclick = function(){
 		resetAllButtonsColors();
@@ -49,22 +52,26 @@
 
 
 	function resetAllButtonsColors(){
-		infoButton.className = "rowButton panelButtonBackground";
-		sandboxButton.className = "rowButton panelButtonBackground";
+		firstButton.className = "rowButton panelButtonBackground";
+		if(sandboxButton != null){
+			sandboxButton.className = "rowButton panelButtonBackground";
+		}
 		commentsButton.className = "rowButton panelButtonBackground";
 		recommendedButton.className = "rowButton panelButtonBackground";
 	}
 
 	function hideAllPanels(){
-		infoPanel.style.display = "none";
-		sandboxPanel.style.display = "none";
+		firstPanel.style.display = "none";
+		if(sandboxPanel!= null){
+			sandboxPanel.style.display = "none";
+		}
 		commentPanel.style.display = "none";
 		recommendPanel.style.display = "none";
 	}
 
 
-
-	infoPanel.style.display = "block";
+	firstPanel.style.display = "block";
+	
 
 	setTimeout(function(){
 		var contentContainer = document.getElementById("contentContainer");	
@@ -97,8 +104,8 @@
 	
 
 	hideAllPanels();
-	infoPanel.style.display = "block";
-	infoButton.className = "rowButton panelButtonBackground rowButtonActive";
+	firstPanel.style.display = "block";
+	firstButton.className = "rowButton panelButtonBackground rowButtonActive";
 
 
 	

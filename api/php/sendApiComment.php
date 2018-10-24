@@ -14,8 +14,14 @@ if(isset($_SESSION["userId"]) && isset($_POST["apiId"]) && isset($_POST["mess"])
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	if(is_null($row)){
-		header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
-		die("Target api doesn't exist");
+		//Single api does not exist, check if it's an api package
+		$sql = "SELECT * FROM `APIpackage` WHERE `randomId`='$apiId'";
+		$result = $conn->query($sql);
+		$row = $result->fetch_assoc();
+		if(is_null($row)){
+			header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+			die("Target api doesn't exist");
+		}
 	}
 
 
