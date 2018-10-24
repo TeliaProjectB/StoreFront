@@ -33,7 +33,7 @@ $purchasebuttonText = "sign in to purchase";
 $onClickBuyButtonFunc = "openRegisterPanel()";
 if(isset($_SESSION["userId"])){
 	$purchasebuttonText = "Add to cart";
-	$onClickBuyButtonFunc = "addToCart('".$_GET["id"]."')";
+	$onClickBuyButtonFunc = "addToCart('".$_GET["id"]."', ".$isPackage.")";
 }
 
 
