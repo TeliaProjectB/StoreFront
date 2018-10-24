@@ -167,6 +167,7 @@ function createTitle() {
 
 /*connect to database and create all api */
 ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCategory.php", function(response){
+   
     var retrievedData = JSON.parse(response);
     var container = document.getElementById("searchedCategory");
 
@@ -188,8 +189,9 @@ ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCa
     
     //get all 3d panels
     var panels3d = document.getElementsByClassName("panel3d");
+    var titleDesc = document.getElementsByClassName("titleDescContainer");
     for(var i=0; i<panels3d.length; i++){
-        animatePanel(panels3d.length, panels3d[i], i, panels3d.length);
+        animatePanel(panels3d.length, panels3d[i], i, panels3d.length, titleDesc[i]);
     }
 
 });
@@ -198,7 +200,7 @@ ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCa
 
 
 
-function animatePanel(numberOfPanels, panel, index, maxIndex){
+function animatePanel(numberOfPanels, panel, index, maxIndex, titleDesc){
     var maxTime = 70*numberOfPanels;
     var waitTime = (index/maxIndex)*maxTime;
     if(waitTime < 70){
@@ -206,18 +208,18 @@ function animatePanel(numberOfPanels, panel, index, maxIndex){
     }
     setTimeout(function(){
         panel.style.transform += " perspective(2000px) rotateY(0deg) scaleX(1) scaleY(1) ";
-        addHooverFunction(panel);
+        addHooverFunction(titleDesc);
     }, waitTime);
 }
 
 
-function addHooverFunction(panel){
-    panel.addEventListener("mouseenter", function(){
-        panel.style.transformOrigin = "50% 50%";
-        panel.style.transform = " scale(1.15) ";
+function addHooverFunction(titleDesc){
+    titleDesc.addEventListener("mouseenter", function(){
+        titleDesc.style.transformOrigin = "50% 50%";
+        titleDesc.style.transform = " scale(1.15) ";
     }, true);
 
-    panel.addEventListener("mouseleave", function(){
-        panel.style.transform = " scale(1) ";
+    titleDesc.addEventListener("mouseleave", function(){
+        titleDesc.style.transform = " scale(1) ";
     });
 }
