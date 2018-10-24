@@ -161,6 +161,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 
 		function addTitle(pathData, name){
 			var title = document.createElement("h1");
+			title.style.wordBreak = "break-all";
 			title.innerHTML = name;
 			parameterContainer.appendChild(title);
 		}
