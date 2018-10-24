@@ -66,7 +66,7 @@ if(isset($_POST["apiId"]) && isset($_POST["offset"]) && isset($_POST["from"])){
 		}
 		
 	}
-
+	
 	$arrOfComments = array_reverse($arrOfComments);
 
 	if(count($arrOfComments) == 0){

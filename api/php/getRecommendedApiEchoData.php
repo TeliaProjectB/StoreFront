@@ -8,17 +8,9 @@ foreach($filterResult as $api){
 		break;
 	}
 		
-	/*$newObj = new apiObject;
-	$newObj->Id = $api->objectData["Id"];
-	$newObj->RandomId = $api->objectData["RandomId"];
-	$newObj->Name = $api->objectData["Name"];
-	$newObj->Description = $api->objectData["Description"];
-	$newObj->Category = $api->objectData["Category"];
-	$newObj->Price = $api->objectData["Price"];
-	$newObj->imgName = getRealImageSrc($api->objectData["ImgName"]);
-	$newObj->relevance = $api->relevance;*/
 
-	$imgSrc = getRealImageSrc($api->objectData["ImgName"]);
+
+	$imgSrc = $api->objectData["ImgName"];
 
 	echo "<div class='recApiCon' onclick='smartJsLink(\"/StoreFront/api/?id=".$api->objectData["RandomId"]."\")'>
 			<div class='recApiTitle'>".$api->objectData["Name"]."</div>
