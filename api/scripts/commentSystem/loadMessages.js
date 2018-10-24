@@ -41,7 +41,7 @@ define(["scripts/commentSystem/ajaxFuncs", "scripts/commentSystem/createCommentE
 
 		function ajaxLoadMessages(offset, fromIdOrder, onLoad){
 			ajaxF.ajaxRequest("apiId="+messVars.apiId+"&offset="+offset+"&from="+fromIdOrder, "/StoreFront/api/php/loadApiComments.php", function(response){
-				console.log(response.responseText);
+				//console.log(response.responseText);
 				if(response.status == 200){
 					onLoad(JSON.parse(response.responseText), response.status);
 				}else{

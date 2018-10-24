@@ -1,4 +1,4 @@
-function addToCart(apiId){
+function addToCart(apiId, isPackage){
 	var sideBarContent = document.getElementById("sideBarRealContent");
 	var header= document.getElementById("head");
 	var cloneParent  = document.getElementById("apiIcon");
@@ -43,10 +43,16 @@ function addToCart(apiId){
 
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/StoreFront/api/php/addToCart.php", true);
+	if(isPackage == 1 || isPackage == true){
+		xhr.open("POST", "/StoreFront/api/php/addApiPackageToCart.php", true);
+	}else{
+		xhr.open("POST", "/StoreFront/api/php/addToCart.php", true);
+	}
+	
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.onreadystatechange = function() {//Call a function when the state changes.
 		if(this.readyState == XMLHttpRequest.DONE) {
+			console.log(this.responseText);
 			setTimeout(function(){
 				var trolleyCounter = document.getElementById("itemCount");
 				trolleyCounter.style.display = "block";
