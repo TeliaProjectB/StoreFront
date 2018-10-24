@@ -19,6 +19,7 @@ function footerScrollToTop(){
 	    		clearTimeout(changeTimer);
 	    	}
 	    	changeTimer = setTimeout(function(){
+	    		goToTopElem.style.pointerEvents = "auto";
 	    		goToTopElem.style.opacity = "1";
 	    	}, 80);
 	    }else{
@@ -26,6 +27,7 @@ function footerScrollToTop(){
 	    		clearTimeout(changeTimer);
 	    	}
 	    	changeTimer = setTimeout(function(){
+	    		goToTopElem.style.pointerEvents = "none";
 	    		goToTopElem.style.opacity = "0";
 	    	}, 80);
 	    }
