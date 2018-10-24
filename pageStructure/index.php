@@ -46,7 +46,7 @@
 			<div id="head" class="sticky">
 				<!-- FIRST HEADER -->
 				<div id="firstHead" class="firstHeader" onmouseenter="showSecondHeader()">
-					<div onclick="smartJsLink('/StoreFront/home/')" id="teliaIcon">Storefront</div>
+					<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon">Storefront</div>
 					
 					<div id="showUsername"><?php echo $Username; ?></div>
 					<button id="userIcon" onclick="openSlideInWindow()"></button>
@@ -63,24 +63,24 @@
 						    <div class="dropdown-content">
 								<div class="column">     
 								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Most bought')">Most bought</button>
-								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=sms')">SMS</button>
-								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=call')">Call</button>
-								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=fun')">Fun</button>
-								<button class="dropdownButton" onclick="scrollDownTo('Mobile')">Mobile</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=SMS')">SMS</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Call')">Call</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Fun')">Fun</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Mobile')">Mobile</button>
 								</div>	
 								<div class="column">
 								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=For new started company')">New Company</button>
-								<button class="dropdownButton" onclick="scrollDownTo('For company')">Company</button>
-								<button class="dropdownButton" onclick="scrollDownTo('For industry')">Industry</button>
-								<button class="dropdownButton" onclick="scrollDownTo('Employer')">Employer</button>
-								<button class="dropdownButton" onclick="scrollDownTo('Management')">Management</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=For company')">Company</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=For industry')">Industry</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Employer')">Employer</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Management')">Management</button>
 								</div>                    
 								<div class="column">           
-								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=combined api')">Combined API</button>
-								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=payment')" >Payment</button>
-								<button class="dropdownButton" onclick="scrollDownTo('Statistics API')">Statistics API</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Combined API')">Combined API</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Payment')" >Payment</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Statistics API')">Statistics API</button>
 								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Cloud')">Cloud</button>
-								<button class="dropdownButton" onclick="scrollDownTo('All')">All</button>	
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=All')">All</button>	
 								</div>
 							</div>
 					</div> 
