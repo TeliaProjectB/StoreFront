@@ -76,7 +76,7 @@
 								<button class="dropdownButton" onclick="scrollDownTo('Management')">Management</button>
 								</div>
 								<div class="column">
-								<button class="dropdownButton" onclick="scrollDownTo('Combined API')">Combined API</button>
+								<button class="dropdownButton" onclick="scrollDownTo('combinedAPI')">Combined API</button>
 								<button class="dropdownButton" onclick="scrollDownTo('Payment')">Payment</button>
 								<button class="dropdownButton" onclick="scrollDownTo('Statistics API')">Statistics API</button>
 								<button class="dropdownButton" onclick="scrollDownTo('Cloud')">Cloud</button>
