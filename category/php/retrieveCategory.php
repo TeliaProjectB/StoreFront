@@ -19,30 +19,6 @@ class apiObject
 }
 
 
-function getRealImageSrc($imgName){
-	
-
-	if(strcmp(substr($imgName, -4), ".jpg") == 0){
-		return $imgName;
-	}else if(strcmp(substr($imgName, -4), ".png") == 0){
-		return $imgName;
-	}else if(strcmp(substr($imgName, -5), ".jpeg") == 0){
-		return $imgName;
-	}
-
-	
-	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".png")){
-		return $imgName.".png";
-	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpg")){
-		return $imgName.".jpg";
-	}else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/StoreFront/globalImages/API/".$imgName.".jpeg")){
-		return $imgName.".jpeg";
-	}
-
-	return $imgName;
-}
-
-
 
 function getLikesFromAPI($apiId){
 	require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/php/db.php';
@@ -98,7 +74,7 @@ if(isset($_POST["cat"])){
 		$nameCat .= $keyWords[$i];
 	}
 	
-	if ($nameCat == "toplist" or $nameCat == "free"	or $nameCat == "sms" or $nameCat == "call" 
+	/*if ($nameCat == "toplist" or $nameCat == "free"	or $nameCat == "sms" or $nameCat == "call" 
 	or $nameCat == "forcompany" or $nameCat == "fun" or $nameCat == "mobile" or $nameCat == "statisticsapi"
 	or $nameCat == "fornewstartedcompany" or $nameCat == "forindustry" or $nameCat == "employer"
 	or $nameCat == "management" or $nameCat == "cloud" or $nameCat == "payment" or $nameCat == "combinedapis") {
@@ -106,7 +82,7 @@ if(isset($_POST["cat"])){
 	}
 	else {
 		$clicked_category = false;
-	}
+	}*/
 
 	//go through every keyword and get all rows associated with them if you search 
 	for($i=0; $i<count($keyWords); $i++){
@@ -152,7 +128,7 @@ if(isset($_POST["cat"])){
 				}
 			}
 
-			if ($clicked_category == false) {
+			
 			$sql = "SELECT * FROM API  WHERE (LOWER(Description) like '%$keyWords[$i]%')";
 			$result = $conn->query($sql);
 
@@ -182,7 +158,9 @@ if(isset($_POST["cat"])){
 						getDisLikesFromAPI($row["RandomId"]),
 						true);
 				}
-			}$sql = "SELECT * FROM API  WHERE (LOWER(Name) like '%$keyWords[$i]%')";
+			}
+			
+			$sql = "SELECT * FROM API  WHERE (LOWER(Name) like '%$keyWords[$i]%')";
 			$result = $conn->query($sql);
 
 			if($result){
@@ -212,7 +190,7 @@ if(isset($_POST["cat"])){
 				}
 			}
 		}
-	}
+	
 
 		}
 	}
@@ -230,7 +208,7 @@ if(isset($_POST["cat"])){
 			$newObj->Description = $api->objectData["Description"];
 			$newObj->Category = $api->objectData["Category"];
 			$newObj->Price = $api->objectData["Price"];
-			$newObj->imgName = getRealImageSrc($api->objectData["ImgName"]);
+			$newObj->imgName = $api->objectData["ImgName"];
 			$newObj->relevance = $api->relevance;
 			$newObj->isPackage = $api->isPackage;
 
