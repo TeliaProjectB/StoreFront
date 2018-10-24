@@ -8,7 +8,7 @@
 
 
     echo "
-        <div class='mySlides' onclick='window.open(\"/StoreFront/api/?id=".$mostBought["RandomId"]."\", \"_self\")'>
+        <div class='mySlides' onclick='smartJsLink(\"/StoreFront/api/?id=".$mostBought["RandomId"]."\")'>
             <div class='splashTitle'>Most bought</div>
             <div class='splashSubTitle'>" . $mostBought['Name'] . "</div>
             <div class='splashDescription'>
@@ -20,7 +20,7 @@
 
     
     echo "
-        <div class='mySlides' onclick='window.open(\"/StoreFront/api/?id=".$mostLiked["RandomId"]."\", \"_self\")'>
+        <div class='mySlides' onclick='smartJsLink(\"/StoreFront/api/?id=".$mostLiked["RandomId"]."\")'>
             <div class='splashTitle'>Most liked</div>
             <div class='splashSubTitle'>" . $mostLiked['Name'] . "</div>
             <div class='splashDescription'>
@@ -32,7 +32,7 @@
 
 
     echo "
-        <div class='mySlides' onclick='window.open(\"/StoreFront/apiPackage/?id=".$mostBoughtPackage["RandomId"]."\", \"_self\")'>
+        <div class='mySlides' onclick='smartJsLink(\"/StoreFront/api/?id=".$mostBoughtPackage["RandomId"]. "&p=true" ."\")'>
             <div class='splashTitle'>Most Bought API Package</div>
             <div class='splashSubTitle'>" . $mostBoughtPackage['Name'] . "</div>
             <div class='splashDescription'>
