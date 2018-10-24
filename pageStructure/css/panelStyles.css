@@ -35,3 +35,30 @@
 #recommendPanel{
 	display:none;
 }
+
+
+.strongButtonPanel {
+   
+    background-color:#6a3787;
+    padding: 8px 0px;
+    width: 50%;
+    font-size: 16px;
+	color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    display:block;
+    padding-right:35px;
+    padding-left:35px;
+    margin: 0 auto;
+    border-radius: 18px;
+}
+
+.strongButtonPanel p {
+    margin-top:0;
+}
+
+.strongButtonPanel:hover {
+   background-color:  #7e5899;
+	
+}
+

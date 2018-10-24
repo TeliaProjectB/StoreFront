@@ -94,10 +94,10 @@
 					
 					<div id="shoppingBag">
 						<div id="itemCount" <?php if($logged_check && $items > 0) echo "style = 'display:block;'"; ?>><?php echo $items; ?></div> <!-- numbers of items in checkAPI.php -->
-						<div id="trolley" onclick="window.location='/StoreFront/checkout/'" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
+						<div id="trolley" class="flatSurface" onclick="window.location='/StoreFront/checkout/'" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
 					</div>
 
-					<div id="helpContact"  class="icon cat_circle"  onclick="openHelpWindow()"></div>
+					<div id="helpContact"  class="flatSurface"  onclick="openHelpWindow()"></div>
 				</div>
 
 				<!-- THIRD HEADER / BREADCRUMBS -->
@@ -111,7 +111,7 @@
 			
 			<!-- HELP WINDOW -->
 			<div class="helpWindow">
-				<div class="posisionOfTheHelpWindow">
+				<div class="posisitonOfTheHelpWindow">
 					<?php
 						require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/helpWindow.php';
 					?>	

@@ -1,8 +1,8 @@
 <div id="firstStep">
-	<button class="bottomBoxSignIn"  onclick="openLoginWindow()">Sign in</button>
+	<button class="bottomBoxSignIn flatSurface"  onclick="openLoginWindow()">Sign in</button>
 	<br>
-	<button class="bottomBoxSignIn" onclick="openRegisterWindow()">Register</button>
-	<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
+	<button class="bottomBoxSignIn flatSurface" onclick="openRegisterWindow()">Register</button>
+	<button class="closePanelButton flatSurface" onclick="closeLoginWindow()"></button>
 </div>
 
 <div id="loginWindow">
@@ -13,12 +13,12 @@
 	<input name="password" id="password" class="inputBoxSignIn inputBoxSignIn-text" type="password">
 	<br>
 						
-	<button class="bottomBoxSignIn" onclick="checkUser()">Sign in</button>
+	<button class="bottomBoxSignIn flatSurface" onclick="checkUser()">Sign in</button>
 	<br>
-	<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
+	<button class="bottomBoxSignIn flatSurface" onclick="goBackToStart()">Go back</button>
 
 
-	<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
+	<button class="closePanelButton flatSurface" onclick="closeLoginWindow()"></button>
 </div>
 
 
@@ -43,8 +43,7 @@
 
 	<input type="checkbox" id="agreedToTerms" style="display: block; margin: 0px auto; width: 16px;">
 	<span>I agree to the </span><a href="/StoreFront/terms.php" style="color: blue; font-style: italic;">terms</a><span> and services.</span>
-	<button onclick="registerUser()" id="panelButton">Register</button>
+	<button onclick="registerUser()" class="strongButtonPanel">Register</button>
 
-	<button class="bottomBoxSignIn" onclick="goBackToStart()">Go back</button>
-	<button class="closeLoginButton" onclick="closeLoginWindow()"></button>
+	<button class="bottomBoxSignIn flatSurface" onclick="goBackToStart()">Go back</button>
 </div>

@@ -86,21 +86,23 @@
 	display: none;
 }
 
-.closeLoginButton{	
-	padding: 10px;
-	margin: 10px;
+.closePanelButton{
+    border-radius: 50%;
 	cursor: pointer;
     background-color: #ffffff;
-    background-image: url('../img/close.png');
+    background-image: url('../img/close.svg');
 	background-repeat: no-repeat;
 	background-position: center;
     background-size: contain;
+    display: block;
     width: 30px;
 	height: 30px;
-	width:50%;
+    padding: 10px;
+    margin: 10px auto;
+    transition: transform 0.23s ease-in;
 }
 
-.closeLoginButton:hover {
+.closePanelButton:hover {
     transform: scaleX(1.15) scaleY(1.15);
 }
 /*

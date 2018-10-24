@@ -14,7 +14,8 @@
 	overflow-y: scroll;
 }
 
-.posisionOfTheHelpWindow{
+.posisitonOfTheHelpWindow{
+    overflow-y:scroll;
     text-align: center;	
     width:350px;
 }
@@ -27,7 +28,7 @@
 	background-color: rgb(255, 255, 255);
     cursor: pointer;
     transition: 0.3s;
-    border-top: 2px solid #6700d2;
+    border-top: 2px solid var(--back-color);
     display:block;
     padding-right:35px;
     padding-left:35px;
@@ -36,7 +37,7 @@
 
 
 .questionText:hover {
-    color: #6700d2;
+    color: var(--back-color);
 }
 
 .answerText {
@@ -50,23 +51,6 @@
     padding-right:45px;
     padding-left:45px;
     margin-bottom:10px;
-}
-
-.closeWindowButton{
-	padding: 10px;
-	margin: 10px;
-	cursor: pointer;
-    background-color: #ffffff;
-    background-image: url('../img/close.png');
-	background-repeat: no-repeat;
-	background-position: center;
-    background-size: contain;
-    width: 30px;
-    height: 30px;
-}
-
-.closeWindowButton:hover {
-    transform: scaleX(1.15) scaleY(1.15);
 }
 
 #contact1 {
@@ -85,31 +69,6 @@
 	display: none;
 }
 
-
-.contactTelia {
-   
-    background-color:#6a3787;
-    padding: 8px 0px;
-    width: 50%;
-    font-size: 16px;
-	color: #ffffff;
-    cursor: pointer;
-    transition: 0.3s;
-    display:block;
-    padding-right:35px;
-    padding-left:35px;
-    margin: 0 auto;
-    border-radius: 18px;
-}
-
-.contactTelia p {
-    margin-top:0;
-}
-
-.contactTelia:hover {
-   background-color:  #7e5899;
-	
-}
 
 .contactInfoTelia {
     display: none;
@@ -131,7 +90,7 @@
 #sendEmail {
     margin-top:15px;
     margin-bottom:5px;
-    color: #6700d2;
+    color: var(--back-color);
 }
 
 #sendEmail:hover {

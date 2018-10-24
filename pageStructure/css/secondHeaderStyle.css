@@ -11,41 +11,57 @@
 }
 
 #trolley {
-	height: 20px;
+	height: 36px;
+	width: 36px;
 	display:none;
-	padding: 14px;
 	background-image: url('../img/trolley.png');
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: contain;
+	background-size: 60%;
+	background-color: #e8e8e8;
+	border-radius: 50%;
 	cursor: pointer;
 	flex-direction: column;
+	z-index: 90000;
 }
+
+#trolley:hover{
+	transform: scale(1.1);
+}
+
 
 #helpContact {
 	position:relative;
-	height: 0px;
+	height: 36px;
+	width: 36px;
 	display: flex;
 	margin-left: 4vw;
-	padding: 14px;
-	background-image: url('../img/contact.png');
+	background-image: url('../img/contact.svg');
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: contain;
+	background-size: 60%;
+	background-color: #e8e8e8;
+	border-radius: 50%;
 	cursor: pointer;
 	flex-direction: column;
 	margin-right: 2vw;
+}
 
-		 
+#helpContact:hover{
+	transform: scale(1.1);
 }
 
 
-.icon:hover { 
- -moz-box-shadow: 0 0 10px #ccc; -webkit-box-shadow: 0 0 10px #ccc; box-shadow: 0 0 10px #ccc;
-
+.flatSurface{
+	transition: box-shadow 0.18s ease-in-out, transform 0.18s ease-in-out;
+	box-shadow: 0px 5px 17px -8px rgba(0,0,0,0.35);
 }
 
-.cat_circle {
+.flatSurface:hover { 
+	box-shadow: 0px 7px 16px -9px rgba(0,0,0,0.38);
+}
+
+/*.cat_circle {
   
 
 
@@ -57,7 +73,7 @@
   top: 50%; left: 50%;
   width: 80%;
   transform: translate(-50%, -50%);
-}
+}*/
 
 
 
