@@ -46,6 +46,7 @@
 }
 
 #priceAmount{
+	padding: 8px;
 	margin-top: 64px;
 	border-top: solid 1px black;
 	display:block;
@@ -86,4 +87,25 @@
 
 .back2{
 	background-color: white;
+}
+
+#checkoutHeader{
+	margin-top: 8px;
+	margin-bottom: 48px;
+	padding-left: 8px;
+	border-bottom: solid 1px black;
+}
+
+#checkOutContent{
+	display: block;
+	margin: 32px 15vw;
+	padding: 0px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+@media screen and (max-width: 800px){
+	#checkOutContent{
+		margin: 32px 3vw;
+	}
 }

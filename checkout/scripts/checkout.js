@@ -45,9 +45,9 @@ function purchase(){
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.onreadystatechange = function() {//Call a function when the state changes.
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-			console.log(this.responseText);
+			//console.log(this.responseText);
 			alert("Success! You are now the owner of these API.");
-			window.open("/StoreFront/myAccount/?index=boughtItems", "_self");
+			window.open("/StoreFront/profile/?index=boughtItems", "_self");
 		}
 	}
 	xhr.send("");

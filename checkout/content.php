@@ -89,8 +89,8 @@
 
 ?>
 
-<div class="panel" style="display:block; margin: 32px 20vw">
-	<h1 style="margin-bottom: 64px;">Checkout</h1>
+<div class="panel" id="checkOutContent" >
+	<h1 id="checkoutHeader" >Checkout</h1>
 	<div id="rowsContainer">
 		<?php
 
@@ -105,7 +105,7 @@
 				echo "<div class='row $classBackgroundUse' id='apiRow".$counter."'>
 						<div class='removeApi' onclick='removeApiFromCart(\"$api->trolleyId\", \"apiRow$counter\")'></div>
 						<div class='rowTitleCon'>
-							<a href='/StoreFront/api/?id=$api->RandomId' class='apiRowTitle'>$api->Name</a>
+							<a href='/StoreFront/api/?id=$api->RandomId&p=true' class='apiRowTitle'>$api->Name</a>
 						</div>
 						
 
