@@ -119,7 +119,7 @@
 
 
 					</div>";
-
+				$api->Price = str_replace(" ","",$api->Price);
 				$totalAmount += $api->Price;
 				$counter++;
 			}
