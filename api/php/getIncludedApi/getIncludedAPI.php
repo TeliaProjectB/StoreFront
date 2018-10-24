@@ -15,8 +15,9 @@
         $imgSrc = $currentAPI["ImgName"];
         
     
+        $url = "/StoreFront/api/?id=".$currentAPI["RandomId"];
 
-        echo "<div class='recApiCon' onclick='smartJsLink(\"/StoreFront/api/?id=".$currentAPI["RandomId"]."\")'>
+        echo "<div class='recApiCon' onclick='smartJsLink(\"".$url."\")'>
                     <div class='recApiTitle'>" . $currentAPI["Name"] . "</div>
                     <div class='recImgTxtCon'>
                         <div class='recApiImage' style='background-image:url(\" /StoreFront/globalImages/API/$imgSrc\")'></div>       

@@ -222,19 +222,16 @@ foreach($filterResult as $api){
 		break;
 	}
 		
-	/*$newObj = new apiObject;
-	$newObj->Id = $api->objectData["Id"];
-	$newObj->RandomId = $api->objectData["RandomId"];
-	$newObj->Name = $api->objectData["Name"];
-	$newObj->Description = $api->objectData["Description"];
-	$newObj->Category = $api->objectData["Category"];
-	$newObj->Price = $api->objectData["Price"];
-	$newObj->imgName = getRealImageSrc($api->objectData["ImgName"]);
-	$newObj->relevance = $api->relevance;*/
 
-	$imgSrc = getRealImageSrc($api->objectData["ImgName"]);
 
-	echo "<div class='recApiCon' onclick='window.open(\"/StoreFront/api/?id=".$api->objectData["RandomId"]."\", \"_self\")'>
+	$imgSrc = $api->objectData["ImgName"];
+
+	$url = "/StoreFront/api/?id=".$api->objectData["RandomId"];
+	if($api->isPackage){
+		$url = "/StoreFront/api/?id=".$api->objectData["RandomId"]+"&p=true";
+	}
+
+	echo "<div class='recApiCon' onclick='smartJsLink(\"".$url."\")'>
 			<div class='recApiTitle'>".$api->objectData["Name"]."</div>
 			<div class='recImgTxtCon'>
 				<div class='recApiImage' style='background-image:url(\" /StoreFront/globalImages/API/$imgSrc\")'></div>
