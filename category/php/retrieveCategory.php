@@ -98,9 +98,10 @@ if(isset($_POST["cat"])){
 		$nameCat .= $keyWords[$i];
 	}
 	
-	if ($nameCat == "toplist" or $nameCat == "free" or $nameCat == "mostliked" or $nameCat == "mostbought" 
-	or $nameCat == "sms" or $nameCat == "call" or $nameCat == "forcompany" or $nameCat == "fun" or
-	$nameCat == "mobile" or $nameCat == "statisticsapi") {
+	if ($nameCat == "toplist" or $nameCat == "free"	or $nameCat == "sms" or $nameCat == "call" 
+	or $nameCat == "forcompany" or $nameCat == "fun" or $nameCat == "mobile" or $nameCat == "statisticsapi"
+	or $nameCat == "fornewstartedcompany" or $nameCat == "forindustry" or $nameCat == "employer"
+	or $nameCat == "management" or $nameCat == "cloud" or $nameCat == "payment" or $nameCat == "combinedapis") {
 		$clicked_category = true;
 	}
 	else {
