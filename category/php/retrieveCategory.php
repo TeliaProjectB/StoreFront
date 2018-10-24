@@ -71,13 +71,20 @@ if(isset($_POST["cat"])){
 	//check if you have searched for a category or you have clicked on a category
 	$nameCat = "";
 	for($i=0; $i<count($keyWords); $i++){
-		$nameCat .= $keyWords[$i];
+		if ($i > 0) {
+			$nameCat .= " ";
+			$nameCat .= $keyWords[$i];
+		}
+		else {
+			$nameCat .= $keyWords[$i];
+		}
+		
 	}
 	
-	if ($nameCat == "toplist" or $nameCat == "free"	or $nameCat == "sms" or $nameCat == "call" 
-	or $nameCat == "forcompany" or $nameCat == "fun" or $nameCat == "mobile" or $nameCat == "statisticsapi"
-	or $nameCat == "fornewstartedcompany" or $nameCat == "forindustry" or $nameCat == "employer"
-	or $nameCat == "management" or $nameCat == "cloud" or $nameCat == "payment" or $nameCat == "combinedapis") {
+	if ($nameCat == "top list" or $nameCat == "free" or $nameCat == "sms" or $nameCat == "call" 
+	or $nameCat == "for company" or $nameCat == "fun" or $nameCat == "mobile" or $nameCat == "statistics api"
+	or $nameCat == "for new started company" or $nameCat == "for industry" or $nameCat == "employer"
+	or $nameCat == "management" or $nameCat == "cloud" or $nameCat == "payment" or $nameCat == "combined apis") {
 		$clicked_category = true;
 	}
 	else {
@@ -90,6 +97,9 @@ if(isset($_POST["cat"])){
 			
 			if ($nameCat == "all") {
 				$sql = "SELECT * FROM API";
+			}
+			else if ($clicked_category == true) {
+				$sql = "SELECT * FROM API WHERE (LOWER(Category) like '%$nameCat%')";
 			}
 			else {
 				$sql = "SELECT * FROM API WHERE (LOWER(Category) like '%$keyWords[$i]%')";
@@ -110,6 +120,9 @@ if(isset($_POST["cat"])){
 			
 			if ($nameCat == "all") {
 				$sql = "SELECT * FROM APIpackage";
+			}
+			else if ($clicked_category == true) {
+				$sql = "SELECT * FROM API WHERE (LOWER(Category) like '%$nameCat%')";
 			}
 			else {
 				$sql = "SELECT * FROM APIpackage WHERE (LOWER(Category) like '%$keyWords[$i]%')";
