@@ -7,7 +7,17 @@
 
 	$arrOfApi1 = array();
 	foreach($mostBought as $idAPI){
-		$row = $categoryClass->getAPIFromID($idAPI["ItemID"]);
+		$result = $categoryClass->getAPIFromID($idAPI["ItemID"]);
+
+		$isAPackage = false;
+		if(mysqli_num_rows($result) > 0){
+			$row = $result->fetch_assoc();
+		}
+		else{
+			$row = $categoryClass->getAPIPackageFromID($idAPI["ItemID"]);
+			$isAPackage = true; 
+		}
+
 
 		$newObj1 = new apiObject;
 		$newObj1->Id = $row["Id"];
@@ -18,7 +28,7 @@
 		$newObj1->Price = $row["Price"];
 		$newObj1->imgName = $row["ImgName"];
 		$newObj1->relevance = 0;
-		$newObj1->isPackage = true;
+		$newObj1->isPackage = $isAPackage;
 		
 		array_push($arrOfApi1, $newObj1);
 	}

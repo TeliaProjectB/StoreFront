@@ -55,16 +55,9 @@
 	
 	
 			$result = $conn->query($sql);
-            
-            if(mysqli_num_rows($result) > 0){
-                $row = $result->fetch_assoc();
-            }
-            else{
-                $row = $this->getAPIPackageFromID($insertID);
-                
-            }
 	
-			return $row;
+			
+			return $result;
         }
 
         /***********************************
@@ -102,17 +95,8 @@
 	
 	
 			$result = $conn->query($sql);
-			
             
-            if(mysqli_num_rows($result) > 0){
-                $row = $result->fetch_assoc();
-            }
-            else{
-                $row = $this->getAPIPackageFromRandomID($insertrandomID);
-                
-            }
-            
-            return $row;
+            return $result;
 		}
 
 
