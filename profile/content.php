@@ -153,16 +153,20 @@ if(isset($_GET["index"])){
 				foreach ($result as $itemIdRow) {
 					$purchaseListEmpty = false;
 					$item = getApiFromId($itemIdRow["ItemID"]);
+
+					$linkUrl = "/StoreFront/api/?id=".$item["RandomId"];
+
+					//check if we are dealing with an api package
+					if(isset($item["PackageID"])){
+						$linkUrl = "/StoreFront/api/?id=".$item["RandomId"]."&p=true";
+					}
+
 					$apiImageElement = "<div class='apiImageBought' style='background-image: url(\"/StoreFront/globalImages/API/".$item["ImgName"]."\")'></div>";
 
 					$apiTitle = "<div class='liInfo'>".$item["Name"]."</div>";
 					$apiDescription = "<div>".$item["Description"]."</div>";
 					$titleAndDescription = "<div class='apiBoughtTitleDesc'>".$apiTitle.$apiDescription."</div>";
-					if(isset($item["PackageID"])){
-						echo "<a class='linkBought' href='/StoreFront/apiPackage/?id=".$item["RandomId"]."'><li class='boughtApi'>".$apiImageElement.$titleAndDescription."</li></a>";
-					}else{
-						echo "<a class='linkBought' href='/StoreFront/api/?id=".$item["RandomId"]."'><li class='boughtApi'>".$apiImageElement.$titleAndDescription."</li></a>";
-					}
+					echo "<a class='linkBought' href='".$linkUrl."'><li class='boughtApi'>".$apiImageElement.$titleAndDescription."</li></a>";
 					
 				}
 
