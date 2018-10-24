@@ -21,7 +21,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 <div id="smsCategory" class="contentRow" name="SMS"></div>
 
 
-<div class="rowContainer">
+<div id="combinedAPI" class="rowContainer" name="combinedAPI">
 	<a href="/StoreFront/category?cat=Combined%API's" class="rowTitle">Combined API's</a>
 	<div class="simpleBoxContainer">
 		
