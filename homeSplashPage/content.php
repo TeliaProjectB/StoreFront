@@ -6,7 +6,7 @@
 
 <div id="splash">
     <div class="box">
-        <div class="mySlides" onclick="window.open('/StoreFront/api?id=5u674','_self')">
+        <div class="mySlides" onclick="smartJsLink('/StoreFront/api?id=5u674')">
             <div class="splashTitle">Recommended for you</div>
             <div class="splashSubTitle">SMS 1 000 pcs</div>
             <div class="splashDescription">
