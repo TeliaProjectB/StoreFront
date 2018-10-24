@@ -38,8 +38,7 @@
 
 
 .strongButtonPanel {
-   
-    background-color:#6a3787;
+	background-color:#6a3787;
     padding: 8px 0px;
     width: 50%;
     font-size: 16px;
@@ -50,15 +49,20 @@
     padding-right:35px;
     padding-left:35px;
     margin: 0 auto;
-    border-radius: 18px;
+	border-radius: 18px;
+}
+.strongButtonPanelRegister{
+	background-color: gray;
+	cursor: not-allowed;
+	margin-top: 20px;
 }
 
 .strongButtonPanel p {
     margin-top:0;
 }
 
-.strongButtonPanel:hover {
+.strongButtonPanel:hover{
    background-color:  #7e5899;
-	
 }
+
 
