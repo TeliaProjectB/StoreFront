@@ -10,19 +10,19 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 </div>
 
 
-<div id="topListCategory" class="contentRow" name="Top list"></div>
+<div id="topListCategory" class="contentRow" name="Top List"></div>
 <div id="freeCategory" class="contentRow" name="Free"></div>
 
 <div class="bigBoxesCategories" name="Most liked" id="mostLikedCategories" maximum="3"></div>
 
 <!-- 6 categories in home, then 12 at the end with only the box containing the title of category -->
 
-<div id="managementCategory" class="contentRow" name="Management"></div>
-<div id="smsCategory" class="contentRow" name="SMS"></div>
+<!--<div id="managementCategory" class="contentRow" name="Management"></div>-->
+<!--<div id="smsCategory" class="contentRow" name="SMS"></div>-->
 
 
 <div id="combinedAPI" class="rowContainer" name="combinedAPI">
-	<a href="/StoreFront/category?cat=Combined%API's" class="rowTitle">Combined API</a>
+	<a href="/StoreFront/category?cat=Combined API's" class="rowTitle">Combined API</a>
 	<div class="simpleBoxContainer">
 		
 		<?php
@@ -33,9 +33,9 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 
 <div id="funCategory" class="contentRow" name="Fun"></div>
 
-<!--<div class="bigBoxesCategories" name="For new started company" id="newCompanyCategories" maximum="6"></div>-->
+<div class="bigBoxesCategories" name="For new started company" id="newCompanyCategories" maximum="6"></div>
 
-<!--<div id="StatisticsAPICategory" class="contentRow" name="Statistics API"></div>-->
+<div id="StatisticsAPICategory" class="contentRow" name="Statistics API"></div>
 
 <div class="bigBoxesCategories" name="Most bought" id="mostBoughtCategory" maximum="3"></div>
 
@@ -44,7 +44,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 
 
 
-<div id="allCategory" class="contentRow" name="All"></div>
+<!--<div id="allCategory" class="contentRow" name="All"></div>-->
 
 
 <!-- COMPLETE WITH SHOWING ALL THE SINGLE CATEGORIES IN BOXES -->
