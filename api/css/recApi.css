@@ -1,13 +1,14 @@
 .recApiCon{
 	padding-top: 32px;
 	padding-bottom: 16px;
+	margin-right: 10%;
+	padding-right: 64px;
 	cursor: pointer;
-	transition: transform 0.5s ease;
-	background-color: white;
-	border-bottom: solid 1px #e8e8e8;
+	transition: transform 0.18s ease;
+	transform-origin: 0% 50%;
 }
 .recApiCon:hover{
-	transform: scale(1.02);
+	transform: scale(1.1);
 }
 .recApiTitle{
 	font-weight: bold;
