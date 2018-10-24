@@ -61,25 +61,25 @@
 						<button class="headerButton " style="display:inline;" >See more &nbsp;<i class="down"></i></button>
 						
 						    <div class="dropdown-content">
-								<div class="column">
-								<button class="dropdownButton" onclick="scrollDownTo('Most bought')">Most bought</button>
-								<button class="dropdownButton" onclick="scrollDownTo('SMS')">SMS</button>
-								<button class="dropdownButton" onclick="scrollDownTo('Call')">Call</button>
-								<button class="dropdownButton" onclick="scrollDownTo('Fun')">Fun</button>
+								<div class="column">     
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Most bought')">Most bought</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=sms')">SMS</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=call')">Call</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=fun')">Fun</button>
 								<button class="dropdownButton" onclick="scrollDownTo('Mobile')">Mobile</button>
 								</div>	
 								<div class="column">
-								<button class="dropdownButton" onclick="scrollDownTo('For new started company')">New Company</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=For new started company')">New Company</button>
 								<button class="dropdownButton" onclick="scrollDownTo('For company')">Company</button>
 								<button class="dropdownButton" onclick="scrollDownTo('For industry')">Industry</button>
 								<button class="dropdownButton" onclick="scrollDownTo('Employer')">Employer</button>
 								<button class="dropdownButton" onclick="scrollDownTo('Management')">Management</button>
-								</div>
-								<div class="column">
-								<button class="dropdownButton" onclick="scrollDownTo('combinedAPI')">Combined API</button>
-								<button class="dropdownButton" onclick="scrollDownTo('Payment')">Payment</button>
+								</div>                    
+								<div class="column">           
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=combined api')">Combined API</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=payment')" >Payment</button>
 								<button class="dropdownButton" onclick="scrollDownTo('Statistics API')">Statistics API</button>
-								<button class="dropdownButton" onclick="scrollDownTo('Cloud')">Cloud</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Cloud')">Cloud</button>
 								<button class="dropdownButton" onclick="scrollDownTo('All')">All</button>	
 								</div>
 							</div>
