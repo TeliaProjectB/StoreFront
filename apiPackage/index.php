@@ -1,5 +1,3 @@
-<?php
-
-include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/pageStructure/index.php";
-
+<?php 
+	echo "<script>window.open('/StoreFront/api/?id=".$_GET["id"]."&p=true');</script>";
 ?>
