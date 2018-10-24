@@ -88,8 +88,8 @@
 }
 
 #sendEmail {
-    margin-top:15px;
-    margin-bottom:5px;
+    margin-top: 0px;
+    margin-bottom: -1px;
     color: var(--back-color);
 }
 
