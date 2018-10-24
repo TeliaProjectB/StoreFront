@@ -107,6 +107,7 @@
 }
 
 #apiIconTitle{
+	text-align: center;
 	font-size: 22px;
 	display:flex;
 }
