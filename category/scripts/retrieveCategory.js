@@ -49,7 +49,7 @@ function createApiBox(apiContainer, apiData){
         document.body.style.cursor = "wait";
         setTimeout(function(){
             if(apiData.isPackage){
-                smartJsLink("/StoreFront/apiPackage/?id="+newApi.getAttribute("myApiId"));
+                smartJsLink("/StoreFront/api/?id="+newApi.getAttribute("myApiId")+"&p=true");
             }else{
                 smartJsLink("/StoreFront/api/?id="+newApi.getAttribute("myApiId"));
             }
