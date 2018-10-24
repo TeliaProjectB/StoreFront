@@ -46,7 +46,7 @@
 			<div id="head" class="sticky">
 				<!-- FIRST HEADER -->
 				<div id="firstHead" class="firstHeader" onmouseenter="showSecondHeader()">
-					<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon">Storefront</div>
+					<div onclick="smartJsLink('/StoreFront/home/')" id="teliaIcon">Storefront</div>
 					
 					<div id="showUsername"><?php echo $Username; ?></div>
 					<button id="userIcon" onclick="openSlideInWindow()"></button>
