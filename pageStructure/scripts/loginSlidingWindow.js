@@ -4,7 +4,6 @@
 var flag = false;
 
 function openSlideInWindow(){
-    console.log("hel")
     if(!$(".loginWindow").is(":animated")){
         $(".loginWindow").stop();
 
@@ -183,7 +182,7 @@ function goBackToStart(){
 
 function closeLoginWindow(){
     $(".loginWindow").animate({width: 'toggle'});
-    flag = true;
+    flag = false;
 }
 
 
@@ -229,8 +228,19 @@ function checkTrolly(){
     });
 }
 
-function agreed(){
-    console.log("Active");
-    $("#panelButton").css({"background-color": "#5a179c"});
-    $('#panelButton').prop('disabled', false);
+var agreedStatus = false; 
+
+function agreedToTerms(){
+    if(!agreedStatus){
+        $(".strongButtonPanel").css({"background-color": "#5a179c"});
+        $(".strongButtonPanel").css({"cursor": "pointer"});
+        $('.strongButtonPanel').prop('disabled', false);
+        agreedStatus = true;
+    }
+    else{
+        $(".strongButtonPanel").css({"background-color": "gray"});
+        $(".strongButtonPanel").css({"cursor": "not-allowed"});
+        $('.strongButtonPanel').prop('disabled', true);    
+        agreedStatus = false;
+    }
 }
