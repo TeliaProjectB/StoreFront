@@ -41,9 +41,10 @@
 
 	<div id="errorMessagePanel" style="color:red;"></div>
 
-	<input type="checkbox" id="agreedToTerms" style="display: block; margin: 0px auto; width: 16px;">
-	<span>I agree to the </span><a href="/StoreFront/terms.php" style="color: blue; font-style: italic;">terms</a><span> and services.</span>
-	<button onclick="registerUser()" class="strongButtonPanel">Register</button>
+	<input onclick="agreedToTerms()" type="checkbox" id="agreedToTerms" style="display: block; margin: 0px auto; width: 16px;">
+	<span >I agree to the terms, see the <a href="/StoreFront/terms.php" style="color: blue; font-style: italic;"> terms</a></span>
+
+	<button type="button" onclick="registerUser()" class="strongButtonPanel strongButtonPanelRegister" disabled>Register</button>
 
 	<button class="bottomBoxSignIn flatSurface" onclick="goBackToStart()">Go back</button>
 </div>
