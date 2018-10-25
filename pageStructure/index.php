@@ -30,6 +30,7 @@
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/helpSlidingWindow.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/breadcrumbs.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/fluidText.css">
 
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/fixedHeader.js"></script>
 		
