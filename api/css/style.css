@@ -219,12 +219,14 @@
 
 
 #commentsButton{
+	padding-left: 32px;
 	background-image: url('../img/comment.svg');
 }
 
 
 
 #recommendedButton{
+	padding-left: 32px;
 	background-image: url('../img/star.svg');
 }
 
