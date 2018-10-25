@@ -82,9 +82,9 @@ define(["makeRepetitions", "animateRow"], function(makeRepetitions, animateRow){
 					clickLeftbutton();
 				});
 
-				leftButton.onclick = function(){
+				leftButton.addEventListener("mouseup",function(){
 					clickLeftbutton();
-				};
+				});
 
 
 
@@ -101,9 +101,10 @@ define(["makeRepetitions", "animateRow"], function(makeRepetitions, animateRow){
 					clickRightButton();
 				});
 
-				rightButton.onclick = function(){
+				rightButton.addEventListener("mouseup", function(){
 					clickRightButton();
-				};
+				});
+
 
 
 				var apiChildren = rowData.apiMoveWrapper.children;
