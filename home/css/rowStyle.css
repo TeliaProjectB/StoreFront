@@ -27,6 +27,7 @@
 }
 
 .rowButton{
+	user-select: none;
 	z-index: 101;
 	margin-top: 98px;
 	width: 64px;
