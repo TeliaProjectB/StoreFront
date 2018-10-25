@@ -267,13 +267,29 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			apiElement.addEventListener("mousedown", function(){
 				apiElement.className += " panelActive";
 			});
-			apiElement.onclick = function(){
+			apiElement.addEventListener("touchstart", function(){
+				apiElement.className += " panelActive";
+			});
+
+
+
+			var clickApi = function(){
 				document.body.style.cursor = "wait";
 				setTimeout(function(){
 					smartJsLink("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"));
 					document.body.style.cursor = "auto";
 				}, 60);
 			};
+			apiElement.addEventListener("mouseup", function(){
+				clickApi();
+			});
+			apiElement.addEventListener("touchend", function(){
+				clickApi();
+			});
+
+
+
+
 		}
 
 
