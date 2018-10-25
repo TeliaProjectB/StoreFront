@@ -53,25 +53,34 @@ function showSecondHeader(){
 /*function to let the dropdown "see more" work */
 $(document).ready(function(){
 
+    var allowMinimizeSeeMore = false;
     $(".dropdown > .headerButton").hover(function(){
         $('.dropdown > .dropdown-content').css("max-height", "70vh");
         $('.dropdown > .dropdown-content').css("pointer-events", "auto");
+        allowMinimizeSeeMore = true;
     }, function(){
         $(".dropdown-content").hover(function(){
             $('.dropdown > .dropdown-content').css("max-height", "70vh");
             $('.dropdown > .dropdown-content').css("pointer-events", "auto");
+            allowMinimizeSeeMore = true;
         }, function(){
             $('.dropdown > .dropdown-content').css("max-height", "0px");
             $('.dropdown > .dropdown-content').css("pointer-events", "none");
+            allowMinimizeSeeMore = false;
         });
         $('.dropdown > .dropdown-content').css("max-height", "0px");
         $('.dropdown > .dropdown-content').css("pointer-events", "none");
+        allowMinimizeSeeMore = false;
     });
 
 
 
 
-    $(document).on("click touchstart", function(e){
+
+    $(document).on("touchstart", function(e){
+        if(!allowMinimizeSeeMore){
+            return;
+        }
         var container = $(".dropdown > .dropdown-content");
 
         // if the target of the click isn't the container nor a descendant of the container
@@ -79,6 +88,7 @@ $(document).ready(function(){
         {
             $('.dropdown > .dropdown-content').css("max-height", "0px");
             $('.dropdown > .dropdown-content').css("pointer-events", "none");
+            allowMinimizeSeeMore = false;
         }
     });
 
