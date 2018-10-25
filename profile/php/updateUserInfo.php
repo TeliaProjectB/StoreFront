@@ -66,4 +66,27 @@ if(isset($_POST["newPassword"]) && isset($_POST["currentPassword"])){//Change us
 	}
 }
 
+
+
+
+if(isset($_POST["newEmail"])){//Change user last name
+	$newEmail = htmlspecialchars($_POST["newEmail"], ENT_QUOTES);
+
+	//Check if email already exists
+	$sql = "SELECT * FROM `user` WHERE `Email` = '$newEmail'";
+	$result = $conn->query($sql);
+	if(mysqli_num_rows($result) > 0){
+		header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad request', true, 400);
+		die("email");
+	}
+
+	$sql = "UPDATE `user`SET `Email`='$newEmail' WHERE `ID`=".$_SESSION["userId"];
+	$result = $conn->query($sql);
+	if(!$result){
+		header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad request', true, 400);
+		die("Could not update last name.");
+	}
+	$_SESSION["email"] = $newEmail;
+}
+
 ?>

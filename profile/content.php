@@ -106,9 +106,11 @@ if(isset($_GET["index"])){
 			<ul class="profileUl" style="display:flex; flex-direction: column;">
 				
 				<li class="profileLi">
-					<div class="liInfo"><span>Email:</span></div>
-					<input class="userInfoInput normalInput" id="inputEditButton" value="<?php echo $userEmail; ?>" disabled>
-					<!--<button class="editButton" onclick="enableEditing('inputEditButton')"></button>-->
+					<div class="liInfo">
+						<span>Email:</span>
+						<button class="editButton" onclick="enableEditing('inputEmailEdit')"></button>
+					</div>
+					<input class="userInfoInput normalInput" id="inputEmailEdit" value="<?php echo $userEmail; ?>" disabled>
 				</li>
 
 

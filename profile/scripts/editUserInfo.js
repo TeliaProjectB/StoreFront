@@ -128,7 +128,20 @@ function sendEditRequest(){
 	}
 
 
+	if(editing["inputEmailEdit"]){
+		if(!isFirst){postData+="&";};
+		postData += "newEmail="+document.getElementById("inputEmailEdit").value;
+	}
 
+
+	sendEditingRequest(postData);
+}
+
+
+
+
+
+function sendEditingRequest(postData){
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "/StoreFront/profile/php/updateUserInfo.php", true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -146,6 +159,9 @@ function sendEditRequest(){
 		   				document.getElementById("errorMessage").innerHTML = "New password must at least have 6 characters and may only contain letters A to Z, numbers 1 to 9 and _@!#£&";
 		   				document.getElementById("inputPasswordEdit1").className = "normalInput";
 		   				document.getElementById("inputPasswordEdit2").className = "normalInput userInfoInputError";
+		   			}else if(this.responseText == "email"){
+		   				document.getElementById("errorMessage").innerHTML = "That email is already in use.";
+		   				document.getElementById("inputEmailEdit").className = "normalInput userInfoInputError";
 		   			}
 		   			
 		   		}
@@ -153,12 +169,6 @@ function sendEditRequest(){
 	}
 	xhr.send(postData); 
 }
-
-
-
-
-
-
 
 
 
