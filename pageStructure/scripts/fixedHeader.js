@@ -9,7 +9,6 @@ var lastScrollTop = 0;
 $(window).scroll(function () {
     
     var scrollTop = $(this).scrollTop();
-    console.log(scrollTop);
     if (scrollTop < lastScrollTop){
         if(scrollingDown == false){
             $('.secondHeader').stop();
