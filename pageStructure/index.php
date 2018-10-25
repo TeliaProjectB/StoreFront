@@ -17,7 +17,7 @@
 <html>
 	<head>
 		<link rel="icon" href="/StoreFront/pageStructure/img/websiteIcon.png">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
 		<meta charset="utf-8">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		
