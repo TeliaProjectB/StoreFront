@@ -6,7 +6,6 @@
 		<div>
 			<div id="swaggerMinimize"></div>
 			<div id="fileSystemContainer">
-				<span id="fileSystemTitle">Functions:</span>
 				<div style="display:block;" id="fileSystem"></div>
 			</div>
 		</div>
