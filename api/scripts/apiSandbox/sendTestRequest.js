@@ -230,7 +230,7 @@ define([], function(){
 
 		function postInWindowConsole(text, textType){
 			text = text.replace(/\n/g, "</br>");
-			var textSpan = document.createElement("div");
+			var textSpan = document.createElement("p");
 			if(textType == "loading"){
 				textSpan.className = "sandBoxResponseLoading";
 			}else if(textType == "info"){
