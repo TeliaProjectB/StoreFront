@@ -19,9 +19,7 @@
 html{
 	width: 100%;
 	/*For mobile fix*/
-    /*height: 100%;*/
-    margin: 0px;
-    padding: 0px;
+    height: 100%;
     overflow-x: hidden; 
 }
 input{
@@ -31,10 +29,8 @@ input{
 body{
 	background-color:#f1f1f1;
 	/*Fix for mobile*/
-	/*width: 100%;*/
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
+	width: 100%;
+    /*overflow-x: hidden;*/
 	/* Enable hardware acceleration to fix laggy transitions 
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
