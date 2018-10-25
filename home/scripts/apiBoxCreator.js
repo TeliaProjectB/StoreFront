@@ -111,7 +111,7 @@ define([], function(){
 				smartJsLink("/StoreFront/api?id="+apiData.RandomId);
 			});
 
-			newApi.addEventListener("touchend",function(){
+			newApi.addEventListener("touch",function(){
 				smartJsLink("/StoreFront/api?id="+apiData.RandomId);
 			});
 
