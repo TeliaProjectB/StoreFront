@@ -147,7 +147,13 @@
 		margin-left:8px;
 		display:inline-block;
 	}
+}
+
+
+
+@media only screen and (max-width: 1180px){
 	.imgDecoration{
+		opacity: 0;
 		display:none;
 	}
 }
