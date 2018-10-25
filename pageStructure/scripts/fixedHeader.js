@@ -54,13 +54,21 @@ function showSecondHeader(){
 $(document).ready(function(){
 
     $(".dropdown > .headerButton").hover(function(){
-        $('.dropdown > .dropdown-content').css("max-height", "100vh");
+        $('.dropdown > .dropdown-content').css("max-height", "70vh");
+            $('.dropdown > .dropdown-content').css("pointer-events", "auto");
     }, function(){
         $(".dropdown-content").hover(function(){
-            $('.dropdown > .dropdown-content').css("max-height", "100vh");
+            $('.dropdown > .dropdown-content').css("max-height", "70vh");
+            $('.dropdown > .dropdown-content').css("pointer-events", "auto");
         }, function(){
             $('.dropdown > .dropdown-content').css("max-height", "0px");
+            $('.dropdown > .dropdown-content').css("pointer-events", "none");
         });
+        $('.dropdown > .dropdown-content').css("max-height", "0px");
+            $('.dropdown > .dropdown-content').css("pointer-events", "none");
+    });
+
+    $('.dropdown > .dropdown-content').on("click touchstart", function(){
         $('.dropdown > .dropdown-content').css("max-height", "0px");
     });
 
