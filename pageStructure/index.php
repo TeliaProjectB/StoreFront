@@ -45,7 +45,8 @@
 		<div class="pageContentWrapper">
 			<div id="head" class="sticky">
 				<!-- FIRST HEADER -->
-				<div id="firstHead" class="firstHeader" onmouseenter="showSecondHeader()">
+				<div id="firstHead" class="firstHeader" onmouseenter="showSecondHeader()" 
+				ontouchstart='showSecondHeader()' >
 					<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon">Storefront</div>
 					
 					<div id="showUsername"><?php echo $Username; ?></div>
