@@ -180,8 +180,7 @@
 }
 
 .rowButton{
-	padding: 4px;
-	padding-left: 32px;
+	padding: 4px 42px;
 	font-family: helvetica;
 	font-weight: bold;
 	background-color:transparent;
