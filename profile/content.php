@@ -36,7 +36,7 @@ function getApiFromId($apiId){
 	if (strpos($apiId, 'p') !== false) {
 		$apiId = str_replace("p", "", $apiId);
 		//Api id is from a package
-		$sql = "SELECT * FROM `APIpackage` WHERE `Id` = $apiId";
+		$sql = "SELECT * FROM `APIpackage` WHERE `PackageID` = $apiId";
 		$result = $conn->query($sql);
 
 		return $result->fetch_assoc();
