@@ -22,7 +22,7 @@ $(window).scroll(function () {
         }
         
     } else {
-        if(scrollingUp == false && scrollTop > 131){
+        if(scrollingUp == false && scrollTop > 200){
             $('.secondHeader').stop();
             $('.thirdHeader').stop();
 
