@@ -77,11 +77,11 @@ if(isset($_GET["index"])){
 }
 ?>
 
-<h1 id="welcomeHeader">
+<h2 id="welcomeHeader">
 	<?php
 		echo "Welcome ".$userFirstName." ".$userLastName;
 	?>
-</h1>
+</h2>
 
 
 
