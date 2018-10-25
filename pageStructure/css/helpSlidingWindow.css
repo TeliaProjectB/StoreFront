@@ -41,6 +41,7 @@
 }
 
 .answerText {
+    font-family: helvetica;
     display:none;
     text-decoration: none;
 	color: #000000;
