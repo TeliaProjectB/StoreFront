@@ -69,8 +69,7 @@ define(["makeRepetitions", "animateRow"], function(makeRepetitions, animateRow){
 
 				rowAnimator.addRowData(rowData);
 
-
-				leftButton.onclick = function(){
+				var clickLeftbutton = function(){
 					var maxVisibleApi = Math.floor(rowData.apiContainer.clientWidth / apiBoxSize);
 					var jumpSize = maxVisibleApi;
 					if(jumpSize > rowData.numberOfRepeatingApi){
@@ -79,13 +78,31 @@ define(["makeRepetitions", "animateRow"], function(makeRepetitions, animateRow){
 					rowAnimator.rowMoveLeft(rowData, jumpSize);
 				};
 
-				rightButton.onclick = function(){
+				leftButton.addEventListener("touchstart", function(){
+					clickLeftbutton();
+				});
+
+				leftButton.onclick = function(){
+					clickLeftbutton();
+				};
+
+
+
+				var clickRightButton = function(){
 					var maxVisibleApi = Math.floor(rowData.apiContainer.clientWidth / apiBoxSize);
 					var jumpSize = maxVisibleApi;
 					if(jumpSize > rowData.numberOfRepeatingApi){
 						jumpSize -= jumpSize-rowData.numberOfRepeatingApi;
 					}
 					rowAnimator.rowMoveRight(rowData, jumpSize);
+				};
+
+				rightButton.addEventListener("touchstart", function(){
+					clickRightButton();
+				});
+
+				rightButton.onclick = function(){
+					clickRightButton();
 				};
 
 
