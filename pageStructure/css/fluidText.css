@@ -34,6 +34,9 @@
   input{
   	font-size: 34px;
   }
+  textarea{
+    font-size: 34px;
+  }
 
 }
 
@@ -72,6 +75,10 @@
 
   input{
   	font-size: 30px;
+  }
+
+  textarea{
+    font-size: 30px;
   }
 
 }
