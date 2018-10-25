@@ -30,7 +30,7 @@ body{
 	background-color:#f1f1f1;
 	/*Fix for mobile*/
 	width: 100%;
-    /*overflow-x: hidden;*/
+	height: 100%;
 	/* Enable hardware acceleration to fix laggy transitions 
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
