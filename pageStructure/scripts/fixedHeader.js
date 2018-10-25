@@ -21,7 +21,7 @@ $(window).scroll(function () {
         }
         
     } else {
-        if(scrollingUp == false && scrollTop > 200){
+        if(scrollingUp == false && scrollTop > 131){
             $('.secondHeader').stop();
             $('.thirdHeader').stop();
 
@@ -54,14 +54,14 @@ function showSecondHeader(){
 $(document).ready(function(){
 
     $(".dropdown > .headerButton").hover(function(){
-        $('.dropdown > .dropdown-content').css("height", "210px");
+        $('.dropdown > .dropdown-content').css("max-height", "100vh");
     }, function(){
         $(".dropdown-content").hover(function(){
-            $('.dropdown > .dropdown-content').css("height", "210px");
+            $('.dropdown > .dropdown-content').css("max-height", "100vh");
         }, function(){
-            $('.dropdown > .dropdown-content').css("height", "0px");
+            $('.dropdown > .dropdown-content').css("max-height", "0px");
         });
-        $('.dropdown > .dropdown-content').css("height", "0px");
+        $('.dropdown > .dropdown-content').css("max-height", "0px");
     });
 
 });
