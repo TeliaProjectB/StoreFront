@@ -124,7 +124,7 @@
 
 			<!-- LOGIN WINDOW -->
 			<div class="loginWindow">
-				<div class="posisionOfTheloginWindow">
+				<div class="positionOfTheloginWindow">
 						
 					<?php
 						if(isset($_SESSION["userId"]) === false){
