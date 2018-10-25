@@ -1,6 +1,7 @@
 .simpleBoxContainer{
 	margin-top: 24px;
 	display:flex;
+	flex: 1 0 auto;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
