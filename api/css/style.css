@@ -64,6 +64,7 @@
 	width: 256px;
 	background-color: white;
 	transition: transform 0.1s ease-in;
+	padding-bottom: 5vh;
 }
 
 #infoPanel{
@@ -154,7 +155,7 @@
 #info1{
 	display:flex;
 	flex-direction: column;
-	padding-bottom:32px;
+	padding-bottom:10vh;
 	background-color: white;
 }
 
