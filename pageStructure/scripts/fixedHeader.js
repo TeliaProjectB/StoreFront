@@ -68,7 +68,7 @@ $(document).ready(function(){
         $('.dropdown > .dropdown-content').css("pointer-events", "none");
     });
 
-    $(document).on("click touchstart", function(){
+    $(document).click(function(e){
         var container = $(".dropdown > .dropdown-content");
 
         // if the target of the click isn't the container nor a descendant of the container
