@@ -36,6 +36,8 @@ span{
 }
 
 .linkBought{
+	margin-right: 10%;
+	padding-left: 16px;
 	display: block;
 }
 .boughtApi{
