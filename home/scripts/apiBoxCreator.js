@@ -38,7 +38,7 @@ define([], function(){
 				price.innerHTML = "Free";
 			}
 			else {
-				price.innerHTML = "Price: "+apiData.Price+" kr";
+				price.innerHTML = apiData.Price+" kr";
 			}
 
 			titleDescContainer.appendChild(apiTitle);
