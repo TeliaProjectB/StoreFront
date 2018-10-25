@@ -38,6 +38,10 @@ span{
 	font-family: helvetica;
 }
 
+pre{
+	white-space: pre-wrap; 
+	word-break: break-all;
+}
 #contentID {
 	margin-top:148px;
 }
