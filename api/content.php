@@ -166,7 +166,7 @@ require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/api/php/getRecommendedApiGetData.
 					require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/api/php/htmlFromPhp/panelSandbox.php';
 				}else{
 					echo "<div id='firstPanel'>";
-						require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/api/php/getIncludedAPI/getIncludedAPI.php';
+						require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/api/php/getIncludedApi/getIncludedAPI.php';
 					echo "</div>";
 				}
 			?>
