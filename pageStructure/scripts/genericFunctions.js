@@ -27,6 +27,7 @@ document.addEventListener("keyup", function(e){
 function smartJsLink(smartLinkURL){
 	if(documentCTRLKeyIsActivated){
 		window.open(smartLinkURL);
+		window.focus();
 	}else{
 		window.open(smartLinkURL, "_self");
 	}
