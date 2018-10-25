@@ -35,6 +35,7 @@
 		public $Price = "";
 		public $imgName = "";
 		public $trolleyId = "";
+		public $isPackage = "";
 	}
 
 	if(!isset($_SESSION["userId"])){
@@ -68,6 +69,7 @@
 			$newObj->Price = $apiResult["Price"];
 			$newObj->imgName = getRealImageSrc($apiResult["ImgName"]);
 			$newObj->trolleyId = $row["IDApi"];
+			$newObj->isPackage = true;
 		}
 		else{
 			$sql = "SELECT * FROM `API` WHERE `Id`=".$row["IDApi"];
@@ -82,6 +84,7 @@
 			$newObj->Price = $apiResult["Price"];
 			$newObj->imgName = getRealImageSrc($apiResult["ImgName"]);
 			$newObj->trolleyId = $row["IDApi"];
+			$newObj->isPackage = false;
 		}
 		array_push($arrOfApi, $newObj);
 	}
@@ -102,10 +105,15 @@
 				if($counter%2==0){
 					$classBackgroundUse = "back2";
 				}
+				$url = "/StoreFront/api/?id=".$api->RandomId;
+				if($api->isPackage) {
+					$url .= "&p=true";
+				}
+
 				echo "<div class='row $classBackgroundUse' id='apiRow".$counter."'>
 						<div class='removeApi' onclick='removeApiFromCart(\"$api->trolleyId\", \"apiRow$counter\")'></div>
 						<div class='rowTitleCon'>
-							<a href='/StoreFront/api/?id=$api->RandomId&p=true' class='apiRowTitle'>$api->Name</a>
+							<a href='$url' class='apiRowTitle'>$api->Name</a>
 						</div>
 						
 
@@ -133,6 +141,7 @@
 	
 
 	<div id="priceAmount"><?php
+	
 		echo "Total amount: ".$totalAmount." kronor.";
 	?></div>
 
