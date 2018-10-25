@@ -18,7 +18,7 @@ define([], function(){
 			nameTag.innerHTML = userName +"  -  "+messageSentDate;
 			absoluteContainer.appendChild(nameTag);
 
-			var textContainer = document.createElement("div");
+			var textContainer = document.createElement("span");
 			textContainer.className = "messageBoxText";
 			textContainer.innerHTML = text;
 			absoluteContainer.appendChild(textContainer);
