@@ -9,7 +9,7 @@ class registerUser{
 		$sql = "SELECT * from `user` WHERE `Email`='$email'";
 
 		$result = $conn->query($sql);
-		if($result->num_rows > 0){
+		if(mysqli_num_rows($result) > 0){
 			return false;
 		}
 
