@@ -283,7 +283,7 @@ define(["retrieveApi", "makeRepetitions"], function(retrieveApi, makeRepetitions
 			apiElement.addEventListener("mouseup", function(){
 				clickApi();
 			});
-			apiElement.addEventListener("touchend", function(){
+			apiElement.addEventListener("touch", function(){
 				clickApi();
 			});
 
