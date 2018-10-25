@@ -28,7 +28,7 @@ if($isPackage == false){
 
 
 
-$purchasebuttonText = "sign in to purchase";
+$purchasebuttonText = "Sign in to purchase";
 
 $onClickBuyButtonFunc = "openRegisterPanel()";
 if(isset($_SESSION["userId"])){
