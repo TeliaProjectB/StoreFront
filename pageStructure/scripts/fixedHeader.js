@@ -9,6 +9,7 @@ var lastScrollTop = 0;
 $(window).scroll(function () {
     
     var scrollTop = $(this).scrollTop();
+    console.log(scrollTop);
     if (scrollTop < lastScrollTop){
         if(scrollingDown == false){
             $('.secondHeader').stop();
@@ -21,7 +22,7 @@ $(window).scroll(function () {
         }
         
     } else {
-        if(scrollingUp == false){
+        if(scrollingUp == false && scrollTop > 131){
             $('.secondHeader').stop();
             $('.thirdHeader').stop();
 
