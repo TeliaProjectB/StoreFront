@@ -107,11 +107,20 @@ define([], function(){
 			apiContainer.appendChild(newApi);
 			
 			
-			newApi.onclick = function(){
+			newApi.addEventListener("mouseup",function(){
 				smartJsLink("/StoreFront/api?id="+apiData.RandomId);
-			};
+			});
+
+			newApi.addEventListener("touchend",function(){
+				smartJsLink("/StoreFront/api?id="+apiData.RandomId);
+			});
+
 
 			newApi.addEventListener("mousedown", function(){
+				newApi.className += " panelActive";
+			});
+
+			newApi.addEventListener("touchstart", function(){
 				newApi.className += " panelActive";
 			});
 
