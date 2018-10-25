@@ -104,7 +104,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 		}
 
 		function addProduceConsume(consumes, produces){
-			var subtitle = document.createElement("div");
+			var subtitle = document.createElement("p");
 			subtitle.className = "swaggerSubtitle";
 			subtitle.innerHTML = "Consumes: "+consumes+".     Produces: "+produces;
 			parameterContainer.appendChild(subtitle);
