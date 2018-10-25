@@ -55,7 +55,7 @@ $(document).ready(function(){
 
     $(".dropdown > .headerButton").hover(function(){
         $('.dropdown > .dropdown-content').css("max-height", "70vh");
-            $('.dropdown > .dropdown-content').css("pointer-events", "auto");
+        $('.dropdown > .dropdown-content').css("pointer-events", "auto");
     }, function(){
         $(".dropdown-content").hover(function(){
             $('.dropdown > .dropdown-content').css("max-height", "70vh");
@@ -65,11 +65,18 @@ $(document).ready(function(){
             $('.dropdown > .dropdown-content').css("pointer-events", "none");
         });
         $('.dropdown > .dropdown-content').css("max-height", "0px");
-            $('.dropdown > .dropdown-content').css("pointer-events", "none");
+        $('.dropdown > .dropdown-content').css("pointer-events", "none");
     });
 
-    $('.dropdown > .dropdown-content').on("click touchstart", function(){
-        $('.dropdown > .dropdown-content').css("max-height", "0px");
+    $(document).on("click touchstart", function(){
+        var container = $(".dropdown > .dropdown-content");
+
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0) 
+        {
+            $('.dropdown > .dropdown-content').css("max-height", "70vh");
+            $('.dropdown > .dropdown-content').css("pointer-events", "auto");
+        }
     });
 
 });
