@@ -10,15 +10,46 @@
   .breadcrumbs{
     display: none;
   }
+
+  #firstHead{
+    height: 86px;
+  }
+
+  #thirdHead{
+    height: 0px;
+  }
+
+  #secondHead{
+    max-height: 69px;
+    margin-bottom: 0px;
+  }
+
+  #contentID{
+    margin-top: 164px;
+  }
   
-  #shoppingBag{
+  #trolley{
     width: 48px;
     height: 48px;
+  }
+
+  #searchBar{
+    margin-left: 5vw;
   }
 
   #helpContact{
     width: 48px;
     height: 48px;
+  }
+
+  #userIcon{
+    width: 98px;
+    height: 98px;
+  }
+
+  #showUsername{
+    font-size: 30px;
+    margin-right: 128px;
   }
 
   h1 {
