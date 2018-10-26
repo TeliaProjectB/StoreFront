@@ -94,3 +94,13 @@
 	display:flex;
 	float:right;
 }
+
+
+@media only screen and (max-width: 768px) {
+	#footerIconContainer{
+		display: none;
+	}
+	#footerInfoRight{
+		display: none;
+	}
+}
