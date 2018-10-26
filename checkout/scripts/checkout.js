@@ -32,10 +32,14 @@ function updatePrice(){
 
 	var newPrice = 0;
 	var prices = document.getElementsByClassName("apiRowPrice");
+	
 	for(var i=0; i<prices.length; i++){
+
+		prices[i].innerHTML = prices[i].innerHTML.replace(" ","");
+
 		newPrice += parseInt(prices[i].innerHTML, 10);
 	}
-
+	
 	priceContainer.innerHTML = "Total amount: "+newPrice+" kronor.";
 }
 
