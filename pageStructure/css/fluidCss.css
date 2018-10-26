@@ -1,0 +1,114 @@
+@media only screen and (max-width: 1000px) {
+  #goToTopText{
+    display: none;
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .breadcrumbs{
+    display: none;
+  }
+  
+  #shoppingBag{
+    width: 48px;
+    height: 48px;
+  }
+
+  #helpContact{
+    width: 48px;
+    height: 48px;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 50px;
+  }
+
+  p {
+    font-size: 39px;
+  }
+
+  button {
+    font-size: 30px;
+  }
+
+  td {
+    font-size: 39px;
+  }
+
+  span {
+    font-size: 39px;
+  }
+
+  div {
+    font-size: 31px;
+  }
+
+  a {
+    font-size: 31px;
+  }
+
+  pre{
+  	font-size: 34px;
+  }
+
+  input{
+  	font-size: 34px;
+  }
+  textarea{
+    font-size: 34px;
+  }
+
+}
+
+@media only screen and (max-width: 320px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 39px;
+  }
+
+  p {
+    font-size: 35px;
+  }
+
+  button {
+    font-size: 28px;
+  }
+
+  td {
+    font-size: 35px;
+  }
+
+  span {
+    font-size: 35px;
+  }
+
+  div {
+    font-size: 29px;
+  }
+
+  a {
+    font-size: 29px;
+  }
+
+  pre{
+  	font-size: 28px;
+  }
+
+  input{
+  	font-size: 30px;
+  }
+
+  textarea{
+    font-size: 30px;
+  }
+
+}
