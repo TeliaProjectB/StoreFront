@@ -44,7 +44,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/StoreFront/homeSplashPage/content.php";
 
 
 
-<!--<div id="allCategory" class="contentRow" name="All"></div>-->
+<div id="allCategory" class="contentRow" name="All"></div>
 
 
 <!-- COMPLETE WITH SHOWING ALL THE SINGLE CATEGORIES IN BOXES -->
