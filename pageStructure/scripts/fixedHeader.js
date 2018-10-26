@@ -74,7 +74,11 @@ $(document).ready(function(){
     });
 
 
-
+    $(".dropdown > .headerButton").on("touchstart", function(){
+        $('.dropdown > .dropdown-content').css("max-height", "70vh");
+        $('.dropdown > .dropdown-content').css("pointer-events", "auto");
+        allowMinimizeSeeMore = true;
+    });
 
 
     $(document).on("touchstart", function(e){
