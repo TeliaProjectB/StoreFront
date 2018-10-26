@@ -30,7 +30,7 @@
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/helpSlidingWindow.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/breadcrumbs.css">
-		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/fluidText.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/fluidCss.css">
 
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/fixedHeader.js"></script>
 		
@@ -60,9 +60,9 @@
 					<button class="headerButton" onclick="scrollDownTo('Free')">Free</button>
 					<button class="headerButton" onclick="scrollDownTo('Most liked')">Most liked</button>
 					<div class="dropdown" ><!-- onmouseenter="openDropdown()" onmouseleave="closeDropDown()" -->
-						<button class="headerButton " style="display:inline;" >See more &nbsp;<i class="down"></i></button>
+						<button class="headerButton" id="seeMoreButton" style="display:inline;" >See more &nbsp;<i class="down"></i></button>
 						
-						    <div class="dropdown-content">
+						    <div class="dropdown-content" id="seeMoreContent">
 								<div class="column">     
 								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Most bought')">Most bought</button>
 								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=SMS')">SMS</button>
