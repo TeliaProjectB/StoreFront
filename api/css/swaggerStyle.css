@@ -128,7 +128,8 @@
 	margin: 0px auto;
 	margin-top: 48px;
 	font-family: helvetica;
-	width: 116px;
+	word-break: keep-all;
+	width: 132px;
 	text-align: center;
 	display: block;
 }
