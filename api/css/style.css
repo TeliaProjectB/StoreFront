@@ -72,7 +72,11 @@
 }
 
 #sandboxPanel{
+	overflow: hidden;
 	background-color:white;
+	display:flex;
+	flex-direction: row;
+	word-break: break-word;
 }
 
 #commentPanel{

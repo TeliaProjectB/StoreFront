@@ -3,7 +3,7 @@
 /*Actual size*/
 .fileExplorerSize{
 	/*Change this to get a different size on the file system*/
-	width: 232px;
+	width: 364px;
 	height: 100%;
 	
 	min-width: 128px;

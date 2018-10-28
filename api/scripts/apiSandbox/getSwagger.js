@@ -2,7 +2,7 @@ define([], function(){
 	"use strict";
 	
 	function initModule(){
-		//If the api has no swagger file wwe return the exampe petstoe swagger file
+		//If the api has no swagger file wwe return the exampe pet store swagger file
 		var petStoreSwagger= {
 			  "swagger": "2.0",
 			  "info": {
@@ -246,6 +246,7 @@ define([], function(){
 		/*Retrieves the swagger text from the api row of the current api. If the swagger file is null false is returned instead*/
 		this.getSwagger = function(apiId, onLoad){
 			swaggerAjax("randomId="+apiId, "/StoreFront/api/php/getApiSwaggerFile.php", function(response){
+				//console.log(response.responseText);
 				if(response.status == 200){
 					if(response.responseText == ""){
 						onLoad(petStoreSwagger);
@@ -254,7 +255,7 @@ define([], function(){
 						return;
 					}
 					var swaggerObject = JSON.parse(response.responseText);
-					console.log(swaggerObject);
+					//console.log(swaggerObject);
 					onLoad(swaggerObject);
 				}else{
 					onLoad(false);

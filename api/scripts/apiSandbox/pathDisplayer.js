@@ -43,9 +43,10 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			currentPathData = pathData;
 			currentPatchName = name;
 			requestMethod = requestType;
+
 			cleanWindow();
 
-			addTitle(pathData, name);
+			addTitle(pathData, name, requestMethod);
 			addProduceConsume(consumes, produces);
 			addMainDescription(pathData);
 			addParameters(pathData);
@@ -159,17 +160,31 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			responsesContainer.appendChild(listOfResponses);
 		}
 
-		function addTitle(pathData, name){
+		function addTitle(pathData, name, requestMethod){
 			var title = document.createElement("h1");
 			title.style.wordBreak = "break-all";
-			title.innerHTML = name;
+			var methodTypeHTML = "";
+			
+			if(requestMethod == "GET"){
+				methodTypeHTML = "<span style='color: green;'>"+requestMethod+"</span>";
+			}else if(requestMethod == "POST"){
+				methodTypeHTML = "<span style='color: blue;'>"+requestMethod+"</span>";
+			}else if(requestMethod == "DELETE"){
+				methodTypeHTML = "<span style='color: red;'>"+requestMethod+"</span>";
+			}else if(requestMethod == "PATCH"){
+				methodTypeHTML = "<span style='color: purple;'>"+requestMethod+"</span>";
+			}
+			title.innerHTML = methodTypeHTML+": "+name;
 			parameterContainer.appendChild(title);
 		}
 
 		function addMainDescription(pathData){
 			if(pathData.description != undefined){
+				//add <br> instead of \n
+				pathData.description = pathData.description.replace(/\n/g, "<br />");
 				var mainDesc = document.createElement("span");
-				mainDesc.innerHTML = "<h2>Function description:</h2><br>"+pathData.description;
+				mainDesc.style.width = "90%";
+				mainDesc.innerHTML = "<h2>Function description:</h2><br>"+"<p>"+pathData.description+"</p>";
 				parameterContainer.appendChild(mainDesc);
 			}
 		}
@@ -245,7 +260,10 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 				row.appendChild(leftPartContainer);
 				
 
-				row.appendChild(propertiesinput.parseInput(swaggerObject, i));
+				var paramRightInput = propertiesinput.parseInput(swaggerObject, i);
+				paramRightInput.style.display = "flex";
+				paramRightInput.style.flex = "1";
+				row.appendChild(paramRightInput);
 				listOfPrams.appendChild(row);
 			}
 

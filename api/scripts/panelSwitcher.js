@@ -24,7 +24,7 @@
 		sandboxButton.onclick = function(){
 			resetAllButtonsColors();
 			hideAllPanels();
-			sandboxPanel.style.display = "block";
+			sandboxPanel.style.display = "flex";
 			sandboxButton.className = "rowButton panelButtonBackground rowButtonActive";
 			//sandboxButton.style.backgroundColor = "#cc00ff";
 		};

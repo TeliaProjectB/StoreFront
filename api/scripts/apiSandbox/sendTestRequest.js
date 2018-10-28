@@ -5,6 +5,7 @@ define([], function(){
 		var consumes = "text/plain";
 		var produces = "text/plain";
 
+		var errorInInputFields = "";
 
 		var sendingRequest  = false;
 
@@ -54,6 +55,7 @@ define([], function(){
 
 
 		this.send = function(pathData, requestUrl, requestMethod, onResponse){
+			errorInInputFields = "";
 			if(sendingRequest){
 				postInWindowConsole("Please wait\n", "error");
 				return;
@@ -92,22 +94,21 @@ define([], function(){
 				}
 			}
 
-			//console.log(bodyData);
+			console.log("bodyData: ");
+			console.log(bodyData);
+
+			if(errorInInputFields !== ""){
+				errorInInputFields = errorInInputFields.substring(0, errorInInputFields.length-2);
+				clearConsole();
+				postInWindowConsole("All required fields are not set. See: "+errorInInputFields+".", "error");
+				return;
+			}
 
 			requestUrl = getSendingScheme(requestUrl);
-			
-
-
 			clearConsole();
 			postInWindowConsole("Sending "+sendingType+" request to: \n", "loading");
 			postInWindowConsole(requestUrl+"\n\n", "info");
-
-
 			makeAjaxRequest(requestUrl, requestMethod, bodyData, onResponse);
-
-			
-
-			//console.log("requestUrl: "+requestUrl);
 		}
 
 
@@ -173,21 +174,44 @@ define([], function(){
 
 
 		function getValueFromParam(param){
-			if(param.inputType == "number"){
-				return parseFloat(param.inputField.value);
-			}else if(param.inputType == "integer"){
-				return parseInt(param.inputField.value, 10);
-			}else if(param.inputType == "string"){
-				return param.inputField.value;
-			}else if(param.inputType == "boolean"){
-				if(param.inputField.value === "true" || 
-					param.inputField.value === true || 
-					param.inputField.value === 1){
-					return true;
-				}
-				return false;
+			var returnVal = null;
+			var inputValue;
+			if(param.inputField.tagName == "INPUT"){
+				inputValue = param.inputField.value;
+			}else if(param.inputField.tagName == "SELECT"){
+				inputValue = param.inputField.options[param.inputField.selectedIndex].value;
 			}
-			return null;
+
+
+			if(param.inputField.getAttribute("required") == "true" && inputValue === ""){
+				errorInInputFields += "\n"+param.name+", ";
+			}
+
+
+			if(param.inputType == "number"){
+				returnVal = parseFloat(inputValue);
+				if(isNaN(returnVal)){
+					errorInInputFields += "\n"+param.name+", ";
+				}
+			}else if(param.inputType == "integer"){
+				returnVal = parseInt(inputValue, 10);
+				if(isNaN(returnVal)){
+					errorInInputFields += "\n"+param.name+", ";
+				}
+			}else if(param.inputType == "string"){
+				returnVal = inputValue;
+			}else if(param.inputType == "boolean"){
+				if(inputValue === "true" || 
+					inputValue === true || 
+					inputValue === 1){
+					returnVal = true;
+				}else{
+					returnVal = false;
+				}
+			}
+
+			
+			return inputValue;
 		}
 
 

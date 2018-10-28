@@ -20,8 +20,10 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 
 
 		var fileSystemVisible = true;
+		var fileSystemTitle = document.getElementById("sandboxFileSystemTitle");
 		var fileSystemContainer = document.getElementById("fileSystemContainer");
 		var fileSystemElem = document.getElementById("fileSystem");
+		var swaggerPatchInfo = document.getElementById("swaggerPatchInfo");
 		
 		var fileSystem = new prettyFiles.init().getInit("fileSystem", parameters);
 		var fileSystemSizeDiv = document.getElementById("fileSystem").childNodes[0];
@@ -36,6 +38,9 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 		calls a function from the filesystem to create a structure from a javascript object*/
 		var dataStructure = [];
 
+		
+		var fileSystemClickScrollPos = null;
+
 		//public
 		this.addPath = function(pathName, pathData, consumes, produces){
 			//Collect all similar path names into the same folder name
@@ -47,6 +52,7 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 			addPatchFunc(pathName, pathData);
 		}
 
+
 		this.setBasePath = function(basePath){
 			pathWindow.setBasePath(basePath);
 		}
@@ -56,9 +62,9 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 		}
 
 
-
-		fileSystemMinimizer.onclick = function(){
-			
+		
+		var minimizeFilesystem = function(){
+			//Function to minimize filesystem when clicking the arrow above it
 			fileSystemSizeDiv.style.transition = "width 0.24s ease-in";
 			fileSystemSizeDiv.style.webkitTransition = "width 0.24s ease-in";
 
@@ -67,6 +73,7 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 			fileSystemContainer.style.webkitTransition = "opacity 0.24s ease-in";
 
 			if(fileSystemVisible){
+				fileSystemTitle.style.display = "none";
 				fileSystemSizeDiv.style.width = "0px";
 				fileSystemContainer.style.opacity = "0";
 				fileSystemSizeDiv.style.minWidth = "0px";
@@ -74,6 +81,9 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 				fileSystemVisible = false;
 				fileSystemMinimizer.style.transform = "rotate(180deg)";
 			}else{
+				setTimeout(function(){
+					fileSystemTitle.style.display = "block";
+				}, 240);
 				fileSystemContainer.style.opacity = "1";
 				fileSystemSizeDiv.style.width = originalWidth;
 				fileSystemMinimizer.style.transform = "rotate(0deg)";
@@ -83,6 +93,9 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 			
 			
 		};
+		fileSystemMinimizer.onclick = minimizeFilesystem;
+
+		
 
 
 		fileSystem.onClickFile = function(name, id, image, customData){
@@ -96,13 +109,15 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 				customData.requestType);
 
 			//Update filesystem height
-			fileSystemElem.style.height = document.getElementById("swaggerPatchInfo").offsetHeight+"px";
+			fileSystemElem.style.height = swaggerPatchInfo.offsetHeight+"px";
 			//
 
 			if(document.getElementById("apiSandboxInfo") != null){
 				document.getElementById("apiSandboxInfo").parentElement.removeChild(document.getElementById("apiSandboxInfo"));
-				document.getElementById("sandboxArrowLeft").parentElement.removeChild(document.getElementById("sandboxArrowLeft"));
 			}
+
+			fileSystemClickScrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+
 		};
 
 		function addRootFolder(pathName, pathData, consumes, produces){
@@ -202,6 +217,19 @@ define(["scripts/apiSandbox/pathDisplayer", "scripts/apiSandbox/parameterManager
 			}
 			return rootName;
 		}
+
+
+
+		swaggerPatchInfo.addEventListener("mouseup", function(){
+			if(fileSystemVisible){
+				minimizeFilesystem();
+			}
+		});
+		swaggerPatchInfo.addEventListener("touch", function(){
+			if(fileSystemVisible){
+				minimizeFilesystem();
+			}
+		});
 
 	}return{
 		init: initModule

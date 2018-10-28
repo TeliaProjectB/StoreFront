@@ -21,7 +21,6 @@ define([], function(){
 
 
 		this.getParameters = function(){
-			console.log(list);
 			return list;
 		}
 		
