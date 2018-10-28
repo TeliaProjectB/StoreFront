@@ -1,22 +1,22 @@
 <div id="sandboxPanel">
 	<!--<div id="sandboxArea"></div>-->
 				
-	<div style="display:flex; flex-direction: row; word-break: break-word;">
 
-		<div>
+		<div id="swaggerFileSystemContainer">
 			<div id="swaggerMinimize"></div>
 			<div id="fileSystemContainer">
+				<p id="sandboxFileSystemTitle">API functions ↴</p>
 				<div style="display:block;" id="fileSystem"></div>
 			</div>
 		</div>
 						
 		<div id="swaggerPatchInfo">
-			<p style="display:block;" id="apiSandboxInfo">
-				API(Application Programming Interface) gives you a way to communicate with another program, service or database. They can have one or multiple functions that take in multiple parameters. Here you can try out different functions of this API. Open a folder in the functions explorer and select a function.							
-			</p>
-			<div id="sandboxArrowLeft"></div>
+			<div id="apiSandboxInfo" style="padding: 16px;">
+				<iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/s7wmiS2mSXY?controls=0&amp;start=3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			</div>
+			
+			
 		</div>
-				
-	</div>
+			
 
 </div>

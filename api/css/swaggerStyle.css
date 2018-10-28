@@ -33,6 +33,7 @@
 }
 
 .swaggerAreaForInput{
+	width: 100%;
 	overflow: hidden;
 	/*margin-bottom: 16px;*/
 	border-left: dotted 3px rgba(0, 0, 0, 0.6);
@@ -54,9 +55,11 @@
 	background-color: white;
 	display:block;
 	width: 90%;
-	padding: 2px;
-	border:solid 1px gray;
+	padding: 6px;
+	border-radius: 6px;
+	border:solid 1px #e8e8e8;
 	margin: 4px;
+	box-shadow: 0px 2px 24px -6px rgba(0,0,0,0.12);
 }
 
 .inputDescription{
@@ -186,6 +189,9 @@
 	font-family: helvetica;
 }
 
+#swaggerFileSystemContainer{
+	box-shadow: 0px 0px 76px -17px rgba(0,0,0,0.55);
+}
 
 .sandBoxResponseLoading{
 	color: #16547c;
