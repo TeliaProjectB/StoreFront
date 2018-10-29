@@ -1,6 +1,5 @@
 function addToCart(apiId, isPackage){
-	var sideBarContent = document.getElementById("sideBarRealContent");
-	var header= document.getElementById("head");
+	var header = document.getElementById("head");
 	var cloneParent  = document.getElementById("apiIcon");
 	var offsets = cloneParent.getBoundingClientRect();
 	var clonedImage = cloneParent.cloneNode();
@@ -20,7 +19,7 @@ function addToCart(apiId, isPackage){
 	var doc = document.documentElement;
 	var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
 
-	var leftContainerOffsetTop = sideBarContent.offsetTop-scrollTop;
+	var leftContainerOffsetTop = cloneParent.getBoundingClientRect().top;//-scrollTop;
 	/*var leftContainerOffsetTop = parseInt(sideBarContent.style.top, 10);
 	if(leftContainerOffsetTop == 0){
 		offsetTopRelativePos = header.offsetHeight;
