@@ -7,6 +7,6 @@
 </button>
 <button class="rowButton panelButtonBackground"  id="recommendedButton">
 	<div id="panelNumber">
-		<?php echo count($filterResult); ?>
+		<?php echo $limitedFilterResult; ?>
 	</div>Recommended
 </button>

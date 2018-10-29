@@ -1,10 +1,10 @@
 <?php  
 
 
-$limit = 8;
+$limit = 32;
 $counter = 0;
 foreach($filterResult as $api){
-	if($counter >= $limit){
+	if($counter > $limit){
 		break;
 	}
 		

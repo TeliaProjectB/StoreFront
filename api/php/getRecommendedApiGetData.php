@@ -214,8 +214,10 @@ for($i=0; $i<count($limitedKeys); $i++){
 
 
 $filterResult = $filter->getContainer();
-
-
+$limitedFilterResult = count($filterResult);
+if($limitedFilterResult > 32){
+	$limitedFilterResult  = 32;
+}
 
 
 
