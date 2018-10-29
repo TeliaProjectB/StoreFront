@@ -141,8 +141,7 @@
 	
 
 	<div id="priceAmount"><?php
-	
-		echo "Total amount: ".$totalAmount." kronor.";
+		echo "Total amount: ".number_format($totalAmount, 0, '', ' ') ." kronor.";
 	?></div>
 
 	<?php
