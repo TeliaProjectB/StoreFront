@@ -104,7 +104,9 @@
 }
 
 .parListName{
+	word-break:break-word;
 	display:block;
+	max-width: 128px;
 }
 .parListType{
 	font-weight: bold;
