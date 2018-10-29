@@ -38,8 +38,10 @@ function updatePrice(){
 		prices[i].innerHTML = prices[i].innerHTML.replace(" ","");
 
 		newPrice += parseInt(prices[i].innerHTML, 10);
+		prices[i].innerHTML = prices[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); 
 	}
-	
+
+	newPrice = newPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); 
 	priceContainer.innerHTML = "Total amount: "+newPrice+" kronor.";
 }
 
