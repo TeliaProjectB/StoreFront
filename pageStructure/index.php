@@ -192,7 +192,7 @@
         	document.getElementById("homeBreadcrumb").style.display="inline";
 
         	$('.breadcrumbs li+li').attr('content-before','/');
-        	document.getElementById('secondPage').innerHTML = getURLVariable("cat").replace(/[&\/\\#,+()$~%207.'":*?<>{}]/g, ' ');
+        	document.getElementById('secondPage').innerHTML = getURL("cat").replace(/[&\/\\#,+()$~%207.'":*?<>{}]/g, ' ');
         	break;
     	case "/StoreFront/profile/":
         	document.getElementById("homeBreadcrumb").style.display="inline";
