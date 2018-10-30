@@ -215,6 +215,7 @@
 }
 
 #itemCount {
+	pointer-events: none;
 	font-family: helvetica nueve,helvetica;
 	position:absolute;
 	display: none;
