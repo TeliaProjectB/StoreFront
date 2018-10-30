@@ -189,7 +189,7 @@ if(isset($_GET["index"])){
 	<h2 onclick="clickPanelMinMax('panelContentPayment', 'panelMinMax3')" class="panelHeaderTitle">Payment <div class="minmaxIcon <?php echo $paymentPanelMinMax; ?>" id="panelMinMax3"></h2>
 	<div class="panelContent" id="panelContentPayment" <?php echo $paymentPanelVisible;?> >
 		<div style="text-align: center; margin: 32px;">
-			<button class="strongButton" style="font-size: 20px;">Kivra</button>
+			<button class="strongButton" style="font-size: 20px;">Klarna</button>
 			<button class="strongButton" style="font-size: 20px;">Paypal</button>
 		</div>
 		
