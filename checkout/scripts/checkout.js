@@ -29,6 +29,22 @@ function removeApiFromCart(apiId, element){
 	xhr.send(postData);
 }
 
+
+function removeAllItems(){
+	if(!confirm("Are yousure you want to empty your whole cart?")){
+		return;
+	}
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "/StoreFront/checkout/php/emptyWholeCart.php", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.onreadystatechange = function() {//Call a function when the state changes.
+		if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+			window.open("/StoreFront/checkout/", "_self");
+		}
+	}
+	xhr.send();
+}
+
 function updatePrice(){
 	var priceContainer = document.getElementById("priceAmount");
 
