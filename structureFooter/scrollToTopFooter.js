@@ -1,3 +1,5 @@
+/* make the button go to top work */
+
 function footerScrollToTop(){
 	$([document.documentElement, document.body]).animate({
 		scrollTop: '0px',
