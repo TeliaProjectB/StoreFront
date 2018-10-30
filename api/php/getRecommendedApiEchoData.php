@@ -12,7 +12,13 @@ foreach($filterResult as $api){
 
 	$imgSrc = $api->objectData["ImgName"];
 
-	echo "<div class='recApiCon' onclick='smartJsLink(\"/StoreFront/api/?id=".$api->objectData["RandomId"]."\")'>
+	$apiUrl = $api->objectData["RandomId"];
+
+	if($api->isPackage){
+		$apiUrl .= "&p=true";
+	}
+
+	echo "<div class='recApiCon' onclick='smartJsLink(\"/StoreFront/api/?id=".$apiUrl."\")'>
 			<div class='recApiTitle'>".$api->objectData["Name"]."</div>
 			<div class='recImgTxtCon'>
 				<div class='recApiImage' style='background-image:url(\" /StoreFront/globalImages/API/$imgSrc\")'></div>
