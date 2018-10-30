@@ -41,7 +41,7 @@ function getDisLikesFromAPI($apiId){
 
 
 /*if the user click on header or home the name of category should show only the api of that category */
-/*if the user search in the search bar should show thanks to keyword also in description and name api */
+/*if the user search in the search bar should show the api depening on the keywords in description and name api */
 
 $SpecialCase = false;
 
