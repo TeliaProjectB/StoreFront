@@ -21,7 +21,8 @@
 	padding: 18px;
 	margin: 10px;
 }
-.positionOfTheloginWindow{
+.posisionOfTheloginWindow{
+    width: 325px;
 	text-align: center;	
 }
 
@@ -40,7 +41,7 @@
 .normalInput {
     font-size: 16px;
     border: 1px solid #9e9e9e;
-    padding: .40em 1.7em 0.38em 1em;
+    padding: 1.0em 1.7em .38em 1.0em;
     border-radius: 6px;
     width: 200px;
     background-color: white;
@@ -67,6 +68,8 @@
 }
 
 .bottomBoxSignIn {
+    font-size: 20px;
+    width: 130px;
     padding: 10px;
     margin: 10px;
     cursor: pointer;
@@ -83,23 +86,21 @@
 	display: none;
 }
 
-.closePanelButton{
-    border-radius: 50%;
+.closeLoginButton{	
+	padding: 10px;
+	margin: 10px;
 	cursor: pointer;
     background-color: #ffffff;
-    background-image: url('../img/close.svg');
+    background-image: url('../img/close.png');
 	background-repeat: no-repeat;
 	background-position: center;
     background-size: contain;
-    display: block;
     width: 30px;
 	height: 30px;
-    padding: 10px;
-    margin: 10px auto;
-    transition: transform 0.23s ease-in;
+	width:50%;
 }
 
-.closePanelButton:hover {
+.closeLoginButton:hover {
     transform: scaleX(1.15) scaleY(1.15);
 }
 /*
