@@ -25,7 +25,6 @@
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/tagStyles.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/headerStyle.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/secondHeaderStyle.css">
-		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/footerFixer.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/panelStyles.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/helpSlidingWindow.css">
