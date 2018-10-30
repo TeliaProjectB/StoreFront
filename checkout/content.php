@@ -94,6 +94,12 @@
 
 <div class="panel" id="checkOutContent" >
 	<h1 id="checkoutHeader" >Checkout</h1>
+	<?php
+		if(count($arrOfApi) > 0){
+			echo "<button class='strongButton' style='margin: 0px auto; width:128px; display: block;' onclick='removeAllItems()'>Remove all items</button>";
+		}
+	?>
+	
 	<div id="rowsContainer">
 		<?php
 
