@@ -37,16 +37,12 @@ for (var i = 1; i < 6; i++) {
 var answer1 = "There are two ways to find all the API. You can \
 search on the search bar, you can scroll down till the end or you can \
 click on the dropdown button others and then click on the button All.";
-
 var answer2 = "To buy more API you can go to an API, click the button add to card and continue shopping.";
-
 var answer3 = "If you want to change your account information you can click on your username \
-or your user icon and click on My account, then click on change information.";
-
-var answer4 = "You can pay the API with Mastercard, Visa or American Express.";	
-
+or your user icon and click on My account, then click on change information."
+var answer4 = "You can pay the API with Mastercard, Visa or American Express." 						
 var answer5 = "You can search on the search bar if the API is in the website, if there isn't   \
-you can send an email to Telia Service Center and we will add it if possible.";
+you can send an email to Telia Service Center and we will add it if possible." 
 
 function openAnswer(question_clicked){
 
@@ -65,32 +61,17 @@ function openAnswer(question_clicked){
 
 
 //Clicking on the website the it will close the login window
-(function(){
-    var clickOutsideHead = function(e){
-        if(e.target.className == "posisitonOfTheHelpWindow"){
-            return;
-        }
-        //Go up the parent hiarchy to see if the clicked element is a child of "posisitonOfTheHelpWindow"
-        var currentTarget = e.target;
-        while(currentTarget.parentElement != null){
-            currentTarget = currentTarget.parentElement;
-            if(currentTarget.className == "posisitonOfTheHelpWindow"){
-                return;
-            }
-        }
-
-        if($('.helpWindow:visible').length != 0 && !$('.helpWindow').is(':animated')){
+$(document).on('click','#contentID',function(){
+    if($('.helpWindow:visible').length != 0 && !$('.helpWindow').is(':animated')){
+        $(".helpWindow").stop();
+        $(".helpWindow").animate({width: 'toggle'});
+    }
+});
+$(document).on('click','#head',function(e){
+    if(e.target != document.getElementById("helpContact") && e.target != document.getElementById("userIcon")  && !$('.helpWindow').is(':animated')) {
+        if($('.helpWindow:visible').length != 0){
             $(".helpWindow").stop();
             $(".helpWindow").animate({width: 'toggle'});
         }
-    };
-    document.addEventListener("mouseup", function(e){
-        clickOutsideHead(e);
-    });
-    document.addEventListener("touchend", function(e){
-        clickOutsideHead(e);
-    });
-
-
-})();
-
+    }
+});
