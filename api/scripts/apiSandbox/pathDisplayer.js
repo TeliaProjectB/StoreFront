@@ -34,6 +34,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 		var requestMethod;
 
 		this.display = function(pathData, name, consumes, produces, requestType){
+			/*Called to display a parameter path.*/
 			consumes = (consumes == undefined) ? consumes = "" : consumes=consumes;
 			produces = (produces == undefined) ? produces = "" : produces=produces;
 			requestType = (requestType == undefined) ? requestType = "" : requestType=requestType;
@@ -49,6 +50,8 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			addTitle(pathData, name, requestMethod);
 			addProduceConsume(consumes, produces);
 			addMainDescription(pathData);
+
+
 			addParameters(pathData);
 
 
@@ -84,25 +87,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 				//console.log(response);
 			});
 		};
-
-
-		function addExampleData(pathData){
-			exampleValues = document.createElement("div");
-
-			//exampleValues.
-			var pathTag = pathData.tags[0];
-
-			//get all property keys of definitions
-			var definitionKeys = Object.keys(swaggerJSON.definitions);
-			for(var i=0; i<definitionKeys.length; i++){
-				if(swaggerJSON.definitions[definitionKeys[i]].title == pathTag){
-
-				}
-			}
-
-			
-			parameterContainer.appendChild(exampleValues);
-		}
+		
 
 		function addProduceConsume(consumes, produces){
 			var subtitle = document.createElement("p");
@@ -112,6 +97,9 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 		}
 
 		function addResponses(pathData){
+			/*
+			Loop through the paths example responses and create a table of it
+			*/
 			var listOfResponses = document.createElement("ul");
 			listOfResponses.className = "swaggerLister";
 			var listHead = document.createElement("li");
@@ -161,10 +149,11 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 		}
 
 		function addTitle(pathData, name, requestMethod){
+			
 			var title = document.createElement("h1");
 			title.style.wordBreak = "break-all";
 			var methodTypeHTML = "";
-			
+			//Add a title of the path and add a colored GET, PATH, PATCH or DELETE
 			if(requestMethod == "GET"){
 				methodTypeHTML = "<span style='color: green;'>"+requestMethod+"</span>";
 			}else if(requestMethod == "POST"){
@@ -174,6 +163,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			}else if(requestMethod == "PATCH"){
 				methodTypeHTML = "<span style='color: purple;'>"+requestMethod+"</span>";
 			}
+			//Add path name
 			title.innerHTML = methodTypeHTML+": "+name;
 			parameterContainer.appendChild(title);
 		}
@@ -200,22 +190,12 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			var listHead = document.createElement("li");
 			listHead.className = "parListRow";
 
-			/*var name = document.createElement("span");
-			name.innerHTML = "Name";
-			name.className = "parListLeft parListName swaggerMediumText";
-			listHead.appendChild(name);
 
-			var description = document.createElement("span");
-			description.innerHTML = "Description";
-			description.className = "parListRight parListName swaggerMediumText";
-			listHead.appendChild(description);
-			listOfPrams.appendChild(listHead);*/
-
-
+			//Loop through the parameters of the path
 			for(var i=0; i<pathData.parameters.length; i++){
 				var swaggerObject = swaggerHand.parseSwaggerObject(swaggerJSON, pathData.parameters[i]);
 				
-
+				//swap between white and gray background color
 				var row = document.createElement("li");
 				row.className = "parListRow";
 				if(i%2==0){
@@ -228,6 +208,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 				leftPartContainer.className = "parListLeft"
 				var paramName = document.createElement("div");
 
+				//Add parameter asterix if it's required
 				if(swaggerObject.required){
 					var asterix = document.createElement("div");
 					asterix.innerHTML = "*";
@@ -239,7 +220,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 				paramName.innerHTML += swaggerObject.name;
 				leftPartContainer.appendChild(paramName);
 
-
+				//Add swagger objects "type" text
 				if(swaggerObject.type != undefined){
 					var paramType = document.createElement("div");
 					paramType.className = "parListType"
@@ -247,6 +228,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 					leftPartContainer.appendChild(paramType);
 				}
 
+				//Add swagger objects "in" text
 				if(swaggerObject.in != undefined){
 					var paramIn = document.createElement("div");
 					paramIn.className = "swaggerSubtitle"
@@ -259,11 +241,12 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 
 				row.appendChild(leftPartContainer);
 				
-
+				//get parameter input 
 				var paramRightInput = propertiesinput.parseInput(swaggerObject, i);
 				paramRightInput.style.display = "flex";
 				paramRightInput.style.flex = "1";
 				row.appendChild(paramRightInput);
+
 				listOfPrams.appendChild(row);
 			}
 

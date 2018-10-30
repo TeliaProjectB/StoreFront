@@ -10,6 +10,7 @@ define([], function(){
 		var sendingRequest  = false;
 
 		function makeAjaxRequest(phpSource, sendMethod, bodyData, onLoad) {
+			phpSource = encodeURI(phpSource);
 			sendingRequest = true;
 		    var xhr = new XMLHttpRequest();
 		    xhr.open(sendMethod, phpSource, true);
@@ -94,19 +95,15 @@ define([], function(){
 				}
 			}
 
-			console.log("bodyData: ");
-			console.log(bodyData);
-
 			if(errorInInputFields !== ""){
-				errorInInputFields = errorInInputFields.substring(0, errorInInputFields.length-2);
 				clearConsole();
-				postInWindowConsole("All required fields are not set. See: "+errorInInputFields+".", "error");
+				postInWindowConsole("All required fields are not set. See: \n"+errorInInputFields+".", "error");
 				return;
 			}
 
 			requestUrl = getSendingScheme(requestUrl);
 			clearConsole();
-			postInWindowConsole("Sending "+sendingType+" request to: \n", "loading");
+			postInWindowConsole("Sending "+encodeURI(sendingType)+" request to: \n", "loading");
 			postInWindowConsole(requestUrl+"\n\n", "info");
 			makeAjaxRequest(requestUrl, requestMethod, bodyData, onResponse);
 		}
@@ -184,19 +181,19 @@ define([], function(){
 
 
 			if(param.inputField.getAttribute("required") == "true" && inputValue === ""){
-				errorInInputFields += "\n"+param.name+", ";
+				addErrorMessageRequiredinput(param);
 			}
 
 
 			if(param.inputType == "number"){
 				returnVal = parseFloat(inputValue);
 				if(isNaN(returnVal)){
-					errorInInputFields += "\n"+param.name+", ";
+					addErrorMessageRequiredinput(param);
 				}
 			}else if(param.inputType == "integer"){
 				returnVal = parseInt(inputValue, 10);
 				if(isNaN(returnVal)){
-					errorInInputFields += "\n"+param.name+", ";
+					addErrorMessageRequiredinput(param);
 				}
 			}else if(param.inputType == "string"){
 				returnVal = inputValue;
@@ -216,19 +213,68 @@ define([], function(){
 
 
 
-		function addQueryParam(requestUrl, param){
-			var paramSpacer = "&";
-			if(requestUrl.indexOf("?") == -1){
-				paramSpacer = "?";
+		function addErrorMessageRequiredinput(param){
+			var paramPath = param.objectPath;
+			if(paramPath === null || paramPath === undefined || paramPath.replace(/ /g, '') == ""){
+				paramPath = "root parameter";
 			}
 
-			var queryValue = param.next[0].inputField.value;
+			errorInInputFields += "\n[["+paramPath+"]] - "+param.name+" [b[("+param.inputType+")]b]";
+		}
 
-			requestUrl += paramSpacer+param.name+"="+queryValue;
+
+		function addQueryParam(requestUrl, param){
+			var queryValue = "";
+
+			if(param.type == "array"){
+				for(var i=0; i<param.next.length; i++){
+
+
+					//The array value is stored as a string with & as the delimiter
+					queryValue = param.next[i].next[0].inputField.value;
+					//Get each value of array
+					var arrValues = queryValue.split("&");
+					for(var x=0; x<arrValues.length; x++){
+
+						if(param.next[i].next[0].inputField.getAttribute("required") === "false" && arrValues[x] === ""){
+							break;
+						}
+						requestUrl += getParameterDivider(requestUrl)+param.name+"[]="+arrValues[x];
+					}
+					
+				}
+
+				return requestUrl;
+			}
+			
+
+			//ifthere is no value in input, check if it's required or not.If it's not required don't add a get parameter
+			if(param.next[0].inputField.getAttribute("required") === "false" && param.next[0].inputField.value === ""){
+				return requestUrl;
+			}
+			//console.log(param);
+			queryValue = param.next[0].inputField.value;
+
+
+			//requestUrl += getParameterDivider(requestUrl)+param.name+"="+queryValue;
+			requestUrl += getParameterDivider(requestUrl)+param.name+"="+getValueFromParam(param.next[0]);
 
 			return requestUrl;
 		}
 
+
+
+		function getParameterDivider(url){
+			if(url.indexOf("?") == -1){
+				return "?";
+			}
+			return "&";
+		}
+
+
+		function getValueFromArrayObjectOrInput(){
+
+		}
 
 
 		function addPathParam(requestUrl, param){
@@ -254,6 +300,14 @@ define([], function(){
 
 		function postInWindowConsole(text, textType){
 			text = text.replace(/\n/g, "</br>");
+
+			//Replace [ and ] with colored gray text
+
+			text = text.replace(/\[\[/g, "<span style='color: gray;'>");
+			text = text.replace(/\]\]/g, "</span>");
+			text = text.replace(/\[b\[/g, "<span style='color: blue;'>");
+			text = text.replace(/\]b\]/g, "</span>");
+
 			var textSpan = document.createElement("p");
 			if(textType == "loading"){
 				textSpan.className = "sandBoxResponseLoading";

@@ -3,7 +3,9 @@ define([], function(){
 	
 	function initModule(){
 
-
+		/*
+		This module extracts generalinformation about the API and puts them in the aAPI info table
+		*/
 
 
 

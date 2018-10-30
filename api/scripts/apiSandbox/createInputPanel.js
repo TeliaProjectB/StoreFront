@@ -4,7 +4,9 @@ define([], function(){
 	function initModule(){
 
 
-
+		//This module creates a panel for body parameters that include multiple inputs.
+		//To makenavgations easier, the panel is by default minimized but can be maximized by pressing
+		//The maximize button (+)
 
 
 		this.createPanel = function(panel, nameElem){
@@ -44,6 +46,8 @@ define([], function(){
 
 
 		function hidePanelsContent(panel){
+			//Sets each DIV child'sopacity to 0
+			//since the title of the input is a span it wont be affected
 			var directChildren = panel.children;
 			for(var i=0; i<directChildren.length; i++){
 				if(directChildren[i].tagName == "DIV"){
@@ -53,6 +57,7 @@ define([], function(){
 		}
 
 		function showPanelsContent(panel){
+			//Sets each DIV child'sopacity to 1
 			var directChildren = panel.children;
 			for(var i=0; i<directChildren.length; i++){
 				if(directChildren[i].tagName == "DIV"){

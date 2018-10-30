@@ -8,6 +8,7 @@ define([], function(){
 
 
 		this.getDescription = function(swaggerObject){
+			console.log(swaggerObject);
 			var description = swaggerHand.swagAccess(swaggerObject, "description");
 			if(description == undefined){
 				description = swaggerHand.swagAccess(swaggerObject, "items").description;
@@ -19,6 +20,14 @@ define([], function(){
 			var arrayDescription = document.createElement("div");
 			arrayDescription.className = "inputDescription";
 			arrayDescription.innerHTML = description;
+			if(swaggerHand.swagAccess(swaggerObject, "type") === "array"){
+				//if swagger object is an array with direct input as child
+				if(swaggerObject.items.type !== undefined && swaggerObject.items.type != "object" && 
+					swaggerObject.items.type != "array"){
+					arrayDescription.innerHTML += "<br><br>(This is an array. use \"&\" to add more items)";
+				}
+				
+			}
 			return arrayDescription;
 		}
 		
@@ -118,6 +127,7 @@ define([], function(){
 
 
 		this.sortArrayItems = function(swaggerObject){
+			/*Sort array items to make parameter paths with similar depths at the sameplace*/
 			if(swaggerObject.items != undefined){
 				swaggerObject.items.sort(function(a, b){
 
