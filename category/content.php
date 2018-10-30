@@ -1,8 +1,3 @@
-<!--
-<div style="text-align: center;" id="onStartloading">
-	<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-</div>
--->
 
 <div style="text-align: center;" id="onStartloading">
 	<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
