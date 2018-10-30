@@ -16,7 +16,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/StoreFront/pageStructure/img/websiteIcon.png">
+		<meta name="viewport" content="width=device-width, maximum-scale=0.5, minimum-scale=0.5, initial-scale=0.5, user-scalable=0">
 		<meta charset="utf-8">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		
@@ -29,6 +30,7 @@
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/loginSlidingWindow.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/helpSlidingWindow.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/breadcrumbs.css">
+		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/fluidCss.css">
 
 		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/fixedHeader.js"></script>
 		
@@ -44,8 +46,9 @@
 		<div class="pageContentWrapper">
 			<div id="head" class="sticky">
 				<!-- FIRST HEADER -->
-				<div id="firstHead" class="firstHeader" onmouseenter="showSecondHeader()">
-					<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon"></div>
+				<div id="firstHead" class="firstHeader" onmouseenter="showSecondHeader()" 
+				ontouchstart='showSecondHeader()' >
+					<div onclick="window.open('/StoreFront/home/','_self')" id="teliaIcon">Storefront</div>
 					
 					<div id="showUsername"><?php echo $Username; ?></div>
 					<button id="userIcon" onclick="openSlideInWindow()"></button>
@@ -53,22 +56,36 @@
 
 				<!-- SECOND HEADER -->
 				<div id="secondHead" class="secondHeader">
-					<button class="headerButton" onclick="scrollDownTo('Top List')">Top list</button>	
+					<button class="headerButton" onclick="scrollDownTo('Top list')">Top list</button>	
 					<button class="headerButton" onclick="scrollDownTo('Free')">Free</button>
-					<button class="headerButton" onclick="scrollDownTo('Recommended')">Recommended</button>		
 					<button class="headerButton" onclick="scrollDownTo('Most liked')">Most liked</button>
 					<div class="dropdown" ><!-- onmouseenter="openDropdown()" onmouseleave="closeDropDown()" -->
-						<button class="headerButton" style="display:inline;">See more</button>
-						<div class="dropdown-content">
-							<button class="dropdownButton" onclick="scrollDownTo('Most bought')">Most bought</button>
-							<button class="dropdownButton" onclick="scrollDownTo('SMS')">SMS</button>
-							<button class="dropdownButton" onclick="scrollDownTo('Call')">Call</button>
-							<button class="dropdownButton" onclick="scrollDownTo('For Company')">For Company</button>
-							<button class="dropdownButton" onclick="scrollDownTo('Fun')">Fun</button>
-							<button class="dropdownButton" onclick="scrollDownTo('Mobile')">Mobile</button>
-							<button class="dropdownButton" onclick="scrollDownTo('Statistics API')">Statistics API</button>
-					
-						</div>
+						<button class="headerButton" id="seeMoreButton" style="display:inline;" >See more &nbsp;<i class="down"></i></button>
+						
+						    <div class="dropdown-content" id="seeMoreContent">
+								<div class="column">     
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Most bought')">Most bought</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=SMS')">SMS</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Call')">Call</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Fun')">Fun</button>								
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Mobile')">Mobile</button>
+								
+								</div>	
+								<div class="column">   
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=For new started company')">New Company</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Company')">Company</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=industry')">Industry</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Employer')">Employer</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Management')">Management</button>
+								</div>                   
+								<div class="column">        
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Combined API')">Combined API</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Payment')" >Payment</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Statistics API')">Statistics API</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=Cloud')">Cloud</button>
+								<button class="dropdownButton" onclick="smartJsLink('/StoreFront/category/?cat=All')">All</button>
+								</div>
+							</div>
 					</div> 
 				
 					<div id="searchBar"><input type="text" id="searchInput"><div id="searchIcon" onclick="filterApi()"></div></div>
@@ -81,10 +98,10 @@
 					
 					<div id="shoppingBag">
 						<div id="itemCount" <?php if($logged_check && $items > 0) echo "style = 'display:block;'"; ?>><?php echo $items; ?></div> <!-- numbers of items in checkAPI.php -->
-						<div id="trolley" onclick="window.location='/StoreFront/checkout/'" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
+						<div id="trolley" class="flatSurface" onclick="window.location='/StoreFront/checkout/'" <?php if($logged_check) echo "style = 'display:flex'"?>></div>
 					</div>
 
-					<div id="helpContact" onclick="openHelpWindow()"></div>
+					<div id="helpContact"  class="flatSurface"  onclick="openHelpWindow()"></div>
 				</div>
 
 				<!-- THIRD HEADER / BREADCRUMBS -->
@@ -98,7 +115,7 @@
 			
 			<!-- HELP WINDOW -->
 			<div class="helpWindow">
-				<div class="posisionOfTheHelpWindow">
+				<div class="posisitonOfTheHelpWindow">
 					<?php
 						require $_SERVER["DOCUMENT_ROOT"].'/StoreFront/pageStructure/panelParts/helpWindow.php';
 					?>	
@@ -107,7 +124,7 @@
 
 			<!-- LOGIN WINDOW -->
 			<div class="loginWindow">
-				<div class="posisionOfTheloginWindow">
+				<div class="positionOfTheloginWindow">
 						
 					<?php
 						if(isset($_SESSION["userId"]) === false){
@@ -121,9 +138,7 @@
 
 			<!-- CONTENT -->
 			<div class="content">
-			
 				<div id="contentID">
-				
 					<?php
 						if(file_exists("content.php")){
 							include "content.php";
@@ -133,6 +148,7 @@
 			<!--Real content end-->
 			</div>
 		</div>
+		
 		<!-- FOOTER -->
 		<div class="footer">
 			<?php  
@@ -179,11 +195,11 @@
         	$('.breadcrumbs li+li').attr('content-before','/');
         	document.getElementById('secondPage').innerHTML = getURLVariable("cat").replace(/[&\/\\#,+()$~%207.'":*?<>{}]/g, ' ');
         	break;
-    	case "/StoreFront/myAccount/":
+    	case "/StoreFront/profile/":
         	document.getElementById("homeBreadcrumb").style.display="inline";
 
         	$('.breadcrumbs li+li').attr('content-before','/');   
-       	 	document.getElementById('secondPage').innerHTML = "My Account";
+       	 	document.getElementById('secondPage').innerHTML = "Profile";
         	break;
     	case "/StoreFront/checkout/":
         	document.getElementById("homeBreadcrumb").style.display="inline";
