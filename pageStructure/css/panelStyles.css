@@ -38,7 +38,7 @@
 
 
 .strongButtonPanel {
-	background-color:#6a3787;
+	background-color: var(--back-color);
     padding: 8px 0px;
     width: 50%;
     font-size: 16px;
@@ -62,7 +62,7 @@
 }
 
 .strongButtonPanel:hover{
-   background-color:  #7e5899;
+   background-color: var(--hover-color);
 }
 
 
