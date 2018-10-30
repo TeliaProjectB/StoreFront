@@ -1,9 +1,9 @@
-function createApiBox(apiContainer, apiData){
-    /*
+/*
     Generate the api box element from "apiData"
     "apiData" contains: Name, imgName,Description, Priceand RandomId
-    */
-            
+*/
+function createApiBox(apiContainer, apiData){
+              
     var newApi = document.createElement("div");
     newApi.className = "simpleApiBox panel3d";
 
@@ -64,65 +64,6 @@ function createApiBox(apiContainer, apiData){
 }
 
 
-
-
-/* function to create the Api of a single category */
-/*function createApiBox(apiContainer, apiData){
-    apiContainer.setAttribute("mouseover", false);
-
-
-    var newApi = document.createElement("div");
-    newApi.className = "apiBox";
-    newApi.onclick = function(){
-        document.body.style.cursor = "wait";
-        setTimeout(function(){
-            if(apiData.isPackage){
-                smartJsLink("/StoreFront/apiPackage/?id="+apiElement.getAttribute("myApiId"));
-            }else{
-                smartJsLink("/StoreFront/api/?id="+apiElement.getAttribute("myApiId"));
-            }
-            document.body.style.cursor = "auto";
-        }, 60);
-    };
-
-    var apiTitle = document.createElement("div");
-    apiTitle.className = "apiTitle";
-    apiTitle.innerHTML = apiData.Name;
-
-    var apiIcon = document.createElement("div");
-    apiIcon.className = "apiBackground";
-    apiIcon.style.backgroundImage = "url(/StoreFront/globalImages/API/"+apiData.imgName+")";
-
-    var apiDescription = document.createElement("div");
-    apiDescription.className = "apiDescription";
-    apiDescription.innerHTML = apiData.Description;
-
-    var titleDescContainer = document.createElement("div");
-    titleDescContainer.className = "titleDescContainer";
-
-    titleDescContainer.appendChild(apiTitle);
-    titleDescContainer.appendChild(apiIcon);
-    titleDescContainer.appendChild(apiDescription);
-
-    newApi.appendChild(titleDescContainer);
-    apiContainer.appendChild(newApi);
-    
-
-    newApi.setAttribute("myApiId", apiData.RandomId);
-    
-    newApi.onclick = function(){
-        document.body.style.cursor = "wait";
-        setTimeout(function(){
-            if(apiData.isPackage){
-                smartJsLink("/StoreFront/apiPackage/?id="+newApi.getAttribute("myApiId"));
-            }else{
-                smartJsLink("/StoreFront/api/?id="+newApi.getAttribute("myApiId"));
-            }
-            document.body.style.cursor = "auto";
-        }, 60);
-    };
-}*/
-
 /* function to connect with retrieveCategory.php and the database */
 function ajaxRequest(postData, phpSource, onLoad) {
     var xhr = new XMLHttpRequest();
@@ -143,13 +84,13 @@ function ajaxRequest(postData, phpSource, onLoad) {
 }
 
 /*function to get URL name of the category */
-function getURLVariable(variable){
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){
-                   return pair[1];
+function getURL(category){
+       var substr = window.location.search.substring(1);
+       var split = substr.split("&");
+       for (var i = 0; i < split.length; i++) {
+               var cat = split[i].split("=");
+               if(cat[0] == category){
+                   return cat[1];
                 }
        }
        return(false);
@@ -159,14 +100,13 @@ function getURLVariable(variable){
 function createTitle() {
     var titleCat = document.getElementById("categoryTitle");
     
-
-	titleCat.href = "/StoreFront/category?cat="+ getURLVariable("cat");
+	titleCat.href = "/StoreFront/category?cat="+ getURL("cat");
 	
-	titleCat.innerHTML= getURLVariable("cat").replace(/[&\/\\#,+()$~%2027.'":*?<>{}]/g, ' ');
+	titleCat.innerHTML= getURL("cat").replace(/[&\/\\#,+()$~%2027.'":*?<>{}]/g, ' ');
 }
 
 /*connect to database and create all api */
-ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCategory.php", function(response){
+ajaxRequest("cat=" + getURL("cat"), "/StoreFront/category/php/retrieveCategory.php", function(response){
    
     var retrievedData = JSON.parse(response);
     var container = document.getElementById("searchedCategory");
@@ -178,7 +118,6 @@ ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCa
     }
 
     
-
     createTitle();
 
     for(var i=0; i<retrievedData.length; i++){
@@ -198,8 +137,7 @@ ajaxRequest("cat=" + getURLVariable("cat"), "/StoreFront/category/php/retrieveCa
 
 
 
-
-
+/* to increase the size of API boxes when hovering */
 function animatePanel(numberOfPanels, panel, index, maxIndex, titleDesc){
     var maxTime = 70*numberOfPanels;
     var waitTime = (index/maxIndex)*maxTime;
