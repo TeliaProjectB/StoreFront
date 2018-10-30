@@ -13,35 +13,14 @@ function openSlideInWindow(){
 
         $(".loginWindow").animate({width: 'toggle'});
         if(flag){
-            flag = false
+            flag = false;
         }else{
             flag = true;
         }
     }    
 }
 
-function openHelpWindow(){
-    flag = false;
-    if(!$(".helpWindow").is(":animated")){
-        $(".helpWindow").stop();
-        
-        if($('.loginWindow:visible').length != 0 && !$('.loginWindow').is(':animated')){
-            $(".loginWindow").animate({width: 'toggle'});
-        }
-
-        $(".helpWindow").animate({width: 'toggle'});
-        $("#helpWindow").css({"display": "inline"});
-
-
-        for (var i = 0; i < 6; i++) {
-            $("#answer" + i).css({"display": "none"});
-        }
-        
-    }
-}
-
-
-//Clicking on the website the it will close the login window
+//Clicking on the website it will close the login window
 $(document).on('click','#contentID',function(){
     // additional code
     if($('.loginWindow:visible').length != 0 && !$('.loginWindow:animated')){
@@ -60,11 +39,10 @@ $(document).on('click','#head',function(e){
     }
 });
 
-//Clossing login window when scrolling down
+//Closing login window when scrolling down
 $(document).ready(function() { 
     $(window).scroll(function() {
         // additional code
-        //console.log("Length: ", $('.loginWindow:visible').length)
         if(flag == true){
             flag = false;
             if(!$(".loginWindow").is(":animated")){
@@ -80,11 +58,13 @@ $(document).ready(function() {
 function openLoginWindow(){
     $("#firstStep").css({"display": "none"});
     $("#loginWindow").css({"display": "inline"});
+    flag = false;
 }
 
 function openRegisterWindow(){
     $("#firstStep").css({"display": "none"});
     $("#register").css({"display": "inline"});
+    flag = false;
 }
 
 $("#password").on('keyup', function (e) {
@@ -176,10 +156,12 @@ function goBackToStart(){
     $("#loginWindow").css({"display": "none"}); 
     $("#register").css({"display": "none"}); 
     $("#firstStep").css({"display": "inline"});
+    flag = true;
 }
 
 function closeLoginWindow(){
     $(".loginWindow").animate({width: 'toggle'});
+    flag = false;
 }
 
 
@@ -225,50 +207,19 @@ function checkTrolly(){
     });
 }
 
-function agreed(){
-    console.log("Active");
-    $("#panelButton").css({"background-color": "#5a179c"});
-    $('#panelButton').prop('disabled', false);
+var agreedStatus = false; 
+
+function agreedToTerms(){
+    if(!agreedStatus){
+        $(".strongButtonPanel").css({"background-color": "#5a179c"});
+        $(".strongButtonPanel").css({"cursor": "pointer"});
+        $('.strongButtonPanel').prop('disabled', false);
+        agreedStatus = true;
+    }
+    else{
+        $(".strongButtonPanel").css({"background-color": "gray"});
+        $(".strongButtonPanel").css({"cursor": "not-allowed"});
+        $('.strongButtonPanel').prop('disabled', true);    
+        agreedStatus = false;
+    }
 }
-
-function uppercase_pressed(e){
-
-    e = (e) ? e : window.event;
-
-    var flagCode = false;
-    if (e.which) {
-        flagCode = e.which;
-    } else if (e.keyCode) {
-        flagCode = e.keyCode;
-    }
-
-    var flagShift = false;
-    if (e.shiftKey) {
-        flagShift = e.shiftKey;
-    } else if (e.modifiers) {
-        flagShift = !!(e.modifiers & 4);
-    }
-
-    if (flagCode >= 97 && flagCode <= 122 && flagShift) {
-        return true;
-    }
-
-    if (flagCode >= 65 && flagCode <= 90 && !flagShift) {
-        return true;
-    }
-
-    return false;
-
-}
-
-document.getElementById("registerPassword").addEventListener("keypress",function(e){
-	var upper_case = document.getElementById("uppercase_activated");
-	if(uppercase_pressed(e)){
-        upper_case.innerHTML = "CapsLocks enabled";
-        upper_case.style.color = "red";
-    }
-    else {
-        upper_case.innerHTML = "";
-    }
-},false);
-
