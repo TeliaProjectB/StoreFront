@@ -65,13 +65,13 @@ $paymentPanelMinMax = "maxPanelIcon";
 
 if(isset($_GET["index"])){
 	if($_GET["index"] == "info"){
-		$infoPanelVisible = "style=\"max-height:500px;\"";	
+		$infoPanelVisible = "style=\"max-height:45vh;\"";	
 		$infoPanelMinMax = "minPanelIcon";
 	}else if($_GET["index"] == "boughtItems"){
-		$boughtPanelVisible = "style=\"max-height:500px;\"";
+		$boughtPanelVisible = "style=\"max-height:45vh;\"";
 		$boughtPanelMinMax = "minPanelIcon";	
 	}else if($_GET["index"] == "payment"){
-		$paymentPanelVisible = "style=\"max-height:500px;\"";
+		$paymentPanelVisible = "style=\"max-height:45vh;\"";
 		$paymentPanelMinMax = "minPanelIcon";
 	}
 }

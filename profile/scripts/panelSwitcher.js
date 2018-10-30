@@ -4,8 +4,8 @@ function clickPanelMinMax(panel, minMaxbutton){
 
 	if(panel.style.maxHeight == "0px" || panel.style.maxHeight == ""){
 		//console.log("show it");
-		panel.style.maxHeight = "70vh";
-		panel.style.height = "70vh";
+		panel.style.maxHeight = "45vh";
+		panel.style.height = "45vh";
 		minMaxbutton.className = "minmaxIcon minPanelIcon";
 	}else{
 		//console.log("hide it");
