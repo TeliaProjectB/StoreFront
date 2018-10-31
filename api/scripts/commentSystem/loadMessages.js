@@ -77,7 +77,7 @@ define(["scripts/commentSystem/ajaxFuncs", "scripts/commentSystem/createCommentE
 					startListeners();
 				});
 
-			}, 20000);
+			}, 500);
 		}
 
 
