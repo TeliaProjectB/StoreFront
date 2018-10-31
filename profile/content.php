@@ -178,7 +178,7 @@ if(isset($_GET["index"])){
 					}
 
 					if($purchaseListEmpty){
-						echo "<h3 style='padding-top:2px'>Your purchase list is empty.</h3>";
+						echo "<div style='text-align: center; margin: 16px;'><h3 style='padding-top:2px'>Your purchase list is empty.</h3></div>";
 					}
 
 				?>
