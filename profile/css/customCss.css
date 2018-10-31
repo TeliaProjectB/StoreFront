@@ -19,6 +19,12 @@ span{
 	padding: 0px;
 }
 
+.panelResize{
+	max-height: 73vh;
+	overflow-y: scroll;
+	transition: max-height 0.8s ease-in-out;
+}
+
 .panelHeaderTitle{
 	margin-left: 0px;
 	user-select: none;
@@ -40,11 +46,21 @@ span{
 	padding-left: 16px;
 	display: block;
 }
+.linkBought:hover{
+	text-decoration: none;
+}
 .boughtApi{
+	backface-visibility: hidden;
+	display: flex;
 	margin-bottom: 32px;
 	transition: transform 0.18s ease-in;
 	cursor: pointer;
 	transform-origin: 0% 50%;
+}
+
+.boughtApi:hover{
+	transform: scale(1.1);
+	margin-bottom: 32px;
 }
 
 
@@ -59,10 +75,7 @@ span{
 	background-image: url("../img/pen.svg");
 }
 
-.boughtApi:hover{
-	transform: scale(1.1);
-	margin-bottom: 32px;
-}
+
 
 
 .liInfo{
@@ -110,9 +123,7 @@ span{
 }
 
 .panelContent{
-	overflow: hidden;
-	transition: max-height 0.7s ease-out;
-	max-height: 0px;
+
 }
 
 
@@ -160,9 +171,7 @@ span{
 
 
 #boughtListerUl{
-	overflow-x: hidden;
-	overflow-y:scroll;
-	max-height: 73vh;
+	
 }
 
 
