@@ -31,7 +31,7 @@ function removeApiFromCart(apiId, element){
 
 
 function removeAllItems(){
-	if(!confirm("Are yousure you want to empty your whole cart?")){
+	if(!confirm("Are you sure you want to empty your whole cart?")){
 		return;
 	}
 	var xhr = new XMLHttpRequest();
