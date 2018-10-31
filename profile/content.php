@@ -53,25 +53,25 @@ function getApiFromId($apiId){
 }
 
 
-$infoPanelVisible = "";
+$hideInfoPanel = "style=\"max-height:0px;\"";
 $infoPanelMinMax = "maxPanelIcon";
 
-$boughtPanelVisible = "";
+$hideBoughtPanel = "style=\"max-height:0px;\"";
 $boughtPanelMinMax = "maxPanelIcon";
 
-$paymentPanelVisible = "";
+$hidePaymentPanel = "style=\"max-height:0px;\"";
 $paymentPanelMinMax = "maxPanelIcon";
 
 
 if(isset($_GET["index"])){
 	if($_GET["index"] == "info"){
-		$infoPanelVisible = "style=\"max-height:45vh;\"";	
+		$hideInfoPanel = "";
 		$infoPanelMinMax = "minPanelIcon";
 	}else if($_GET["index"] == "boughtItems"){
-		$boughtPanelVisible = "style=\"max-height:45vh;\"";
+		$hideBoughtPanel = "";
 		$boughtPanelMinMax = "minPanelIcon";	
 	}else if($_GET["index"] == "payment"){
-		$paymentPanelVisible = "style=\"max-height:45vh;\"";
+		$hidePaymentPanel = "";
 		$paymentPanelMinMax = "minPanelIcon";
 	}
 }
@@ -85,58 +85,61 @@ if(isset($_GET["index"])){
 
 
 
-<div class="panel panelParent">
-	<h2 onclick="clickPanelMinMax('panelContentInfo', 'panelMinMax1')" class="panelHeaderTitle">Information <div class="minmaxIcon <?php echo $infoPanelMinMax; ?>" id="panelMinMax1"></h2>
+<div class="panel panelParent" >
+	<h2 onclick="clickPanelMinMax('firstPanelInfo', 'panelMinMax1')" class="panelHeaderTitle">Information <div class="minmaxIcon <?php echo $infoPanelMinMax; ?>" id="panelMinMax1"></h2>
 
-	<div class="panelContent" id="panelContentInfo" <?php echo $infoPanelVisible; ?>>
+	<div id="firstPanelInfo" class="panelResize" <?php echo $hideInfoPanel;?> >
+		<div class="panelContent" id="panelContentInfo">
 
-		<div id="panelInfoFlexCon">
-			<ul class="profileUl" style="display:flex; flex-direction: column;">
-				<li class="profileLi">
-					<div class="liInfo"><span>First name:</span><button class="editButton" onclick="enableEditing('inputFirstName')"></button></div>
-					<input class="userInfoInput normalInput " id="inputFirstName" value="<?php echo $userFirstName; ?>" disabled>
-					 
-				</li>
-				<li class="profileLi">
-					<div class="liInfo"><span>Last name: </span><button class="editButton" onclick="enableEditing('inputLastName')"></button></div>
-					<input class="userInfoInput normalInput " id="inputLastName" value="<?php echo $userLastName; ?>" disabled>
-				</li>
-			</ul>
+			<div id="panelInfoFlexCon">
+				<ul class="profileUl" style="display:flex; flex-direction: column;">
+					<li class="profileLi">
+						<div class="liInfo"><span>First name:</span><button class="editButton" onclick="enableEditing('inputFirstName')"></button></div>
+						<input class="userInfoInput normalInput " id="inputFirstName" value="<?php echo $userFirstName; ?>" disabled>
+						 
+					</li>
+					<li class="profileLi">
+						<div class="liInfo"><span>Last name: </span><button class="editButton" onclick="enableEditing('inputLastName')"></button></div>
+						<input class="userInfoInput normalInput " id="inputLastName" value="<?php echo $userLastName; ?>" disabled>
+					</li>
+				</ul>
 
-			<ul class="profileUl" style="display:flex; flex-direction: column;">
-				
-				<li class="profileLi">
-					<div class="liInfo">
-						<span>Email:</span>
-						<button class="editButton" onclick="enableEditing('inputEmailEdit')"></button>
-					</div>
-					<input class="userInfoInput normalInput" id="inputEmailEdit" value="<?php echo $userEmail; ?>" disabled>
-				</li>
-
-
-				<li class="profileLi" id="passwordPart" style="display:flex; flex-direction: column;">
-					<div class="liInfo"><span>Password: </span><button class="editButton" onclick="enablePasswordEditing()"></button></div>
-					<input class="userInfoInput normalInput" id="inputCurrentPassword" type="password" value="" placeholder="Current password" style="display: none;">
+				<ul class="profileUl" style="display:flex; flex-direction: column;">
 					
-					</br>
-					<span id="newPassSpan" style="display: none;">New password</span>
-					<input class="userInfoInput" id="inputPasswordEdit1" type="password" value="123456" disabled>
-					<span id="newPassSpanAgain" style="display: none;">New password again</span>
-					<input class="userInfoInput normalInput" id="inputPasswordEdit2" type="password" value="" disabled style="display:none;">
-				</li>
+					<li class="profileLi">
+						<div class="liInfo">
+							<span>Email:</span>
+							<button class="editButton" onclick="enableEditing('inputEmailEdit')"></button>
+						</div>
+						<input class="userInfoInput normalInput" id="inputEmailEdit" value="<?php echo $userEmail; ?>" disabled>
+					</li>
 
+
+					<li class="profileLi" id="passwordPart" style="display:flex; flex-direction: column;">
+						<div class="liInfo"><span>Password: </span><button class="editButton" onclick="enablePasswordEditing()"></button></div>
+						<input class="userInfoInput normalInput" id="inputCurrentPassword" type="password" value="" placeholder="Current password" style="display: none;">
+						
+						</br>
+						<span id="newPassSpan" style="display: none;">New password</span>
+						<input class="userInfoInput" id="inputPasswordEdit1" type="password" value="123456" disabled>
+						<span id="newPassSpanAgain" style="display: none;">New password again</span>
+						<input class="userInfoInput normalInput" id="inputPasswordEdit2" type="password" value="" disabled style="display:none;">
+					</li>
+
+
+					
+				</ul>
 
 				
-			</ul>
+			</div>
+			
 
+			<div id="errorMessage"></div>
+			<button id="submitEditedInfo" class="strongButton" onclick="sendEditRequest()" style="display: none;">Save</button>
 			
 		</div>
-		
-
-		<div id="errorMessage"></div>
-		<button id="submitEditedInfo" class="strongButton" onclick="sendEditRequest()" style="display: none;">Save</button>
-		
 	</div>
+	
 
 
 </div>
@@ -145,39 +148,42 @@ if(isset($_GET["index"])){
 
 
 <div class="panel panelParent">
-	<h2 onclick="clickPanelMinMax('panelContentBought', 'panelMinMax2')" class="panelHeaderTitle">Bought items <div class="minmaxIcon <?php echo $boughtPanelMinMax; ?>" id="panelMinMax2"></div></h2>
-	<div class="panelContent"  id="panelContentBought" <?php echo $boughtPanelVisible; ?>>
-		
-		<ul class="profileUl" id="boughtListerUl">
-			<?php
-				$purchaseListEmpty = true;
+	<h2 onclick="clickPanelMinMax('secondPanelBought', 'panelMinMax2')" class="panelHeaderTitle">Bought items <div class="minmaxIcon <?php echo $boughtPanelMinMax; ?>" id="panelMinMax2"></div></h2>
+	
+	<div id="secondPanelBought" class="panelResize" <?php echo $hideBoughtPanel;?>>
+		<div class="panelContent"  id="panelContentBought" >
+			
+			<ul class="profileUl" id="boughtListerUl">
+				<?php
+					$purchaseListEmpty = true;
 
-				foreach ($result as $itemIdRow) {
-					$purchaseListEmpty = false;
-					$item = getApiFromId($itemIdRow["ItemID"]);
+					foreach ($result as $itemIdRow) {
+						$purchaseListEmpty = false;
+						$item = getApiFromId($itemIdRow["ItemID"]);
 
-					$linkUrl = "/StoreFront/api/?id=".$item["RandomId"];
+						$linkUrl = "/StoreFront/api/?id=".$item["RandomId"];
 
-					//check if we are dealing with an api package
-					if(isset($item["PackageID"])){
-						$linkUrl = "/StoreFront/api/?id=".$item["RandomId"]."&p=true";
+						//check if we are dealing with an api package
+						if(isset($item["PackageID"])){
+							$linkUrl = "/StoreFront/api/?id=".$item["RandomId"]."&p=true";
+						}
+
+						$apiImageElement = "<div class='apiImageBought' style='background-image: url(\"/StoreFront/globalImages/API/".$item["ImgName"]."\")'></div>";
+
+						$apiTitle = "<div class='liInfo'>".$item["Name"]."</div>";
+						$apiDescription = "<div>".$item["Description"]."</div>";
+						$titleAndDescription = "<div class='apiBoughtTitleDesc'>".$apiTitle.$apiDescription."</div>";
+						echo "<a class='linkBought' href='".$linkUrl."'><li class='boughtApi'>".$apiImageElement.$titleAndDescription."</li></a>";
+						
 					}
 
-					$apiImageElement = "<div class='apiImageBought' style='background-image: url(\"/StoreFront/globalImages/API/".$item["ImgName"]."\")'></div>";
+					if($purchaseListEmpty){
+						echo "<h3 style='padding-top:2px'>Your purchase list is empty.</h3>";
+					}
 
-					$apiTitle = "<div class='liInfo'>".$item["Name"]."</div>";
-					$apiDescription = "<div>".$item["Description"]."</div>";
-					$titleAndDescription = "<div class='apiBoughtTitleDesc'>".$apiTitle.$apiDescription."</div>";
-					echo "<a class='linkBought' href='".$linkUrl."'><li class='boughtApi'>".$apiImageElement.$titleAndDescription."</li></a>";
-					
-				}
-
-				if($purchaseListEmpty){
-					echo "<h3 style='padding-top:2px'>Your purchase list is empty.</h3>";
-				}
-
-			?>
-		</ul>
+				?>
+			</ul>
+		</div>
 	</div>
 	
 </div>
@@ -186,12 +192,19 @@ if(isset($_GET["index"])){
 
 
 <div class="panel panelParent">
-	<h2 onclick="clickPanelMinMax('panelContentPayment', 'panelMinMax3')" class="panelHeaderTitle">Payment <div class="minmaxIcon <?php echo $paymentPanelMinMax; ?>" id="panelMinMax3"></h2>
-	<div class="panelContent" id="panelContentPayment" <?php echo $paymentPanelVisible;?> >
-		<div style="text-align: center; margin: 32px;">
-			<button class="strongButton" style="font-size: 20px;">Klarna</button>
-			<button class="strongButton" style="font-size: 20px;">Paypal</button>
+	<h2 onclick="clickPanelMinMax('thirdPanelPayment', 'panelMinMax3')" class="panelHeaderTitle">Payment <div class="minmaxIcon <?php echo $paymentPanelMinMax; ?>" id="panelMinMax3"></h2>
+	
+	<div id="thirdPanelPayment" class="panelResize" <?php echo $hidePaymentPanel;?>>
+		<div class="panelContent" id="panelContentPayment"  >
+			<div style="text-align: center; padding: 32px;">
+				<button class="strongButton" style="font-size: 20px;">Klarna</button>
+				<button class="strongButton" style="font-size: 20px;">Paypal</button>
+			</div>
+			
 		</div>
-		
 	</div>
 </div>
+
+
+<!-- Add extra space -->
+<div style="height: 256px;"></div>
