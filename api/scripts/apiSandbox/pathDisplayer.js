@@ -194,6 +194,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 			//Loop through the parameters of the path
 			for(var i=0; i<pathData.parameters.length; i++){
 				var swaggerObject = swaggerHand.parseSwaggerObject(swaggerJSON, pathData.parameters[i]);
+				console.log(swaggerObject);
 				
 				//swap between white and gray background color
 				var row = document.createElement("li");

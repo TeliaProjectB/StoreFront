@@ -8,7 +8,6 @@ define([], function(){
 
 
 		this.getDescription = function(swaggerObject){
-			console.log(swaggerObject);
 			var description = swaggerHand.swagAccess(swaggerObject, "description");
 			if(description == undefined){
 				description = swaggerHand.swagAccess(swaggerObject, "items").description;
@@ -142,6 +141,7 @@ define([], function(){
 
 
 		function getDepthOfParameter(parameter, depth){
+		    console.log(parameter);
 			parameter =  swaggerHand.parseSwaggerObject(swaggerJSON, parameter);
 			
 			if(parameter.type == undefined){
@@ -150,13 +150,16 @@ define([], function(){
 
 			if(parameter.type == "object"){
 				depth++;
-				var keys = Object.keys(parameter.properties);
-				for(var i=0; i<keys.length; i++){
-					var depthTest = getDepthOfParameter(parameter.properties[keys[i]], depth);
-					if(depthTest > depth){
-						depth = depthTest;
-					}
+				if(parameter.properties != undefined){
+				    var keys = Object.keys(parameter.properties);
+    				for(var i=0; i<keys.length; i++){
+    					var depthTest = getDepthOfParameter(parameter.properties[keys[i]], depth);
+    					if(depthTest > depth){
+    						depth = depthTest;
+    					}
+    				}
 				}
+				
 
 				return depth;
 			}
