@@ -30,7 +30,8 @@ define(["scripts/apiSandbox/inputGeneratingFuncs",
 				//type: "root",
 			};
 			paramValuesManager.addRootParam(newParamPath);
-
+    
+            
 			//Parse input
 			return parseinputObject(swaggerObject, newParamPath, index, "", false);
 		}
@@ -46,7 +47,7 @@ define(["scripts/apiSandbox/inputGeneratingFuncs",
 			
 
 
-			if(swaggerObject.type == "array"){
+			if(swaggerObject.type == "array" || swaggerObject.items !== undefined){
 				/*
 				if the parameteris an array, create an array input element and append it onto the container.
 				*/
@@ -60,7 +61,7 @@ define(["scripts/apiSandbox/inputGeneratingFuncs",
 
 
 
-			}else if(swaggerObject.type == "object"){
+			}else if(swaggerObject.type == "object" || swaggerObject.properties !== undefined){
 				/*
 				if the parameteris an object, create an object input element and append it onto the container.
 				*/
@@ -113,6 +114,7 @@ define(["scripts/apiSandbox/inputGeneratingFuncs",
 			instead of an index.
 			*/
 			var arrayItems = [];
+			swaggerObject.items = swaggerHand.swagAccess(swaggerObject, "items");
 			if(typeof swaggerObject.items == "object"){
 				//If items is treated as a single object push it into array items array,
 				arrayItems.push(swaggerObject.items);
@@ -334,7 +336,7 @@ define(["scripts/apiSandbox/inputGeneratingFuncs",
 			//Add objectPath to know where which parameter it originates from
 			var name = document.createElement("span");
 			name.className = "swaggerTitle";
-			name.innerHTML = "<span style='color:gray;'>"+objectPath+".</span>"+swaggerObject.name;
+			name.innerHTML = "<span style='color:#5a5a5a;'>"+objectPath+"&nbsp;&nbsp;.&nbsp;&nbsp;</span>"+swaggerObject.name;
 			
 			//Print name is false for the first container since it's name is already printed on the left side
 			//if swaggerObject.name isundefined then we don't append this name element
@@ -346,7 +348,7 @@ define(["scripts/apiSandbox/inputGeneratingFuncs",
 
 			//If name is not undefined add it's nam in the parameter path
 			if(swaggerObject.name != undefined){
-				objectPath += "."+swaggerObject.name;
+				objectPath += "&nbsp;&nbsp;.&nbsp;&nbsp;"+swaggerObject.name;
 			}
 
 			if(!printName){
