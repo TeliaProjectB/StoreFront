@@ -245,6 +245,7 @@ define(["scripts/apiSandbox/swaggerHandler", "scripts/apiSandbox/sendTestRequest
 				var paramRightInput = propertiesinput.parseInput(swaggerObject, i);
 				paramRightInput.style.display = "flex";
 				paramRightInput.style.flex = "1";
+				paramRightInput.style.flexDirection = "column";
 				row.appendChild(paramRightInput);
 
 				listOfPrams.appendChild(row);
