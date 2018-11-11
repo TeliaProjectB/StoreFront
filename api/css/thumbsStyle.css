@@ -31,12 +31,14 @@
 	height: 100%;
 	display: flex;
 	background-color: gray;
+	transition: flex 0.8s ease-in-out;
 }
 
 #ratioDown{
 	height: 100%;
 	display: flex;
 	background-color: #f1f1f1;
+	transition: flex 0.8s ease-in-out;
 }
 
 .thumbs{
