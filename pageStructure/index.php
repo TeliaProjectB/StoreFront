@@ -19,7 +19,7 @@
 		<link rel="icon" href="/StoreFront/pageStructure/img/websiteIcon.png">
 		<meta name="viewport" content="width=device-width, maximum-scale=0.5, minimum-scale=0.5, initial-scale=0.5, user-scalable=0">
 		<meta charset="utf-8">
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/StoreFront/pageStructure/scripts/jquery-min.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="/StoreFront/structureFooter/footerStyle.css">
 		<link rel="stylesheet" type="text/css" href="/StoreFront/pageStructure/css/tagStyles.css">
