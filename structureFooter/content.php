@@ -39,7 +39,7 @@
 		|
 		<a href="http://www.telia.com/privat/om/tekniska-krav" class="footerLink" data-tracking-value="Om webbplatsen">Om webbplatsen</a>
 		|
-		<a href="http://10.11.3.71/Statistics/" class="footerLink" >Statistics</a>
+		<a target="_blank" rel="noopener noreferrer" href="/Statistics/" class="footerLink" >Statistics</a>
 	</div>
 </div>
 
