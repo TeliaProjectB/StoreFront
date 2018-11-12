@@ -1,6 +1,6 @@
 <?php
     /* Database connection settings */
-    $servernameDB = '10.11.3.71';
+    $servernameDB = 'localhost';
     $usernameDB = 'TeliaServer';
     $passwordDB = 'hmXFXmZeMpBOdLKr';
     $dbname = 'telia';
