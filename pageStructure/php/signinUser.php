@@ -13,7 +13,7 @@ $signinManager = new signinUser;
 
 
 if(isset($_POST["email"]) && isset($_POST["password"])){
-    $email = htmlspecialchars($_POST["email"]);
+    $email = htmlspecialchars($_POST["email"], ENT_QUOTES);
     $pass = $_POST["password"];
     
 
