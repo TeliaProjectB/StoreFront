@@ -18,10 +18,10 @@ $registerManager = new registerUser;
 if(isset($_POST["password"]) && isset($_POST["email"])
 	&& isset($_POST["firstname"]) && isset($_POST["lastname"])){
 
-	$email = htmlspecialchars($_POST["email"]);
-	$password = htmlspecialchars($_POST["password"]);
-	$firstname = htmlspecialchars($_POST["firstname"]);
-	$lastname = htmlspecialchars($_POST["lastname"]);
+	$email = htmlspecialchars($_POST["email"], ENT_QUOTES);
+	$password = htmlspecialchars($_POST["password"], ENT_QUOTES);
+	$firstname = htmlspecialchars($_POST["firstname"], ENT_QUOTES);
+	$lastname = htmlspecialchars($_POST["lastname"], ENT_QUOTES);
 
 
 	if(!$registerManager->validEmail($email)){
