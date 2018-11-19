@@ -206,10 +206,12 @@ if(isset($_POST["cat"])){
 		}
 	}
 
+	
+	$arrOfApi = array();
 	if(!$SpecialCase){
 		$filterResult = $filter->getContainer();
 
-		$arrOfApi = array();
+		
 		foreach($filterResult as $api){
 			
 			$newObj = new apiObject;
@@ -226,11 +228,8 @@ if(isset($_POST["cat"])){
 			array_push($arrOfApi, $newObj);
 		}
 
-
-
-		echo json_encode($arrOfApi);
-
 	}
+	echo json_encode($arrOfApi);
 }
 
 ?>
