@@ -107,7 +107,9 @@ function createTitle() {
 
 /*connect to database and create all api */
 ajaxRequest("cat=" + getURL("cat"), "/StoreFront/category/php/retrieveCategory.php", function(response){
-   
+    if(response.replace(/ /g, '') == ""){
+	    response = "[]";
+    }
     var retrievedData = JSON.parse(response);
     var container = document.getElementById("searchedCategory");
 
