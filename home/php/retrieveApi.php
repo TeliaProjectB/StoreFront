@@ -19,8 +19,8 @@ class apiObject
 
 
 if(isset($_POST["category"]) && isset($_POST["limit"])){
-	$category = strtolower(htmlspecialchars($_POST["category"]));
-	$limit = htmlspecialchars($_POST["limit"]);
+	$category = strtolower(htmlspecialchars($_POST["category"], ENT_QUOTES));
+	$limit = htmlspecialchars($_POST["limit"], ENT_QUOTES);
 
 	if ($category == "all") {
 		$sql = "SELECT * FROM `API`";
