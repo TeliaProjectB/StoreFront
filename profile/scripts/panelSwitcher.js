@@ -12,7 +12,7 @@ function clickPanelMinMax(panel, minMaxbutton){
 	//Get panel content's real height
 	var panelContent = panel.getElementsByClassName("panelContent")[0];
 	console.log(panelContent);
-	var contentHeight = panelContent.offsetHeight;
+	var contentHeight = panelContent.offsetHeight+64;
 
 	if(contentHeight > window.innerHeight*0.73){
 		contentHeight = window.innerHeight*0.73;
