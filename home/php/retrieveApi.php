@@ -40,11 +40,11 @@ if(isset($_POST["category"]) && isset($_POST["limit"])){
 		$newObj = new apiObject;
 		$newObj->Id = $row["Id"];
 		$newObj->RandomId = $row["RandomId"];
-		$newObj->Name = $row["Name"];
-		$newObj->Description = $row["Description"];
-		$newObj->Category = $row["Category"];
+		$newObj->Name = utf8_encode($row["Name"]);
+		$newObj->Description = utf8_encode($row["Description"]);
+		$newObj->Category = utf8_encode($row["Category"]);
 		$newObj->Price = $row["Price"];
-		$newObj->imgName = $row["ImgName"];
+		$newObj->imgName = utf8_encode($row["ImgName"]);
 
 		array_push($arrOfApi, $newObj);
 	}
