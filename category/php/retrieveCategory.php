@@ -217,11 +217,11 @@ if(isset($_POST["cat"])){
 			$newObj = new apiObject;
 			$newObj->Id = $api->objectData["Id"];
 			$newObj->RandomId = $api->objectData["RandomId"];
-			$newObj->Name = $api->objectData["Name"];
-			$newObj->Description = $api->objectData["Description"];
-			$newObj->Category = $api->objectData["Category"];
+			$newObj->Name = utf8_encode($api->objectData["Name"]);
+			$newObj->Description = utf8_encode($api->objectData["Description"]);
+			$newObj->Category = utf8_encode($api->objectData["Category"]);
 			$newObj->Price = $api->objectData["Price"];
-			$newObj->imgName = $api->objectData["ImgName"];
+			$newObj->imgName = utf8_encode($api->objectData["ImgName"]);
 			$newObj->relevance = $api->relevance;
 			$newObj->isPackage = $api->isPackage;
 
